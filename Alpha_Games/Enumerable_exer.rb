@@ -105,14 +105,21 @@ end
 # UNFINISHED
 
 def subwords(word, dictionary)
+  arr = []
+  dictionary.each { |el| arr << el if word.include?(el) }
+  arr    
 end
+#p subwords("asdfcatqwer", ["cat", "car"])
 
 # ### Doubler
 # Write a `doubler` method that takes an array of integers and returns an
 # array with the original elements multiplied by two.
 
 def doubler(array)
+  array.map { |el| el * 2 }
 end
+# a = [1, 2, 3]
+# p doubler(a) # => [2, 4, 6]
 
 # ### My Each
 # Extend the Array class to include a method named `my_each` that takes a
@@ -170,9 +177,27 @@ class Array
   def my_select(&prc)
   end
 
-  def my_inject(&blk)
+  def my_inject(&block)
+    arr = []
+
+    self.each_with_index do |el, i|
+      if i == 0
+        arr << block.call(el, self[i + 1])
+      else
+        unless i == self.length - 1
+          ele = arr.pop
+          arr << block.call(ele, self[i + 1])
+        end 
+      end 
+    end 
+
+    arr 
   end
+
 end
+# a = [1, 2, 3]
+# p a.my_inject { |acc, el| acc + el }
+
 
 # ### Concatenate
 # Create a method that takes in an `Array` of `String`s and uses `inject`
@@ -184,4 +209,10 @@ end
 # ```
 
 def concatenate(strings)
+  sent = ""
+  ans = strings.my_inject { |sent, word| sent << word }
+  ans.join
 end
+
+# a = ["Yay ", "for ", "strings!"]
+# p concatenate(a)
