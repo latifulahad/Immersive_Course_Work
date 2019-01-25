@@ -66,11 +66,3 @@ attr_reader :grid
 # b[pos] = 5 
 # p b[pos].value
 
-#^ 1 I need to read file and have an array of incomplete positions
-#^ 2 I need a fac_# that will make an array with sudoku dimensions
-#^ 2.1 that array's sub_A's elements will be tiles that will hold 
-# values from the txt file......
-# 3 we allow the player to set up the tiles that are holding the 
-# 3.1 value of 0 and the game will check 
-#to see if the filled grid matches the other file provided with solution
-# like so filled_maped_arr == soltion_file.map(&:chomp)
