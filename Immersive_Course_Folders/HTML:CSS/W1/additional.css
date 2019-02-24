@@ -1,0 +1,14 @@
+body {
+  background: beige;
+  font-family: sans-serif;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: bold;
+}
