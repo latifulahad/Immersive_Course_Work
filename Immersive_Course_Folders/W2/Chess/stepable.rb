@@ -15,19 +15,24 @@ module Stepable
       One.each do |pos|
         x, y = c_position
         x1, y1 = pos
-        poten = [(x + x1), (y + y1)]
-        positions << poten if within_limits?(poten)
+        poten = [(x + x1), (y + y1)] 
+          if within_limits?(poten) && board[poten].color != self.color
+            positions << poten
+          end
       end
     else #This is for Knight
       Two.each do |pos|
         pos_2 = knight_pos_helper(pos) #This generates two coordi after the two steps aways from c_pos 
 
         pos_2.each do |coord| 
-          x, y = c_position
-          x1, y1 = coord
-          poten = [(x + x1), (y + y1)]
-          positions << poten if within_limits?(poten)
+        x, y = c_position
+        x1, y1 = coord
+        poten = [(x + x1), (y + y1)]
+          if within_limits?(poten) && board[poten].color != self.color
+            positions << poten
+          end
         end
+        
       end
 
     end
