@@ -12,3 +12,20 @@ h1 {
     font-size: 34px;
     font-weight: bold;
 }
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+p {
+  color: cadetblue;
+}  /* commenting in css is similar to JS, also this selector is part of exercise from w2d3 */ 
+
+.cssprac {
+  color: crimson
+}
+
+#hehe {
+  color: darkgreen; 
+}
