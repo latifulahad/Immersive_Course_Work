@@ -1,0 +1,29 @@
+body {
+  font-family: sans-serif;
+  background-color: chocolate;
+}
+
+h1 {
+  font-size: 38px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+.ingredients-list {
+  list-style: square inside;
+}
+
+ol {
+    list-style: upper-roman inside;
+}
+
+header > img {
+  width: 100px
+}
+
+nav ul a {
+    color: inherit;
+    text-decoration: none;
+}
