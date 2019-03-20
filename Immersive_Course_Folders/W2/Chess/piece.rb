@@ -1,18 +1,27 @@
-require_relative "board"
+# require_relative "board" #Not needed for FINAL edition
 
 class Piece
-  attr_reader :board, :c_position
+  attr_accessor :board, :c_position, :color 
 
-  def initialize(role, board)
-    @role = role
+  def initialize(board, c_position)
     @board = board
-    @c_position = nil
+    @c_position = c_position
+    @color = :light_blue
   end
 
-  def valid_mv?(start_p, end_p)
-    #code below is mock
-    return false if end_p == [0, 0]
-    true 
+  def valid_moves #Removes risky mvs from move method
+    og = c_position
+    ans = move.reject { |mv| risky_mv?(mv) }
+    board.move_piece(c_position, og)
+    ans
+  end
+
+  private
+
+  def risky_mv?(mv)
+    board_2 = board.dup
+    board_2.move_piece(c_position, mv)
+    board_2.in_check?(color)
   end
 
 end

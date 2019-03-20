@@ -12,7 +12,7 @@ attr_reader :board, :completed_b
   end
   
   def render 
-    board_2 = add_color_display
+    board_2 = add_color_display #Look @ the private method
     puts "columns: 0    -    8 "
     puts "row 0: #{board_2[0].join(" ")}"
     puts "row 1: #{board_2[1].join(" ")}"

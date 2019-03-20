@@ -1,6 +1,6 @@
 require "colorize"
 require_relative "cursor"
-require_relative "board" #Temporary
+# require_relative "board" #Temporary
 
 class Display
 
@@ -24,13 +24,13 @@ class Display
     puts "row 7: #{@board.grid[7]}"
   end 
 
-  def run #This method is for testing
-    3.times do
-      @cursor.get_input
-      p @cursor.cursor_pos # YES THIS GETS UPDATED
-      render
-    end 
-  end
+  # def run #This method is for testing
+  #   3.times do
+  #     @cursor.get_input
+  #     p @cursor.cursor_pos # YES THIS GETS UPDATED
+  #     render
+  #   end 
+  # end
   
 end
 
@@ -39,10 +39,10 @@ end
 # p String.colors
 # puts a.colorize(:background => :light_yellow)
 
-a = Board.new
-b = Display.new(a)
-c, c1, c2 = [0, 0], [0, 1], [0, 2]
-a[c] = "sabit" 
-a[c1] = "suravi"
-a[c2] = "sanam"
-puts b.run 
+# a = Board.new
+# b = Display.new(a)
+# c, c1, c2 = [0, 0], [0, 1], [0, 2]
+# a[c] = "sabit" 
+# a[c1] = "suravi"
+# a[c2] = "sanam"
+# puts b.run 

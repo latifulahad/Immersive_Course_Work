@@ -37,8 +37,8 @@ attr_reader :grid
       raise ArgumentError.new("end_pos not feasible")
     end
 
-    self[end_p] = piece
-    self[start_p] = Null.new 
+    self[end_p], self[start_p] = piece, Null.new
+    piece.c_position = end_p #I added this after method became func
   end
 
   def valid_mv?(pos) #WORKS
@@ -102,8 +102,8 @@ attr_reader :grid
   def checkmate?(color) #WORKS
     in_check?(color) && !defending_mv?(color) ? true : false
   end
-
-  # private
+  
+  private
 
   def defending_mv?(color) #WORKS
     kill_path, king_loc, enemy_c = 0, find_king(color), find_enemy_c(color)
@@ -111,7 +111,7 @@ attr_reader :grid
 
     grid.each_with_index do |row, i| 
       row.each_with_index do |p, i2|
-        # next if p.is_a?(Pawn) #Remove this when Pawn class is Comp.
+       
         if p.color == enemy_c && p.move.include?(king_loc) 
           killa_pos = [i, i2]
           kill_path = kill_route(killa_pos, king_loc) #this will generate path btw killar & king
@@ -165,7 +165,6 @@ attr_reader :grid
     poten_mvs = []
 
     wanted_pieces.each do |p|
-      # next if p.is_a?(Pawn) #Temporary unless, until we fill its #move 
       moves = p.move 
       moves.each { |mv| poten_mvs << mv } #Change this
     end
@@ -276,22 +275,6 @@ end
 # a.grid.each do |row| 
 #   b << row.map { |piece| piece.symbol }
 # end
-
-#  p a.find_king(:red) 
-
-### Hypothetical plays vvv
-# b, c = [1, 2], [2, 2]
-# d, e = [7, 4], [2, 1]
-# j, k = [1, 3], [2, 3]
-# a.move_piece(b, c)
-# a.move_piece(d, e)
-# a.move_piece(j, k)
-# a[e].c_position = e
-
-# b = []
-# a.grid.each do |row| 
-#   b << row.map { |piece| piece.symbol }
-# end
 # p b[0] #To view changes
 # p b[1]
 # p b[2]
@@ -300,7 +283,40 @@ end
 # p b[5]
 # p b[6]
 # p b[7]
-# # p a[e].move #Proper output
+
+#  p a.find_king(:red) 
+
+### Hypothetical plays vvv
+# b, c = [1, 2], [2, 2]
+# d, e = [7, 4], [2, 1]
+# j, k = [1, 3], [2, 3]
+
+# King(:red) in chk by Queen(:green)
+# n, o = [0, 3], [3, 3]
+# p, q = [7, 4], [5, 5]
+# a.move_piece(n, o)
+#  a.move_piece(p, q)
+#  a[o].c_position = o
+#  a[q].c_position = q
+
+# a.move_piece(b, c)
+# a.move_piece(d, e)
+# a.move_piece(j, k)
+ 
+#Piece methods
+#p a[o].valid_moves
+
+#  p a.in_check?(:green)
+ # kings moves from o [[3, 2], [2, 2], [2, 3], [2, 4], 
+ # [3, 4], [4, 4], [4, 3], [4, 2]]
+
+#  p a[o].non_check_type_mvs #not outputting filtered moves
+#  p a[q].move #The red queen does have green king in check
+
+# a[e].c_position = e
+# p a[e].move #Proper output
+
+
 
 # p a.in_check?(:green) 
 # p a.checkmate?(:green)
@@ -313,26 +329,7 @@ end
 # g, h = [2, 3], [0, 3] 
 # p a.kill_route(g, h)
 
-# p a.find_all_poten_mvs(:red) #Check this when game complete!!!!
-# For visual purposes
-
-# :R, :k, :B, :K, :Q, :B, :k, :R]
-# [:P, :P, :P, :P, :P, :P, :P, :P]
-# [:N, :N, :N, :N, :N, :N, :N, :N]
-# [:N, :N, :N, :N, :N, :N, :N, :N]
-# [:N, :N, :N, :N, :N, :N, :N, :N]
-# [:N, :N, :N, :N, :N, :N, :N, :N]
-# [:P, :P, :P, :P, :P, :P, :P, :P]
-# [:R, :k, :B, :K, :Q, :B, :k, :R]
-# Display Test
-# p b[0]
-# p b[1]
-# p b[2]
-# p b[3]
-# p b[4]
-# p b[5]
-# p b[6]
-# p b[7]
+# p a.find_all_poten_mvs(:red) WORKS
 
 #Testing Piece module
 # a = Board.new
