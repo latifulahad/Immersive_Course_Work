@@ -1,6 +1,5 @@
 require "io/console"
 require_relative "board"
-require_relative "display" #FOR FUCKING CURSOR
 
 KEYMAP = {
   " " => :space,

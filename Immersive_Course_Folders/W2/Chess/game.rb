@@ -37,28 +37,32 @@ attr_reader :board, :display, :players, :c_player
       coordinate = segment_1_takeT
       p coordinate[1] #p poten_mvs
       choice = gets.chomp.to_i
+
+      if choice == 33
+        coordinate = segment_1_takeT
+      end
+
       to_location = coordinate[1][choice]
       board.move_piece(coordinate[0], to_location)
-      notify_player
+      p notify_player
       switch_player
     rescue
       retry
     end
   end
 
-  #Prob = After second player makes move..board is no longer 
-  #shown..nor is current play info shown....
   def play
-    
+    puts "Enter #33 if you need to un-select piece :)"
+
     until over?
       display.render
-      p "#{c_player.name} please make you move"
+      puts "#{c_player.name} please make your move ex. [R, C]"
+      p display.cursor.cursor_pos
       take_turn
     end
 
     p " Yay #{c_player.name} you've beat #{o_player.name} "
   end
-
 
   private
 
@@ -68,7 +72,7 @@ attr_reader :board, :display, :players, :c_player
   end
 
   def other_player
-    c_player == players[1] ? players[2] : players[1]
+    c_player == players[0] ? players[1] : players[0]
   end
 end
 
@@ -78,9 +82,9 @@ if __FILE__ == $PROGRAM_NAME
   board = Board.new
   board.populate
   display = Display.new(board)
-  p "Please type your name Player 1"
+  puts "Please type your name Player 1"
   p_1 = gets.chomp
-  p "Player 2 please type your name"
+  puts "Player 2 please type your name"
   p_2 = gets.chomp
   player_1 = Player.new(p_1, display, :green)
   player_2 = Player.new(p_2, display, :red)
