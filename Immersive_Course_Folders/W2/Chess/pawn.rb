@@ -12,10 +12,10 @@ attr_reader :symbol, :status
 
   def move
     dir = determine_dir #side of start
-
+    
     if determine_first_mv? #two step eligibility...
       moves = poten_mvs("yes", dir)
-      @status = "not new"
+      # @status = "not new"
     else
       moves = poten_mvs("no", dir)
     end
@@ -26,11 +26,11 @@ attr_reader :symbol, :status
   private
 
   def determine_dir #Helps move.....WORKS
-    color == :green ? "add" : "minus" 
+    @color == :green ? "add" : "minus" 
   end 
 
   def determine_first_mv? #Helps move.....WORKS
-    status == "new" ? true : false
+    @status == "new" ? true : false
   end
 
   def within_limits?(pos)
@@ -88,7 +88,7 @@ attr_reader :symbol, :status
           moves << poten_3 if within_limits?(poten_3)
         end
       end
-    else #For minus dir
+    elsif dir == "minus" #For minus dir
       if board[poten_2].is_a?(Null) && within_limits?(poten_2)
         return moves << poten
       else 

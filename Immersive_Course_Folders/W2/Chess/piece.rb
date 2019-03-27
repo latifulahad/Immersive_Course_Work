@@ -11,8 +11,8 @@ class Piece
 
   def valid_moves #Removes risky mvs from move method
     og = c_position
-    ans = move.reject { |mv| risky_mv?(mv) }
-    board.move_piece(c_position, og)
+    ans = self.move.reject { |mv| risky_mv?(mv) }
+    board.move_piece_alt(c_position, og)#to avoid infinate loop alt
     ans
   end
 
@@ -20,7 +20,7 @@ class Piece
 
   def risky_mv?(mv)
     board_2 = board.dup
-    board_2.move_piece(c_position, mv)
+    board_2.move_piece_alt(c_position, mv)#to avoid infinate loop alt
     board_2.in_check?(color)
   end
 

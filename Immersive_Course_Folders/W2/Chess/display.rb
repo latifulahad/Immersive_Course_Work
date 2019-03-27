@@ -1,29 +1,47 @@
 require "colorize"
 require_relative "cursor"
-# require_relative "board" #Temporary
+# require_relative "board" #Temporary for testing
 
 class Display
+attr_accessor :cursor #I did this to follow UML for player's cursor needs
 
   def initialize(board)
     @board = board
-    @cursor = Cursor.new([0, 0], @board)
+    @cursor = Cursor.new([0, 0], @board) 
   end
 
   def render
-    pos = @cursor.cursor_pos
-    @board[pos] = @board[pos].to_s.colorize(:background => :magenta)
-    #Below vvv needs to be updated
-    puts "columns 0 to 7 "
-    puts "row 0: #{@board.grid[0].join}"
-    puts "row 1: #{@board.grid[1]}"
-    puts "row 2: #{@board.grid[2]}"
-    puts "row 3: #{@board.grid[3]}"
-    puts "row 4: #{@board.grid[4]}"
-    puts "row 5: #{@board.grid[5]}"
-    puts "row 6: #{@board.grid[6]}"
-    puts "row 7: #{@board.grid[7]}"
+    new_b = color_board
+    puts new_b[0].join(" ")
+    puts new_b[1].join(" ")
+    puts new_b[2].join(" ")
+    puts new_b[3].join(" ")
+    puts new_b[4].join(" ")
+    puts new_b[5].join(" ")
+    puts new_b[6].join(" ")
+    puts new_b[7].join(" ")
   end 
 
+  private
+
+  def color_board
+    row_colors = { 0=>:green, 1=>:green, 2=>:light_blue, 3=>:light_blue,
+    4=>:light_blue, 5=>:light_blue, 6=>:red, 7=>:red }
+    board_w_symbols, colored_b = setup_b_4_coloring, Array.new(8) { Array.new }
+
+    board_w_symbols.each_with_index do |row, i|
+      row.each { |piece| colored_b[i] << piece.to_s.colorize(row_colors[i]) }
+    end
+    colored_b
+  end
+
+  def setup_b_4_coloring
+    new_b = Array.new(8) { Array.new }
+    @board.grid.each_with_index do |row, i|
+      row.each { |piece| new_b[i] << piece.symbol }
+    end
+    new_b 
+  end
   # def run #This method is for testing
   #   3.times do
   #     @cursor.get_input
@@ -34,10 +52,12 @@ class Display
   
 end
 
-# Tests
-# a = "sabit"
+# Tests for coloring.....
+# a = [1, 2]
+# puts a[0].to_s.colorize(:red)
 # p String.colors
-# puts a.colorize(:background => :light_yellow)
+# b = a.map {|name| name.to_s.colorize(:light_yellow) }
+# puts b.join(" ")
 
 # a = Board.new
 # b = Display.new(a)

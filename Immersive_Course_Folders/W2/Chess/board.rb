@@ -30,15 +30,15 @@ attr_reader :grid
   end
 
   def move_piece(start_p, end_p) #WORKS
-    raise ArgumentError.new("No piece @ start_pos") if self[start_p].is_a?(Null) 
-
     piece = self[start_p]
-    if !valid_mv?(end_p)
-      raise ArgumentError.new("end_pos not feasible")
-    end
-
     self[end_p], self[start_p] = piece, Null.new
-    piece.c_position = end_p #I added this after method became func
+    piece.c_position = end_p #I added this after method became func, becuz mving piece wasn't getin updated c_pos
+  end
+
+  def move_piece_alt(start_p, end_p) #This is to avoid infinate loop from Piece#valid_moves due to recursive call without basecase.... 
+    piece = self[start_p]
+    self[end_p], self[start_p] = piece, Null.new
+    piece.c_position = end_p 
   end
 
   def valid_mv?(pos) #WORKS
@@ -166,7 +166,7 @@ attr_reader :grid
 
     wanted_pieces.each do |p|
       moves = p.move 
-      moves.each { |mv| poten_mvs << mv } #Change this
+      moves.each { |mv| poten_mvs << mv } 
     end
 
     poten_mvs
@@ -271,6 +271,29 @@ end
 # Testing Populate w/modified display
 # a = Board.new
 # a.populate
+# p a.find_king(:red) 
+# p a.in_check?(:green) 
+# p a.checkmate?(:green)
+
+### Hypothetical plays vvv
+# b, c = [1, 2], [2, 2]
+# d, e = [7, 4], [2, 1]
+# j, k = [1, 3], [2, 3]
+
+# King(:red) in chk by Queen(:green)
+# ALSO testing from this check_p.... move_p's updated code that 
+#throws error for moves that will leave you in_check
+# n, o = [0, 3], [3, 3]
+# p, q = [7, 4], [5, 5]
+# s = [4, 3] #good mv after o 
+# s_2 = [4, 4] #pos rasies error as it leaves :K in-check
+
+# a.move_piece_alt(n, o)#made2 avoid recursive call from Piece#v_move
+# a.move_piece_alt(p, q)
+
+# # a.move_piece(o, s)
+# # p a[s].symbol
+
 # b = []
 # a.grid.each do |row| 
 #   b << row.map { |piece| piece.symbol }
@@ -283,28 +306,10 @@ end
 # p b[5]
 # p b[6]
 # p b[7]
-
-#  p a.find_king(:red) 
-
-### Hypothetical plays vvv
-# b, c = [1, 2], [2, 2]
-# d, e = [7, 4], [2, 1]
-# j, k = [1, 3], [2, 3]
-
-# King(:red) in chk by Queen(:green)
-# n, o = [0, 3], [3, 3]
-# p, q = [7, 4], [5, 5]
-# a.move_piece(n, o)
-#  a.move_piece(p, q)
-#  a[o].c_position = o
-#  a[q].c_position = q
-
-# a.move_piece(b, c)
-# a.move_piece(d, e)
-# a.move_piece(j, k)
  
 #Piece methods
-#p a[o].valid_moves
+# p a[o].valid_moves
+# p a[o].move
 
 #  p a.in_check?(:green)
  # kings moves from o [[3, 2], [2, 2], [2, 3], [2, 4], 
@@ -316,11 +321,6 @@ end
 # a[e].c_position = e
 # p a[e].move #Proper output
 
-
-
-# p a.in_check?(:green) 
-# p a.checkmate?(:green)
-
 #Testing Pawn first move && move method vvv
 # l = [1, 4]
 # p a[l].move
@@ -328,7 +328,6 @@ end
 #Testing kill_r method
 # g, h = [2, 3], [0, 3] 
 # p a.kill_route(g, h)
-
 # p a.find_all_poten_mvs(:red) WORKS
 
 #Testing Piece module

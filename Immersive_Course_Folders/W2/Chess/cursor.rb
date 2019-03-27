@@ -1,5 +1,6 @@
 require "io/console"
 require_relative "board"
+require_relative "display" #FOR FUCKING CURSOR
 
 KEYMAP = {
   " " => :space,
@@ -81,9 +82,10 @@ class Cursor
     case key
     when :return, :space
       toggle_select
-      cursor_pos
+      cursor_pos 
     when :left, :right, :up, :down
       update_pos(MOVES[key])
+      p [board[cursor_pos].symbol, board[cursor_pos].color, cursor_pos]  #I did this to bypass coloring of c_pos
       nil 
     when :ctrl_c
       exit 0
@@ -96,7 +98,7 @@ class Cursor
     pos = [(x + x2), (y + y2)]
 
     if @board.valid_mv?(pos)  
-      @cursor_pos = pos 
+      @cursor_pos = pos
     else
       p "Position is out of bounds."
     end
