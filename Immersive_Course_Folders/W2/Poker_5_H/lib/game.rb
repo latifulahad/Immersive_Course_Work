@@ -1,10 +1,3 @@
-# Each player is dealt five cards.
-# Players bet; each player may fold, see the current bet, or raise.
-# In turn, each player can choose to discard up to three cards.
-# They are dealt new cards from the deck to replace their old cards.
-# Players bet again.
-# If any players do not fold, then players reveal their hands; strongest hand wins the pot.
-
 require_relative "deck"
 require_relative "hand"
 require_relative "player"
@@ -13,11 +6,8 @@ class Game
 attr_reader :deck, :players, :c_player, :round, :pot, :rd_wager
 
   def initialize(deck)
-    @deck = deck
-    @players = []
-    @c_player = 0 #Keeps track of whose turn it is
-    @round = 1
-    @pot = 0 #Float $
+    @deck, @players, @c_player = deck, [], 0 
+    @round, @pot = 1, 0
     @rd_wager = [0]
   end
 
@@ -45,15 +35,13 @@ attr_reader :deck, :players, :c_player, :round, :pot, :rd_wager
       finishing_p = players.size
       play_round
       return evaluate_winner if finishing_p == players.size #Gud_logic
-      #SET WINNING PLYRS WALLET
       @rd_wager = [0] #Pot already has $ from past rds, this var will hdl rd bids
       @round += 1
     end
 
   end
 
-
-  # private
+  private
   def go_around_plyrs
     run = false
     
@@ -67,10 +55,10 @@ attr_reader :deck, :players, :c_player, :round, :pot, :rd_wager
         end
         puts "Wager so far #{rd_wager.last}"
         sleep(3)
-      puts "#{players[i].name} below are your cards"
-      players[i].hand.show_cards 
-      res = players[i].ask_plyr
-      help_var = handle_res(res, players[i])
+        puts "#{players[i].name} below are your cards"
+        players[i].hand.show_cards 
+        res = players[i].ask_plyr
+        help_var = handle_res(res, players[i])
         if help_var[0] == true
           run = false
         end
@@ -82,7 +70,7 @@ attr_reader :deck, :players, :c_player, :round, :pot, :rd_wager
     
   end
 
-  def handle_res(response, player)
+  def handle_res(response, player)#WORKS 
     go_around = [false]
 
     case response
@@ -91,7 +79,7 @@ attr_reader :deck, :players, :c_player, :round, :pot, :rd_wager
     when "call"
       take_fr_plyr(player, rd_wager.last)
       puts "Your wallet looks like this #{player.wallet}"
-    when "raise" #review pot_updating logic
+    when "raise" 
       @c_player, go_around[0] = player, true
       puts "How much would you like to raise by?"
       wager = gets.chomp.to_i
@@ -104,49 +92,89 @@ attr_reader :deck, :players, :c_player, :round, :pot, :rd_wager
     go_around
   end
 
-  def evaluate_winner
-    hands = [] #will hold plyr && their hand evaluation
-    players.each { |plyr| hands << [plyr.name, eval(plyr.hand)] } #eval wil lable hand_strength
-    new_hands = hands.sort_by { |participant| participant[1] }
+  def evaluate_winner #WORKS - logic to check plyrs w/same eval(hand) nums
+    hands = []
+    players.each { |plyr| hands << [plyr.name, eval(plyr.hand.hand)] } #eval wil label hand_strength
     amt, winner = pot, 0
-    @pot = 0
+    
+    new_hands = hands.sort_by { |participant| participant[1] }
     players.each { |pl| winner = pl if pl.name == new_hands[0][0] }
-    puts "#{winner.name} Congratulations, you won #{winner.wallet} & wiped every1 OUT!!!"
+    winner.put_into_wallet(amt)
+    @pot = 0
+    puts "Yay #{winner.name} you've won $#{amt} and beat everyone!!!"
   end
-  
-  # def eval(hand)
-  #   HAND_T = {
-  #   1 "straight_flush"=>[suit && value_in_order], 
-  #   2 "four_of_kind"=>[value], 
-  #   3 "full_house"=>[3val_same && pair], 
-  #   4 "Flush"=>[suit_same], 
-  #   5 "Straight"=>[value_in_order], 
-  #   6 "Three of a kind"=>[3val_same], 
-  #   7 "2 Pairs"=>[pair], 
-  #   8 "pair"=>[pair], 
-  #   9 "H_card"=>[value = :A]
-  #   }
 
-  #   ranks = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  #   n_hand = hand.map { |c| [c.suit, c.value] } #5 cards like so [:H, 10]
-  #   hand_vals = hand.map { |c| c.value } #[10, :K, :J, 2, :A]
+  def eval(hand) #WORKS
+    n_hand = hand.map { |c| [c.suit, c.value] } #5 cards like so [:H, 10]
+    hand_vals = hand.map { |c| c.value } #[10, :K, :J, 2, :A]
 
-  #   case n_hand
-  #   when n_hand.all? { |c| c[0] == hand[0].suit  } && hand_in_odr?(hand_vals) 
-  #   end 
-  # end
-
-  def hand_in_odr?(vals) 
-    return false if vals[0] == vals[-1]
-
-    criteria = [:A, :K, :Q, :J, 10, 9, 8, 7, 6, 5, 4, 3, 2]
-    criteria_b = [:K, :Q, :J, 10, 9, 8, 7, 6, 5, 4, 3, 2, :A]
-    starting_p = vals[0]
-    #WE ARE HERE....WORKING ON HELPING #eval(hnd) w/dis methd
-    vals.each_with_index do |v, i|
+    case n_hand
+    when n_hand.all? { |c| c[0] == hand[0].suit } && hand_in_odr?(hand_vals)
+      return 1
+    when how_my_sme_cds(hand_vals).include?(4)
+      return 2
+    when how_my_sme_cds(hand_vals).include?(3) && how_my_sme_cds(hand_vals).include?(2) 
+      return 3
+    when n_hand.all? { |c| c[0] == hand[0].suit }
+      return 4
+    when hand_in_odr?(hand_vals)
+      return 5
+    when how_my_sme_cds(hand_vals).include?(3)
+      return 6
+    when how_my_sme_cds(hand_vals).count(2) == 2
+      return 7
+    when how_my_sme_cds(hand_vals).include?(2)
+      return 8
+    when hand_vals.include?(:A)
+      return 9
     end
   end
+
+  def how_my_sme_cds(hand) #WORKS
+    hash = {}
+    hand.each do |val| 
+      num = hand.count(val)
+      hash[val] = num
+    end
+    hash.values 
+  end
+
+  def hand_in_odr?(vals) #WORKS decifers card_val sequence
+    return false if vals[0] == vals[-1]
+
+    criteria, arr_a = [:A, :K, :Q, :J, 10, 9, 8, 7, 6, 5, 4, 3, 2], []
+    criteria_b, arr_b = [:K, :Q, :J, 10, 9, 8, 7, 6, 5, 4, 3, 2, :A], []
+
+    idx_2_scan, idx_2_scan_2 = make_route(vals, criteria), make_route(vals, criteria_b)
+
+    idx_2_scan.each { |pos| arr_a << criteria[pos] }
+    idx_2_scan_2.each { |pos| arr_b << criteria_b[pos] }
+
+    return true if vals == arr_a
+    return true if vals == arr_b
+    false
+  end
   
+  def make_route(v_arr, odr_arr) #WORKS Helps hand_in_odr
+    route = [odr_arr.index(v_arr[0])]
+    
+    4.times do
+      (route.last + 1) > odr_arr.length - 1 ? route << 0 : route << route.last + 1
+    end
+
+    route
+  end
+
+  def offer_swaps
+    refreshed_cards = 0
+    players.each do |plyr| 
+      refreshed_cards = plyr.wanna_swap(deck)
+      puts "Your new hand looks like this:"
+      plyr.hand.show_cards
+      @deck = refreshed_cards
+    end 
+  end
+
   def deal_5  #WORKS
     cards = []
     5.times do 

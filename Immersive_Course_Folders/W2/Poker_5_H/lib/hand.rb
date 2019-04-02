@@ -1,8 +1,5 @@
-# require_relative ""
-
-
 class Hand
-  attr_reader :hand
+  attr_accessor :hand
     
   def initialize(cards)
     @hand = cards
@@ -15,4 +12,5 @@ class Hand
     sleep(5)
     system("clear") 
   end
+
 end
