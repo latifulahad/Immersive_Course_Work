@@ -44,7 +44,7 @@ def find_best_val(list)
 end
 
 list = [5, 3, -7]
-p find_best_val(list)
+# p find_best_val(list)
 
 #0(n) complexity's method was too time consuming to write indepedently, therefore I cheated.
 
@@ -63,4 +63,49 @@ def find_best_val_2(list)
   biggest_val
 end
 
-p find_best_val_2(list)
+# p find_best_val_2(list)
+
+Dic = File::readlines("Dictionary copy.txt")
+New_dic = Dic.map { |line| line.chomp }
+
+def anagram?(a, b)
+  return false if a.size != b.size
+  words = [a, b]  #1
+  letter_form = words.map { |wd| wd.chars } #n**2
+  letter_form[0].all? { |ltr| letter_form[1].include?(ltr) } #n**2 
+end
+
+anagram?("elvis", "lives") #big_o(n**2)
+
+def anagram_2(a, b)
+  c, d = a.chars, b.chars
+  c.each do |el|
+    f = d.find_index(el)
+    return false if f.nil?
+    d.delete_at(f)
+  end
+  d.empty? 
+end
+
+#ex. "zonal", "zoned"
+anagram_2("elvis", "lives") #big_o(n)
+
+def anagram_3(a, b)
+  c, d = a.chars.sort, b.chars.sort
+  c == d 
+end
+#TEST
+ anagram_3("elvis", "lives") #big_o(n)
+
+def anagram_4(a, b)
+  helper_hash = Hash.new(0)
+  a.each_char.with_index { |ltr, i| helper_hash[ltr] += 1 }
+  helper_hash.each do |ltr, num|
+    if !b.include?(ltr) && b.count(ltr) == num
+      return false
+    end
+  end
+  true
+end
+
+p anagram_4("elvis", "lives")
