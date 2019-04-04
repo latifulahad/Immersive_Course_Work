@@ -56,7 +56,7 @@ def find_best_val_2(list)
 
   (1..list.length - 1).each do |i|
     c_val = 0 if c_val < 0 # to flush out the - number related issues
-    c_val += list[i]
+    c_val += list[i] #holds sum of list[0..i]
     biggest_val = c_val if c_val > biggest_val
   end
 
