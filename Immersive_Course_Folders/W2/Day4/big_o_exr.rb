@@ -108,4 +108,34 @@ def anagram_4(a, b)
   true
 end
 
-p anagram_4("elvis", "lives")
+anagram_4("elvis", "lives") #big_o(n**2)
+
+def two_sum?(arr, trg_sum)
+  num = arr.length - 1 
+  indeces = (0..num).to_a
+  arr.each_with_index do |el, i|
+    new_indx = indeces.select { |idx| idx != i } 
+    new_indx.each do |remain_i|
+      return true if (arr[i] + arr[remain_i]) == trg_sum
+    end
+  end
+
+  false
+end 
+
+arr = [7, 0, 5, 1]
+two_sum?(arr, 6) # => should be true
+two_sum?(arr, 10) #big_o(n**2)
+
+def okay_two_sum?(arr, trg_sum)
+  hash = {}
+  arr.each do |el|
+    return true if hash[trg_sum - el]
+    hash[el] = true 
+  end
+
+  false
+end 
+
+p okay_two_sum?(arr, 6)
+p okay_two_sum?(arr, 10) 
