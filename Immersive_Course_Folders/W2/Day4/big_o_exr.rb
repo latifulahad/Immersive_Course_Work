@@ -137,5 +137,213 @@ def okay_two_sum?(arr, trg_sum)
   false
 end 
 
-p okay_two_sum?(arr, 6)
-p okay_two_sum?(arr, 10) 
+okay_two_sum?(arr, 6)
+okay_two_sum?(arr, 10) 
+
+# windowed_max_range([1, 0, 2, 5, 4, 8], 2) == 4 # 4, 8
+# windowed_max_range([1, 0, 2, 5, 4, 8], 3) == 5 # 0, 2, 5
+# windowed_max_range([1, 0, 2, 5, 4, 8], 4) == 6 # 2, 5, 4, 8
+# windowed_max_range([1, 3, 2, 5, 4, 8], 5) == 6 # 3, 2, 5, 4, 8
+
+def max_windowed_rng(arr, size)
+ holder, other_holder = [], []
+
+  (0..(arr.length - 1)).each do |i|
+    num = (i + (size - 1)) 
+    break if num > arr.length - 1
+    sub = []
+    (i..num).each { |idx| sub << arr[idx] }
+    holder << sub
+  end
+  
+  holder.each { |sub| other_holder << (sub.max - sub.min) }
+  other_holder.max
+end
+
+
+# max_windowed_rng([1, 0, 2, 5, 4, 8], 2) #== 4 # 4, 8
+# max_windowed_rng([1, 0, 2, 5, 4, 8], 3) #== 5 # 0, 2, 5
+
+class MyQueue
+  def initialize(arr)
+    @arr = arr
+  end
+
+  def enqueue(el)
+    @arr << el
+  end
+
+  def dequeue
+    arr.shift
+  end
+
+  def empty?
+    @arr.empty? 
+  end
+
+  def size
+    @arr.length
+  end
+
+  def peek
+    @arr[0]
+  end
+end
+
+class MyStack
+  def initialize
+    @arr = []
+  end
+
+  def push(el)
+    @arr << el
+  end
+
+  def pop
+    arr.pop
+  end
+
+  def empty?
+    @arr.empty? 
+  end
+
+  def size
+    @arr.length
+  end
+
+  def peek
+    @arr[-1]
+  end
+end
+
+
+class StackQueue
+  def initialize(arr)
+    @in_stack = MyStack.new(arr)
+    @out_stack = MyStack.new(arr)
+  end
+
+  def size
+    @in_stack.size + @out_stack.size
+  end
+
+  def empty?
+    @in_stack.empty? && @out_stack.empty?
+  end
+
+  def enqueue(el)
+    @in_stack.push(el)
+  end
+
+  def dequeue
+    handle_final_el if out_stack.empty?
+    @out_stack.pop
+  end
+
+  private
+  def handle_final_el
+    @out_stack.push(@in_stack.pop) until in_stack.empty?
+  end
+end
+
+
+class MinMaxStack #REtrival of Min && Max in 0(1)
+  def initialize
+    @store = MyStack.new
+  end
+
+  def push(el)
+    hash = {"min"=>el, "max"=>el, val: el}
+    if @store.size == 0
+      @store.push(hash)
+    else
+      c_standing = @store.peek
+      @store.push(modify_c_stand?(c_standing, el))
+    end  
+  end
+
+  def pop
+    @store.pop
+  end
+
+  def empty?
+    @store.empty? 
+  end
+
+  def size
+    @store.size
+  end
+
+  def peek
+    @store.peek
+  end
+
+  def max
+    @store.peek["max"]
+  end
+
+  def min
+    @store.peek["min"]
+  end
+
+  private
+  def modify_c_stand?(hash, el)
+    hash["min"] > el ? hash["min"] = el : true
+    hash["max"] < el ? hash["max"] = el : true
+    hash[:val] = el
+    hash
+  end
+end
+
+class MinMaxStackQueue #Queue composed of Stacks w/retrival of min&max in o(1)
+  def initialize
+    @in_stack = MyStack.new
+    @out_stack = MyStack.new
+  end
+
+  def size
+    @in_stack.size + @out_stack.size
+  end
+
+  def empty?
+    @in_stack.empty? && @out_stack.empty?
+  end
+
+  def enqueue(el)
+    hash = {"min"=>el, "max"=>el, val: el}
+    if @in_stack.size == 0
+      @in_stack.push(hash)
+    else
+      c_standing = @in_stack.peek
+      @in_stack.push(modify_c_stand?(c_standing, el))
+    end  
+  end
+
+  def dequeue
+    handle_final_el if out_stack.empty?
+    @out_stack.pop
+  end
+
+  def peek
+    @in_stack.peek
+  end
+  
+  private
+  def handle_final_el
+    @out_stack.push(@in_stack.pop) until in_stack.empty?
+  end
+
+  def modify_c_stand?(hash, el)
+    hash["min"] > el ? hash["min"] = el : true
+    hash["max"] < el ? hash["max"] = el : true
+    hash[:val] = el
+    hash
+  end
+end
+
+a = MinMaxStackQueue.new
+a.enqueue(1)
+a.enqueue(2)
+a.enqueue(3)
+a.enqueue(4)
+p a.peek
