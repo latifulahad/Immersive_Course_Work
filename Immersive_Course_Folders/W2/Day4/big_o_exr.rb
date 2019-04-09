@@ -165,8 +165,8 @@ end
 # max_windowed_rng([1, 0, 2, 5, 4, 8], 3) #== 5 # 0, 2, 5
 
 class MyQueue
-  def initialize(arr)
-    @arr = arr
+  def initialize
+    @arr = []
   end
 
   def enqueue(el)
@@ -174,7 +174,7 @@ class MyQueue
   end
 
   def dequeue
-    arr.shift
+    @arr.shift
   end
 
   def empty?
@@ -186,7 +186,7 @@ class MyQueue
   end
 
   def peek
-    @arr[0]
+    @arr[-1]
   end
 end
 
@@ -200,7 +200,7 @@ class MyStack
   end
 
   def pop
-    arr.pop
+    @arr.pop
   end
 
   def empty?
@@ -236,13 +236,13 @@ class StackQueue
   end
 
   def dequeue
-    handle_final_el if out_stack.empty?
+    handle_final_el if @out_stack.empty?
     @out_stack.pop
   end
 
   private
   def handle_final_el
-    @out_stack.push(@in_stack.pop) until in_stack.empty?
+    @out_stack.push(@in_stack.pop) until @in_stack.empty?
   end
 end
 
@@ -256,7 +256,7 @@ class MinMaxStack #REtrival of Min && Max in 0(1)
     hash = {"min"=>el, "max"=>el, val: el}
     if @store.size == 0
       @store.push(hash)
-    else
+    else 
       c_standing = @store.peek
       @store.push(modify_c_stand?(c_standing, el))
     end  
@@ -313,14 +313,14 @@ class MinMaxStackQueue #Queue composed of Stacks w/retrival of min&max in o(1)
     hash = {"min"=>el, "max"=>el, val: el}
     if @in_stack.size == 0
       @in_stack.push(hash)
-    else
+    else #This logic RETAINS data 4 dequeued elements aka popped elements THUS, faulty_ranges
       c_standing = @in_stack.peek
       @in_stack.push(modify_c_stand?(c_standing, el))
     end  
   end
 
-  def dequeue
-    handle_final_el if out_stack.empty?
+  def dequeue 
+    handle_final_el if @out_stack.empty?#PURE CRAP! bcuz in_stack is emptied after DIS
     @out_stack.pop
   end
 
@@ -330,9 +330,9 @@ class MinMaxStackQueue #Queue composed of Stacks w/retrival of min&max in o(1)
   
   private
   def handle_final_el
-    @out_stack.push(@in_stack.pop) until in_stack.empty?
+    @out_stack.push(@in_stack.pop) until @in_stack.empty?
   end
-
+  
   def modify_c_stand?(hash, el)
     hash["min"] > el ? hash["min"] = el : true
     hash["max"] < el ? hash["max"] = el : true
@@ -341,9 +341,38 @@ class MinMaxStackQueue #Queue composed of Stacks w/retrival of min&max in o(1)
   end
 end
 
-a = MinMaxStackQueue.new
-a.enqueue(1)
-a.enqueue(2)
-a.enqueue(3)
-a.enqueue(4)
-p a.peek
+#Test
+# a = MinMaxStackQueue.new
+# a.enqueue(1)
+# a.enqueue(2)
+# a.enqueue(3)
+# a.enqueue(4)
+# p a.peek
+# a.dequeue #BAD!!!
+# p a.peek
+
+
+# windowed_max_range([1, 0, 2, 5, 4, 8], 2) == 4 # 4, 8
+# windowed_max_range([1, 0, 2, 5, 4, 8], 3) == 5 # 0, 2, 5
+# windowed_max_range([1, 0, 2, 5, 4, 8], 4) == 6 # 2, 5, 4, 8
+# windowed_max_range([1, 3, 2, 5, 4, 8], 5) == 6 # 3, 2, 5, 4, 8
+
+def max_windowed_rng(arr, size) 
+range = 0
+  arr.each_index do |i|
+    sub = (i..(i + (size - 1))).to_a
+    unless sub[-1] > arr.length - 1
+      queue = MinMaxStackQueue.new
+      size.times { |i| queue.enqueue(arr[sub[i]]) }
+      c_range = (queue.peek["max"] - queue.peek["min"])
+      c_range > range ? range = c_range : true
+    end
+  end
+
+  range
+end
+
+#  p max_windowed_rng([1, 0, 2, 5, 4, 8], 2)
+#  p max_windowed_rng([1, 0, 2, 5, 4, 8], 3) #== 5 # 0, 2, 5
+#  p max_windowed_rng([1, 0, 2, 5, 4, 8], 4) #== 6 # 2, 5, 4, 8
+#  p max_windowed_rng([1, 3, 2, 5, 4, 8], 5) #== 6 # 3, 2, 5, 4, 8
