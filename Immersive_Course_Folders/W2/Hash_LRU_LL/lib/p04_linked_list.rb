@@ -33,11 +33,11 @@ class LinkedList
   end
 
   def first
-    @head
+    @head.next == @tail ? @head : @head.next
   end
 
   def last
-    @tail
+    @tail.prev == @head ? @head : @tail.prev
   end
 
   def empty? #Works
@@ -56,10 +56,10 @@ class LinkedList
 
   def append(key, val) #Works
     a = Node.new(key, val)
-    a.next = last
-    a.prev = last.prev
-    last.prev.next = a
-    last.prev = a
+    a.next = @tail
+    a.prev = last
+    last.next = a
+    @tail.prev = a
   end
 
   def update(key, val) #Works
@@ -70,9 +70,12 @@ class LinkedList
     nodes.each { |nd| nd.remove if nd.key == key }
   end
 
+  def each #Works but => nd.vals LIKE hash.values
+    nodes.reduce([]) { |acc, nd| acc << nd.val }
+  end
+
   def nodes #Works
-    nxt = @head.next
-    arr = [nxt]
+    arr = [@head]
 
     until arr.include?(@tail)
       arr << arr[-1].next
@@ -88,12 +91,13 @@ class LinkedList
 end
                                                                                 
 
-# a = LinkedList.new
+a = LinkedList.new
 # p a.first #W
 # p a.last  #W
 
-# a.append(:second, 2) #W
-# a.append(:third, 3)
+a.append(:second, 2) #W
+a.append(:third, 3)
+a.append(:forth, 4) #W
 # p a.empty? #W
 # p a.include?(:second) #W
 
@@ -105,3 +109,4 @@ end
 
 # p a[3] #W
 # p a.get(:third)
+p a.each
