@@ -49,13 +49,13 @@ class LRUCache
 
 end
 
-prc = Proc.new { |key| key ** 2 } 
-a = LRUCache.new(4, prc)
-a.get(2)
-a.get(3)
-a.get(4)
-a.get(5)
-a.get(2)
-a.get(6)
-p a.map.count
-p a.my_to_s
+# prc = Proc.new { |key| key ** 2 } 
+# a = LRUCache.new(4, prc)
+# a.get(2)
+# a.get(3)
+# a.get(4)
+# a.get(5)
+# a.get(2)
+# a.get(6)
+# p a.map.count
+# p a.my_to_s
