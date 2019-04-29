@@ -206,7 +206,8 @@ def colleagues_of_garfunkel
     title in (
       select
         title
-      from castings 
+      from 
+        castings 
       join
         movies on movies.id = castings.movie_id
       join 
