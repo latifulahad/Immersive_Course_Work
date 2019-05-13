@@ -16,7 +16,7 @@ class Play
 
   def self.all
     data = PlayDBConnection.instance.execute('SELECT * FROM plays')
-    data.map { |datum| Play.new(datum) }
+    data.map { |datum| Play.new(datum) } #=> [{"id"=>1,"title"=>"All My Sons","year"=>1947,"playwright_id"=>1}]
   end
 
   def initialize(options)
