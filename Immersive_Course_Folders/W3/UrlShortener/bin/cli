@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+Class CLI
+  def log_in_user
+    puts 'Please provide your email: '
+    e_mail = gets.chomp
+    User.find_by(email: e_mail)
+  end
+
+  def ask_user(person)
+    puts '#{person.name} would you like to visit a site or link your own site?'
+    puts 'type yes to visit or no to link'
+    gets.chomp.downcase
+  end
+  
+  def handle_choice(user, choice)
+    if choice == 'yes'
+      idx = help_handle
+      ShortenedUrl.find(idx)
+    else
+      ShortenedUrl.create_for_user_and_long_url!(user, user.email)
+    end
+  end
+
+  def help_handle
+    puts "Your options are: "
+    ShortenedUrl.all
+    puts "Write the digit of your interested link: "
+    gets.chomp.to_i
+  end
+
+  def run
+    user = log_in_user
+    user_choice = ask_user(user)
+    shortened_url = handle_choice(user, user_choice)
+    Launchy.open(shortened_url.long_url)
+    Visit.record_visit!(user, shortened_url)
+  end
+end
+
