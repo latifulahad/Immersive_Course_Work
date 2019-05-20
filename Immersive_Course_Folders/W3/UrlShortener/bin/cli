@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
+#100 effective!!!!!!!! model: ShortenedUrl needs proper seeds for more trials.
 
-Class CLI
+class CLI
   def log_in_user
     puts 'Please provide your email: '
     e_mail = gets.chomp
@@ -8,8 +9,8 @@ Class CLI
   end
 
   def ask_user(person)
-    puts '#{person.name} would you like to visit a site or link your own site?'
-    puts 'type yes to visit or no to link'
+    puts "#{person.name} would you like to visit a site or link your own site?"
+    puts 'type yes to visit or no to link: '
     gets.chomp.downcase
   end
   
@@ -24,9 +25,17 @@ Class CLI
 
   def help_handle
     puts "Your options are: "
-    ShortenedUrl.all
+    list = ShortenedUrl.select('long_url')
+    help_render_choices(list)
     puts "Write the digit of your interested link: "
-    gets.chomp.to_i
+    idx = gets.chomp.to_i
+    ShortenedUrl.find(idx)
+  end
+
+  def help_render_choices(list)
+    ans = []
+    list.each_with_index { |obj, i| ans << [(i + 1), obj.long_url] }
+    puts ans.to_s
   end
 
   def run
@@ -38,3 +47,4 @@ Class CLI
   end
 end
 
+CLI.new.run

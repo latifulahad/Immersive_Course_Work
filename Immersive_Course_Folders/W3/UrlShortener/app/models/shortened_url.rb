@@ -1,5 +1,7 @@
 class ShortenedUrl < ActiveRecord::Base
   validates :long_url, :submitter_id, presence: true
+  validates :short_url, uniqueness: true
+  validate :no_spamming, :non_premium_max
 
   def self.create_for_user_and_long_url!(user, long_url)
     ShortenedUrl.create!(
@@ -41,4 +43,16 @@ class ShortenedUrl < ActiveRecord::Base
     b = a.select('user_id').where('created_at > ?', 10.minutes.ago)
     b.distinct
   end
+
+  def no_spamming
+    list = ShortenedUrl.where('created_at >= ?', 1.minute.ago).where(submitter_id: self.submitter_id).length
+    self.errors[:maximum] << 'limit met for the given minute...cannot accept!' if list >= 5
+  end
+
+  def non_premium_max
+    usr = User.find(self.submitter_id)
+    posts = ShortenedUrl.where(submitter_id: submitter_id)
+    self.errors[:maximum] << 'limit reached for a non-member :( .' if posts > 5
+  end
+
 end
