@@ -44,15 +44,17 @@ class ShortenedUrl < ActiveRecord::Base
     b.distinct
   end
 
+  private
+
   def no_spamming
     list = ShortenedUrl.where('created_at >= ?', 1.minute.ago).where(submitter_id: self.submitter_id).length
     self.errors[:maximum] << 'limit met for the given minute...cannot accept!' if list >= 5
   end
 
   def non_premium_max
-    usr = User.find(self.submitter_id)
-    posts = ShortenedUrl.where(submitter_id: submitter_id)
-    self.errors[:maximum] << 'limit reached for a non-member :( .' if posts > 5
+    return if User.find(self.submitter_id).premium == true
+    posts = ShortenedUrl.where(submitter_id: self.submitter_id)
+    self.errors[:maximum] << 'limit reached for a non-member :( .' if posts.length >= 5
   end
 
 end
