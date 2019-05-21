@@ -18,6 +18,26 @@ class ShortenedUrl < ActiveRecord::Base
     end
   end
 
+  def self.prune(min) #WORKS PERFECT...NEED TO WRITE LOGIC FOR ASSOCIATED OBJS WITHIN OTHER_TABLES
+    visits = Visit.all
+    old_visits = visits.where('created_at <= ?', min.minutes.ago) #logic to filter new_from_old
+    old_visits.each do |vst|
+      s_url_obj = ShortenedUrl.find(vst.short_url_id)
+      s_url_obj.help_prune(vst.short_url_id) 
+    end 
+  end
+
+  def help_prune(s_url_id)  #helper_method checks for User.premium b4 removing from DB
+    current_url = ShortenedUrl.find(s_url_id)
+    assist_prune(current_url) if current_url.submitter.premium == false
+  end
+
+  def assist_prune(s_url) #performs actual removal of ShortenedUrl obj && it's associations!!!
+    obsolete_visits = s_url.visitors
+    obsolete_visits.each { |vst| vst.destroy }
+    s_url.destroy
+  end
+
   belongs_to :submitter,
   primary_key: :id,
   foreign_key: :submitter_id,

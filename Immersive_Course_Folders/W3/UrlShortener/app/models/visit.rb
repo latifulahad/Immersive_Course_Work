@@ -2,7 +2,7 @@ class Visit < ActiveRecord::Base
   validates :short_url_id, :user_id, presence: true
 
   def self.record_visit!(user, s_url)
-    Visit.create(user_id: user.id, short_url_id: s_url.id)
+    Visit.create!(user_id: user.id, short_url_id: s_url.id)
   end
 
   belongs_to :shortened_url,
