@@ -583,3 +583,5 @@ Migrating to CreateResponseTable (20190529025625)
     GROUP BY
       answer_choices.id 
 [0m
+  [1m[36mAnswerChoice Load (7.4ms)[0m  [1m[34mSELECT "answer_choices".* FROM "answer_choices"[0m
+  [1m[36mAnswerChoice Load (0.3ms)[0m  [1m[34mSELECT  "answer_choices".* FROM "answer_choices" ORDER BY "answer_choices"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
