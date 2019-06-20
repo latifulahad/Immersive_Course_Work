@@ -3163,3 +3163,557 @@ Processing by UsersController#index as */*
 Completed 200 OK in 42ms (Views: 14.3ms | ActiveRecord: 5.8ms)
 
 
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveColumnFromUsers (20190620174153)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "email" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (2.3ms)[0m  [1m[32mINSERT INTO "ausers" ("id","name","email","created_at","updated_at")
+                     SELECT "id","name","email","created_at","updated_at" FROM "users"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (3.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "ausers"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "users"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","created_at","updated_at")
+                     SELECT "id","created_at","updated_at" FROM "ausers"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "username" varchar NOT NULL[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:6
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveColumnFromUsers (20190620174153)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "email" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "ausers" ("id","name","email","created_at","updated_at")
+                     SELECT "id","name","email","created_at","updated_at" FROM "users"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "ausers"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20190620174153_remove_column_from_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620174153"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveOthrColFromUsers (20190620174904)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ausers" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "users"[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","name","created_at","updated_at")
+                     SELECT "id","name","created_at","updated_at" FROM "ausers"[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620174904"]]
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveOthrColFromUsers (20190620174904)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190620174904"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveOthrColFromUsers (20190620174904)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "name" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","name","created_at","updated_at","email")
+                     SELECT "id","name","created_at","updated_at","email" FROM "users"[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT NULL)[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","created_at","updated_at","email")
+                     SELECT "id","created_at","updated_at","email" FROM "ausers"[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  ↳ db/migrate/20190620174904_remove_othr_col_from_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620174904"]]
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddColToUsers (20190620175036)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "users" ADD "username" varchar NOT NULL[0m
+  ↳ db/migrate/20190620175036_add_col_to_users.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddColToUsers (20190620175036)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "users" ADD "username" varchar[0m
+  ↳ db/migrate/20190620175036_add_col_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620175036"]]
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DropTableUsers (20190620175517)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ db/migrate/20190620175517_drop_table_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620175517"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTableUsers (20190620175629)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620175629_create_table_users.rb:3
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620175629_create_table_users.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")[0m
+  ↳ db/migrate/20190620175629_create_table_users.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620175629"]]
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "latifulahad3"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "latifulahad3"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "latifulahad3"], ["created_at", "2019-06-20 18:05:40.905693"], ["updated_at", "2019-06-20 18:05:40.905693"]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "latifulahad3"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "suravi123"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "suravi123"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "suravi123"], ["created_at", "2019-06-20 18:06:47.719353"], ["updated_at", "2019-06-20 18:06:47.719353"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "darknight3"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "darknight3"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "darknight3"], ["created_at", "2019-06-20 18:07:24.592829"], ["updated_at", "2019-06-20 18:07:24.592829"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "anju2002usa"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "anju2002usa"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "anju2002usa"], ["created_at", "2019-06-20 18:07:52.581154"], ["updated_at", "2019-06-20 18:07:52.581154"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users" for ::1 at 2019-06-20 14:09:34 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 35ms (Views: 15.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2" for ::1 at 2019-06-20 14:09:52 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+Completed 200 OK in 49ms (Views: 0.8ms | ActiveRecord: 1.1ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTableArtworks (20190620182645)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTableArtworks (20190620182645)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620182645_create_table_artworks.rb:3
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "artist_id" integer NOT NULL, "image_url" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620182645_create_table_artworks.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_artist_id" ON "artworks" ("artist_id")[0m
+  ↳ db/migrate/20190620182645_create_table_artworks.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620182645"]]
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIndexToArtworks (20190620184533)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620184533_add_index_to_artworks.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_artworks_on_title_and_artist_id" ON "artworks" ("title", "artist_id")[0m
+  ↳ db/migrate/20190620184533_add_index_to_artworks.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620184533"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mArtwork Load (2.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[36mArtwork Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Pain"], ["artist_id", 4], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", 0], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AlterArtworksCol (20190620185458)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aartworks" ("id" integer NOT NULL PRIMARY KEY, "title" varchar NOT NULL, "artist_id" integer NOT NULL, "image_url" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aartworks_on_title_and_artist_id" ON "aartworks" ("title", "artist_id")[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aartworks_on_artist_id" ON "aartworks" ("artist_id")[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aartworks" ("id","title","artist_id","image_url","created_at","updated_at")
+                     SELECT "id","title","artist_id","image_url","created_at","updated_at" FROM "artworks"[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "artworks"[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" integer NOT NULL PRIMARY KEY, "title" varchar NOT NULL, "artist_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_artist_id" ON "artworks" ("artist_id")[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_artworks_on_title_and_artist_id" ON "artworks" ("title", "artist_id")[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "artworks" ("id","title","artist_id","created_at","updated_at")
+                     SELECT "id","title","artist_id","created_at","updated_at" FROM "aartworks"[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aartworks"[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "artworks" ADD "image_url" varchar NOT NULL[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:5
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AlterArtworksCol (20190620185458)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aartworks" ("id" integer NOT NULL PRIMARY KEY, "title" varchar NOT NULL, "artist_id" integer NOT NULL, "image_url" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aartworks_on_title_and_artist_id" ON "aartworks" ("title", "artist_id")[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aartworks_on_artist_id" ON "aartworks" ("artist_id")[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aartworks" ("id","title","artist_id","image_url","created_at","updated_at")
+                     SELECT "id","title","artist_id","image_url","created_at","updated_at" FROM "artworks"[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "artworks"[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" integer NOT NULL PRIMARY KEY, "title" varchar NOT NULL, "artist_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_artist_id" ON "artworks" ("artist_id")[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_artworks_on_title_and_artist_id" ON "artworks" ("title", "artist_id")[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "artworks" ("id","title","artist_id","created_at","updated_at")
+                     SELECT "id","title","artist_id","created_at","updated_at" FROM "aartworks"[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aartworks"[0m
+  ↳ db/migrate/20190620185458_alter_artworks_col.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620185458"]]
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCol2Artworks (20190620190014)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "artworks" ADD "image_url" varchar NOT NULL[0m
+  ↳ db/migrate/20190620190014_add_col2_artworks.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCol2Artworks (20190620190014)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "artworks" ADD "image_url" varchar DEFAULT 'n/a' NOT NULL[0m
+  ↳ db/migrate/20190620190014_add_col2_artworks.rb:3
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620190014_add_col2_artworks.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_image_url" ON "artworks" ("image_url")[0m
+  ↳ db/migrate/20190620190014_add_col2_artworks.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620190014"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCol2Artworks (20190620190014)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mDROP INDEX "index_artworks_on_image_url"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aartworks" ("id" integer NOT NULL PRIMARY KEY, "title" varchar NOT NULL, "artist_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_url" varchar DEFAULT 'n/a' NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aartworks_on_title_and_artist_id" ON "aartworks" ("title", "artist_id")[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aartworks_on_artist_id" ON "aartworks" ("artist_id")[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aartworks" ("id","title","artist_id","created_at","updated_at","image_url")
+                     SELECT "id","title","artist_id","created_at","updated_at","image_url" FROM "artworks"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "artworks"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "artworks" ("id" integer NOT NULL PRIMARY KEY, "title" varchar NOT NULL, "artist_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_artworks_on_artist_id" ON "artworks" ("artist_id")[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_artworks_on_title_and_artist_id" ON "artworks" ("title", "artist_id")[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "artworks" ("id","title","artist_id","created_at","updated_at")
+                     SELECT "id","title","artist_id","created_at","updated_at" FROM "aartworks"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aartworks"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190620190014"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddCol2Artworks (20190620190014)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "artworks" ADD "image_url" varchar DEFAULT 'n/a' NOT NULL[0m
+  ↳ db/migrate/20190620190014_add_col2_artworks.rb:3
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620190014_add_col2_artworks.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_artworks_on_image_url" ON "artworks" ("image_url")[0m
+  ↳ db/migrate/20190620190014_add_col2_artworks.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190620190014"]]
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RmvDfl4Artworks (20190620190405)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190620190405_rmv_dfl4_artworks.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aartworks" ("id" integer NOT NULL PRIMARY KEY, "title" varchar NOT NULL, "artist_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_url" varchar DEFAULT 'n/a' NOT NULL)[0m
+  ↳ db/migrate/20190620190405_rmv_dfl4_artworks.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aartworks_on_image_url" ON "aartworks" ("image_url")[0m
+  ↳ db/migrate/20190620190405_rmv_dfl4_artworks.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aartworks_on_title_and_artist_id" ON "aartworks" ("title", "artist_id")[0m
+  ↳ db/migrate/20190620190405_rmv_dfl4_artworks.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aartworks_on_artist_id" ON "aartworks" ("artist_id")[0m
+  ↳ db/migrate/20190620190405_rmv_dfl4_artworks.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aartworks" ("id","title","artist_id","created_at","updated_at","image_url")
+                     SELECT "id","title","artist_id","created_at","updated_at","image_url" FROM "artworks"[0m
+  ↳ db/migrate/20190620190405_rmv_dfl4_artworks.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "artworks"[0m
+  ↳ db/migrate/20190620190405_rmv_dfl4_artworks.rb:3
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:9
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Pain"], ["artist_id", 4], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=444"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Pain"], ["artist_id", 4], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=444"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Pain"], ["artist_id", 4], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=444"], ["LIMIT", 1]]
+  [1m[36mArtwork Create (2.4ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "artist_id", "created_at", "updated_at", "image_url") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Pain"], ["artist_id", 4], ["created_at", "2019-06-20 19:21:01.538119"], ["updated_at", "2019-06-20 19:21:01.538119"], ["image_url", "google.com/imgs?pic=444"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=333"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Savior"], ["artist_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=333"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Savior"], ["artist_id", 3], ["LIMIT", 1]]
+  [1m[36mArtwork Create (3.5ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "artist_id", "created_at", "updated_at", "image_url") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Savior"], ["artist_id", 3], ["created_at", "2019-06-20 19:31:06.850356"], ["updated_at", "2019-06-20 19:31:06.850356"], ["image_url", "google.com/imgs?pic=333"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArtwork Load (0.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = ?[0m  [["artist_id", 3]]
+  [1m[36mArtwork Load (2.1ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" ORDER BY "artworks"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=334"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Selfless"], ["artist_id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtwork Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=334"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Selfless"], ["artist_id", 3], ["LIMIT", 1]]
+  [1m[36mArtwork Create (3.3ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "artist_id", "created_at", "updated_at", "image_url") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Selfless"], ["artist_id", 3], ["created_at", "2019-06-20 19:50:43.947905"], ["updated_at", "2019-06-20 19:50:43.947905"], ["image_url", "google.com/imgs?pic=334"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=113"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Happy"], ["artist_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mArtwork Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."image_url" = ? LIMIT ?[0m  [["image_url", "google.com/imgs?pic=113"], ["LIMIT", 1]]
+  [1m[36mArtwork Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "artworks" WHERE "artworks"."title" = ? AND "artworks"."artist_id" = ? LIMIT ?[0m  [["title", "Happy"], ["artist_id", 1], ["LIMIT", 1]]
+  [1m[36mArtwork Create (3.4ms)[0m  [1m[32mINSERT INTO "artworks" ("title", "artist_id", "created_at", "updated_at", "image_url") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Happy"], ["artist_id", 1], ["created_at", "2019-06-20 19:52:48.104043"], ["updated_at", "2019-06-20 19:52:48.104043"], ["image_url", "google.com/imgs?pic=113"]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mArtwork Load (0.3ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks"[0m
