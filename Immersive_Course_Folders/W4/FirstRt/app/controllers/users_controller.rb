@@ -37,14 +37,14 @@ class UsersController < ApplicationController
     if wanted_obj.destroy
       render json wanted_obj
     else
-      render plain: "Cannot execute, too significant(data)! "
+      render plain: "Cannot execute, too significant(data)! ", status: :unprocessable_entity
     end
   end
   
   private
 
   def wanted_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:username)
   end
 
 end
