@@ -1,0 +1,41 @@
+<% action = (cat.persisted? ? cat_url(cat) : cats_url) %>
+<% method = (cat.persisted? ? :patch : :post) %>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>"> 
+
+  <label for="name">Name</label>
+  <input id="name" type="text" name="cat[name]" value="<%= cat.name %>">
+
+  <br><br>
+
+  <label for="b-day">Birthday</label>
+  <input id="b-day" type="date" name="cat[birth_date]" value="<%= cat.birth_date %>">
+
+  <br><br>
+
+  <label for="sex">Sex:</label>
+  M<input id="sex" type="radio" value="M" name="cat[sex]" <%= cat.sex == "M" ? "checked" : "" %>>
+  F<input id="sex" type="radio" value="F" name="cat[sex]" <%= cat.sex == "F" ? "checked" : "" %>>
+  
+  <br><br>
+
+  <label for="color">Color:</label>
+  <select id="color" name="cat[color]">
+    <option disabled <%= cat.color ? "" : "selected" %>>--Please a color--</option>
+
+    <% Cat::ACCEPTABLE_COLORS.each do |cl| %> 
+    <option value="<%= cl %>" <%= cat.color == cl ? "selected" : "" %>><%= cl.upcase %></option>
+    <% end %>
+
+  </select>
+
+  <br><br>
+
+  <label for="description">Description</label>
+  <textarea id="description" name="cat[description]"><%= cat.description ? cat.description : "" %></textarea>
+
+  <br><br>
+
+<input type="submit" value="Click for Submit">
+</form>

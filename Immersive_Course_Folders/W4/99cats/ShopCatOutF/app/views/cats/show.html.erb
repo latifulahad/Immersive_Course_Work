@@ -1,0 +1,47 @@
+<h1 style=" color: red;"><%=@cat.name%></h1>
+
+<table>
+
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+  </tr>
+
+  <% [:birth_date, :sex, :color, :description].each do |atr| %>
+
+    <tr>
+      <td><%= atr %></td>
+      <td><%= @cat.send(atr) %></td>
+    </tr>
+
+  <% end %>  
+  
+</table>
+  
+<br>
+<a href="<%= edit_cat_url(@cat)%>">Edit Cat</a>
+<br>
+
+<h2 style=" color: blue;">Scheduled Bookings</h2>
+  <br>
+<table>
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status Option</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @cat.requests.each do |rq|%>
+        <tr>
+          <td><%= rq.status %></td>
+          <td><%= rq.start_date %></td>
+          <td><%= rq.end_date %></td>
+          <%= render "req_opt", req: rq %>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

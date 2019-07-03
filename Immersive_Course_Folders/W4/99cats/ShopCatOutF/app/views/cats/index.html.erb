@@ -1,0 +1,16 @@
+<h1>Look at these Cats</h1>
+
+<ul>
+  <% @cats.each do |cat| %> 
+    <li>
+      <a href="<%=cat_url(cat)%>"><%=cat.name%></a>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<h2>They are available for RENT!!!</h2>
+<br>
+
+<a href="<%= new_cat_rental_request_url %>">CLICK HERE</a>
