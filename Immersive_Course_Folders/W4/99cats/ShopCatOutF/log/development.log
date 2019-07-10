@@ -4374,3 +4374,2969 @@ Migrating to Create (20190707193330)
   [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "9_e8qPswE71jVUY-FpLEHg"], ["id", 1], ["LIMIT", 1]]
   [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "9_e8qPswE71jVUY-FpLEHg"], ["updated_at", "2019-07-07 20:52:02.965620"], ["id", 1]]
   [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/cats" for ::1 at 2019-07-07 17:13:59 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 459ms (Views: 419.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-07 17:14:21 -0400
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views"
+:
+  app/controllers/users_controller.rb:7:in `new'
+
+Started POST "/__better_errors/8b44b93059128999/variables" for ::1 at 2019-07-07 17:14:22 -0400
+Started GET "/users/1" for ::1 at 2019-07-07 17:15:20 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-07 17:27:17 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 75ms (Views: 74.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-07 17:27:32 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 52ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-07 17:27:49 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 15:37:30 -0400
+
+SyntaxError - compile error:
+
+Started POST "/__better_errors/e29581caf1d24fe7/variables" for ::1 at 2019-07-08 15:37:30 -0400
+Started GET "/user/new" for ::1 at 2019-07-08 15:40:38 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/user/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2019-07-08 15:40:56 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 96ms (Views: 94.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 15:41:52 -0400
+
+LoadError - Unable to autoload constant SessionsController, expected /Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/controllers/sessions_controller.rb to define it:
+
+Started POST "/__better_errors/f26124f5fc7f7da3/variables" for ::1 at 2019-07-08 15:41:52 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:44:22 -0400
+
+LoadError - Unable to autoload constant SessionsController, expected /Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/controllers/sessions_controller.rb to define it:
+
+Started POST "/__better_errors/de937b1d5a509318/variables" for ::1 at 2019-07-08 15:44:22 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:44:49 -0400
+
+LoadError - Unable to autoload constant SessionsController, expected /Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/controllers/sessions_controller.rb to define it:
+
+Started POST "/__better_errors/890083aba97e1324/variables" for ::1 at 2019-07-08 15:44:50 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:44:57 -0400
+
+LoadError - Unable to autoload constant SessionsController, expected /Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/controllers/sessions_controller.rb to define it:
+
+Started POST "/__better_errors/9183defbfcd052b3/variables" for ::1 at 2019-07-08 15:44:57 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:45:36 -0400
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+
+LoadError - Unable to autoload constant SessionsController, expected /Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/controllers/sessions_controller.rb to define it:
+
+Started POST "/__better_errors/6dc05c1ccf6de670/variables" for ::1 at 2019-07-08 15:45:36 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:46:46 -0400
+
+SyntaxError - compile error:
+
+Started POST "/__better_errors/dc634f74ee30c8d4/variables" for ::1 at 2019-07-08 15:46:47 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:46:55 -0400
+
+LoadError - Unable to autoload constant SessionsController, expected /Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/controllers/sessions_controller.rb to define it:
+
+Started POST "/__better_errors/978418b657de0822/variables" for ::1 at 2019-07-08 15:46:56 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:48:33 -0400
+
+NameError - uninitialized constant SessionsController:
+
+Started POST "/__better_errors/bd98d007fe6fa7ff/variables" for ::1 at 2019-07-08 15:48:34 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:51:17 -0400
+
+SyntaxError - compile error:
+
+Started POST "/__better_errors/39f469c2043d2cbe/variables" for ::1 at 2019-07-08 15:51:18 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:54:09 -0400
+
+LoadError - Unable to autoload constant SessionsController, expected /Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/controllers/sessions_controller.rb to define it:
+
+Started POST "/__better_errors/3c8a637edbf814a2/variables" for ::1 at 2019-07-08 15:54:09 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:58:25 -0400
+
+SyntaxError - compile error:
+
+Started POST "/__better_errors/094c1a83bc11de8a/variables" for ::1 at 2019-07-08 15:58:25 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:59:40 -0400
+
+SyntaxError - compile error:
+
+Started POST "/__better_errors/8877db56a71b5ffa/variables" for ::1 at 2019-07-08 15:59:40 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 15:59:46 -0400
+
+LoadError - Unable to autoload constant SessionsController, expected /Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/controllers/sessions_controller.rb to define it:
+
+Started POST "/__better_errors/57200880f10a7a31/variables" for ::1 at 2019-07-08 15:59:47 -0400
+Started GET "/session/new" for ::1 at 2019-07-08 16:01:54 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 301ms (Views: 290.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/session/new" for ::1 at 2019-07-08 16:31:22 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 62ms (Views: 61.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 16:31:33 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 1, expected 0):
+  app/controllers/sessions_controller.rb:8:in `new'
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/f8394e7418bfa9c0/variables" for ::1 at 2019-07-08 16:31:33 -0400
+Started POST "/session" for ::1 at 2019-07-08 16:32:45 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/fb369c830e9d181e/variables" for ::1 at 2019-07-08 16:32:46 -0400
+Started POST "/session" for ::1 at 2019-07-08 16:33:35 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 1, expected 0):
+  app/controllers/sessions_controller.rb:8:in `new'
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/4cd3ca098569bf37/variables" for ::1 at 2019-07-08 16:33:36 -0400
+Started POST "/session" for ::1 at 2019-07-08 16:34:59 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ArgumentError - wrong number of arguments (given 1, expected 0):
+  app/controllers/sessions_controller.rb:8:in `new'
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/6e51df5f3e28493b/variables" for ::1 at 2019-07-08 16:35:00 -0400
+Started POST "/session" for ::1 at 2019-07-08 16:41:43 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+TypeError - no implicit conversion of Symbol into Integer:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/ba326219ac57450a/variables" for ::1 at 2019-07-08 16:41:43 -0400
+Started POST "/session" for ::1 at 2019-07-08 16:49:05 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+TypeError - no implicit conversion of Symbol into Integer:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/12484b08247243e4/variables" for ::1 at 2019-07-08 16:49:06 -0400
+Started POST "/session" for ::1 at 2019-07-08 16:50:54 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 17ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 16:50:54 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 16:51:00 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 16:51:00 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+Started POST "/session" for ::1 at 2019-07-08 16:53:02 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/eac2e49a54d5c44a/variables" for ::1 at 2019-07-08 16:53:02 -0400
+Started POST "/session" for ::1 at 2019-07-08 16:53:44 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 19ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 16:53:44 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 72ms (Views: 70.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 16:53:49 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 16:53:49 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/session" for ::1 at 2019-07-08 16:59:28 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 16:59:28 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 75ms (Views: 73.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 17:00:28 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authtenticity_token"=>" dsKnis+4zr2+RZr/xBJ670poDfQ7AMGzIwrlN56hF2mcN9wA2JPNgp3n0R2LlVffmEYWycMoMZUmfIV2BmKgYw==", "session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 17:00:28 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 17:05:27 -0400
+
+SyntaxError - compile error:
+
+Started POST "/__better_errors/c9662469bcde254c/variables" for ::1 at 2019-07-08 17:05:27 -0400
+Started POST "/session" for ::1 at 2019-07-08 17:05:39 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authtenticity_token"=>" RtiGiMd9XFEV/Hz2Q6eiresQmy2Th10ftHVN3mT+A3qsLf0C0FZfbjZeNxQMII+dOT6AEGuvrTmxAy2f/D20cA==", "session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 19ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 17:05:39 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 75ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 17:05:45 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 4ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 17:05:45 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 17:07:54 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 17:07:54 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 37ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 17:09:36 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 17:09:36 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 43ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 17:31:54 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 23ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 17:31:54 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 75ms (Views: 73.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 17:32:58 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 17:48:52 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 19ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 17:48:52 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 54ms (Views: 52.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 17:53:13 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 294ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `user' for #<SessionsController:0x007ff280623458>
+Did you mean?  usr:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/6a2566d6f4b8c254/variables" for ::1 at 2019-07-08 17:53:13 -0400
+Started POST "/session" for ::1 at 2019-07-08 17:55:18 -0400
+
+SyntaxError - compile error:
+
+Started POST "/__better_errors/cb12d75770f3753b/variables" for ::1 at 2019-07-08 17:55:18 -0400
+Started POST "/session" for ::1 at 2019-07-08 17:55:44 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/3361621362c6e21c/variables" for ::1 at 2019-07-08 17:55:44 -0400
+Started POST "/__better_errors/3361621362c6e21c/eval" for ::1 at 2019-07-08 17:56:07 -0400
+Started POST "/__better_errors/3361621362c6e21c/eval" for ::1 at 2019-07-08 17:58:46 -0400
+Started POST "/__better_errors/3361621362c6e21c/eval" for ::1 at 2019-07-08 17:58:50 -0400
+Started POST "/__better_errors/3361621362c6e21c/eval" for ::1 at 2019-07-08 17:59:27 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:00:18 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "X3WZgqUW712epQR9TSrN8A"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (3.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "X3WZgqUW712epQR9TSrN8A"], ["updated_at", "2019-07-08 22:00:18.519689"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 400ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:00:18 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 76ms (Views: 58.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/cat_rental_requests/new" for ::1 at 2019-07-08 18:00:27 -0400
+Processing by CatRentalRequestsController#new as HTML
+  Rendering cat_rental_requests/new.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cat_rental_requests/new.html.erb:10
+  Rendered cat_rental_requests/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-07-08 18:00:33 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (2.6ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (1.1ms)
+  Rendered cats/_req_opt.html.erb (0.2ms)
+  Rendered cats/show.html.erb within layouts/application (68.3ms)
+Completed 200 OK in 99ms (Views: 93.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 18:05:28 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:05:41 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/b5441cc769d11e00/variables" for ::1 at 2019-07-08 18:05:41 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:06:41 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/a845b1422dcf8f1b/variables" for ::1 at 2019-07-08 18:06:41 -0400
+Started POST "/__better_errors/a845b1422dcf8f1b/eval" for ::1 at 2019-07-08 18:06:59 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:07:57 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/4c9cbf56823019f0/variables" for ::1 at 2019-07-08 18:07:57 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:08:05 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/c48179cf08e16faa/variables" for ::1 at 2019-07-08 18:08:05 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:08:53 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/b137b5a8a23ea144/variables" for ::1 at 2019-07-08 18:08:53 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:09:31 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/e4be7a5ab9c0436f/variables" for ::1 at 2019-07-08 18:09:31 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:10:33 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "wYStXxs2TIuzaio5riev-Q"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "wYStXxs2TIuzaio5riev-Q"], ["updated_at", "2019-07-08 22:10:34.016324"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 389ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:10:34 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 74ms (Views: 55.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:13:14 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/ef3df8572f0a0d80/variables" for ::1 at 2019-07-08 18:13:15 -0400
+Started POST "/__better_errors/ef3df8572f0a0d80/eval" for ::1 at 2019-07-08 18:13:22 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:15:46 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/52d9962d92d1c7a1/variables" for ::1 at 2019-07-08 18:15:46 -0400
+Started POST "/__better_errors/52d9962d92d1c7a1/eval" for ::1 at 2019-07-08 18:15:54 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:16:23 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/b0cd926f34088517/variables" for ::1 at 2019-07-08 18:16:23 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:17:20 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 400 Bad Request in 13ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: user:
+  app/controllers/sessions_controller.rb:31:in `wanted_params'
+  app/controllers/sessions_controller.rb:8:in `create'
+
+Started POST "/__better_errors/fd4b4346274262ea/variables" for ::1 at 2019-07-08 18:17:20 -0400
+Started POST "/__better_errors/fd4b4346274262ea/eval" for ::1 at 2019-07-08 18:17:42 -0400
+Started POST "/session" for ::1 at 2019-07-08 18:20:23 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "OcW-Eb4HWpc5tuhZ7yjL-w"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "OcW-Eb4HWpc5tuhZ7yjL-w"], ["updated_at", "2019-07-08 22:20:23.659569"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 382ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:20:23 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 72ms (Views: 60.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:26:55 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "4bhitpPHaB0nXFlEN6WB9A"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "4bhitpPHaB0nXFlEN6WB9A"], ["updated_at", "2019-07-08 22:26:56.341153"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 387ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:26:56 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 75ms (Views: 64.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:34:46 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "bN82Rh47z2iw1lXpNPa5Ag"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "bN82Rh47z2iw1lXpNPa5Ag"], ["updated_at", "2019-07-08 22:34:46.806476"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 340ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:34:46 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 42ms (Views: 41.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:39:50 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "xo5GSHuM7bkrnc5kc6KtdA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (3.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "xo5GSHuM7bkrnc5kc6KtdA"], ["updated_at", "2019-07-08 22:39:51.172922"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 351ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:39:51 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 93ms (Views: 91.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:41:40 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "6fLzm97l9pSDEs7mW6s-uQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "6fLzm97l9pSDEs7mW6s-uQ"], ["updated_at", "2019-07-08 22:41:41.190839"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 355ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:41:41 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:43:22 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "y613ZEsgn0kyOVt4xXya9g"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "y613ZEsgn0kyOVt4xXya9g"], ["updated_at", "2019-07-08 22:43:23.122007"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 500 Internal Server Error in 412ms (ActiveRecord: 7.2ms)
+
+
+
+RuntimeError - :
+  app/controllers/sessions_controller.rb:14:in `create'
+
+Started POST "/__better_errors/4a05474bfdbdb35c/variables" for ::1 at 2019-07-08 18:43:23 -0400
+Started POST "/__better_errors/4a05474bfdbdb35c/eval" for ::1 at 2019-07-08 18:43:39 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/session" for ::1 at 2019-07-08 18:45:03 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "CRkYzgSuCAJzsDBvJqx6_A"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "CRkYzgSuCAJzsDBvJqx6_A"], ["updated_at", "2019-07-08 22:45:03.928263"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 382ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:45:03 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (31.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 93ms (Views: 83.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:48:30 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "IlYgiOhDSJWoGEailT9Iug"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (2.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "IlYgiOhDSJWoGEailT9Iug"], ["updated_at", "2019-07-08 22:48:31.213647"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 342ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:48:31 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 87ms (Views: 85.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 18:50:00 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "3wDOf2qm6wLdDyvqznKVHw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "3wDOf2qm6wLdDyvqznKVHw"], ["updated_at", "2019-07-08 22:50:01.264410"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 374ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 18:50:01 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 128ms (Views: 116.1ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 23:54:56 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "iKVHfHzBYocbCDjBcx0mrw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "iKVHfHzBYocbCDjBcx0mrw"], ["updated_at", "2019-07-09 03:54:57.567363"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 401ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 23:54:57 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 154ms (Views: 135.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 23:55:04 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 48ms (Views: 46.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 23:55:10 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "erGOhsl-8uuQUEJL2P7AwQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "erGOhsl-8uuQUEJL2P7AwQ"], ["updated_at", "2019-07-09 03:55:11.335464"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 343ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 23:55:11 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-07-08 23:55:16 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (1.5ms)
+  Rendered cats/_req_opt.html.erb (0.6ms)
+  Rendered cats/show.html.erb within layouts/application (59.4ms)
+Completed 200 OK in 92ms (Views: 87.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 23:57:52 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 75ms (Views: 74.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-08 23:58:55 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-08 23:58:59 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "9gFzZKCH0Vwo4MBwyYcQeg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "9gFzZKCH0Vwo4MBwyYcQeg"], ["updated_at", "2019-07-09 03:59:00.239145"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 349ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-08 23:59:00 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/session" for ::1 at 2019-07-09 00:14:05 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "QM9d4AyEV3PXf7CNTEXZBw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "QM9d4AyEV3PXf7CNTEXZBw"], ["updated_at", "2019-07-09 04:14:06.007347"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 390ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 00:14:06 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (24.8ms)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 1.3ms)
+
+
+
+NoMethodError - undefined method `current_user?' for #<Class:0x007ff28597df68>
+Did you mean?  current_scope:
+  app/views/layouts/application.html.erb:27:in `_app_views_layouts_application_html_erb__2915821815119748301_70339762607340'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/cbff320d0beae342/variables" for ::1 at 2019-07-09 00:14:06 -0400
+Started POST "/session" for ::1 at 2019-07-09 00:21:41 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "kaOStpdwgHfgL1FWsYaGVg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "kaOStpdwgHfgL1FWsYaGVg"], ["updated_at", "2019-07-09 04:21:42.300541"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 391ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 00:21:42 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 87ms (Views: 78.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 00:23:39 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "qkvVCDQyMcSHbO-cpfyM9A"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "qkvVCDQyMcSHbO-cpfyM9A"], ["updated_at", "2019-07-09 04:23:40.486587"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 396ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 00:23:40 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 118ms (Views: 107.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 00:24:39 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 62ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 00:26:46 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 63ms (Views: 62.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 00:26:51 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "Tme8J96L64nTA4Noe6TwQA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "Tme8J96L64nTA4Noe6TwQA"], ["updated_at", "2019-07-09 04:26:51.768083"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 388ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 00:26:51 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 65ms (Views: 56.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 00:35:52 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 00:35:55 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 43ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 00:36:00 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "rBcO31v3YdDy8XTddIffFg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "rBcO31v3YdDy8XTddIffFg"], ["updated_at", "2019-07-09 04:36:01.050320"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 358ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 00:36:01 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 00:36:09 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 00:37:08 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 00:37:15 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 54ms (Views: 45.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 00:37:17 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 00:37:22 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/1510974cc377b4ad/variables" for ::1 at 2019-07-09 00:37:22 -0400
+Started GET "/session/new" for ::1 at 2019-07-09 00:52:07 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 72ms (Views: 69.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 00:52:10 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 75ms (Views: 57.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 00:52:20 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/9e996861680b7235/variables" for ::1 at 2019-07-09 00:52:20 -0400
+Started GET "/cats" for ::1 at 2019-07-09 00:54:59 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 107ms (Views: 93.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 00:55:01 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 00:55:04 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/c0344b189ce6ca32/variables" for ::1 at 2019-07-09 00:55:04 -0400
+Started POST "/session" for ::1 at 2019-07-09 00:58:23 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/f4ca254f0f7114d6/variables" for ::1 at 2019-07-09 00:58:23 -0400
+Started GET "/cats" for ::1 at 2019-07-09 00:58:26 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 95ms (Views: 81.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 00:58:28 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 00:58:32 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/897babfd20a45719/variables" for ::1 at 2019-07-09 00:58:32 -0400
+Started GET "/cats" for ::1 at 2019-07-09 00:58:41 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 01:07:35 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 01:07:38 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/a4e4f4f8c961e149/variables" for ::1 at 2019-07-09 01:07:38 -0400
+Started POST "/session" for ::1 at 2019-07-09 01:09:47 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/7651f9d45baf8d19/variables" for ::1 at 2019-07-09 01:09:47 -0400
+Started GET "/cats" for ::1 at 2019-07-09 01:09:50 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 87ms (Views: 72.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 01:09:52 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 01:10:16 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 40ms (Views: 39.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 01:10:22 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8saULuzBJj195Gz4SV+Blc1nJElRPydZLDUsmKfv/pQYM++k++olAl5GJxoG2KylH0k/dKkX138pQ0zZPyxJng==", "user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:9:in `create'
+
+Started POST "/__better_errors/6340fd759aaf7c0f/variables" for ::1 at 2019-07-09 01:10:22 -0400
+Started POST "/session" for ::1 at 2019-07-09 01:11:38 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"yJS7bqB9DcEtzWIdBJnaUfb5gIfUeF/jZ+z3DfSiDWAiYcDkt1YO/g5vKf9LHvdhJNebuixQr8VimpdMbGG6ag==", "user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 60ms (Views: 43.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 01:11:41 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 01:11:46 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"oSGdREsjSnL2/lExWqKnRPPsD9zhXx+z/vBoQPRwrKBL1ObOXAhJTdVcGtMVJYp0IcIU4Rl375X7hggBbLMbqg==", "user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 38ms (Views: 35.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 01:12:26 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"3sl0VZNayP/eba+0yvedRqDXjtULvcMuRw5BkV9o0JI0PA/fhHHLwP3P5FaFcLB2cvmV6POVMwhCeCHQx6tnmA==", "user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:9:in `create'
+
+Started POST "/__better_errors/0c2987fee528b263/variables" for ::1 at 2019-07-09 01:12:26 -0400
+Started GET "/session" for ::1 at 2019-07-09 01:12:42 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/session"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/session" for ::1 at 2019-07-09 01:12:46 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"xy2v/pt9H3HHdGuc39mftfCgY1/i2d588DWDQLeTMwEt2NR0jFYcTuTWIH6QXrKFIo54YhrxLlr1Q+MBL1CECw==", "user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/sessions_controller.rb:9:in `create'
+
+Started POST "/__better_errors/d2bea7d6a2d9e200/variables" for ::1 at 2019-07-09 01:12:46 -0400
+Started GET "/cats" for ::1 at 2019-07-09 01:13:01 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 54ms (Views: 48.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 01:13:03 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 01:13:19 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"cHl2HuxHIZtLOxqMR3CpapCuNiUUgF91j5eGgXAnLveajA2U+2wipGiZUW4I94RaQoAtGOyor1OK4ebA6OSZ/Q==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "rtH8Lf_6zgEIk9iQZPLSIw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "rtH8Lf_6zgEIk9iQZPLSIw"], ["updated_at", "2019-07-09 05:13:20.261535"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 355ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 01:13:20 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "t"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 28ms (Views: 26.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 01:13:28 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "t"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 01:13:31 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"AXR/HGcq1SXgZ+un/vPH8iuge0B/8fVKd0I8t+QrTFbrgQSWcAHWGsPFoEWxdOrC+Y5gfYfZBWxyNFz2fOj7XA==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "hMWLvAhvARn-j_SeCyeqzA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "hMWLvAhvARn-j_SeCyeqzA"], ["updated_at", "2019-07-09 05:13:31.872283"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 347ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 01:13:31 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "t"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 40ms (Views: 37.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 01:19:07 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "t"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 76ms (Views: 75.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for ::1 at 2019-07-09 01:19:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"Superman1789", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/dfa6ab89b43516d3/variables" for ::1 at 2019-07-09 01:19:26 -0400
+Started POST "/users" for ::1 at 2019-07-09 01:20:31 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"Superman1789", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/a9cc8820df22e961/variables" for ::1 at 2019-07-09 01:20:31 -0400
+Started POST "/__better_errors/a9cc8820df22e961/eval" for ::1 at 2019-07-09 01:20:36 -0400
+Started GET "/cats" for ::1 at 2019-07-09 01:28:23 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (43.8ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 1.2ms)
+
+
+
+SyntaxError - syntax error, unexpected ';', expecting ':'
+...end='        <a href="'.freeze;@output_buffer.append=( new_s...
+...                               ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:19: syntax error, unexpected ')'
+...e;@output_buffer.append=( ??? );@output_buffer.safe_append='
+...                               ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;       end 
+                   ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:32: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:34: syntax error, unexpected keyword_end, expecting ')':
+  app/views/layouts/application.html.erb:16:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/24aa17925fa6d146/variables" for ::1 at 2019-07-09 01:28:23 -0400
+Started GET "/cats" for ::1 at 2019-07-09 01:28:28 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.4ms)
+
+
+
+SyntaxError - syntax error, unexpected ';', expecting ':'
+...end='        <a href="'.freeze;@output_buffer.append=( new_s...
+...                               ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:19: syntax error, unexpected ')'
+...e;@output_buffer.append=( ??? );@output_buffer.safe_append='
+...                               ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;       end 
+                   ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:32: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:34: syntax error, unexpected keyword_end, expecting ')':
+  app/views/layouts/application.html.erb:16:in `'
+  app/controllers/cats_controller.rb:5:in `index'
+
+Started POST "/__better_errors/6040fad7cfb72738/variables" for ::1 at 2019-07-09 01:28:28 -0400
+Started GET "/users/new" for ::1 at 2019-07-09 21:30:41 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected ';', expecting ':'
+...end='        <a href="'.freeze;@output_buffer.append=( new_s...
+...                               ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:19: syntax error, unexpected ')'
+...e;@output_buffer.append=( ??? );@output_buffer.safe_append='
+...                               ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;       end 
+                   ^
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:32: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/latifulahad/Desktop/App:A Projects/Immersive_Course_Folders/W4/99cats/ShopCatOutF/app/views/layouts/application.html.erb:34: syntax error, unexpected keyword_end, expecting ')':
+  app/views/layouts/application.html.erb:16:in `'
+  app/controllers/users_controller.rb:8:in `new'
+
+Started POST "/__better_errors/af89d4b2dee71c41/variables" for ::1 at 2019-07-09 21:30:41 -0400
+Started GET "/users/new" for ::1 at 2019-07-09 21:31:02 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 277ms (Views: 275.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 21:31:15 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 21:39:10 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (4.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "UnpTB7280pnfijSCWUZFeQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (7.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "UnpTB7280pnfijSCWUZFeQ"], ["updated_at", "2019-07-10 01:39:10.517415"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 398ms (ActiveRecord: 19.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 21:39:10 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 102ms (Views: 86.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 22:36:26 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 118ms (Views: 100.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 22:36:31 -0400
+
+SyntaxError - compile error:
+
+Started POST "/__better_errors/8e49cd178f5f2427/variables" for ::1 at 2019-07-09 22:36:31 -0400
+Started GET "/cats" for ::1 at 2019-07-09 22:39:11 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 57ms (Views: 41.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 22:39:13 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 22:39:17 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/608a01d783e5568c/variables" for ::1 at 2019-07-09 22:39:17 -0400
+Started POST "/session" for ::1 at 2019-07-09 22:40:58 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 11ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/183a17fa365f774a/variables" for ::1 at 2019-07-09 22:40:58 -0400
+Started POST "/session" for ::1 at 2019-07-09 22:49:17 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/d22f9daf64a20942/variables" for ::1 at 2019-07-09 22:49:17 -0400
+Started POST "/session" for ::1 at 2019-07-09 22:51:34 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/94b17f6d8adaed15/variables" for ::1 at 2019-07-09 22:51:34 -0400
+Started GET "/cats" for ::1 at 2019-07-09 22:52:15 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 53ms (Views: 40.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-07-09 22:52:19 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.3ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (1.0ms)
+  Rendered cats/_req_opt.html.erb (0.3ms)
+  Rendered cats/show.html.erb within layouts/application (68.6ms)
+Completed 200 OK in 103ms (Views: 98.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 22:52:33 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 22:52:37 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 34ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 22:52:43 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" s+Oxw7SbwAgZDkAYVJ9tFqcEdjkYCh/BoH5Lq3mKHmhZFspJo7DDNzqsC/obGEAmdSptBOAi7+elCCvq4UmpYg== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/115b243ecf770c2e/variables" for ::1 at 2019-07-09 22:52:43 -0400
+Started POST "/__better_errors/115b243ecf770c2e/eval" for ::1 at 2019-07-09 22:53:22 -0400
+Started POST "/session" for ::1 at 2019-07-09 22:56:07 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"MdmrXtfAarUcurM/xWv0lFoxTaG+In0P72IGTQzXegvbLNDUwOtpij8Y+N2K7NmkiB9WnEYKjSnqFGYMlBTNAQ==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+Completed 500 Internal Server Error in 716ms (ActiveRecord: 1.0ms)
+
+
+
+NameError - undefined local variable or method `usr' for #<SessionsController:0x007ffe20f01358>
+Did you mean?  @usr:
+  app/controllers/sessions_controller.rb:10:in `create'
+
+Started POST "/__better_errors/5602b61e53c234f9/variables" for ::1 at 2019-07-09 22:56:08 -0400
+Started POST "/session" for ::1 at 2019-07-09 22:56:28 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"MdmrXtfAarUcurM/xWv0lFoxTaG+In0P72IGTQzXegvbLNDUwOtpij8Y+N2K7NmkiB9WnEYKjSnqFGYMlBTNAQ==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "f2fqBfMHMaI1RyO9zlPhBw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "f2fqBfMHMaI1RyO9zlPhBw"], ["updated_at", "2019-07-10 02:56:28.701775"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 363ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 22:56:28 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 100ms (Views: 88.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 22:56:32 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 22:56:43 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" YW6AqIVYVf5ozUHc0Et5EfepAqlNcXKCJVGrR/gLUaCLm/siknNWwUtvCj6fzFQhJYcZlLVZgqQgJ8sGYMjmqg== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/58e42343114f0dc7/variables" for ::1 at 2019-07-09 22:56:43 -0400
+Started GET "/cats" for ::1 at 2019-07-09 22:56:52 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 22:56:58 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 48ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 22:57:01 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 22:57:02 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 52ms (Views: 51.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 22:57:04 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 22:57:09 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 22:57:32 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" B4dGhye4unbjdV5pPAuNnaNrS2zFPzV6LE3cx3LUhwvtcj0NMJO5ScDXFYtzjKCtcUVQUT0XxVwpO7yG6hcwAQ== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/a238ed5370a8d9b8/variables" for ::1 at 2019-07-09 22:57:32 -0400
+Started POST "/session" for ::1 at 2019-07-09 22:58:52 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Is4tN/GLjogCHDFK36DyrL26vzGZ8/AG6cFvSZehQvnIO1a95qCNtyG+eqiQJ9+cb5SkDGHbACDstw8ID2L18w==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "qJSlSojeVttnG3jaoAAQbg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (2.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "qJSlSojeVttnG3jaoAAQbg"], ["updated_at", "2019-07-10 02:58:53.020232"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 349ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 22:58:53 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 67ms (Views: 65.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-07-09 22:58:55 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (1.4ms)
+  Rendered cats/_req_opt.html.erb (0.3ms)
+  Rendered cats/show.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 70ms (Views: 65.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cats/3" for ::1 at 2019-07-09 22:59:03 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.3ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 3]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (1.2ms)
+  Rendered cats/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 41ms (Views: 38.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-07-09 23:04:35 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (0.9ms)
+  Rendered cats/_req_opt.html.erb (0.3ms)
+  Rendered cats/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 44ms (Views: 41.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 23:04:37 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 45ms (Views: 44.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:04:38 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:04:43 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" 0GqR+X7Mb6DUu/sojOqDqj2eb06yf7XKq8Mm3ItBmb06n+pzaedsn/cZsMrDba6a77B0c0pXReyutUadE4Iutw== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/ec95858aa7043914/variables" for ::1 at 2019-07-09 23:04:43 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:04:48 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"H0p4UmQh79Ln1t9/GYGCyNI+Y8DrgoaPoTeORX3jjRv1vwPYcwrs7cR0lJ1WBq/4ABB4/ROqdqmkQe4E5SA6EQ==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "069E0bLBS53N8sKdTqD_6g"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "069E0bLBS53N8sKdTqD_6g"], ["updated_at", "2019-07-10 03:04:48.894035"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 338ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:04:48 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 28ms (Views: 26.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:04:53 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"H0p4UmQh79Ln1t9/GYGCyNI+Y8DrgoaPoTeORX3jjRv1vwPYcwrs7cR0lJ1WBq/4ABB4/ROqdqmkQe4E5SA6EQ==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "iN5UthpQOzYZhe5y2ehWrg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "iN5UthpQOzYZhe5y2ehWrg"], ["updated_at", "2019-07-10 03:04:54.208658"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 347ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:04:54 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 23:08:20 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:08:22 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:08:26 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" Zppp7DhJTP82yaJZEYvSPp+5RWuQZAIR/sLPtsm9ZZSMbxJmL2JPwBVr6bteDP8OTZdeVmhM8jf7tK/3UX7Sng== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/a01445b9b34032dc/variables" for ::1 at 2019-07-09 23:08:26 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:08:31 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"XMkL2GpYxnJYRx3d+L5h+ceizz3MOFhOm/1vE9tZfd62PHBSfXPFTXvlVj+3OUzJFYzUADQQqGieiw9SQ5rK1A==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "6Dl86zIsCyz54FCuWZRW-w"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (2.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "6Dl86zIsCyz54FCuWZRW-w"], ["updated_at", "2019-07-10 03:08:31.899494"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 343ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:08:31 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 23:08:37 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:08:39 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:08:43 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" U/1TugHtNzBVBn6pfUjYdAbS/cFcwwGIHDPaVBUqGY65CCgwFsY0D3akNUsyz/VE1Pzm/KTr8a4ZRboVjemuhA== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/3fc6af62dfe3f579/variables" for ::1 at 2019-07-09 23:08:43 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:10:02 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"iU0+aAPQsQ8oVUaLRmKxsco9CvHGK0Ace5fyUDgq2PVjuEXiFPuyMAv3DWkJ5ZyBGBMRzD4DsDp+4ZIRoOlv/w==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "gRjfjJZmD8BzIjm1lm5cpQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "gRjfjJZmD8BzIjm1lm5cpQ"], ["updated_at", "2019-07-10 03:10:02.835327"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 375ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:10:02 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 87ms (Views: 77.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:10:19 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:10:32 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" 2UY5v7Q+SLNE4Cn9SZ3LcOsaG9l0xY7/MMvwtbcKMNczs0I1oxVLjGdCYh8GGuZAOTQA5Iztftk1vZD0L8mH3Q== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/8bbea39bb18c0e95/variables" for ::1 at 2019-07-09 23:10:32 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:10:37 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"HyCltZCuUMxywPdX2CR2MRk88ZT8rT65KuzvOUzPXo311d4/h4VT81FivLWXo1sByxLqqQSFzp8vmo941Azphw==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "pwffLtA8QMZHd_vi4VWPxw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "pwffLtA8QMZHd_vi4VWPxw"], ["updated_at", "2019-07-10 03:10:37.738425"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 338ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:10:37 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:16:17 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:16:22 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" jT0ivafKctlTtIUoGU1F8Gv+zaJX2K//Fd1haU9oR3VnyFk3sOFx5nAWzspWymjAudDWn6/wX9kQqwEo16vwfw== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/3461b5dca70cb82f/variables" for ::1 at 2019-07-09 23:16:22 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:16:27 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"k5kxEY7FJxVqgvpkeg3jrvDgRiMLfLm27AXvEAyBhzh5bEqbme4kKkkgsYY1is6eIs5dHvNUSZDpc49RlEIwMg==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "bjeiCahSmIhi-YBQlaZkWQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "bjeiCahSmIhi-YBQlaZkWQ"], ["updated_at", "2019-07-10 03:16:27.561926"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 364ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:16:27 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 53ms (Views: 46.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:17:32 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 48ms (Views: 47.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:17:37 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" W8LvccUCez8DFG0+IfEZQCKu+igxhiJpQX4QMHj6RMKxN5T70il4ACC2JtxudjRw8IDhFcmu0k9ECHBx4DnzyA== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/726bceac02c23204/variables" for ::1 at 2019-07-09 23:17:37 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:17:40 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Cr9Fm/lbEwnpgUitl/TcLxzGVRKBUBsVsHSgyHv1ROzgSj4R7nAQNsojA0/Yc/EfzuhOL3l46zO1AsCJ4zbz5g==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "omSGki87n1PcNX33d3qWDg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "omSGki87n1PcNX33d3qWDg"], ["updated_at", "2019-07-10 03:17:41.331029"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 341ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:17:41 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:22:11 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 63ms (Views: 62.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:22:15 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" +Ojo+so5mJUpskM7ZP7psJ7fWYqgPwhVjRboi5soo0YSHZNw3RKbqgoQCNkrecSATPFCt1gX+HOIYIjKA+sUTA== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/a2d841d73189a733/variables" for ::1 at 2019-07-09 23:22:15 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:22:18 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"w8dELKIu7kANQ2QX3LITXfmfNUaEdrW/+bxh6JXhO0UpMj+mtQXtfy7hL/WTNT5tK7Eue3xeRZn8ygGpDSKMTw==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "jp_aQ1xUdhXL1C5pqfEGPw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "jp_aQ1xUdhXL1C5pqfEGPw"], ["updated_at", "2019-07-10 03:22:18.482896"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 348ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:22:18 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-07-09 23:22:22 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (1.6ms)
+  Rendered cats/_req_opt.html.erb (0.5ms)
+  Rendered cats/show.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 77ms (Views: 72.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:28:00 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 50ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:28:03 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" za3Ozv4HGoQXWID38q+2sy/Qkv2hsGVMLF8NzkL+fFInWLVE6SwZuzT6yxW9KJuD/f6JwFmYlWopKW2P2j3LWA== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/5768237fc88e1400/variables" for ::1 at 2019-07-09 23:28:03 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:28:06 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Z7J1Fb+ca+3+r171Kvj4Eh5he3K4Z655HAurtoO9bYGNRw6fqLdo0t0NFRdlf9UizE9gT0BPXl8Zfcv3G37aiw==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "C5Ob8g-W64N5sO--JvtV7w"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "C5Ob8g-W64N5sO--JvtV7w"], ["updated_at", "2019-07-10 03:28:06.879706"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 376ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:28:06 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 60ms (Views: 50.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:30:41 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "C5Ob8g-W64N5sO--JvtV7w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Redirected to http://localhost:3000/cats
+Filter chain halted as :restrict_usr! rendered or redirected
+Completed 302 Found in 23ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:30:41 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "C5Ob8g-W64N5sO--JvtV7w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 44ms (Views: 38.0ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/session" for ::1 at 2019-07-09 23:30:44 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>" 8yJ9XrNol+pzu8cWxIo+6n48w4gJzcejfotZA6rFlP8Z1wbUpEOU1VAZjPSLDRParBLYtfHlN4V7/TlCMgYj9Q== "}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/f6e0133804c76c9d/variables" for ::1 at 2019-07-09 23:30:44 -0400
+Started DELETE "/session" for ::1 at 2019-07-09 23:30:51 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cMkOHErhsikFFccRHv5Vc/5Zfr2/fB5N2vShxSzpIsKaPHWWXcqxFia3jPNReXhDLHdlgEdU7mvfgsGEtCqVyA=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "C5Ob8g-W64N5sO--JvtV7w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "kBtBA1tmznn3WkEafWVHPQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "kBtBA1tmznn3WkEafWVHPQ"], ["updated_at", "2019-07-10 03:30:51.743489"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 18ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:30:51 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:30:56 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"TIwOQa27FL6XaKoDkRzb5pN7Rpt5WAuo0Pso8pNHGymmeXXLupAXgbTK4eHem/bWQVVdpoFw+47VjUizC4SsIw==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "-sPFUKHe6p0b2jvuYNBQvA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "-sPFUKHe6p0b2jvuYNBQvA"], ["updated_at", "2019-07-10 03:30:57.005394"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 352ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:30:57 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "-sPFUKHe6p0b2jvuYNBQvA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cats/1" for ::1 at 2019-07-09 23:31:02 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.4ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 1]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (1.2ms)
+  Rendered cats/_req_opt.html.erb (0.6ms)
+  Rendered cats/show.html.erb within layouts/application (32.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "-sPFUKHe6p0b2jvuYNBQvA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 65ms (Views: 61.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cats/2" for ::1 at 2019-07-09 23:31:08 -0400
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:9
+  Rendering cats/show.html.erb within layouts/application
+  [1m[36mCatRentalRequest Load (0.2ms)[0m  [1m[34mSELECT "cat_rental_requests".* FROM "cat_rental_requests" WHERE "cat_rental_requests"."cat_id" = ?[0m  [["cat_id", 2]]
+  ↳ app/views/cats/show.html.erb:38
+  Rendered cats/_req_opt.html.erb (0.9ms)
+  Rendered cats/_req_opt.html.erb (0.3ms)
+  Rendered cats/show.html.erb within layouts/application (10.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "-sPFUKHe6p0b2jvuYNBQvA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 43ms (Views: 40.8ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/session" for ::1 at 2019-07-09 23:31:24 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NBtwd0wKJLGKmpewedA2flixAnf5oaiQbu0SuBUXS9be7gv9WyEnjqk43FI2VxtOip8ZSgGJWLZrm3L5jdT83A=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "-sPFUKHe6p0b2jvuYNBQvA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "XEOT7hFvQ-VYw6lWwyhOhA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "XEOT7hFvQ-VYw6lWwyhOhA"], ["updated_at", "2019-07-10 03:31:24.771275"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 15ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:31:24 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:32:09 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:32:13 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" TVMEBCj7oOO3vExWQvKw1ZNs06jz9xf1C7qGWWNIYoOnpn+OP9Cj3JQeB7QNdZ3lQULIlQvf59MOzOYY+4vViQ== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/984788ce9bed2cae/variables" for ::1 at 2019-07-09 23:32:13 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:32:17 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"JhnvWD4LZ1VwamKtRfmL9DAu8N/llzvOxgiWF4Sq3crM7JTSKSBkalPIKU8KfqbE4gDr4h2/y+jDfvZWHGlqwA==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "r9FnP4R2iplpB61CgoTtgw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "r9FnP4R2iplpB61CgoTtgw"], ["updated_at", "2019-07-10 03:32:17.411249"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 351ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:32:17 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "r9FnP4R2iplpB61CgoTtgw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/session" for ::1 at 2019-07-09 23:32:43 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DoX0YHle4EW0tRXzQTJxJ3TVXPBxwejK4dc7E8YkTGHkcI/qbnXjepcXXhEOtVwXpvtHzYnpGOzkoVtSXuf7aw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "r9FnP4R2iplpB61CgoTtgw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "SDatEbiZSNIRtQrqgCqzKA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "SDatEbiZSNIRtQrqgCqzKA"], ["updated_at", "2019-07-10 03:32:43.793679"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 15ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:32:43 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:32:46 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:32:49 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>" RKC4zqqf4a/INRJFWjrjRGtKi9b/s3M1ghiHc0Ek/A+uVcNEvbTikOuXWacVvc50uWSQ6webgxOHbucy2edLBQ== ", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/cdf8c88d4d3170be/variables" for ::1 at 2019-07-09 23:32:49 -0400
+Started POST "/session" for ::1 at 2019-07-09 23:33:00 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"GOaIFCtCN+dZ09CAZLHKHp4rSFz9c3+3/ep4AlplpbDyE/OePGk02Hpxm2IrNucuTAVTYQVbj5H4nBhDwqYSug==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "FwCJnLv8DsCC9UZZqlxcIA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "FwCJnLv8DsCC9UZZqlxcIA"], ["updated_at", "2019-07-10 03:33:00.433131"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 350ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:33:00 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "FwCJnLv8DsCC9UZZqlxcIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/session" for ::1 at 2019-07-09 23:33:05 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GWVASukjpoY8ceE8PxWi6Aq2kwIZOOHYvLqS75/VdgnzkDvA/giluR/Tqt5wko/Y2JiIP+EQEf65zPKuBxbBAw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "FwCJnLv8DsCC9UZZqlxcIA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "ZMtx_5o0LwOe1gv27iD9tw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "ZMtx_5o0LwOe1gv27iD9tw"], ["updated_at", "2019-07-10 03:33:05.804174"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 13ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:33:05 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:37:33 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"1mbb4r7CIMHYi0zqeUOxRZmdiqjyB1xgvM0OcvfXoiQ8k6Boqekj/vspBwg2xJx1S7ORlQovrEa5u24zbxQVLg==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "nVbz4rnWB7dZqJ6n96knVw"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "nVbz4rnWB7dZqJ6n96knVw"], ["updated_at", "2019-07-10 03:37:33.667181"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 378ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:37:33 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (13.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "nVbz4rnWB7dZqJ6n96knVw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 61ms (Views: 51.5ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/session" for ::1 at 2019-07-09 23:37:39 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IRMhHGLbxv+3dK02SxHy0tYHjLT6wXo3lDEbf5wetxzL5lqWdfDFwJTW5tQElt/iBCmXiQLpihGRR3s+BN0AFg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "nVbz4rnWB7dZqJ6n96knVw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "A0LzgsFuRq4n_SwlaR8H0g"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "A0LzgsFuRq4n_SwlaR8H0g"], ["updated_at", "2019-07-10 03:37:39.272998"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 21ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:37:39 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 50ms (Views: 49.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2019-07-09 23:37:42 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"hCFavTf8I1rsm2lRk2A9ZZy1EhzOI3mmZSb+DGVZ2UZu1CE3INcgZc85IrPc5xBVTpsJITYLiYBgUJ5N/ZpuTA==", "user"=>{"user_name"=>"LatifulAhad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "c0n4BkOM73QNHGZof6_G3w"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "c0n4BkOM73QNHGZof6_G3w"], ["updated_at", "2019-07-10 03:37:43.197085"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/cats
+Completed 302 Found in 351ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/cats" for ::1 at 2019-07-09 23:37:43 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:4
+  Rendered cats/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "c0n4BkOM73QNHGZof6_G3w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/session" for ::1 at 2019-07-09 23:37:46 -0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"y1Njo55k+5uOliGIUdTL8cIqi1egNFmN56aFKB94DYQhphgpiU/4pK00amoeU+bBEASQalgcqavi0OVph7u6jg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "c0n4BkOM73QNHGZof6_G3w"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = ? AND "users"."id" != ? LIMIT ?[0m  [["user_name", "LatifulAhad"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = ? AND "users"."id" != ? LIMIT ?[0m  [["session_token", "xV4pOhRVqBGT7Xxx6S79oQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:13
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "xV4pOhRVqBGT7Xxx6S79oQ"], ["updated_at", "2019-07-10 03:37:46.209894"], ["id", 1]]
+  ↳ app/models/user.rb:13
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:13
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 18ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/session/new" for ::1 at 2019-07-09 23:37:46 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
