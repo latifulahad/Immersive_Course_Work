@@ -1,5 +1,6 @@
 class CatsController < ApplicationController
-  
+  before_action :check_usr!, only: [:edit, :update]
+
   def index
     @cats = Cat.all
     render :index 
@@ -43,6 +44,7 @@ class CatsController < ApplicationController
   private
   
   def wanted_params
-    params.require(:cat).permit(:name, :sex, :birth_date, :color, :description)
+    params.require(:cat).permit(:name, :sex, :birth_date, :color, :description, :user_id)
   end
+
 end

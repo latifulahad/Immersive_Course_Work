@@ -31,6 +31,7 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Status Option</th>
+        <th>Renter_Name</th>
       </tr>
     </thead>
 
@@ -40,7 +41,9 @@
           <td><%= rq.status %></td>
           <td><%= rq.start_date %></td>
           <td><%= rq.end_date %></td>
-          <%= render "req_opt", req: rq %>
+          <% if check_usr_bool? %>
+            <%= render "req_opt", req: rq %>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

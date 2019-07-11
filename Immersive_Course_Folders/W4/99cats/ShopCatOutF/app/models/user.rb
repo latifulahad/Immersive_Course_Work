@@ -6,6 +6,18 @@ class User < ApplicationRecord
 
   before_validation :setup_instance
 
+  has_many :cats,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: 'Cat',
+  dependent: :destroy
+
+  has_many :rental_requests,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: 'CatRentalRequest',
+  dependent: :destroy
+
   attr_reader :password
 
   def reset_session_token!

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @usr = User.new(wanted_params)
-    if @usr
+    if @usr.save!
       log_in_usr!(@usr)
       redirect_to cats_url
     else

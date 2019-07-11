@@ -9,3 +9,8 @@
     <input type="submit" value="deny">
   </form>
 </td>
+<td>
+  <% return if req.user_id == 0 %>
+  <% user = User.find(req.user_id) %>
+  <%= user.user_name %>
+</td>

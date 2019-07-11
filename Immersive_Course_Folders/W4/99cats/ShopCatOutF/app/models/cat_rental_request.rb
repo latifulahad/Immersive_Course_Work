@@ -2,13 +2,18 @@ class CatRentalRequest < ApplicationRecord
   STATUS = ["PENDING", "APPROVED", "DENIED"]
 
   validates :status, inclusion: STATUS
-  validates :cat_id, :start_date, :end_date, presence: true
+  validates :cat_id, :start_date, :end_date, :user_id, presence: true
   validate :donnot_overlep_aprvd_req
 
   belongs_to :cat,
   primary_key: :id,
   foreign_key: :cat_id,
   class_name: 'Cat'
+
+  belongs_to :renter,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: 'User'
 
   def overlapping_req
     ans = CatRentalRequest

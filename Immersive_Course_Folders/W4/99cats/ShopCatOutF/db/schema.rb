@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_07_193330) do
+ActiveRecord::Schema.define(version: 2019_07_11_195325) do
 
   create_table "cat_rental_requests", force: :cascade do |t|
     t.integer "cat_id", null: false
@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 2019_07_07_193330) do
     t.date "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["cat_id"], name: "index_cat_rental_requests_on_cat_id"
+    t.index ["user_id"], name: "index_cat_rental_requests_on_user_id"
   end
 
   create_table "cats", force: :cascade do |t|
@@ -30,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_07_07_193330) do
     t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_cats_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
