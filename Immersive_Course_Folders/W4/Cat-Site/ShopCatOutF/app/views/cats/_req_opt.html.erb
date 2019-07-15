@@ -1,0 +1,18 @@
+
+<td>
+  <form action="<%= approve_cat_rental_request_url(req) %>" method="post">
+    <%= auth_token %>
+  
+    <input type="submit" value="approve">
+  </form>
+  <form action="<%= deny_cat_rental_request_url(req) %>" method="post">
+    <%= auth_token %>
+    
+    <input type="submit" value="deny">
+  </form>
+</td>
+<td>
+  <% return if req.user_id == 0 %>
+  <% user = User.find(req.user_id) %>
+  <%= user.user_name %>
+</td>
