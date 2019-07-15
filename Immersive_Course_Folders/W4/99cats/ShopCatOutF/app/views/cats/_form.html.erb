@@ -3,7 +3,8 @@
 
 <form action="<%= action %>" method="post">
   <input type="hidden" name="_method" value="<%= method %>"> 
-  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> "> 
+    <%= auth_token %>
+
   <input type="hidden" name="cat[user_id]" value=" <%=current_usr.id %>" >
   
   <label for="name">Name</label>
@@ -40,4 +41,15 @@
   <br><br>
 
 <input type="submit" value="Click for Submit">
+
 </form>
+
+<% if method == :patch %>
+  <%= content_for :footer do %>
+    <p>Please revise with caution our friends have feelings, just like us!</p>
+  <% end %>
+<% else %>
+  <%= content_for :footer do %>
+    <p>Yay more friends for sharing!!!!!!</p>
+  <% end %>
+<% end %>

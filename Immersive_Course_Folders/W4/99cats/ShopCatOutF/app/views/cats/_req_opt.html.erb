@@ -1,7 +1,8 @@
 
 <td>
   <form action="<%= approve_cat_rental_request_url(req) %>" method="post">
-  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>"> 
+    <%= auth_token %>
+  
     <input type="submit" value="approve">
   </form>
   <form action="<%= deny_cat_rental_request_url(req) %>" method="post">

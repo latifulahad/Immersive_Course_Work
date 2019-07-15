@@ -48,3 +48,7 @@
       <% end %>
     </tbody>
 </table>
+
+<%= content_for :footer do %>
+  <p>Attention: Both renter and cat parent, don't forget to look at <%= @cat.name%>'s schedule table!</p>
+<% end %>

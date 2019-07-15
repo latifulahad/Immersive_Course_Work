@@ -14,6 +14,7 @@
     <div>
       <% if current_usr.nil? %>
         <a href="<%= new_session_url %>">Sign in</a>
+        or
         <a href="<%= new_user_url %>">Sign up</a>
       <% else %>
         <%= current_usr.user_name %>
@@ -27,4 +28,14 @@
 
     <%= yield %>
   </body>
+
+  <br><br>
+
+  <footer>
+
+    <p>Friends and Family, this site is here to expose the beauty of love that is derivative of cats :)</p>
+
+    <%= yield :footer %> 
+  </footer>
+  
 </html>

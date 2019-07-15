@@ -1,7 +1,7 @@
 <h1>Rental Request Form</h1>
 
 <form action="<%= cat_rental_requests_url %>" method="post">
-<input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %>"> 
+  <%= auth_token %>
 <input type="hidden" name="req[user_id]" value=" <%= current_usr %> " >
 
   <label for="cat_id">Cat_id: </label>
@@ -28,4 +28,9 @@
       <br><br>
 
   <input type="submit" value="CLick to Submit :)">
-</form>
+
+  </form>
+  
+  <%= content_for :footer do %>
+    <p>This will make our furry friends feel really special hehe :)</p>
+  <% end %>

@@ -13,7 +13,9 @@ class UsersController < ApplicationController
     @usr = User.new(wanted_params)
     if @usr.save!
       log_in_usr!(@usr)
-      redirect_to cats_url
+
+      msg = UserMailer.welcome_msg(@usr)
+      msg.deliver
     else
       redirect_to new_user_url
     end
