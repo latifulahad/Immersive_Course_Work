@@ -15119,3 +15119,5 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.0ms)
 
 
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mCat Load (2.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m

@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, only: [:new, :show, :create]
+  resources :bands, only: [:show, :index, :new, :edit, :create, :update, :destroy]
+  resource :session, only: [:new, :create, :destroy]
+  
 end
