@@ -1,0 +1,12 @@
+
+<div>
+  <ul>
+    <% @bands.each do |band| %>
+      <li><%= link_to band.name, band_url(band) %></li>
+    <% end %>
+   </ul> 
+</div>
+
+<%= content_for :footer do %>
+  <p>I proudly present you with these wonderful bands :)</p>
+<% end %>

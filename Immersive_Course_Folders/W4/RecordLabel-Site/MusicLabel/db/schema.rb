@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_153825) do
+ActiveRecord::Schema.define(version: 2019_07_19_230838) do
+
+  create_table "albums", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "status", default: "studio", null: false
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "band_id", null: false
+    t.index ["band_id"], name: "index_albums_on_band_id"
+    t.index ["title"], name: "index_albums_on_title", unique: true
+  end
 
   create_table "bands", force: :cascade do |t|
     t.string "name", null: false

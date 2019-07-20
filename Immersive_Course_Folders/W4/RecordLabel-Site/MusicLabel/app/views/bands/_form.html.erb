@@ -1,0 +1,31 @@
+<% action_url = band.persisted? ? band_url(band) : bands_url %>
+<% method_vrb = band.persisted? ? "PATCH" : "POST" %>
+
+<div>
+  <h2>
+    <% if method_vrb == "POST" %>
+      New Band Entry
+    <% else %>
+      Edit You Band Information
+    <% end %>
+  </h2>
+
+  <form action="<%= action_url %>" method="POST">
+  <input type="hidden" name="_method" value="<%=method_vrb%>">
+  <%= auth_token %>
+
+    <label for="name">Band Name</label>
+    <input id="name" type="text" name="band[name]" value="<%= band.name %>">
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<%= content_for :footer do %>
+  <% if method_vrb == "POST" %>
+    <p>Please review date before submission!</p>
+  <% else %>
+    <p>Review your corrections please!</p>
+  <%end%>
+<% end %>
+

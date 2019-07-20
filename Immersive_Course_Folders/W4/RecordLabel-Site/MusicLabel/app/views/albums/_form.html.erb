@@ -1,0 +1,48 @@
+<% action = album.persisted? ? album_url(album) : albums_url %>
+<% method = album.persisted? ? "PATCH" : "POST" %>
+
+<div class="new_album">
+  
+    <% if method == "POST"%>
+      <p>Let us enter an album</p>
+    <% else %>
+      <p>Lets edit <%= album.title %></p>
+    <% end %>
+
+    <br>
+    
+    <form action="<%= action %>" method="POST">
+    <input type="hidden" name="_method" value="<%= method %>">
+      <%= auth_token %>
+
+      <label for="band_name">Band Names</label>
+      <select id="band_name" name="album[band_id]">
+      <option disabled <%= "selected" unless band%>>"--select band--"<option>
+        <% Band.all.each do |bd| %>
+          <option value="<%= bd.id%>" <%= album.band == bd ? "selected" : ""%> ><%= bd.name %><option>
+        <% end %>
+        
+      </select>
+        <label>Album-Condition: </label>
+        <label for="s_state">Studio</label>
+        <input
+         id="s_state" 
+         type="radio" 
+         name="album[status]" 
+         value="studio" 
+         <%= album.status == "studio" ? "checked" : "" %>>
+        <label for="l_state">Live</label>
+        <input 
+        id="l_state" 
+        type="radio" 
+        name="album[status]" 
+        value="live" 
+        <%= album.status == "live" ? "checked" : "" %>>
+
+        <label for="year">Year</label>
+        <input id="year" type="text" name="album[year]" value="<%= album.year.to_s %>"> 
+
+      <input type="submit" value="Enter-Form">
+    </form>
+
+</div>

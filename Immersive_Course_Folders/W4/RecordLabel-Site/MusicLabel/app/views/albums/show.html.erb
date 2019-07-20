@@ -1,0 +1,14 @@
+
+<div class="show_album">
+
+  <h2><%=@album.title%><h/2>
+
+  <br>
+
+  <%= link_to "Edit-Album", edit_album_url%>
+
+  <br>
+
+  <% band = @album.band%>
+  <%= link_to "band-page", band_url(band.id)%>
+</div>

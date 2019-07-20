@@ -1,0 +1,19 @@
+
+<div class="show_band">
+  
+  <% albums = @band.albums %>
+
+    <label for="albums">Albums by <%= @band.name%></label>
+    <ul id="albums">
+      <% albums.each do |al| %>
+      <li><%= link_to al.title, album_url(al) %></li>
+      <%= button_to "Remove-Album?", album_url(al), method: :delete %>
+      <% end %>
+    </ul>
+
+    <%= link_to "Register-New-Album", new_band_album_url(@band)%>
+</div>
+
+<%= content_for :footer do %>
+  <p>I will eventually output stats pertaining to the given band here</p>
+<% end %>
