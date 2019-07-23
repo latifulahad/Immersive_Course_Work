@@ -15,14 +15,17 @@
     <input type="hidden" name="_method" value="<%= method %>">
       <%= auth_token %>
 
+      <label for="Album_t">Album Title: </label>
+      <input id="Album_t" name="album[title] type="text" value="<%= album.title %>">
+
       <label for="band_name">Band Names</label>
       <select id="band_name" name="album[band_id]">
-      <option disabled <%= "selected" unless band%>>"--select band--"<option>
         <% Band.all.each do |bd| %>
-          <option value="<%= bd.id%>" <%= album.band == bd ? "selected" : ""%> ><%= bd.name %><option>
+          <option value="<%= bd.id%>" <%= band == bd ? "selected" : ""%> ><%= bd.name %><option>
         <% end %>
         
       </select>
+
         <label>Album-Condition: </label>
         <label for="s_state">Studio</label>
         <input

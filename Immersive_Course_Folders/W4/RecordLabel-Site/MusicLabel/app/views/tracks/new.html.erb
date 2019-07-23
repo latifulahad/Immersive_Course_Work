@@ -1,0 +1,22 @@
+<div>
+
+<h2>Lets add a track to <%= @album.title %> </h2>
+
+  <form action="<%= tracks_url %>" method="POST">
+  <% auth_token %>
+
+    <label for="track_name">Track Title</label>
+    <input id="track_name" type="text" name="track[title]">
+
+    <label for="album_name">Album Names</label>
+      <select id="album_name" name="track[album_id]">
+        <% Band.all.each do |al| %>
+          <option value="<%= al.id%>" <%= @album == al ? "selected" : ""%> ><%= al.name %><option>
+        <% end %>
+        
+      </select>
+
+    <input type="submit" value="Enter Track">
+  </form>
+
+</div>

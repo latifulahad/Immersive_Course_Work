@@ -1,0 +1,25 @@
+<div>
+
+<h2>Lets change <%= @track.title %> </h2>
+
+  <form action="<%= track_url(@track) %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH"
+  
+  <% auth_token %>
+
+    <label for="track_name">Track Title</label>
+    <input id="track_name" type="text" name="track[title]" value="<%= @track.title %>">
+
+    <label for="album_name">Album Names</label>
+      <select id="album_name" name="track[album_id]">
+        <% Band.all.each do |al| %>
+          <option value="<%= al.id%>" <%= @album == al ? "selected" : ""%> ><%= al.name %><option>
+        <% end %>
+        
+      </select>
+
+    <input type="submit" value="Apply-Change">
+  </form>
+
+  <%= button_to "DELETE-TRACK", track_url(@track), method: :delete%>
+</div>
