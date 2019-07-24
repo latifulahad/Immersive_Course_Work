@@ -1,0 +1,31 @@
+<div>
+
+  <h2><%= @track.title %></h2>
+
+    <ol>
+    
+      <% nts = @track.notes %>
+      <% nts.each do |nt| %>
+        <li> <%= nt.opinion %>  by <%= nt.user.email %>
+          <% if nt.user_id == current_user.id %>
+            <%= link_to "Edit-NOTE", edit_note_url(nt) %>
+          <% end %>
+        </li>
+      <% end %>
+
+    </ol>
+
+      <br>
+
+  <form action="<%= notes_url %>" method="POST" >
+    <%= auth_token %>
+
+    <label for="note">Opinion</label>
+    <textarea name="note[opinion]"></textarea>
+
+    <input type="hidden" name="note[user_id]" value="<%= current_user.id %>">
+    <input type="hidden" name="note[track_id]" value="<%= @track.id %>">
+    <input type="submit" value="UPLOAD">
+  </form>
+
+</div>

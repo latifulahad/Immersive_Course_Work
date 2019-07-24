@@ -13,7 +13,8 @@ class UsersController < ApplicationController
     @usr = User.new(wanted_params)
     if @usr.save!
       log_in_user!(@usr)
-      redirect_to user_url(@usr)
+      # redirect_to user_url(@usr)  #TESTING PHASE
+      redirect_to bands_url
     else
       redirect_to new_user_url
     end

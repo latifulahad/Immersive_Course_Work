@@ -11,7 +11,10 @@
 
     <ol>
       <% @album.tracks.each do |trk| %>
-        <li><%= trk.title %> <%= link_to "Edit-Track-Info", edit_track_url(trk.id) %></li>
+        <li><%= trk.title %> 
+        <%= link_to "Edit-Track-Info", edit_track_url(trk.id) %>
+        <%= link_to "Show-Notes", note_url(trk) %>
+        </li>
       <% end %>
     </ol>
 

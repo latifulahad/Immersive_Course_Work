@@ -1,4 +1,6 @@
 class BandsController < ApplicationController
+before_action :restrict_non_logged_usr, only: [:index, :new, :edit]
+
   def show
     @band = Band.find(params[:id]) 
     render :show
@@ -19,7 +21,7 @@ class BandsController < ApplicationController
     if @band
       redirect_to band_url(@band)
     else
-      redirect_to new_band_url
+      render json: Band.errors.full_messages , status: :unprocessable_entity
     end
   end
 
@@ -40,7 +42,7 @@ class BandsController < ApplicationController
       @band.update(wanted_params)
       redirect_to band_url(@band)
     else
-      redirect_to edit_band_url
+      render json: Band.errors.full_messages , status: :unprocessable_entity
     end
   end
 

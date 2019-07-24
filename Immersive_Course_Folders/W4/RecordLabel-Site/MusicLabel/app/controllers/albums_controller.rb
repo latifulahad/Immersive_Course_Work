@@ -27,7 +27,7 @@ class AlbumsController < ApplicationController
     if @album
       redirect_to album_url(@album)
     else
-      redirect_to new_album_url
+      render json: Album.errors.full_messages , status: :unprocessable_entity
     end
   end
 
@@ -51,7 +51,7 @@ class AlbumsController < ApplicationController
       @album.update(wanted_params)
       redirect_to album_url(@album)
     else
-      redirect_to edit_album_url
+      render json: Album.errors.full_messages , status: :unprocessable_entity
     end
   end
 

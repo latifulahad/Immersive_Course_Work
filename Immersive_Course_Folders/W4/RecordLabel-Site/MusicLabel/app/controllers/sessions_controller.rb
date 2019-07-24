@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @usr = User.find_by_credentials(params[:user][:email], params[:user][:password])
     if @usr
       log_in_user!(@usr)
-      redirect_to user_url(@usr)
+      redirect_to bands_url
     else
       redirect_to new_session_url
     end

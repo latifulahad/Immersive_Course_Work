@@ -1,5 +1,9 @@
 
 <div>
+  <% if current_user%>
+    <h2>Welcome <%= current_user.email %></h2>
+  <% end %>
+
   <ul>
     <% @bands.each do |band| %>
       <li><%= link_to band.name, band_url(band) %></li>

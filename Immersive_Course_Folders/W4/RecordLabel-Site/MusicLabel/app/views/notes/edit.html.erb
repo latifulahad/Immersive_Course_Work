@@ -1,0 +1,16 @@
+<div>
+  <h2><%= @note.track.title %></h2>
+
+  <form action="<%=note_url(@note)%> method="post">
+    <input type="hidden" name="_method" value="PATCH">
+    <%= auth_token %>
+    
+    <textarea>
+      <%= @note.opinion %>
+    </textarea>
+
+    <input type="submit" value="CHANGE!">
+  </form>
+
+  <%= button_to "Remove-NOTE", note_url(@note), method: :delete %>
+</div>

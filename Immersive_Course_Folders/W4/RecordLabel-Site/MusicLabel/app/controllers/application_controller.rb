@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
 
   helper_method :current_user
 
@@ -11,5 +11,9 @@ class ApplicationController < ActionController::Base
   def log_in_user!(usr)
     usr.reset_session_token!
     session[:session_token] = usr.session_token
+  end
+
+  def restrict_non_logged_usr
+    redirect_to new_session_url unless current_user
   end
 end

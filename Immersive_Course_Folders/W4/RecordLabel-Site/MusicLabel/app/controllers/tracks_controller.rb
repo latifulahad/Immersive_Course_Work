@@ -21,7 +21,7 @@ class TracksController < ApplicationController
     if @track
       redirect_to album_url(@album)
     else
-      redirect_to new_album_track_url(@album)
+      render json: Track.errors.full_messages , status: :unprocessable_entity
     end
   end
 
@@ -46,7 +46,7 @@ class TracksController < ApplicationController
       track.update(wanted_params)
       redirect_to album_url(@album)
     else
-      redirect_to edit_track_url(track)
+      render json: Track.errors.full_messages , status: :unprocessable_entity
     end
   end
 
