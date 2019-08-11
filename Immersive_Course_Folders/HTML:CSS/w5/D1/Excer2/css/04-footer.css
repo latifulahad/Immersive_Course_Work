@@ -1,25 +1,32 @@
-/* PHASE 4: Footer */
 
 .footer {
-
+    margin: auto;
+    opacity: .5;
+    width: 1000px;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
 }
 
 .footer-copy {
-
+    float: left;
+    padding: 20px;
 }
 
 .footer-links {
-
+    float: right;
+    padding: 20px;
 }
 
 .footer-links > li {
-
+    float: left;
+    padding: 0 0 0 20px;
 }
 
 .footer a {
-
+    display: block;
 }
 
 .footer a:hover {
-
+    background: #000;
 }
