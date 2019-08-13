@@ -1,22 +1,36 @@
 .main-nav {
-
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid $light-gray;
 }
 
 .left-nav > ul,
 .right-nav > ul {
-
+    display: flex;
+    align-items: center;
 }
 
 .left-nav > ul > li {
-
+    font-family: $sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
-.right-nav > ul > li {
+.left-nav > ul > li:hover {
+    background-color: $lightest-gray;
+    border-color: $dark-gray; 
+} 
 
+.right-nav > ul > li {
+    margin-left: 3px;
 }
 
 .right-nav > ul > li:last-of-type {
-
+    font-size: 15px;
 }
 
 .left-nav > ul > li:hover,
@@ -27,8 +41,10 @@
 .left-nav span {
 
 }
-
-
 .right-nav i {
+    cursor: pointer;
+}
 
+.right-nav i:hover {
+    background: $light-gray;
 }

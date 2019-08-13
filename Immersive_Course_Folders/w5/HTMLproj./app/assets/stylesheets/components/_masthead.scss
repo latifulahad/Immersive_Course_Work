@@ -29,6 +29,14 @@
 	display: flex;
 }
 
+.language-nav a:hover {
+	text-decoration: underline;
+}
+
+.language-nav li:first-child {
+	font-weight: bold;
+}
+
 .logo {
 	max-width: 400px;
 	margin-top: 10px;
@@ -44,7 +52,7 @@
 
 .masthead-links li {
 	margin-left: 10px;
-	border-right: 1px solid $light-gray;
+	display: block;
 }
 
 .masthead-links button {
@@ -67,6 +75,11 @@
 
 .masthead-links i {
 	margin-right: 5px;
+}
+
+.masthead-links a:hover {
+	text-decoration: underline;
+	// margin-right: 5px;
 }
 
 .masthead-links strong {
