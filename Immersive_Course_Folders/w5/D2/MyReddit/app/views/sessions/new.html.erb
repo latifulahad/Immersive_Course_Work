@@ -1,0 +1,25 @@
+<nav class="login-nav">
+    <h1>LogIn</h1>
+</nav>
+
+<section class="login-bd">
+    <form action="<%= session_url %>" method="POST">
+        <%= auth_token %>
+
+        <label for="email">
+            <input id="email" type="text" name="user[email]">
+            Email
+        </label>
+
+    <br><br>
+
+        <label for="password">
+            <input id="password" type="text" name="user[password]">
+            Password
+        </label>
+
+    <br><br>
+
+        <input type="submit" value="ENTER">
+    </form>
+</section>

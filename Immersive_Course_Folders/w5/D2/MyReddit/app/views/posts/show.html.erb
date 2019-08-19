@@ -1,0 +1,42 @@
+<nav class="post-show-nav">
+    <h1><%= @post.title %></h1>
+</nav>
+    
+<section class="post-sec">
+
+        <% if current_user.id == @post.author_id %>
+            <a href="<%=edit_sub_post_url(@post)%>">Edit-Post</a>
+        <% end %>
+    <br>
+        <label>
+            Content: 
+            <p><%= @post.content%></p>
+        </label>
+
+        <img src="<%= @post.link %>">
+</section>
+
+<section class="post-sec-2">
+    <h3>Comments</h3>
+    
+    <a href="<%= new_post_comment_url(params[:id])%>">Comment on this Post</a>
+<br> 
+    <ul>
+        <% @all_comments.select { |cm| cm.p_comment_id.nil? }.each do |cm| %>
+
+            <li>
+                <a href="<%= comment_url(cm.id)%>"><%= cm.content %></a>
+
+                <ul class="sub-comments">
+                    <% cm.child_comments.each do |cm2| %>
+                        <li><%= cm2.content %></li>
+                    <%end%>
+                </ul>
+
+            </li>
+        <% end %>
+    </ul>
+
+<br><br>
+        <a href="<%= subs_url %>">Back-to-Subs</a>
+</section>

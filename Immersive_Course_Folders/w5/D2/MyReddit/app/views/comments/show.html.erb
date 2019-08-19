@@ -1,0 +1,25 @@
+<h2>Reply to this Comment</h2
+<br>
+<a href="<%= post_url(@comment.post_id) %>">Return-to-Post</a>
+
+<section class="parent-comment-sec">
+    <ul>
+    <% Comment.where(p_comment_id: @comment.id).each do |cm| %>
+        <li><%= cm.content %></li>
+    <% end %>
+    </ul>
+</section>
+
+<form action="<%= comments_url %>" method="POST" >
+    <%= auth_token %>
+
+    <textarea name="comment[content]">
+    </textarea>
+
+    <input type="hidden" name="comment[post_id]" value="<%= @comment.post_id %>">
+
+    <input type="hidden" name="comment[author_id]" value="<%= current_user.id %>">
+    
+    <input type="hidden" name="comment[p_comment_id]" value="<%= @comment.id %>">
+    <input type="submit" value="POST">
+</form>

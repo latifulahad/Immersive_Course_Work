@@ -1,0 +1,25 @@
+<nav class="sub-show-nav">
+    <h1><%= @sub.title %></h1>
+</nav>
+
+<section class="sub-sec">
+        <label>
+            Description <p><%= @sub.description %> by <%= @sub.author.name %></p>
+        </label>
+</section>
+
+<section class="sub-post">
+<br>
+    <% if current_user %>
+        <a href="<%=new_sub_post_url(params[:id])%>">Make a Post</a>
+    <% end %>
+<br>
+    <ul>
+    <% Post.all.each do |p| %>
+        <li><%= link_to p.title, post_url(p.id)%></li>
+    <% end %>
+    <ul>
+
+<br><br>
+    <a href="<%= subs_url %>">Back-to-Subs</a>
+</section>

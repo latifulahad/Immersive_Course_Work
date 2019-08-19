@@ -1,0 +1,13 @@
+<Form action="<%= comments_url %>" method="POST" >
+    <%= auth_token %>
+
+    <textarea name="comment[content]">
+    </textarea>
+
+    <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
+    <input type="hidden" name="comment[author_id]" value="<%= current_user.id %>">
+
+    <input type="submit" value="POST">
+</Form>
+
+<a href="<%= post_url(@post) %>">Return-to-Post</a>

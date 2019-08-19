@@ -1,0 +1,8 @@
+<nav class="show-nav">
+    <h1> Welcome <%= @usr.name %> <h1>
+</nav>
+
+<section class="user-info">
+    <p> You're Information: Name = <%=@usr.name%>, Email: <%=@usr.email%> </p>
+    <%= link_to "Edit Profile", edit_user_url(@usr) %>
+</section>

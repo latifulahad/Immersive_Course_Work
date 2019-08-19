@@ -1,0 +1,32 @@
+<% action = sub.persisted? ? sub_url(sub) : subs_url %>
+<% method = sub.persisted? ? :patch : :post %>
+
+<nav class="sub-nav">
+    <% if method == :patch %>
+        <h1>Let's Fix <%= sub.title %></h1>
+    <% else %>
+        <h1>Let's Make a Sub</h1>
+    <% end %>
+</nav>
+
+<section class="sub-sec">
+    <%= auth_token %>
+
+    <form action="<%= action %>", method="post">
+    <input type="hidden" name="_method" value="<%= method %>" >
+
+        <label>
+            <input type="text" name="sub[title]" value="<%= sub.title %>">
+            Title
+        </label>
+<br><br>
+        <label>
+            <textarea name="sub[description]" ><%= sub.description %></textarea>
+            Description 
+        </label>
+<br><br>
+        <input type="hidden" name="sub[moderator] value="<%= current_user.id %>">
+        <input type="submit" value="Submit">
+    <form>
+
+</section>
