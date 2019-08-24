@@ -14051,3 +14051,5 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 35ms (Views: 34.6ms | ActiveRecord: 0.0ms)
 
 
+  [1m[36mPost Load (7.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
