@@ -106,3 +106,74 @@ function sumOfPrimes(n) {
 // console.log(fizzbuzz([3, 5, 15])) WORKS
 // console.log(isPrime(20)) WORKS
 // console.log(sumOfPrimes(4)) WORKS
+
+// Lvl II Tasks
+//Phase1
+function titleize(arr, cBack) {
+    let new_arr = arr.map(el => `Mx. ${el} Jingleheimer Schmidt`);
+    cBack(new_arr)
+}
+/*
+titleize(["Sabit", "Suravi"], (wateva) => {
+    wateva.forEach(wrd => console.log(wrd));
+});
+*/
+function Elephant(name, height, tricks) {
+    this.name = name;
+    this.height = height;
+    this.tricks = tricks;
+}
+
+Elephant.prototype.trumpet = function() {
+    console.log(`${this.name} the elephant goes 'phrRRRRRRRRRRR!!!!!!!'`);
+}
+
+Elephant.prototype.grow = function() {
+    this.height += 12;
+}
+
+Elephant.prototype.addTrick = function(trick) {
+    this.tricks.push(trick);
+}
+
+Elephant.prototype.play = function() {
+    let idx = Math.floor(Math.random() * this.tricks.length);
+    console.log(`${this.name} ${this.tricks[idx]}`);
+}
+//TESTS
+let sabit = new Elephant("Sabit", 69, ["likes to be appreciated :(", "scares cats for fun!"]);
+// sabit.trumpet() WORKS
+// sabit.grow() WORKS
+// console.log(sabit.height)
+sabit.addTrick("likes to kiss the sky :)") 
+// console.log(sabit.tricks)
+// sabit.play() WORKS
+
+let ellie = new Elephant("Ellie", 185, ["giving human friends a ride", "playing hide and seek"]);
+let charlie = new Elephant("Charlie", 200, ["painting pictures", "spraying water for a slip and slide"]);
+let kate = new Elephant("Kate", 234, ["writing letters", "stealing peanuts"]);
+let micah = new Elephant("Micah", 143, ["trotting", "playing tic tac toe", "doing elephant ballet"]);
+
+let herd = [ellie, charlie, kate, micah, sabit];
+
+//Phase2
+Elephant.paraHelper = function(eleName) {
+    console.log(`${eleName.name} is trotting by!`);
+}
+// herd.forEach(el => console.log(Elephant.paraHelper(el)));
+
+//Phase3
+function dinBrkFast(meal) {
+     let order = "I'd like cheesy scrambled eggs please";
+     
+     if (meal === undefined) {
+        console.log(order);
+     } else {
+    order = `${order.slice(0, order.length - 8)} and ${meal} please.`;  
+    console.log(order);
+    }
+}
+//FYI instructions unclear on Bx of function....
+// dinBrkFast()
+// dinBrkFast("some fries")
+// dinBrkFast()
