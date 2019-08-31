@@ -28,4 +28,4 @@ Array.prototype.myReduce = function (callB, gvn) {
     return ans;
 }
 
-console.log([1, 2, 3].myReduce((acc, el) => acc + (el * 2) ));
+// console.log([1, 2, 3].myReduce((acc, el) => acc + (el * 2) )); WORKS
