@@ -1,15 +1,20 @@
 let Piece = require("./piece");
 
-/**
- * Returns a 2D array (8 by 8) with two black pieces at [3, 4] and [4, 3]
- * and two white pieces at [3, 3] and [4, 4]
- */
 function _makeGrid () {
+  let ans = [];
+  for(i = 0; i < 8; i++) {
+    ans.push(new Array(8))
+  }
+
+  ans[3][4] = new Piece("B");
+  ans[4][3] = new Piece("B");
+  ans[3][3] = new Piece("W");
+  ans[4][4] = new Piece("W");
+
+  return ans
 }
 
-/**
- * Constructs a Board with a starting grid set up.
- */
+
 function Board () {
   this.grid = _makeGrid();
 }
@@ -20,89 +25,149 @@ Board.DIRS = [
   [-1,  0], [-1,  1]
 ];
 
-/**
- * Returns the piece at a given [x, y] position,
- * throwing an Error if the position is invalid.
- */
+
 Board.prototype.getPiece = function (pos) {
-};
+  if (!this.isValidPos(pos)) { 
+      throw new Error("Empty");
+   }
 
-/**
- * Checks if there are any valid moves for the given color.
- */
-Board.prototype.hasMove = function (color) {
+  return this.grid[pos[0]][pos[1]];
 };
+// const a = new Board;
+// console.log(a.grid[3][3]) //WORKS
 
-/**
- * Checks if the piece at a given position
- * matches a given color.
- */
+
 Board.prototype.isMine = function (pos, color) {
+  return this.grid[pos[0]][pos[1]].color === color;
 };
+// const a = new Board;
+// console.log(a.isMine([3, 3], "W")) //WORKS
 
-/**
- * Checks if a given position has a piece on it.
- */
+
 Board.prototype.isOccupied = function (pos) {
+  return this.grid[pos[0]][pos[1]] instanceof Piece;
 };
+// const a = new Board;
+// console.log(a.isOccupied([3, 3])) //WORKS
 
-/**
- * Checks if both the white player and
- * the black player are out of moves.
- */
+
 Board.prototype.isOver = function () {
+  for(k = 0; k < 8; k++) {
+    for(i = 0; i < 8; i++) {
+      if(this.grid[k][i] === undefined) { return false; }
+   }
+  }
+  return true; 
 };
+// const a = new Board;
+// console.log(a.isOver()) //WORKS
 
-/**
- * Checks if a given position is on the Board.
- */
+
 Board.prototype.isValidPos = function (pos) {
+  return (pos[0] >= 0 && pos[0] < 8) && (pos[1] >= 0 && pos[1] < 8);
 };
+// ^WORKS
 
-/**
- * Recursively follows a direction away from a starting position, adding each
- * piece of the opposite color until hitting another piece of the current color.
- * It then returns an array of all pieces between the starting position and
- * ending position.
- *
- * Returns null if it reaches the end of the board before finding another piece
- * of the same color.
- *
- * Returns null if it hits an empty position.
- *
- * Returns null if no pieces of the opposite color are found.
- */
+
 function _positionsToFlip (board, pos, color, dir, piecesToFlip) {
-}
+  let runCond = true;
+  let ansArr = [pos];
 
-/**
- * Adds a new piece of the given color to the given position, flipping the
- * color of any pieces that are eligible for flipping.
- *
- * Throws an error if the position represents an invalid move.
- */
+    while(runCond) {
+      lastPos = ansArr[ansArr.length - 1];
+      let nextPos = [lastPos[0] + dir[0], lastPos[1] + dir[1]];
+      if(!board.isValidPos(nextPos)) { return ansArr.slice(1, ansArr.length); }
+      
+      if(board.isValidPos(nextPos)) { 
+        if(board.grid[nextPos[0]][nextPos[1]] === undefined) { return ansArr.slice(1, ansArr.length); }
+        if (board.grid[nextPos[0]][nextPos[1]].color === color) { return ansArr.slice(1, ansArr.length); }
+        ansArr.push(nextPos);
+      }
+    }
+
+  };
+// const a = new Board;
+// console.log(_positionsToFlip(a, [2, 3], "B", [1, 0], [])) //WORKS!!!!!!!!!!!!!!!
+
+
 Board.prototype.placePiece = function (pos, color) {
+  if(!this.isValidPos(pos)) { throw new Error("Move is invalid!"); }
+  
+  if (this.grid[pos[0]][pos[1]] instanceof Piece) {
+    this.grid[pos[0]][pos[1]].flip();
+  } else {
+    this.grid[pos[0]][pos[1]] = new Piece(color);
+  }
 };
+// const a = new Board;
+// a.placePiece([3, 2], "B") //WORKS
+// console.log(a.print())
 
-/**
- * Prints a string representation of the Board to the console.
- */
+
 Board.prototype.print = function () {
-};
+  console.log("Cl 0 1 2 3 4 5 6 7")
 
-/**
- * Checks that a position is not already occupied and that the color
- * taking the position will result in some pieces of the opposite
- * color being flipped.
- */
+  this.grid.forEach((row, idx) => {
+    let r = "";
+    r += `R${idx}`;
+
+    for(i = 0; i < 8; i++) {
+      row[i] instanceof Piece ? r += ` ${row[i].color}` : r += " ." ;
+      }
+    
+    console.log(r);
+  })
+};
+// const a = new Board;
+// console.log(a.print()) //WORKS
+
+
 Board.prototype.validMove = function (pos, color) {
-};
+  if(this.grid[pos[0]][pos[1]] !== undefined) { return false; } 
+  let potenMoves = [];
 
-/**
- * Produces an array of all valid positions on
- * the Board for a given color.
- */
-Board.prototype.validMoves = function (color) {
+    Board.DIRS.forEach(dir => {
+      let mvs = [];
+       potenMoves.push(_positionsToFlip(this, pos, color, dir, mvs));
+    })
+    // console.log(potenMoves) //4testing
+    for(i = 0; i < potenMoves.length; i++) {
+      if(potenMoves[i].length >= 1 ) {
+        return true; 
+      }
+    }
+
+    return false;
 };
+// const a = new Board;
+// console.log(a.validMove([3, 2], "B")) //WORKS
+
+
+Board.prototype.validMoves = function (color) {
+ let mvsArr = [];
+
+  for(i = 0; i < 8; i++) {
+    for(j = 0; j < 8; j++) {
+
+      if (this.grid[i][j] !== undefined && this.grid[i][j].color === color) {       
+        Board.DIRS.forEach(dr => {
+          let mvs = _positionsToFlip(this, [i, j], color, dr, []);
+          if (mvs.length > 0) { mvs.forEach(mv => mvsArr.push([mv[0] + dr[0], mv[1] + dr[1]])); } 
+        })
+      }
+
+    }
+  }
+ return mvsArr
+};
+// const a = new Board;
+// console.log(a.validMoves("B")) //WORKS EXCELLENT
+
+
+Board.prototype.hasMove = function (color) {
+  return this.validMoves(color).length > 0;
+};
+// const a = new Board;
+// console.log(a.hasMove("B")) //WORKS
 
 module.exports = Board;
