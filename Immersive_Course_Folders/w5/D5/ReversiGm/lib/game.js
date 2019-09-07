@@ -10,11 +10,8 @@ function Game () {
   this.turn = "black";
 };
 
-/**
- * Flips the current turn to the opposite color.
- */
 Game.prototype._flipTurn = function () {
-  this.turn = (this.turn == "black") ? "white" : "black";
+  this.turn = (this.turn === "black") ? "white" : "black";
 };
 
 // Dreaded global state!
