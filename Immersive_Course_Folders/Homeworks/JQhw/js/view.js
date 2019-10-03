@@ -50,12 +50,6 @@ View.prototype.exercise6 = function () {
 };
 
 View.prototype.exercise7 = function(){
-  //Challenge: When your mouse goes over a square, console log its color.
-  //Result: When the mouse goes over a square its color should appear in the
-  //console. The color won't be the color's name, but its rbg value.
-  //You should push the button for exercise 6 first to try it on the
-  //rainbow.
-
   $("#easel").on("mouseenter", ".square", event => {
     const $ele = $(event.currentTarget);
     console.log($ele.css("background-color"));
