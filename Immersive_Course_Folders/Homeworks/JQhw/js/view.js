@@ -19,52 +19,34 @@ View.prototype.exercise0 = function () {
 };
 
 View.prototype.exercise1 = function () {
-  //Challenge: Give every square the class 'orange'
-  //Result: Every square should turn orange (we already have a CSS rule)
-
-  //your code here!
+  $("li").addClass('orange');
 };
 
 View.prototype.exercise2 = function () {
-  //Challenge: Remove every square
-  //Result: Every square vanishes
-
-  //your code here!
+  $(".square").remove();
 };
 
-View.prototype.exercise3 = function () {
-  //Challenge: Add an <h1> with the text 'i love jquery' under the grid.
-  //Result: An <h1> with the text 'i love jquery' appears under the grid.
-
-  //your code here!
+View.prototype.exercise3 = function () {  
+  const $head = $("<h1></h1>").text("I love jquery");
+  $("#easel").append($head);
 };
 
 View.prototype.exercise4 = function () {
-  //Challenge: Write your first name in every other square.
-  //Result: Your name appears in every other square.
-
-  //your code here!
+  $(".square:nth-child(even)").text("Sabit");
 };
 
 View.prototype.exercise5 = function () {
-  //Challenge: Alert the row and column of the square, when the square is clicked.
-  //Result: When a square is clicked, the row and column appear in an alert. for
-  //example: clicking the top left square should alert '0, 0'.
-
-  //hint: checkout the addRow function at the bottom of the file: we set the
-  //  'data-pos' of every square
-
-  //your code here!
+  $(".square").on("click", event => {
+    const $pos = event.currentTarget;
+    alert($pos.data("pos"));
+  })
 };
 
 View.prototype.exercise6 = function () {
-  //Challenge: Give every square a random color!
-  //Result: Every square becomes a color as soon as this code runs. The grid
-  //should become a beautiful rainbow of colors.
-
-  //hint: use window._randomColorString() (defined at top) to get a random color!
-
-  //your code here!
+  $('.square').each((el) => {
+    const $sq = $(el);
+    $sq.attr("style", "background-color: randomColorString()");
+  })
 };
 
 View.prototype.exercise7 = function(){
@@ -74,7 +56,10 @@ View.prototype.exercise7 = function(){
   //You should push the button for exercise 6 first to try it on the
   //rainbow.
 
-  //your code here!
+  $("#easel").on("mouseenter", ".square", event => {
+    const $ele = $(event.currentTarget);
+    console.log($ele.css("background-color"));
+  });
 };
 
 
