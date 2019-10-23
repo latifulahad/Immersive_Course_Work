@@ -1,19 +1,14 @@
 <h1>Search!</h1>
 
-<form action="/users/search" method="GET">
-  <input
-    type="text"
-    name="query"
-    value="<%= @query %>">
+<nav class="users-search" >
 
-  <input type="submit" value="Search Users!">
-</form>
+  <form class="simple-form">
+      <label for='user-search-input'>
+      <input class="user-search-input" type="text" name="username" placeholder='Enter a username'>
+      Username</label>
+  </form>
 
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <a href="<%= user_url(user) %>"><%= user.username %></a>
-      <%= render 'follows/form', user: user %>
-    </li>
-  <% end %>
-</ul>
+    <h4>Results</h4>
+    <ul class="users"></ul>
+  
+</nav>

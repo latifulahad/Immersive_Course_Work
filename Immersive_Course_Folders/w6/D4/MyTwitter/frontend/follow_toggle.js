@@ -1,8 +1,10 @@
+const APIUtil = require('./api_util');
+
 class FollowToggle {
-    constructor(el) {
+    constructor(el, opt) {
         this.$el = $(el);
-        this.userId = $el.data("user-id");
-        this.followState = $el.data("initial-follow-state");
+        this.userId = $el.data("user-id") || opt.userId;
+        this.followState = $el.data("initial-follow-state") || opt.followState;
         
         this.render();
         this.$el.on('click', this.handleClick.bind(this));
@@ -11,10 +13,20 @@ class FollowToggle {
     render() {
         switch(this.followState) {
             case 'unfollowed':
+                this.$el.prop('disabled', false);
                 this.$el.html('Follow!');
                 break;
             case 'followed':
+                this.$el.prop('disabled', false);
                 this.$el.html('Unfollow!');
+                break;
+            case 'following':
+                this.$el.prop('disabled', true);
+                this.$el.html('Following...');
+                break;
+            case 'unfollowing':
+                this.$el.prop('disabled', true);
+                this.$el.html('Unfollowing...');
                 break;
          } 
     }
@@ -24,20 +36,16 @@ class FollowToggle {
         const thisTag = this;
 
         if(this.followState === "unfollowed") {
-            $.ajax({ 
-                method: 'POST',
-                url: `/users/${thisTag.userId}/follow`,
-                dataType: 'json' 
-            }).then(() => { 
+            this.followState = 'following';
+            this.render();
+            APIUtil.followUser(this.userId).then(() => { 
                 thisTag.followState = "followed";
                 thisTag.render();
             })
         } else {
-            $.ajax({ 
-                method: 'DELETE', 
-                url: `/users/${thisTag.userId}/follow`,
-                dataType: 'json' 
-            }).then(() => {
+            this.followState = 'unfollowing';
+            this.render();
+            APIUtil.unfollowUser(this.userId).then(() => {
                 thisTag.followState = "unfollowed";
                 thisTag.render();
             })
