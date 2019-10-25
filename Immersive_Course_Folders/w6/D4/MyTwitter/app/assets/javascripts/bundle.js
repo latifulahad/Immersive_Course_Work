@@ -98,33 +98,33 @@ const APIUtil = {
     followUser: id => APIUtil.changeFollowStatus(id, 'POST'),
     unfollowUser: id => APIUtil.changeFollowStatus(id, 'DELETE'),
 
-    changeFollowStatus: (id, status) => {
+    changeFollowStatus: (id, status) => (
         $.ajax({
             method: `${status}`,
             url: `/users/${id}/follow`,
             dataType: 'json'
         })
-    },
+    ),
 
-    searchUsers: (queryVal) => {
+    searchUsers: (queryVal) => (
         $.ajax({
             method: 'GET',
             url: '/users/search',
             data: { queryVal },
             dataType: 'json'
         })
-    },
+    ),
 
-    createTweet: (obj) => {
+    createTweet: (obj) => (
         $.ajax({
             method: 'POST',
             dataType: 'json',
             data: obj,
             url: '/tweets'
         })
-    }
+    )
 
-}
+};
 
 module.exports = APIUtil;
 
@@ -223,18 +223,19 @@ class TweetCompose {
     }
 
     clearInput() {
-        this.$frm.find("textarea[name=tweet\\[content\\]]").val('');
+        this.$frm.find("textarea[name=tweet\\[content\\]]").val(''); //WRKS
         this.$frm.find('select').empty(); // in theory this will uncheck the <opt>s
+        this.$frm.find(':input').prop('disabled', false);
     }
 
     handleSuccess(data) {
-        const $tweetsUl = this.$frm.data('tweets-ul');
+        const $tweetsUl = $(this.$frm.data('tweets-ul'));
         const $li = $('<li></li>');
-        $li.val(data);
+        const contnt = JSON.stringify(data);
+        $li.text(contnt);
         $tweetsUl.append($li);
-
-        this.clearInput();
-        this.$frm.find(':input').prop('disabled', false);
+        
+        this.clearInput(); //WRKS
     }
 
     submit(event) {
@@ -244,13 +245,12 @@ class TweetCompose {
 
         this.$frm.find(':input').prop('disabled', true);
 
-        APTUtil.createTweet(argObj).then(railsRes => this.handleSuccess(railsRes))
+        APTUtil.createTweet(argObj).then(railsRes => this.handleSuccess(railsRes));
     }
 
 }
 
 module.exports = TweetCompose;
-
 
 
 /***/ }),
@@ -266,11 +266,11 @@ const FollowToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/f
 const UsersSearch = __webpack_require__(/*! ./users_search.js */ "./frontend/users_search.js");
 const TweetCompose = __webpack_require__(/*! ./tweet_compose.js */ "./frontend/tweet_compose.js");
 
-$(() => {
-    $('button.follow-toggle').each((idx, btn) => new FollowToggle(btn, {}) );
-    $('nav.users-search').each((idx, nv) => new UsersSearch(nv) );
+$(function () {
     $('form.tweet-compose').each((idx, frm) => new TweetCompose(frm) );
-}) 
+    $('nav.users-search').each((idx, nv) => new UsersSearch(nv) );
+    $('button.follow-toggle').each((idx, btn) => new FollowToggle(btn, {}) );
+});
 
 
 /***/ }),
@@ -289,7 +289,7 @@ class UsersSearch {
     constructor(el) {
         this.$el = $(el);
         this.$inp = this.$el.find('input[name=username]');
-        this.$ul = this.$el.find('.users');
+        this.$ul = this.$el.find('ul.users');
 
         this.$inp.on('input', this.handleInput.bind(this));
     }
@@ -300,8 +300,7 @@ class UsersSearch {
             return;
         }
         
-        APIUtil.searchUsers(this.$inp.val()).then(resObj => this.renderResults(resObj).bind(this)); 
-        //the .then() isn't firing as axpected!!!
+        APIUtil.searchUsers(this.$inp.val()).then(resObj => this.renderResults(resObj)); 
     }
     
     renderResults(resObj) {

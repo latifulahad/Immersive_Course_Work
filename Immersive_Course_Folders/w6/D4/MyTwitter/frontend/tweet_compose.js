@@ -16,18 +16,19 @@ class TweetCompose {
     }
 
     clearInput() {
-        this.$frm.find("textarea[name=tweet\\[content\\]]").val('');
+        this.$frm.find("textarea[name=tweet\\[content\\]]").val(''); //WRKS
         this.$frm.find('select').empty(); // in theory this will uncheck the <opt>s
+        this.$frm.find(':input').prop('disabled', false);
     }
 
     handleSuccess(data) {
-        const $tweetsUl = this.$frm.data('tweets-ul');
+        const $tweetsUl = $(this.$frm.data('tweets-ul'));
         const $li = $('<li></li>');
-        $li.val(data);
+        const contnt = JSON.stringify(data);
+        $li.text(contnt);
         $tweetsUl.append($li);
-
-        this.clearInput();
-        this.$frm.find(':input').prop('disabled', false);
+        
+        this.clearInput(); //WRKS
     }
 
     submit(event) {
@@ -37,10 +38,9 @@ class TweetCompose {
 
         this.$frm.find(':input').prop('disabled', true);
 
-        APTUtil.createTweet(argObj).then(railsRes => this.handleSuccess(railsRes))
+        APTUtil.createTweet(argObj).then(railsRes => this.handleSuccess(railsRes));
     }
 
 }
 
 module.exports = TweetCompose;
-

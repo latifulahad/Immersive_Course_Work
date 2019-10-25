@@ -5,7 +5,7 @@ class UsersSearch {
     constructor(el) {
         this.$el = $(el);
         this.$inp = this.$el.find('input[name=username]');
-        this.$ul = this.$el.find('.users');
+        this.$ul = this.$el.find('ul.users');
 
         this.$inp.on('input', this.handleInput.bind(this));
     }
@@ -16,8 +16,7 @@ class UsersSearch {
             return;
         }
         
-        APIUtil.searchUsers(this.$inp.val()).then(resObj => this.renderResults(resObj).bind(this)); 
-        //the .then() isn't firing as axpected!!!
+        APIUtil.searchUsers(this.$inp.val()).then(resObj => this.renderResults(resObj)); 
     }
     
     renderResults(resObj) {
