@@ -210,10 +210,30 @@ const APTUtil = __webpack_require__(/*! ./api_util */ "./frontend/api_util.js");
 class TweetCompose {
     constructor(frm) {
         this.$frm = $(frm);
-        this.$inp = this.$frm.find("textarea[name=tweet\\[content\\]]")
+        this.$inp = this.$frm.find("textarea[name=tweet\\[content\\]]");
+        this.$mentionBtn = this.$frm.find('.mention-btn');
+        this.$mentionsUl = this.$frm.find('.mention-helper');
         
+        this.$mentionBtn.on('click', this.setupMentions.bind(this));
         this.$inp.on('input', this.handleInput.bind(this));
         this.$frm.on('submit', this.submit.bind(this));
+    }
+
+    newUserSelect() {
+        const usersInps = window.users.map((usr) => `<option value='${usr.id}'>${usr.username}</option>`).join('');
+
+        const html = `
+        <select name='tweet[mentioned-users-ids][]'>
+            ${usersInps}
+        </select>`;
+
+        return $(html);
+    }
+
+    setupMentions(event) {
+        event.preventDefault();
+
+        this.$mentionsUl.append(this.newUserSelect());
     }
 
     handleInput(event) {
