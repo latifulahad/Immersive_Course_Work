@@ -214,6 +214,7 @@ class TweetCompose {
         this.$mentionBtn = this.$frm.find('.mention-btn');
         this.$mentionsUl = this.$frm.find('.mention-helper');
         
+        this.$mentionsUl.on('click', '.remove-mentioned-user', this.rmMentionedUsr.bind(this));
         this.$mentionBtn.on('click', this.setupMentions.bind(this));
         this.$inp.on('input', this.handleInput.bind(this));
         this.$frm.on('submit', this.submit.bind(this));
@@ -223,10 +224,13 @@ class TweetCompose {
         const usersInps = window.users.map((usr) => `<option value='${usr.id}'>${usr.username}</option>`).join('');
 
         const html = `
-        <select name='tweet[mentioned-users-ids][]'>
-            ${usersInps}
-        </select>`;
+        <div>
+            <select name='tweet[mentioned_user_ids][]'>
+                ${usersInps}
+            </select>
 
+            <button class="remove-mentioned-user">Remove</button>
+        </div>`;
         return $(html);
     }
 
@@ -234,6 +238,11 @@ class TweetCompose {
         event.preventDefault();
 
         this.$mentionsUl.append(this.newUserSelect());
+    }
+
+    rmMentionedUsr(event) {
+        event.preventDefault();
+        $(event.currentTarget).parent().remove();
     }
 
     handleInput(event) {
