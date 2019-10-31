@@ -122,6 +122,15 @@ const APIUtil = {
             data: obj,
             url: '/tweets'
         })
+    ),
+
+    fetchTweets: (timeInfo) => (
+        $.ajax({
+            method: 'GET',
+            url: '/feed',
+            dataType: 'json',
+            data: timeInfo
+        })
     )
 
 };
@@ -198,6 +207,68 @@ module.exports = FollowToggle;
 
 /***/ }),
 
+/***/ "./frontend/infinite_tweets.js":
+/*!*************************************!*\
+  !*** ./frontend/infinite_tweets.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const APIUtil = __webpack_require__(/*! ./api_util */ "./frontend/api_util.js");
+
+class InfiniteTweets {
+    constructor(dv) {
+        this.$div = $(dv);
+        this.$wntUl = this.$div.find('#feed');
+        this.$moreBtn = this.$div.find('.fetch-more');
+        this.lastCreatedAt = null;
+
+        this.$div.on('click', '.fetch-more', this.fetchTweets.bind(this));
+        this.$wntUl.on('insert-tweet', this.insertTweet.bind(this));
+    }
+
+    insertTweet(event, trigData) {
+        const $li = $('<li>');
+
+        $li.text(JSON.stringify(trigData));
+        this.$wntUl.append($li);
+
+        this.lastCreatedAt = trigData.created_at;
+    }
+
+    insertTweets(resObj) {
+        const $ul = this.$div.find('#feed');
+        this.manageBtn(resObj);
+
+        resObj.forEach(twet => {
+            const $li = $('<li>');
+            $li.text(JSON.stringify(twet));
+            
+            $ul.append($li);
+        });
+
+        this.lastCreatedAt = resObj[resObj.length - 1].created_at
+    }
+
+    fetchTweets(event) {
+        event.preventDefault();
+        const reqObj = this.lastCreatedAt !== null ? { max_created_at: this.lastCreatedAt } : {};
+
+        APIUtil.fetchTweets(reqObj).then(resObj => this.insertTweets(resObj));
+    }
+
+    manageBtn(resObj) {
+        if (resObj.length < 20) {
+            this.$moreBtn.text('No More tweets!');
+            this.$moreBtn.prop('disabled', true);
+        } 
+    }
+}
+
+module.exports = InfiniteTweets;
+
+/***/ }),
+
 /***/ "./frontend/tweet_compose.js":
 /*!***********************************!*\
   !*** ./frontend/tweet_compose.js ***!
@@ -253,16 +324,13 @@ class TweetCompose {
 
     clearInput() {
         this.$frm.find("textarea[name=tweet\\[content\\]]").val(''); //WRKS
-        this.$frm.find('select').empty(); // in theory this will uncheck the <opt>s
+        this.$mentionsUl.empty();
         this.$frm.find(':input').prop('disabled', false);
     }
 
-    handleSuccess(data) {
+    handleSuccess(resObj) {
         const $tweetsUl = $(this.$frm.data('tweets-ul'));
-        const $li = $('<li></li>');
-        const contnt = JSON.stringify(data);
-        $li.text(contnt);
-        $tweetsUl.append($li);
+        $tweetsUl.trigger('insert-tweet', resObj);
         
         this.clearInput(); //WRKS
     }
@@ -294,8 +362,10 @@ module.exports = TweetCompose;
 const FollowToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
 const UsersSearch = __webpack_require__(/*! ./users_search.js */ "./frontend/users_search.js");
 const TweetCompose = __webpack_require__(/*! ./tweet_compose.js */ "./frontend/tweet_compose.js");
+const InfiniteTweets = __webpack_require__(/*! ./infinite_tweets.js */ "./frontend/infinite_tweets.js");
 
 $(function () {
+    $('div.infinite-tweets').each((idx, dv) => new InfiniteTweets(dv));
     $('form.tweet-compose').each((idx, frm) => new TweetCompose(frm) );
     $('nav.users-search').each((idx, nv) => new UsersSearch(nv) );
     $('button.follow-toggle').each((idx, btn) => new FollowToggle(btn, {}) );

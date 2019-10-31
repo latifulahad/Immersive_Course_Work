@@ -27,6 +27,15 @@ const APIUtil = {
             data: obj,
             url: '/tweets'
         })
+    ),
+
+    fetchTweets: (timeInfo) => (
+        $.ajax({
+            method: 'GET',
+            url: '/feed',
+            dataType: 'json',
+            data: timeInfo
+        })
     )
 
 };

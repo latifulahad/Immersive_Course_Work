@@ -46,16 +46,13 @@ class TweetCompose {
 
     clearInput() {
         this.$frm.find("textarea[name=tweet\\[content\\]]").val(''); //WRKS
-        this.$frm.find('select').empty(); // in theory this will uncheck the <opt>s
+        this.$mentionsUl.empty();
         this.$frm.find(':input').prop('disabled', false);
     }
 
-    handleSuccess(data) {
+    handleSuccess(resObj) {
         const $tweetsUl = $(this.$frm.data('tweets-ul'));
-        const $li = $('<li></li>');
-        const contnt = JSON.stringify(data);
-        $li.text(contnt);
-        $tweetsUl.append($li);
+        $tweetsUl.trigger('insert-tweet', resObj);
         
         this.clearInput(); //WRKS
     }
