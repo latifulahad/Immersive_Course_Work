@@ -5,7 +5,7 @@ class UsersSearch {
     constructor(el) {
         this.$el = $(el);
         this.$inp = this.$el.find('input[name=username]');
-        this.$ul = this.$el.find('ul.users');
+        this.$ul = this.$el.find('.users');
 
         this.$inp.on('input', this.handleInput.bind(this));
     }
@@ -21,20 +21,24 @@ class UsersSearch {
     
     renderResults(resObj) {
         this.$ul.empty();
-        
-        resObj.forEach(usr => {
+        const $wntUl = this.$ul;
+
+        for(let i = 0; i < resObj.length; i++) {
             const $a = $('<a></a>');
-            $a.text(`${usr.username}`);
-            $a.attr('href', `/users/${usr.id}`);
-            const $li = $('<li></li>');
-
+            $a.text(`${resObj[i].username}`);
+            $a.attr('href', `/users/${resObj[i].id}`);
+            
             const $btn = $('<button></button>');
-            new FollowToggle($btn, { userId: usr.id, followState: usr.followed ? 'followed' : 'unfollowed' });
-
+            new FollowToggle($btn, {
+                userId: resObj[i].id,
+                followState: resObj[i].followed ? 'followed' : 'unfollowed'
+            });
+            
+            const $li = $('<li></li>');
             $li.append($a);
             $li.append($btn);
-            this.$ul.append($li);
-        }) 
+            $wntUl.append($li);
+        } 
     }
 
 }

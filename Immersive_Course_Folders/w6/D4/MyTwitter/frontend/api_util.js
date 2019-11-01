@@ -11,11 +11,11 @@ const APIUtil = {
         })
     ),
 
-    searchUsers: (queryVal) => (
+    searchUsers: (query) => (
         $.ajax({
             method: 'GET',
             url: '/users/search',
-            data: { queryVal },
+            data: { query },
             dataType: 'json'
         })
     ),

@@ -7,5 +7,5 @@ $(function () {
     $('div.infinite-tweets').each((idx, dv) => new InfiniteTweets(dv));
     $('form.tweet-compose').each((idx, frm) => new TweetCompose(frm) );
     $('nav.users-search').each((idx, nv) => new UsersSearch(nv) );
-    $('button.follow-toggle').each((idx, btn) => new FollowToggle(btn, {}) );
+    $('button.follow-toggle').each((idx, btn) => new FollowToggle(btn) );
 });

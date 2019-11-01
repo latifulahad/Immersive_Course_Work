@@ -106,11 +106,11 @@ const APIUtil = {
         })
     ),
 
-    searchUsers: (queryVal) => (
+    searchUsers: (query) => (
         $.ajax({
             method: 'GET',
             url: '/users/search',
-            data: { queryVal },
+            data: { query },
             dataType: 'json'
         })
     ),
@@ -152,8 +152,8 @@ const APIUtil = __webpack_require__(/*! ./api_util */ "./frontend/api_util.js");
 class FollowToggle {
     constructor(el, opt) {
         this.$el = $(el);
-        this.userId = $el.data("user-id") || opt.userId;
-        this.followState = $el.data("initial-follow-state") || opt.followState;
+        this.userId = this.$el.data("user-id") || opt.userId;
+        this.followState = this.$el.data("initial-follow-state") || opt.followState;
         
         this.render();
         this.$el.on('click', this.handleClick.bind(this));
@@ -163,11 +163,11 @@ class FollowToggle {
         switch(this.followState) {
             case 'unfollowed':
                 this.$el.prop('disabled', false);
-                this.$el.html('Follow!');
+                this.$el.text('Follow!');
                 break;
             case 'followed':
                 this.$el.prop('disabled', false);
-                this.$el.html('Unfollow!');
+                this.$el.text('Unfollow!');
                 break;
             case 'following':
                 this.$el.prop('disabled', true);
@@ -368,7 +368,7 @@ $(function () {
     $('div.infinite-tweets').each((idx, dv) => new InfiniteTweets(dv));
     $('form.tweet-compose').each((idx, frm) => new TweetCompose(frm) );
     $('nav.users-search').each((idx, nv) => new UsersSearch(nv) );
-    $('button.follow-toggle').each((idx, btn) => new FollowToggle(btn, {}) );
+    $('button.follow-toggle').each((idx, btn) => new FollowToggle(btn) );
 });
 
 
@@ -388,7 +388,7 @@ class UsersSearch {
     constructor(el) {
         this.$el = $(el);
         this.$inp = this.$el.find('input[name=username]');
-        this.$ul = this.$el.find('ul.users');
+        this.$ul = this.$el.find('.users');
 
         this.$inp.on('input', this.handleInput.bind(this));
     }
@@ -404,20 +404,24 @@ class UsersSearch {
     
     renderResults(resObj) {
         this.$ul.empty();
-        
-        resObj.forEach(usr => {
+        const $wntUl = this.$ul;
+
+        for(let i = 0; i < resObj.length; i++) {
             const $a = $('<a></a>');
-            $a.text(`${usr.username}`);
-            $a.attr('href', `/users/${usr.id}`);
-            const $li = $('<li></li>');
-
+            $a.text(`${resObj[i].username}`);
+            $a.attr('href', `/users/${resObj[i].id}`);
+            
             const $btn = $('<button></button>');
-            new FollowToggle($btn, { userId: usr.id, followState: usr.followed ? 'followed' : 'unfollowed' });
-
+            new FollowToggle($btn, {
+                userId: resObj[i].id,
+                followState: resObj[i].followed ? 'followed' : 'unfollowed'
+            });
+            
+            const $li = $('<li></li>');
             $li.append($a);
             $li.append($btn);
-            this.$ul.append($li);
-        }) 
+            $wntUl.append($li);
+        } 
     }
 
 }
