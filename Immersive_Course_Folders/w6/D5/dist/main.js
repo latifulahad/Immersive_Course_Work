@@ -86,14 +86,14 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/dom_node_collec.js":
-/*!********************************!*\
-  !*** ./src/dom_node_collec.js ***!
-  \********************************/
+/***/ "./src/dom_node_collection.js":
+/*!************************************!*\
+  !*** ./src/dom_node_collection.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("class DOMNodeCollection {\n    constructor(arg) {\n        this.ele = arg;\n    }\n    \n    prnt() {\n        console.log(this.ele);\n    }\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collec.js?");
+eval("class DomNodeCollection {\n    constructor(nds) {\n        this.nodes = nds;\n    }\n    \n    on(evtTitle, callB) {\n        this.nodes.forEach(nd => {\n            nd.addEventListener(evtTitle, callB);\n            if (nd[`mainEvents-${evtTitle}`] === \"undefined\") { nd[`mainEvents-${evtTitle}`] = []; }\n            nd[`mainEvents-${evtTitle}`].push(callB);\n        });\n    }\n\n    off(evtTitle) {\n        this.nodes.forEach(nd => {\n            if (nd[`mainEvents-${evtTitle}`]) {\n                nd[`mainEvents-${evtTitle}`].forEach(callB => {\n                    nd.removeEventListener(evtTitle, callB);\n                })\n                nd[`mainEvents-${evtTitle}`] = [];\n            }\n        });\n    }\n    \n    html(arg) {\n        if(arg) {\n            this.nodes.forEach(nd => { nd.innerHTML = arg; })\n        } else {\n            return this.nodes[0].innerHTML;\n        }\n    }\n\n    empty() {\n        this.nodes.forEach(nd => { nd.html = \"\"; })\n    }\n\n    append(arg) {\n        this.nodes.forEach(nd => {\n            arg.forEach(potenNd => { nd.innerHTML = potenNd.outerHMTL; })\n        })\n    }\n\n    attr(atTitle, val) {\n        if(typeof val === 'string') {\n            this.nodes[0].setAttribute(atTitle, val);\n        } else {\n            return this.nodes[0].getAttribute(atTitle);\n        }\n    }\n\n    addClass(arg) {\n        this.nodes[0].className = arg; \n    }\n\n    removeClass() {\n        this.nodes[0].className = \"\";\n    }\n\n    children() {\n        const ans = [];\n\n        this.nodes.forEach(nd => {\n            const potenNds = nd.children;\n            potenNds.forEach(babeNd => { ans.push(babeNd); })\n        })\n\n        return new DomNodeCollection(ans);\n    }\n\n    parent() {\n        const ans = [];\n        this.nodes.forEach(nd => { ans.push(nd.parentElement); })\n        return new DomNodeCollection(ans);\n    }\n\n    remove() {\n        this.nodes.forEach(nd => { nd.parentElement.removeChild(nd); });\n    }\n\n}\n\nmodule.exports = DomNodeCollection;\n\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ eval("class DOMNodeCollection {\n    constructor(arg) {\n        this.ele = arg;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const DOMNodeCollection = __webpack_require__(/*! ./dom_node_collec */ \"./src/dom_node_collec.js\");\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n    window.$l = (arg) => { \n        const elmts = document.querySelectorAll(arg);\n        const nodeColl = Array.from(elmts);\n        return new DOMNodeCollection(nodeColl);\n     }\n})\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const DomNodeCollection = __webpack_require__(/*! ./dom_node_collection */ \"./src/dom_node_collection.js\");\n\nconst funcs = [];\nlet docStatus = false;\n\nwindow.$l = (arg) => {\n    switch (typeof arg) {\n    case 'object': \n        return new DomNodeCollection([arg]);\n    case 'function':\n        if(docStatus === false) {\n            funcs.push(arg);\n        } else {\n           return arg();\n        }\n    case 'string':\n        const elmts = document.querySelectorAll(arg);\n        const nodeColl = Array.from(elmts);\n        return new DomNodeCollection(nodeColl);\n    }\n }\n\n\n document.addEventListener(\"DOMContentLoaded\", () => {\n     docStatus = true;\n    funcs.forEach(func => { func(); })\n})\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
