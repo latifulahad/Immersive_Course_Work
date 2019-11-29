@@ -26,7 +26,7 @@ class Weather extends React.Component {
         const para = {lat: a, lon: b};
         let url = 'http://api.openweathermap.org/data/2.5/weather?';
         url += toQueryString(para);
-        let ndedKey = 'c5e363f20f12b70a84c02462aa21bf39';
+        let ndedKey = 'c5e363f20f12b70a84c'; //Complete K_in_nts
         url += `&APPID=${ndedKey}`;
         
         const reqObj = new XMLHttpRequest();

@@ -2,6 +2,7 @@ import React from 'react';
 import Clock from './clock';
 import Tabs from './tabs';
 import Weather from './weather';
+import AutoComplete from './autocomplete';
 
 class Widget extends React.Component {
     constructor(props) {
@@ -12,19 +13,19 @@ class Widget extends React.Component {
             {title: 'f1', content: 'The new Senna?'}, 
             {title: 'bodyBuild', content: 'Want better separation?'}
         ];
+        this.names = ['Anik', 'Bunny', 'Cynthia', 'Fuad', 'Sabit'];
     }
-
 
     render() {
         return(
             <div>
                 <Clock />
                 <Tabs panes={this.panes}/> 
-                <Weather /> 
+                <AutoComplete nms={this.names}/> 
             </div>
         )
     }
 
 }
-
+//Weather Component needs to be added for displaying !present 4 sanitation Purpose
 export default Widget;
