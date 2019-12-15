@@ -1,5 +1,4 @@
 import React from "react";
-import uniqueId from "./util_for_todo";
 
 class TodoForm extends React.Component {
     constructor(props) {
