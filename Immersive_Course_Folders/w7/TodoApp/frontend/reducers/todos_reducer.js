@@ -18,7 +18,7 @@ const initialSt = {
     }
 }
 
-const reducer = (state = initialSt, action) => {
+const todosReducer = (state = initialSt, action) => {
     let nextState = {};
 
     switch(action.type) {
@@ -39,4 +39,4 @@ const reducer = (state = initialSt, action) => {
     }
 };
 
-export default reducer;
+export default todosReducer;

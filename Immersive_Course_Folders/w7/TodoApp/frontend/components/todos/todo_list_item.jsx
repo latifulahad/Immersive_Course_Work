@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoDetailContainer from './todo_detail_container';
+import StepListContainer from "../step_list/step_list_container";
 
  class ListItem extends React.Component {
     constructor(props) {
@@ -37,7 +38,7 @@ import TodoDetailContainer from './todo_detail_container';
          const title = this.props.item.title;
          const dn = this.props.item.done;
          let removalTg;
-         if(this.state.detail === true) { removalTg = (<TodoDetailContainer item={this.props.item}/>) };
+         if(this.state.detail === true) { removalTg = <TodoDetailContainer item={this.props.item}/> };
 
          return(
             <li >
@@ -45,6 +46,8 @@ import TodoDetailContainer from './todo_detail_container';
             <button onClick={this.toggleDone}>{`${dn}`}</button>
             <button onClick={this.toggleDetail}>Detail</button>
             { removalTg }
+
+            <StepListContainer todo_id={this.props.item.id}/>
             </li>
          )
     }
