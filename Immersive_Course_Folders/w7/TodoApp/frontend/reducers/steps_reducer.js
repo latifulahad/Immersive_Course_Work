@@ -23,11 +23,17 @@ const stepsReducer = (state = initialStore, action) => {
 
     switch(action.type) {
         case RECEIVE_STEP:
+            let bool = false;
             newState = Object.assign({}, state);
             for(let ky in newState) {
                 if(newState[ky].title === action.step.title) {
                     newState[ky] = action.step;
+                    bool = true;
                 }
+            }
+            if(bool === false) {
+                let newKy = Object.keys(newState).length + 1;
+                newState[newKy] = action.step
             }
             return newState;
         case RECEIVE_STEPS:
