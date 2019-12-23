@@ -1,11 +1,11 @@
 {
-  "name": "TodoApp",
+  "name": "TodoP2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack --mode=development --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack": "webpack --mode=development --watch"
   },
   "keywords": [],
   "author": "",
