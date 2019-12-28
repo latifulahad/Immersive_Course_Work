@@ -292,3 +292,505 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 77ms (Views: 76.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-12-26 23:20:27 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (79.9ms)
+Completed 200 OK in 1678ms (Views: 1631.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2019-12-26 23:21:44 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (16.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 100ms (Views: 47.9ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 15:42:33 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (57.7ms)
+Completed 500 Internal Server Error in 403ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__766840945675202919_70253392095780'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/873c5809b4a5f9e4/variables" for ::1 at 2019-12-27 15:42:35 -0500
+Started GET "/" for ::1 at 2019-12-27 15:43:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__766840945675202919_70253439251200'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/d51df948a71d0e02/variables" for ::1 at 2019-12-27 15:43:02 -0500
+Started GET "/" for ::1 at 2019-12-27 15:43:46 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 56ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 15:45:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 778ms (Views: 771.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 15:47:13 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 336ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__766840945675202919_70253409834180'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/85cdc3c81acbfeb6/variables" for ::1 at 2019-12-27 15:47:14 -0500
+Started GET "/" for ::1 at 2019-12-27 15:48:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 15:48:34 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 791ms (Views: 789.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 16:01:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 916ms (Views: 904.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 16:02:43 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 868ms (Views: 859.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 16:19:01 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 685ms (Views: 671.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 16:37:22 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 187ms (Views: 178.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 16:37:51 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253439700400'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/faa8aa9915e1c294/variables" for ::1 at 2019-12-27 16:37:52 -0500
+Started GET "/" for ::1 at 2019-12-27 16:52:51 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__766840945675202919_70253401593600'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/dd1b16806a517b84/variables" for ::1 at 2019-12-27 16:52:51 -0500
+Started GET "/" for ::1 at 2019-12-27 16:53:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253393251420'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/b6e03920925abbb4/variables" for ::1 at 2019-12-27 16:53:49 -0500
+Started GET "/" for ::1 at 2019-12-27 16:54:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253442872380'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/95cdae065abf9aa5/variables" for ::1 at 2019-12-27 16:54:13 -0500
+Started GET "/" for ::1 at 2019-12-27 16:56:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253439733360'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/e892683bcaa3b45e/variables" for ::1 at 2019-12-27 16:56:48 -0500
+Started GET "/" for ::1 at 2019-12-27 16:57:38 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__766840945675202919_70253425747100'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/9297fab3b2c85586/variables" for ::1 at 2019-12-27 16:57:39 -0500
+Started GET "/" for ::1 at 2019-12-27 16:57:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 63ms (Views: 62.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 17:02:34 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 158ms (Views: 154.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2019-12-27 17:05:59 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (24.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 78ms (Views: 39.6ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 22:03:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (19.0ms)
+Completed 500 Internal Server Error in 293ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253395029280'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/0639a375c19e8498/variables" for ::1 at 2019-12-27 22:03:08 -0500
+Started GET "/" for ::1 at 2019-12-27 22:03:31 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253442870380'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/0cd1d1d161dbec8d/variables" for ::1 at 2019-12-27 22:03:32 -0500
+Started GET "/" for ::1 at 2019-12-27 22:05:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (16.7ms)
+Completed 500 Internal Server Error in 148ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253394650280'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/a21d9d0794db5cef/variables" for ::1 at 2019-12-27 22:05:59 -0500
+Started GET "/" for ::1 at 2019-12-27 22:07:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 688ms (Views: 675.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 22:27:46 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 341ms (Views: 333.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 22:28:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253392242980'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/46977d7aae879240/variables" for ::1 at 2019-12-27 22:28:59 -0500
+Started GET "/" for ::1 at 2019-12-27 22:33:08 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 111ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253393059240'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/2b9e6bbe3e7ede81/variables" for ::1 at 2019-12-27 22:33:08 -0500
+Started GET "/" for ::1 at 2019-12-27 22:33:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 71ms (Views: 69.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 22:33:35 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w7/TodoP3/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__766840945675202919_70253438714740'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/9c4c9bfca32be27a/variables" for ::1 at 2019-12-27 22:33:36 -0500
+Started GET "/" for ::1 at 2019-12-27 22:34:32 -0500
+  [1m[35m (21.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 2146ms (Views: 2146.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-12-27 22:34:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2019-12-27 22:34:44 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (7.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 70ms (Views: 17.2ms | ActiveRecord: 43.4ms)
+
+
+Started GET "/api/todos" for ::1 at 2019-12-27 22:36:18 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+
+
