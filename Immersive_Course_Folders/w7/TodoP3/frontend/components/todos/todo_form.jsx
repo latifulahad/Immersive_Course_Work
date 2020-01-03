@@ -26,13 +26,15 @@ class TodoForm extends React.Component {
         // 
         const todo = { title: this.state.title, body: this.state.body, done: false };
 
-        this.props.createTodo(todo).then(() => {
+        this.props.createTodo(todo).then(
+            () => {
             this.setState({
                 title: "",
                 body: ""
-            });
-        })
-
+            });}, 
+            () => {
+                console.log(this.props.ers);
+            })
     }
 
     render() {

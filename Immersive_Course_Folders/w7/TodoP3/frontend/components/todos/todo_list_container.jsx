@@ -5,9 +5,11 @@ import { receiveTodo,
          removeTodo,
         bringTodos, 
         createTodo } from "../../actions/todo_actions";  
+import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = state => ({
-    todos: allTodos(state)
+    todos: allTodos(state),
+    errors: state.errors
 });
 
 const mapDisptachToProps = dispatch => ({

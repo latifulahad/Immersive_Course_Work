@@ -18,12 +18,13 @@ import TodoForm from './todo_form';
         );
         const idx = list.length + 1;
         const mkTodo = this.props.newTodo;
+        const errors = this.props.errors;
 
         return(
             <div>
                 <h3>Todo List goes here!</h3>
                 <ul>{list}</ul>
-                <TodoForm createTodo={ mkTodo } id={idx}/>
+                <TodoForm createTodo={ mkTodo } ers={errors} id={idx}/>
             </div>
         );
      }
