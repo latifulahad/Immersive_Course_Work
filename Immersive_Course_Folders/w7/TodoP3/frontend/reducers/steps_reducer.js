@@ -17,7 +17,7 @@ const initialStore = {
     }
 }
 
-const stepsReducer = (state = initialStore, action) => {
+const stepsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = {};
 

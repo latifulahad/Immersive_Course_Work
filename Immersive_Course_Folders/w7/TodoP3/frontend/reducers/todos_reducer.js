@@ -3,22 +3,22 @@ import {
     RECEIVE_TODO,
     REMOVE_TODO } from '../actions/todo_actions';
 
-const initialSt = {
-    1: {
-        id: 1,
-        title: "wash car",
-        body: "with soap",
-        done: false
-    },
-    2: {
-        id: 2,
-        title: "wash dog",
-        body: "with shampoo",
-        done: true
-    }
-}
+// const initialSt = {
+//     1: {
+//         id: 1,
+//         title: "wash car",
+//         body: "with soap",
+//         done: false
+//     },
+//     2: {
+//         id: 2,
+//         title: "wash dog",
+//         body: "with shampoo",
+//         done: true
+//     }
+// }
 
-const todosReducer = (state = initialSt, action) => {
+const todosReducer = (state = {}, action) => {
     let nextState = {};
 
     switch(action.type) {

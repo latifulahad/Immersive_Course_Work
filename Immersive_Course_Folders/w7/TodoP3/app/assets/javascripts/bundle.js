@@ -129,7 +129,7 @@ var removeStep = function removeStep(step) {
 /*!******************************************!*\
   !*** ./frontend/actions/todo_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO, receiveTodo, receiveTodos, removeTodo */
+/*! exports provided: RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO, receiveTodo, receiveTodos, removeTodo, bringTodos, createTodo */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -140,6 +140,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveTodo", function() { return receiveTodo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveTodos", function() { return receiveTodos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeTodo", function() { return removeTodo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringTodos", function() { return bringTodos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTodo", function() { return createTodo; });
+/* harmony import */ var _util_todo_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/todo_api_util */ "./frontend/util/todo_api_util.js");
+
 var RECEIVE_TODOS = "RECEIVE_TODOS";
 var RECEIVE_TODO = "RECEIVE_TODO";
 var REMOVE_TODO = "REMOVE_TODO";
@@ -159,6 +163,22 @@ var removeTodo = function removeTodo(todo) {
   return {
     type: REMOVE_TODO,
     todo: todo
+  };
+};
+var bringTodos = function bringTodos() {
+  return function (dispatch) {
+    Object(_util_todo_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchTodos"])().then(function (resObj) {
+      var todos = resObj;
+      dispatch(receiveTodos(todos));
+    });
+  };
+};
+var createTodo = function createTodo(tdo) {
+  return function (dispatch) {
+    return Object(_util_todo_api_util__WEBPACK_IMPORTED_MODULE_0__["addTodo"])(tdo).then(function (res) {
+      var todo = res;
+      dispatch(receiveTodo(todo));
+    });
   };
 };
 
@@ -663,18 +683,21 @@ function (_React$Component) {
   }, {
     key: "addToList",
     value: function addToList(evt) {
-      evt.preventDefault();
+      var _this2 = this;
+
+      evt.preventDefault(); // 
+
       var todo = {
-        id: this.props.id,
         title: this.state.title,
         body: this.state.body,
         done: false
       };
-      this.props.receiveTodo(todo);
-      this.setState({
-        title: "",
-        body: ""
-      }); // reset form
+      this.props.createTodo(todo).then(function () {
+        _this2.setState({
+          title: "",
+          body: ""
+        });
+      });
     }
   }, {
     key: "render",
@@ -745,6 +768,11 @@ function (_React$Component) {
   }
 
   _createClass(TodoList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.prntTodos();
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -758,8 +786,9 @@ function (_React$Component) {
         });
       });
       var idx = list.length + 1;
+      var mkTodo = this.props.newTodo;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Todo List goes here!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, list), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_todo_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        receiveTodo: this.props.receiveTodo,
+        createTodo: mkTodo,
         id: idx
       }));
     }
@@ -803,6 +832,12 @@ var mapDisptachToProps = function mapDisptachToProps(dispatch) {
     },
     removeTodo: function removeTodo(todo) {
       return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["removeTodo"])(todo));
+    },
+    prntTodos: function prntTodos() {
+      return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["bringTodos"])());
+    },
+    newTodo: function newTodo(todo) {
+      return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["createTodo"])(todo));
     }
   };
 };
@@ -940,8 +975,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
-/* harmony import */ var _util_todo_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/todo_api_util */ "./frontend/util/todo_api_util.js");
-
 
 
 
@@ -950,11 +983,37 @@ document.addEventListener('DOMContentLoaded', function () {
   var wntTag = document.getElementById('content');
   var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
   window.store = store;
-  window.fetchTodos = _util_todo_api_util__WEBPACK_IMPORTED_MODULE_4__["default"];
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), wntTag);
 });
+
+/***/ }),
+
+/***/ "./frontend/middleware/thunk_middleware.js":
+/*!*************************************************!*\
+  !*** ./frontend/middleware/thunk_middleware.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var thunkMiddleware = function thunkMiddleware(_ref) {
+  var dispatch = _ref.dispatch,
+      getState = _ref.getState;
+  return function (next) {
+    return function (action) {
+      if (typeof action === 'function') {
+        return action(dispatch, getState);
+      }
+
+      return next(action);
+    };
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (thunkMiddleware);
 
 /***/ }),
 
@@ -1040,7 +1099,7 @@ var initialStore = {
 };
 
 var stepsReducer = function stepsReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialStore;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
   var newState = {};
@@ -1098,24 +1157,23 @@ var stepsReducer = function stepsReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_todo_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/todo_actions */ "./frontend/actions/todo_actions.js");
-
-var initialSt = {
-  1: {
-    id: 1,
-    title: "wash car",
-    body: "with soap",
-    done: false
-  },
-  2: {
-    id: 2,
-    title: "wash dog",
-    body: "with shampoo",
-    done: true
-  }
-};
+ // const initialSt = {
+//     1: {
+//         id: 1,
+//         title: "wash car",
+//         body: "with soap",
+//         done: false
+//     },
+//     2: {
+//         id: 2,
+//         title: "wash dog",
+//         body: "with shampoo",
+//         done: true
+//     }
+// }
 
 var todosReducer = function todosReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialSt;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   var nextState = {};
 
@@ -1157,11 +1215,14 @@ var todosReducer = function todosReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/root_reducer */ "./frontend/reducers/root_reducer.js");
+/* harmony import */ var _middleware_thunk_middleware__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../middleware/thunk_middleware */ "./frontend/middleware/thunk_middleware.js");
+
 
 
 
 var configureStore = function configureStore() {
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(_middleware_thunk_middleware__WEBPACK_IMPORTED_MODULE_2__["default"]));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
@@ -1172,19 +1233,30 @@ var configureStore = function configureStore() {
 /*!****************************************!*\
   !*** ./frontend/util/todo_api_util.js ***!
   \****************************************/
-/*! exports provided: default */
+/*! exports provided: fetchTodos, addTodo */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTodos", function() { return fetchTodos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addTodo", function() { return addTodo; });
 var fetchTodos = function fetchTodos() {
   return $.ajax({
     method: 'GET',
     url: '/api/todos'
   });
 };
+var addTodo = function addTodo(todo) {
+  var wntObj = {
+    todo: todo
+  }; //the way to ensure the wnt_params's dot require is satisfied  
 
-/* harmony default export */ __webpack_exports__["default"] = (fetchTodos);
+  return $.ajax({
+    data: wntObj,
+    method: 'POST',
+    url: '/api/todos'
+  });
+};
 
 /***/ }),
 

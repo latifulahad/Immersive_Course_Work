@@ -23,15 +23,16 @@ class TodoForm extends React.Component {
 
     addToList(evt) {
         evt.preventDefault();
+        // 
+        const todo = { title: this.state.title, body: this.state.body, done: false };
 
-        const todo = { id: this.props.id, title: this.state.title, body: this.state.body, done: false };
+        this.props.createTodo(todo).then(() => {
+            this.setState({
+                title: "",
+                body: ""
+            });
+        })
 
-        this.props.receiveTodo(todo);
-
-        this.setState({
-            title: "",
-            body: ""
-        }); // reset form
     }
 
     render() {
