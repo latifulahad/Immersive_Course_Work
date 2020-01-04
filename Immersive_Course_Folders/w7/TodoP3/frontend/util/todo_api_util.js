@@ -7,11 +7,27 @@ export const fetchTodos = () => (
 )    
 
 export const addTodo = (todo) => {
-    let wntObj = { todo: todo }; //the way to ensure the wnt_params's dot require is satisfied  
 
     return($.ajax({
-        data: wntObj,
+        data: { todo },
         method: 'POST',
         url: '/api/todos'
     }))
 }
+
+export const updTodo = (todo) => {
+  
+    return($.ajax({
+        method: "PATCH",
+        url:`api/todos/${todo.id}`,
+        data: { todo }
+        })
+    )
+}
+
+export const deleteTd = (todo) => (
+    $.ajax({
+        method: 'DELETE',
+        url: `api/todos/${todo.id}`
+    })
+)

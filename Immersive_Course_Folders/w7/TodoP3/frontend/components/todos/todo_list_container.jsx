@@ -1,11 +1,8 @@
 import { connect } from "react-redux";
 import TodoList from "./todo_list";
 import { allTodos } from "../../reducers/selectors";
-import { receiveTodo, 
-         removeTodo,
-        bringTodos, 
-        createTodo } from "../../actions/todo_actions";  
-import { clearErrors } from '../../actions/error_actions';
+import { bringTodos, createTodo, updateTodo, rmTodo } from "../../actions/todo_actions";  
+
 
 const mapStateToProps = state => ({
     todos: allTodos(state),
@@ -13,10 +10,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDisptachToProps = dispatch => ({
-    receiveTodo: todo => dispatch(receiveTodo(todo)),
-    removeTodo: todo => dispatch(removeTodo(todo)),
+    removeTodo: todo => dispatch(rmTodo(todo)),
     prntTodos: () => dispatch(bringTodos()),
-    newTodo: todo => dispatch(createTodo(todo))
-});
-
+    newTodo: todo => dispatch(createTodo(todo)),
+    updateTd: todo => dispatch(updateTodo(todo)),
+});                                              
+                                                 
 export default connect(mapStateToProps, mapDisptachToProps)(TodoList);

@@ -158,7 +158,7 @@ var removeStep = function removeStep(step) {
 /*!******************************************!*\
   !*** ./frontend/actions/todo_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO, receiveTodo, receiveTodos, removeTodo, bringTodos, createTodo */
+/*! exports provided: RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO, receiveTodo, receiveTodos, removeTodo, bringTodos, createTodo, updateTodo, rmTodo */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -171,6 +171,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeTodo", function() { return removeTodo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringTodos", function() { return bringTodos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTodo", function() { return createTodo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateTodo", function() { return updateTodo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rmTodo", function() { return rmTodo; });
 /* harmony import */ var _util_todo_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/todo_api_util */ "./frontend/util/todo_api_util.js");
 /* harmony import */ var _error_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./error_actions */ "./frontend/actions/error_actions.js");
 
@@ -211,6 +213,22 @@ var createTodo = function createTodo(tdo) {
       dispatch(Object(_error_actions__WEBPACK_IMPORTED_MODULE_1__["clearErrors"])());
     }, function (err) {
       return dispatch(Object(_error_actions__WEBPACK_IMPORTED_MODULE_1__["receiveErrors"])(err.responseJSON));
+    });
+  };
+};
+var updateTodo = function updateTodo(todo) {
+  return function (dispatch) {
+    Object(_util_todo_api_util__WEBPACK_IMPORTED_MODULE_0__["updTodo"])(todo).then(function (res) {
+      return dispatch(receiveTodo(res));
+    }, function (err) {
+      return dispatch(Object(_error_actions__WEBPACK_IMPORTED_MODULE_1__["receiveErrors"])(err.responseJSON));
+    });
+  };
+};
+var rmTodo = function rmTodo(todo) {
+  return function (dispatch) {
+    return Object(_util_todo_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteTd"])(todo).then(function (res) {
+      return dispatch(removeTodo(res));
     });
   };
 };
@@ -576,7 +594,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, _ref) {
   var item = _ref.item;
   return {
     removeTodo: function removeTodo() {
-      dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_2__["removeTodo"])(item));
+      return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_2__["rmTodo"])(item));
     },
     receiveSteps: function receiveSteps() {
       dispatch(Object(_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__["receiveSteps"])());
@@ -817,7 +835,7 @@ function (_React$Component) {
           key: idx,
           item: todo,
           removeTodo: _this.props.removeTodo,
-          receiveTodo: _this.props.receiveTodo
+          receiveTodo: _this.props.updateTd
         });
       });
       var idx = list.length + 1;
@@ -851,8 +869,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _todo_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo_list */ "./frontend/components/todos/todo_list.jsx");
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
 /* harmony import */ var _actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/todo_actions */ "./frontend/actions/todo_actions.js");
-/* harmony import */ var _actions_error_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/error_actions */ "./frontend/actions/error_actions.js");
-
 
 
 
@@ -867,17 +883,17 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDisptachToProps = function mapDisptachToProps(dispatch) {
   return {
-    receiveTodo: function receiveTodo(todo) {
-      return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["receiveTodo"])(todo));
-    },
     removeTodo: function removeTodo(todo) {
-      return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["removeTodo"])(todo));
+      return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["rmTodo"])(todo));
     },
     prntTodos: function prntTodos() {
       return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["bringTodos"])());
     },
     newTodo: function newTodo(todo) {
       return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["createTodo"])(todo));
+    },
+    updateTd: function updateTd(todo) {
+      return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["updateTodo"])(todo));
     }
   };
 };
@@ -1255,7 +1271,7 @@ var todosReducer = function todosReducer() {
   switch (action.type) {
     case _actions_todo_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_TODOS"]:
       action.todos.forEach(function (todo, idx) {
-        nextState[idx + 1] = todo;
+        nextState[todo.id] = todo;
       });
       return nextState;
 
@@ -1308,13 +1324,15 @@ var configureStore = function configureStore() {
 /*!****************************************!*\
   !*** ./frontend/util/todo_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchTodos, addTodo */
+/*! exports provided: fetchTodos, addTodo, updTodo, deleteTd */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTodos", function() { return fetchTodos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addTodo", function() { return addTodo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updTodo", function() { return updTodo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteTd", function() { return deleteTd; });
 var fetchTodos = function fetchTodos() {
   return $.ajax({
     method: 'GET',
@@ -1322,14 +1340,27 @@ var fetchTodos = function fetchTodos() {
   });
 };
 var addTodo = function addTodo(todo) {
-  var wntObj = {
-    todo: todo
-  }; //the way to ensure the wnt_params's dot require is satisfied  
-
   return $.ajax({
-    data: wntObj,
+    data: {
+      todo: todo
+    },
     method: 'POST',
     url: '/api/todos'
+  });
+};
+var updTodo = function updTodo(todo) {
+  return $.ajax({
+    method: "PATCH",
+    url: "api/todos/".concat(todo.id),
+    data: {
+      todo: todo
+    }
+  });
+};
+var deleteTd = function deleteTd(todo) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/todos/".concat(todo.id)
   });
 };
 

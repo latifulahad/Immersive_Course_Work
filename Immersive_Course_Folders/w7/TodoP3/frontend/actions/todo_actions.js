@@ -1,4 +1,4 @@
-import { fetchTodos, addTodo } from '../util/todo_api_util';
+import { fetchTodos, addTodo, updTodo, deleteTd } from '../util/todo_api_util';
 import { receiveErrors, clearErrors } from './error_actions';
 
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
@@ -25,7 +25,7 @@ export const bringTodos = () => dispatch => {
         let todos = resObj; 
         dispatch(receiveTodos(todos))
      })
-}
+};
 
 export const createTodo = (tdo) => dispatch => (
     addTodo(tdo).then(
@@ -35,4 +35,15 @@ export const createTodo = (tdo) => dispatch => (
         }, 
         err => dispatch(receiveErrors(err.responseJSON))
         )
-)
+);
+
+export const updateTodo = (todo) => dispatch => {
+    updTodo(todo).then(
+        res => dispatch(receiveTodo(res)),
+        err => dispatch(receiveErrors(err.responseJSON))
+    )
+};
+
+export const rmTodo = (todo) => dispatch => (
+    deleteTd(todo).then(res => dispatch(removeTodo(res)))
+);
