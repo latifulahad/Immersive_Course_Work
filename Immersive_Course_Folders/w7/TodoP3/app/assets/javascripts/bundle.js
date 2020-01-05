@@ -119,7 +119,7 @@ var clearErrors = function clearErrors() {
 /*!******************************************!*\
   !*** ./frontend/actions/step_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_STEP, RECEIVE_STEPS, REMOVE_STEP, receiveStep, receiveSteps, removeStep */
+/*! exports provided: RECEIVE_STEP, RECEIVE_STEPS, REMOVE_STEP, receiveStep, receiveSteps, removeStep, loadSteps, insStep */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -130,6 +130,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveStep", function() { return receiveStep; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSteps", function() { return receiveSteps; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeStep", function() { return removeStep; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadSteps", function() { return loadSteps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "insStep", function() { return insStep; });
+/* harmony import */ var _util_step_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/step_api_util */ "./frontend/util/step_api_util.js");
+
 var RECEIVE_STEP = "RECEIVE_STEP";
 var RECEIVE_STEPS = "RECEIVE_STEPS";
 var REMOVE_STEP = "REMOVE_STEP";
@@ -149,6 +153,20 @@ var removeStep = function removeStep(step) {
   return {
     type: REMOVE_STEP,
     step: step
+  };
+};
+var loadSteps = function loadSteps(td_id) {
+  return function (dispatch) {
+    Object(_util_step_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSteps"])(td_id).then(function (steps) {
+      return dispatch(receiveSteps(steps));
+    });
+  };
+};
+var insStep = function insStep(step, todo_id) {
+  return function (dispatch) {
+    Object(_util_step_api_util__WEBPACK_IMPORTED_MODULE_0__["addStep"])(step, todo_id).then(function (step) {
+      return dispatch(receiveStep(step));
+    });
   };
 };
 
@@ -360,8 +378,8 @@ var mapStateToProps = function mapStateToProps(state, _ref) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    receiveStep: function receiveStep(step) {
-      return dispatch(Object(_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__["receiveStep"])(step));
+    receiveStep: function receiveStep(step, liId) {
+      return dispatch(Object(_actions_step_actions__WEBPACK_IMPORTED_MODULE_3__["insStep"])(step, liId));
     }
   };
 };
@@ -437,10 +455,10 @@ function (_React$Component) {
         done: this.state.done,
         todo_id: this.props.todo_id
       };
-      this.props.receiveStep(step);
+      this.props.receiveStep(step, this.props.todo_id);
       this.setState({
         title: ""
-      }); // reset form
+      });
     }
   }, {
     key: "render",
@@ -835,7 +853,8 @@ function (_React$Component) {
           key: idx,
           item: todo,
           removeTodo: _this.props.removeTodo,
-          receiveTodo: _this.props.updateTd
+          receiveTodo: _this.props.updateTd,
+          getStps: _this.props.correspSteps
         });
       });
       var idx = list.length + 1;
@@ -869,6 +888,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _todo_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo_list */ "./frontend/components/todos/todo_list.jsx");
 /* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
 /* harmony import */ var _actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/todo_actions */ "./frontend/actions/todo_actions.js");
+/* harmony import */ var _actions_step_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/step_actions */ "./frontend/actions/step_actions.js");
+
 
 
 
@@ -894,6 +915,9 @@ var mapDisptachToProps = function mapDisptachToProps(dispatch) {
     },
     updateTd: function updateTd(todo) {
       return dispatch(Object(_actions_todo_actions__WEBPACK_IMPORTED_MODULE_3__["updateTodo"])(todo));
+    },
+    correspSteps: function correspSteps(todo_id) {
+      return dispatch(Object(_actions_step_actions__WEBPACK_IMPORTED_MODULE_4__["loadSteps"])(todo_id));
     }
   };
 };
@@ -949,7 +973,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ListItem).call(this, props));
     _this.state = {
-      detail: false
+      detail: false,
+      steps: _this.props.getStps(_this.props.item.id)
     };
     _this.toggleDone = _this.toggleDone.bind(_assertThisInitialized(_this));
     _this.toggleDetail = _this.toggleDetail.bind(_assertThisInitialized(_this));
@@ -1215,7 +1240,10 @@ var stepsReducer = function stepsReducer() {
       return newState;
 
     case _actions_step_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_STEPS"]:
-      newState = Object.assign({}, state, action.steps);
+      newState = Object.assign({}, state);
+      action.steps.forEach(function (stp) {
+        return newState[stp.id] = stp;
+      });
       return newState;
 
     case _actions_step_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_STEP"]:
@@ -1317,6 +1345,35 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/step_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/step_api_util.js ***!
+  \****************************************/
+/*! exports provided: fetchSteps, addStep */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSteps", function() { return fetchSteps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addStep", function() { return addStep; });
+var fetchSteps = function fetchSteps(todo_id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/todos/".concat(todo_id, "/steps")
+  });
+};
+var addStep = function addStep(step, todo_id) {
+  return $.ajax({
+    method: 'POST',
+    data: {
+      step: step
+    },
+    url: "api/todos/".concat(todo_id, "/steps")
+  });
+};
 
 /***/ }),
 

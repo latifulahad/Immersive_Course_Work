@@ -21,10 +21,10 @@ class StepListForm extends React.Component {
         evt.preventDefault();
         
         const step = { title: this.state.title, done: this.state.done, todo_id: this.props.todo_id };
-        this.props.receiveStep(step);
+        this.props.receiveStep(step, this.props.todo_id)
         this.setState({
             title: ""
-        }); // reset form
+        });
     }
     
     render() {

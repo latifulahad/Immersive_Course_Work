@@ -9,7 +9,7 @@ export const allTodos = ({ todos }) => {
     return arr;
 }
 
-export const stepsByTodoId = ({ steps }, todo_id) => {
+export const stepsByTodoId = ({ steps }, todo_id) => { 
     const arr = [];
     const wntKys = Object.keys(steps);
     wntKys.forEach(ky => { 

@@ -37,7 +37,8 @@ const stepsReducer = (state = {}, action) => {
             }
             return newState;
         case RECEIVE_STEPS:
-            newState = Object.assign({}, state, action.steps);
+            newState = Object.assign({}, state);
+            action.steps.forEach(stp => newState[stp.id] = stp)
             return newState;
         case REMOVE_STEP:
             newState = Object.assign({}, state);

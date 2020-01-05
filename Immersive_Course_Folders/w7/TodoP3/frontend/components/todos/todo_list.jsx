@@ -13,7 +13,12 @@ import TodoForm from './todo_form';
 
      render() {
         const list = this.props.todos.map((todo, idx) => (
-            <ListItem key={idx} item={todo} removeTodo={this.props.removeTodo} receiveTodo={this.props.updateTd}/>
+            <ListItem 
+            key={idx} 
+            item={todo} 
+            removeTodo={this.props.removeTodo} 
+            receiveTodo={this.props.updateTd} 
+            getStps={this.props.correspSteps}/>
             )
         );
         const idx = list.length + 1;
