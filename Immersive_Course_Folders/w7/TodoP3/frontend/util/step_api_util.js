@@ -12,3 +12,18 @@ export const addStep = (step, todo_id) => (
         url: `api/todos/${todo_id}/steps`
     })
 )
+
+export const rmStep = (step) => (
+    $.ajax({
+        method: 'DELETE',
+        url: `api/steps/${step.id}`
+    })
+)
+
+export const updStep = (step) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `api/steps/${step.id}`,
+        data: { step }
+    })
+)

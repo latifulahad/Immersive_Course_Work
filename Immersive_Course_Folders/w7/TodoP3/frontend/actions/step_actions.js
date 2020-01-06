@@ -1,4 +1,4 @@
-import { fetchSteps, addStep } from '../util/step_api_util'
+import { fetchSteps, addStep, rmStep, updStep } from '../util/step_api_util'
 
 export const RECEIVE_STEP = "RECEIVE_STEP";
 export const RECEIVE_STEPS = "RECEIVE_STEPS";
@@ -25,4 +25,12 @@ export const loadSteps = (td_id) => dispatch => {
 
 export const insStep = (step, todo_id) => dispatch => {
     addStep(step, todo_id).then(step => dispatch(receiveStep(step)))
+}
+
+export const delStep = (step) => dispatch => {
+    rmStep(step).then(step => dispatch((removeStep(step))))
+}
+
+export const upStep = (step) => dispatch => {
+    updStep(step).then(step => dispatch((receiveStep(step))))
 }
