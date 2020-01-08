@@ -10,6 +10,14 @@
   </head>
 
   <body>
+
+    <% if current_user %>
+      <%= auth_token %>
+      <%= button_to "Log-out", session_url, method: :delete %>
+    <% else %>
+      <%= link_to "Log-in", new_session_url %>  
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

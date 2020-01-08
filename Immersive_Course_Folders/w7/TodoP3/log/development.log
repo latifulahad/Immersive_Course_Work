@@ -5536,3 +5536,2232 @@ Migrating to CreateUsersTables (20200106032554)
   [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" IS NULL AND "users"."id" != $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
   [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "pass_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["pass_digest", "$2a$12$gr39pG6.vlDbsITOjbWPPe4dhufav5rO/VkVFbCFO19YmyLymFoPi"], ["updated_at", "2020-01-06 06:49:31.588086"], ["id", 2]]
   [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (22.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (32.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$gr39pG6.vlDbsITOjbWPPe4dhufav5rO/VkVFbCFO19YmyLymFoPi"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "ftvzA0vZi6XKOIZPOKn8DQ"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (23.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ftvzA0vZi6XKOIZPOKn8DQ"], ["updated_at", "2020-01-06 22:05:46.414431"], ["id", 2]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ftvzA0vZi6XKOIZPOKn8DQ"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$aeX3SEzEbzZfuJE1INS08Oo62ZWs6DrJmpFos93Z.BSvwI5BW.4wq"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "ftvzA0vZi6XKOIZPOKn8DQ"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "pass_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["pass_digest", "$2a$12$aeX3SEzEbzZfuJE1INS08Oo62ZWs6DrJmpFos93Z.BSvwI5BW.4wq"], ["updated_at", "2020-01-06 22:26:12.217393"], ["id", 2]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$/vsekrwfAIwTYBSamy40ZeuCGjHZXkjIuSNsA.R0W060m2.tKy88u"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "ftvzA0vZi6XKOIZPOKn8DQ"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (3.4ms)[0m  [1m[33mUPDATE "users" SET "pass_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["pass_digest", "$2a$12$/vsekrwfAIwTYBSamy40ZeuCGjHZXkjIuSNsA.R0W060m2.tKy88u"], ["updated_at", "2020-01-06 22:37:36.010909"], ["id", 2]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "ftvzA0vZi6XKOIZPOKn8DQ"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "pass_digest" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["updated_at", "2020-01-06 22:38:21.464593"], ["id", 2]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "c7OS-o9yWyVioNIViqwM4g"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "c7OS-o9yWyVioNIViqwM4g"], ["updated_at", "2020-01-06 22:38:53.270691"], ["id", 2]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "c7OS-o9yWyVioNIViqwM4g"], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-01-06 18:16:58 -0500
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 1943ms (Views: 1942.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 18:17:01 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (12.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 94ms (Views: 29.0ms | ActiveRecord: 31.5ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 18:17:01 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 18:17:01 -0500
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 18:17:01 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 18:17:01 -0500
+  [1m[36mStep Load (32.0ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Completed 200 OK in 209ms (Views: 42.3ms | ActiveRecord: 68.7ms)
+
+
+  [1m[36mTodo Load (2.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.4ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 26ms (Views: 5.2ms | ActiveRecord: 17.8ms)
+
+
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mTodo Load (1.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (1.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 92ms (Views: 2.4ms | ActiveRecord: 2.9ms)
+
+
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.0ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 8ms (Views: 2.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/sessions" for ::1 at 2020-01-06 18:17:03 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/sessions"):
+  
+actionpack (5.2.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.4.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/sessions/new" for ::1 at 2020-01-06 18:17:17 -0500
+
+NameError - uninitialized constant SessionsController:
+
+Started POST "/__better_errors/ad36a30b235d6d73/variables" for ::1 at 2020-01-06 18:17:17 -0500
+Started GET "/sessions/new" for ::1 at 2020-01-06 18:17:55 -0500
+
+NameError - uninitialized constant SessionsController:
+
+Started POST "/__better_errors/10d4dd33335a19a5/variables" for ::1 at 2020-01-06 18:17:56 -0500
+Started GET "/sessions/new" for ::1 at 2020-01-06 18:19:13 -0500
+
+NameError - uninitialized constant SessionsController:
+
+Started POST "/__better_errors/18b2c90c8f516d2e/variables" for ::1 at 2020-01-06 18:19:14 -0500
+Started POST "/__better_errors/18b2c90c8f516d2e/variables" for ::1 at 2020-01-06 18:25:50 -0500
+Started GET "/sessions/new" for ::1 at 2020-01-06 18:26:25 -0500
+
+NameError - uninitialized constant SessionsController:
+
+Started POST "/__better_errors/cb8041fb71071484/variables" for ::1 at 2020-01-06 18:26:25 -0500
+Started GET "/" for ::1 at 2020-01-06 18:27:42 -0500
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 1528ms (Views: 1527.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 18:27:45 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (3.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 87ms (Views: 30.5ms | ActiveRecord: 28.9ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 18:27:45 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 18:27:45 -0500
+  [1m[36mTodo Load (3.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (2.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 18:27:45 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 18:27:45 -0500
+  [1m[36mStep Load (1.4ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 100ms (Views: 35.4ms | ActiveRecord: 19.6ms)
+
+
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mStep Load (14.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (1.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mTodo Load (2.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 151ms (Views: 57.0ms | ActiveRecord: 18.4ms)
+
+
+  [1m[36mStep Load (2.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 15ms (Views: 4.1ms | ActiveRecord: 5.9ms)
+
+
+  [1m[36mStep Load (3.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 22ms (Views: 4.8ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/sessions/new" for ::1 at 2020-01-06 18:28:54 -0500
+
+NameError - uninitialized constant SessionsController:
+
+Started POST "/__better_errors/e4a8a80dbe988662/variables" for ::1 at 2020-01-06 18:28:54 -0500
+Started GET "/session/new" for ::1 at 2020-01-06 18:28:58 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/session/new"):
+  
+actionpack (5.2.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.4.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/sessions/new" for ::1 at 2020-01-06 18:29:03 -0500
+
+NameError - uninitialized constant SessionsController:
+
+Started POST "/__better_errors/4dbc1453da5bc413/variables" for ::1 at 2020-01-06 18:29:03 -0500
+Started GET "/session/new" for ::1 at 2020-01-06 18:32:02 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (632.1ms)
+Completed 500 Internal Server Error in 646ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `sessions_url' for #<#<Class:0x00007f8ec7d82b30>:0x00007f8ec7d920d0>
+Did you mean?  session_url:
+  app/views/sessions/new.html.erb:1:in `_app_views_sessions_new_html_erb__855184953934133073_70125609392520'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/d0cabc81dd0b458b/variables" for ::1 at 2020-01-06 18:32:04 -0500
+Started GET "/session/new" for ::1 at 2020-01-06 18:33:54 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 104ms (Views: 101.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 18:34:19 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 88ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 18:34:20 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 102ms (Views: 21.1ms | ActiveRecord: 45.7ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 18:34:20 -0500
+Processing by Api::StepsController#index as JSON
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 18:34:20 -0500
+  Parameters: {"todo_id"=>"27"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (4.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mTodo Load (3.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 18:34:20 -0500
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (5.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 18:34:20 -0500
+  [1m[36mStep Load (1.8ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 56ms (Views: 10.1ms | ActiveRecord: 16.2ms)
+
+
+  [1m[36mStep Load (0.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  [1m[36mStep Load (5.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  ↳ app/controllers/api/steps_controller.rb:5
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (1.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 107ms (Views: 29.2ms | ActiveRecord: 16.4ms)
+
+
+  [1m[36mStep Load (17.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+Completed 200 OK in 100ms (Views: 17.5ms | ActiveRecord: 24.3ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 35ms (Views: 13.5ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 18:35:20 -0500
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 18:35:20 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Processing by Api::StepsController#index as JSON
+  [1m[36mTodo Load (2.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Parameters: {"todo_id"=>"28"}
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 18:35:20 -0500
+  [1m[36mTodo Load (1.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (2.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  [1m[36mStep Load (0.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 18:35:20 -0500
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 26ms (Views: 18.3ms | ActiveRecord: 2.0ms)
+
+
+  Parameters: {"todo_id"=>"34"}
+Completed 200 OK in 28ms (Views: 17.6ms | ActiveRecord: 5.2ms)
+
+
+Processing by Api::StepsController#index as JSON
+  [1m[36mTodo Load (4.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (0.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 8ms (Views: 1.4ms | ActiveRecord: 4.9ms)
+
+
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 7ms (Views: 1.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/__better_errors/4dbc1453da5bc413/variables" for ::1 at 2020-01-06 18:35:38 -0500
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 18:35:40 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.8ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 18:35:40 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 18:35:41 -0500
+Completed 200 OK in 272ms (Views: 270.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 18:35:41 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+Processing by Api::StepsController#index as JSON
+  [1m[36mTodo Load (1.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Parameters: {"todo_id"=>"34"}
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (2.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mStep Load (0.8ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 9ms (Views: 3.4ms | ActiveRecord: 2.6ms)
+
+
+  [1m[36mStep Load (0.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 144ms (Views: 137.2ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 19:07:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 18ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/5c7e4aead62621e3/variables" for ::1 at 2020-01-06 19:07:43 -0500
+Started POST "/session" for ::1 at 2020-01-06 19:09:47 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/c28b16a3835fb6ce/variables" for ::1 at 2020-01-06 19:09:48 -0500
+Started POST "/session" for ::1 at 2020-01-06 19:10:08 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 9ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/19b4af622ae8a930/variables" for ::1 at 2020-01-06 19:10:09 -0500
+Started GET "/session/new" for ::1 at 2020-01-06 19:23:09 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 124ms (Views: 121.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 19:23:17 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 6ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/8866d6d0dd107c07/variables" for ::1 at 2020-01-06 19:23:17 -0500
+Started POST "/session" for ::1 at 2020-01-06 19:24:03 -0500
+  [1m[35m (10.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/8fa56ed39853f6ad/variables" for ::1 at 2020-01-06 19:24:04 -0500
+Started GET "/" for ::1 at 2020-01-06 19:24:38 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 2382ms (Views: 2381.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 19:24:41 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (16.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 131ms (Views: 24.4ms | ActiveRecord: 82.0ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 19:24:42 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 19:24:42 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 19:24:42 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 19:24:42 -0500
+  [1m[36mTodo Load (7.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (9.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mTodo Load (1.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (2.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (3.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  [1m[36mStep Load (3.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 23ms (Views: 6.9ms | ActiveRecord: 6.4ms)
+
+
+  [1m[36mStep Load (3.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mStep Load (4.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 34ms (Views: 16.9ms | ActiveRecord: 6.0ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 179ms (Views: 81.4ms | ActiveRecord: 21.2ms)
+
+
+Completed 200 OK in 185ms (Views: 70.6ms | ActiveRecord: 48.2ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 19:26:53 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 98ms (Views: 95.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 19:27:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 8ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/11e53e9de725fb0d/variables" for ::1 at 2020-01-06 19:27:02 -0500
+Started POST "/session" for ::1 at 2020-01-06 19:29:46 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "latifuahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 47ms (ActiveRecord: 18.9ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 19:29:46 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 54ms (Views: 53.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "latiulahad"], ["LIMIT", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latiulahad"], ["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users"."username" FROM "users"[0m
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users"."username" FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+Started POST "/session" for ::1 at 2020-01-06 19:37:11 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (2.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "yb_NUm0bz6TNxQQGDPdGxw"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (9.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "yb_NUm0bz6TNxQQGDPdGxw"], ["updated_at", "2020-01-07 00:37:11.745050"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 498ms (ActiveRecord: 53.1ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 19:37:11 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 110ms (Views: 109.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 19:37:12 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.9ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 49ms (Views: 21.3ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 19:37:12 -0500
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 19:37:12 -0500
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 19:37:12 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 19:37:12 -0500
+  [1m[36mTodo Load (2.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (1.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (4.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 42ms (Views: 14.3ms | ActiveRecord: 18.1ms)
+
+
+  [1m[36mStep Load (2.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 28ms (Views: 21.3ms | ActiveRecord: 4.4ms)
+
+
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.0ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 43ms (Views: 25.6ms | ActiveRecord: 14.9ms)
+
+
+  [1m[36mStep Load (31.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 162ms (Views: 41.9ms | ActiveRecord: 85.6ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:33:43 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 121ms (Views: 119.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:33:44 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (24.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 237ms (Views: 41.8ms | ActiveRecord: 169.8ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:33:44 -0500
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:33:44 -0500
+Processing by Api::StepsController#index as JSON
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:33:44 -0500
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:33:44 -0500
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (2.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (2.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (10.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (11.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (45.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  [1m[36mStep Load (44.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 80ms (Views: 6.0ms | ActiveRecord: 66.9ms)
+
+
+  [1m[36mStep Load (1.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  [1m[36mStep Load (2.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 89ms (Views: 16.6ms | ActiveRecord: 58.8ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 592ms (Views: 17.0ms | ActiveRecord: 19.6ms)
+
+
+Completed 200 OK in 607ms (Views: 7.3ms | ActiveRecord: 39.1ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:34:52 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 99ms (Views: 96.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 23:35:04 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "latifuahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 63ms (ActiveRecord: 26.1ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:35:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 83ms (Views: 82.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 23:36:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifuahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "latifuahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 18ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:36:28 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 97ms (Views: 96.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 23:36:40 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:36:40 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 45ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:37:22 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 106ms (Views: 105.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:37:22 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:37:23 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:37:23 -0500
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:37:23 -0500
+  [1m[36mTodo Load (3.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  [1m[36mStep Load (3.0ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  Parameters: {"todo_id"=>"28"}
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:5
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:37:23 -0500
+  [1m[36mTodo Load (7.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 27ms (Views: 13.6ms | ActiveRecord: 6.2ms)
+
+
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mStep Load (3.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 17ms (Views: 3.5ms | ActiveRecord: 10.4ms)
+
+
+  [1m[36mTodo Load (4.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  [1m[36mStep Load (1.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  Parameters: {"todo_id"=>"38"}
+Completed 200 OK in 14ms (Views: 2.9ms | ActiveRecord: 6.6ms)
+
+
+  [1m[36mTodo Load (1.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 9ms (Views: 3.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:37:25 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 58ms (Views: 57.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:37:30 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:37:30 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:37:30 -0500
+  [1m[36mTodo Load (1.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  ↳ app/controllers/api/steps_controller.rb:5
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:37:30 -0500
+  [1m[36mTodo Load (3.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 7.8ms | ActiveRecord: 2.8ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 12ms (Views: 4.7ms | ActiveRecord: 4.1ms)
+
+
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (6.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 11ms (Views: 2.4ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:38:28 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 37ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 23:38:40 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (3.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "vvMocbVWrFX90jodlJ2tAQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (11.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "vvMocbVWrFX90jodlJ2tAQ"], ["updated_at", "2020-01-07 04:38:41.345491"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 361ms (ActiveRecord: 27.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:38:41 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 46ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:38:41 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:38:41 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (3.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 10ms (Views: 3.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:38:41 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:38:41 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:38:41 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+Processing by Api::StepsController#index as JSON
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (1.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 12ms (Views: 5.3ms | ActiveRecord: 2.7ms)
+
+
+  [1m[36mStep Load (0.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 12ms (Views: 4.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:41:33 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 107ms (Views: 104.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:41:34 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 21ms (Views: 15.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:41:34 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:41:34 -0500
+  [1m[36mTodo Load (1.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mStep Load (2.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 24ms (Views: 11.9ms | ActiveRecord: 3.9ms)
+
+
+  [1m[36mTodo Load (2.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:41:34 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:41:35 -0500
+  [1m[36mStep Load (4.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 190ms (Views: 175.1ms | ActiveRecord: 7.1ms)
+
+
+  [1m[36mTodo Load (5.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 13ms (Views: 2.3ms | ActiveRecord: 6.6ms)
+
+
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 235ms (Views: 2.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:41:38 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 130ms (Views: 129.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 23:41:44 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (22.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "XdXYjjmnd-GeFLgYj30uQA"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (4.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "XdXYjjmnd-GeFLgYj30uQA"], ["updated_at", "2020-01-07 04:41:47.361895"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 2557ms (ActiveRecord: 32.8ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:41:47 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 83ms (Views: 82.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:41:48 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:41:48 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:41:48 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:41:48 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:41:48 -0500
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (2.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (1.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+Completed 200 OK in 164ms (Views: 5.9ms | ActiveRecord: 3.0ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  [1m[36mStep Load (2.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 3.7ms)
+
+
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 136ms (Views: 1.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:48:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 90ms (Views: 89.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:48:08 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 75ms (Views: 35.1ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:48:08 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:48:08 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:48:08 -0500
+  [1m[36mStep Load (1.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:48:09 -0500
+Completed 200 OK in 72ms (Views: 29.6ms | ActiveRecord: 30.0ms)
+
+
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (1.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 12ms (Views: 3.2ms | ActiveRecord: 2.8ms)
+
+
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (3.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 4.6ms)
+
+
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 26ms (Views: 20.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:50:04 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 109ms (Views: 106.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:50:04 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:50:05 -0500
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:50:05 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:50:05 -0500
+  [1m[36mTodo Load (3.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:50:05 -0500
+  Parameters: {"todo_id"=>"27"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+Processing by Api::StepsController#index as JSON
+  [1m[36mTodo Load (2.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (8.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (2.8ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mStep Load (2.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  [1m[36mTodo Load (2.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mStep Load (1.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 19ms (Views: 5.4ms | ActiveRecord: 10.1ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:5
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 184ms (Views: 167.3ms | ActiveRecord: 6.5ms)
+
+
+Completed 200 OK in 164ms (Views: 12.1ms | ActiveRecord: 6.2ms)
+
+
+  [1m[36mStep Load (1.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 17ms (Views: 3.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:50:06 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 23:50:42 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "PBLpgvum17FajbXJKbyZzg"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (2.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "PBLpgvum17FajbXJKbyZzg"], ["updated_at", "2020-01-07 04:50:43.086522"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 479ms (ActiveRecord: 29.2ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:50:43 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 100ms (Views: 99.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:50:43 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:50:43 -0500
+Processing by Api::StepsController#index as JSON
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:50:43 -0500
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (1.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:50:43 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (4.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.4ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:5
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mStep Load (2.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+Completed 200 OK in 24ms (Views: 11.7ms | ActiveRecord: 3.1ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 24ms (Views: 12.6ms | ActiveRecord: 7.3ms)
+
+
+  [1m[36mTodo Load (7.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 15ms (Views: 3.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:50:43 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (2.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 9ms (Views: 3.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:52:21 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 97ms (Views: 96.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 23:52:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"lalala", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "lalala"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 14ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-06 23:52:28 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 42ms (Views: 41.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-06 23:54:12 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "6JBZW1zi2c5P61fJPLa3iw"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (4.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "6JBZW1zi2c5P61fJPLa3iw"], ["updated_at", "2020-01-07 04:54:12.579724"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 374ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:54:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 171ms (Views: 169.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:54:13 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (2.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:54:13 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:54:13 -0500
+  [1m[36mTodo Load (1.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 2.5ms)
+
+
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:54:13 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:54:13 -0500
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  [1m[36mStep Load (2.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  Parameters: {"todo_id"=>"34"}
+  ↳ app/controllers/api/steps_controller.rb:5
+Processing by Api::StepsController#index as JSON
+  [1m[36mTodo Load (3.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 6.1ms | ActiveRecord: 3.2ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:4
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (3.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (6.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 92ms (Views: 82.1ms | ActiveRecord: 7.2ms)
+
+
+  [1m[36mStep Load (1.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 88ms (Views: 1.7ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:54:43 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 53ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:54:44 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:54:44 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.4ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:54:45 -0500
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 594ms (Views: 591.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:54:45 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:54:45 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (1.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:4
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mStep Load (0.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  [1m[36mTodo Load (2.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (1.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 9ms (Views: 3.3ms | ActiveRecord: 1.8ms)
+
+
+  [1m[36mStep Load (15.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mStep Load (22.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 1467ms (Views: 18.0ms | ActiveRecord: 24.7ms)
+
+
+Completed 200 OK in 1458ms (Views: 8.1ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/" for ::1 at 2020-01-06 23:58:26 -0500
+
+NoMethodError - undefined method `logged_in?' for ApplicationController:Class
+Did you mean?  logger:
+  app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/static_pages_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/f23fc02febfacb02/variables" for ::1 at 2020-01-06 23:58:27 -0500
+Started GET "/" for ::1 at 2020-01-06 23:58:46 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 61ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-06 23:58:46 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 87ms (Views: 41.3ms | ActiveRecord: 31.6ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-06 23:58:47 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (2.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-06 23:58:47 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (20.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-06 23:58:47 -0500
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-06 23:58:47 -0500
+  [1m[36mStep Load (1.0ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mStep Load (0.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 8ms (Views: 3.6ms | ActiveRecord: 1.5ms)
+
+
+Completed 200 OK in 238ms (Views: 180.7ms | ActiveRecord: 17.6ms)
+
+
+Completed 200 OK in 217ms (Views: 165.8ms | ActiveRecord: 48.4ms)
+
+
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 21ms (Views: 4.5ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/" for ::1 at 2020-01-07 00:00:15 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 120ms (Views: 116.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-07 00:00:15 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 22ms (Views: 16.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-07 00:00:15 -0500
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-07 00:00:15 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-07 00:00:15 -0500
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-07 00:00:15 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mTodo Load (2.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+Processing by Api::StepsController#index as JSON
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (5.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  Parameters: {"todo_id"=>"38"}
+  Parameters: {"todo_id"=>"28"}
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (3.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (7.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (9.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (7.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+Completed 200 OK in 100ms (Views: 15.2ms | ActiveRecord: 5.7ms)
+
+
+Completed 200 OK in 98ms (Views: 6.9ms | ActiveRecord: 14.5ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (3.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  [1m[36mStep Load (2.4ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 116ms (Views: 96.6ms | ActiveRecord: 10.2ms)
+
+
+Completed 200 OK in 118ms (Views: 89.0ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/" for ::1 at 2020-01-07 00:02:53 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 90ms (Views: 89.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-07 00:02:55 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 103ms (Views: 49.6ms | ActiveRecord: 35.4ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-07 00:02:55 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-07 00:02:55 -0500
+  [1m[36mTodo Load (1.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  [1m[36mTodo Load (19.2ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-07 00:02:55 -0500
+  [1m[36mStep Load (1.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-07 00:02:55 -0500
+  [1m[36mStep Load (3.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+Processing by Api::StepsController#index as JSON
+  [1m[36mTodo Load (1.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (1.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 192ms (Views: 4.8ms | ActiveRecord: 38.5ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mStep Load (1.4ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 84ms (Views: 78.5ms | ActiveRecord: 2.9ms)
+
+
+Completed 200 OK in 80ms (Views: 2.7ms | ActiveRecord: 2.2ms)
+
+
+Completed 200 OK in 203ms (Views: 154.3ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/" for ::1 at 2020-01-07 00:03:13 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 63ms (Views: 62.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-07 00:03:13 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-07 00:03:13 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-07 00:03:13 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-07 00:03:13 -0500
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-07 00:03:13 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (1.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+Completed 200 OK in 216ms (Views: 213.3ms | ActiveRecord: 1.2ms)
+
+
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (1.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  [1m[36mTodo Load (1.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  ↳ app/controllers/api/steps_controller.rb:5
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 51ms (Views: 39.2ms | ActiveRecord: 3.1ms)
+
+
+Completed 200 OK in 43ms (Views: 3.9ms | ActiveRecord: 3.2ms)
+
+
+  [1m[36mStep Load (2.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 46ms (Views: 3.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2020-01-07 00:03:31 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 123ms (Views: 120.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-07 00:03:31 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (2.9ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 30ms (Views: 23.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-07 00:03:31 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-07 00:03:32 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-07 00:03:32 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-07 00:03:32 -0500
+  [1m[36mTodo Load (2.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (2.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+Processing by Api::StepsController#index as JSON
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  Parameters: {"todo_id"=>"28"}
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 26ms (Views: 8.4ms | ActiveRecord: 4.6ms)
+
+
+  [1m[36mStep Load (1.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 31ms (Views: 21.7ms | ActiveRecord: 2.5ms)
+
+
+  [1m[36mTodo Load (6.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.4ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 31ms (Views: 2.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/" for ::1 at 2020-01-07 00:08:17 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2642067035742631471_70159368439300'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/857758b09c58e314/variables" for ::1 at 2020-01-07 00:08:18 -0500
+Started POST "/session" for ::1 at 2020-01-07 00:08:48 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "DyA1xXU1n1vs8EW3GLbIcQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (3.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "DyA1xXU1n1vs8EW3GLbIcQ"], ["updated_at", "2020-01-07 05:08:48.910662"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 625ms (ActiveRecord: 29.2ms)
+
+
+Started GET "/" for ::1 at 2020-01-07 00:08:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2642067035742631471_70159364442360'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/5e1cbbef532e7b8f/variables" for ::1 at 2020-01-07 00:08:49 -0500
+Started GET "/" for ::1 at 2020-01-07 23:39:36 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2642067035742631471_70159419757460'
+  app/controllers/static_pages_controller.rb:4:in `root'
+
+Started POST "/__better_errors/100a9291d6c90a48/variables" for ::1 at 2020-01-07 23:39:37 -0500
+Started GET "/session/new" for ::1 at 2020-01-07 23:39:55 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2642067035742631471_70159403081420'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/a98efa37c92ddf12/variables" for ::1 at 2020-01-07 23:39:55 -0500
+Started GET "/session/new" for ::1 at 2020-01-07 23:41:04 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 147ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `username' for nil:NilClass:
+  app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb__2642067035742631471_70159419694920'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/a7f3e9e9fc2a69e2/variables" for ::1 at 2020-01-07 23:41:05 -0500
+Started GET "/session/new" for ::1 at 2020-01-07 23:41:21 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 42ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-07 23:41:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/2473ca2bfb17cc3c/variables" for ::1 at 2020-01-07 23:41:29 -0500
+Started POST "/session" for ::1 at 2020-01-07 23:51:44 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/5bd98572f94d9b31/variables" for ::1 at 2020-01-07 23:51:44 -0500
+Started POST "/session" for ::1 at 2020-01-07 23:53:37 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 12ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/fc00772a71a1e125/variables" for ::1 at 2020-01-07 23:53:38 -0500
+  [1m[36mTodo Load (11.6ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" ORDER BY "todos"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/session" for ::1 at 2020-01-08 16:57:54 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (3.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (3.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "8_4cDGUi8g-E-TsUdpEPwA"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (14.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "8_4cDGUi8g-E-TsUdpEPwA"], ["updated_at", "2020-01-08 21:57:56.007767"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 513ms (ActiveRecord: 67.9ms)
+
+
+Started GET "/" for ::1 at 2020-01-08 16:57:56 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 194ms (Views: 192.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-08 16:57:57 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 74ms (Views: 56.4ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-08 16:57:57 -0500
+Processing by Api::StepsController#index as JSON
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-08 16:57:57 -0500
+  Parameters: {"todo_id"=>"27"}
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-08 16:57:57 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-08 16:57:57 -0500
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mStep Load (9.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (2.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 23.6ms | ActiveRecord: 31.2ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (2.5ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+Processing by Api::StepsController#index as JSON
+  ↳ app/controllers/api/steps_controller.rb:5
+  Parameters: {"todo_id"=>"38"}
+Completed 200 OK in 51ms (Views: 30.1ms | ActiveRecord: 8.7ms)
+
+
+  [1m[36mStep Load (3.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 51ms (Views: 8.9ms | ActiveRecord: 6.4ms)
+
+
+  [1m[36mTodo Load (4.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.4ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 15ms (Views: 3.2ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-08 16:57:59 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 80ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-08 16:58:06 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"FPqHtysiC47cKBIix+NB1JLrSJgotsetIdiT2z7wRDlzIxisoKzYNdLaRk/rWTp3fRsb+HD9zvZ6xu9DDgMNMg==", "user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "OgFEOuc3Z1OuMS_naTd8vw"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "OgFEOuc3Z1OuMS_naTd8vw"], ["updated_at", "2020-01-08 21:58:07.145518"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 404ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/" for ::1 at 2020-01-08 16:58:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OgFEOuc3Z1OuMS_naTd8vw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 119ms (Views: 117.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-08 16:58:07 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-08 16:58:08 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-08 16:58:08 -0500
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-08 16:58:08 -0500
+  [1m[36mTodo Load (2.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-08 16:58:08 -0500
+Processing by Api::StepsController#index as JSON
+  [1m[36mStep Load (3.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  Parameters: {"todo_id"=>"27"}
+Processing by Api::StepsController#index as JSON
+Completed 200 OK in 21ms (Views: 10.8ms | ActiveRecord: 6.2ms)
+
+
+  [1m[36mTodo Load (8.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  Parameters: {"todo_id"=>"34"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mTodo Load (3.9ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (2.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (0.8ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  [1m[36mStep Load (13.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mStep Load (1.6ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 16ms (Views: 2.7ms | ActiveRecord: 3.6ms)
+
+
+Completed 200 OK in 30ms (Views: 6.3ms | ActiveRecord: 22.2ms)
+
+
+Completed 200 OK in 16ms (Views: 9.2ms | ActiveRecord: 4.7ms)
+
+
+Started DELETE "/session" for ::1 at 2020-01-08 16:58:29 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OofvBRsY7S+0skBKD+VkYRl1Sjs7trBjH9OvkfPKMmhdXnAekJY+lLpAFCcjXx/C9oUZW2P9uThEzdMJwzl7Yw=="}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OgFEOuc3Z1OuMS_naTd8vw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "gvuzcNN6busTyOPiup4ZTQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (3.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "gvuzcNN6busTyOPiup4ZTQ"], ["updated_at", "2020-01-08 21:58:29.349229"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 83ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-08 16:58:29 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 114ms (Views: 114.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-08 17:00:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"fDd0AYde/Jy01WTZSwpZjZ48IAX5TcR/RnAIBbZ073Yb7usaDNAvJ7onMLRnsCIuccxzZaEGzSQdbnSdhoemfQ==", "user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "iqlY2GRQWWGqe6v-_6jEtQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "iqlY2GRQWWGqe6v-_6jEtQ"], ["updated_at", "2020-01-08 22:00:02.907344"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 481ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/" for ::1 at 2020-01-08 17:00:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (9.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iqlY2GRQWWGqe6v-_6jEtQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 287ms (Views: 285.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-08 17:00:03 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-08 17:00:03 -0500
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-08 17:00:03 -0500
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-08 17:00:04 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-08 17:00:04 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"28"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+  [1m[36mTodo Load (3.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (6.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (8.3ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (1.8ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  [1m[36mStep Load (4.7ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mStep Load (1.1ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 98ms (Views: 81.7ms | ActiveRecord: 7.9ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (1.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+Completed 200 OK in 98ms (Views: 81.0ms | ActiveRecord: 9.4ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:4
+Completed 200 OK in 96ms (Views: 80.7ms | ActiveRecord: 8.2ms)
+
+
+  [1m[36mStep Load (1.3ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 34ms (Views: 19.7ms | ActiveRecord: 3.3ms)
+
+
+Started DELETE "/session" for ::1 at 2020-01-08 17:00:05 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ukWpVuoVt4Hyz9pgtl5LnX+yQ7rDkiqXea+2uLhos5vdnDZNYZtkOvw9jg2a5DA+kEIQ2pvZI8wiscogiJv6kA=="}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iqlY2GRQWWGqe6v-_6jEtQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "Qq_ZPobqqHxgoYMUAxG6dQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (4.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "Qq_ZPobqqHxgoYMUAxG6dQ"], ["updated_at", "2020-01-08 22:00:06.011465"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 33ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-08 17:00:06 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 66ms (Views: 65.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-08 17:13:37 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 115ms (Views: 114.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-08 17:14:08 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"9sCOOQquMTRJkbKMF/XMZVJL+zpSfdtolzudqIYXB0iRGREigSDij0dj5uE7T7fGvbuoWgo20jPMJeEwtuROQw==", "user"=>{"username"=>"Latifuahad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifuahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 306ms (ActiveRecord: 19.1ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-08 17:14:09 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 140ms (Views: 138.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-01-08 17:15:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"qJ+ToBOsfeKfS7GQ1fjZrMDBa7Nk6siBZxbCR7FwPF/PRgy7mCKuWZG55f35QqIPLzE40zyhwdo8CL7fgYN1VA==", "user"=>{"username"=>"Latifulahad", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Latifulahad"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "bJPjDwYOr0VrB7qXFzkqTA"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "bJPjDwYOr0VrB7qXFzkqTA"], ["updated_at", "2020-01-08 22:15:02.735346"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 370ms (ActiveRecord: 15.1ms)
+
+
+Started GET "/" for ::1 at 2020-01-08 17:15:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bJPjDwYOr0VrB7qXFzkqTA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 93ms (Views: 91.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/todos" for ::1 at 2020-01-08 17:15:03 -0500
+Processing by Api::TodosController#index as JSON
+  [1m[36mTodo Load (2.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/todos_controller.rb:8
+Completed 200 OK in 92ms (Views: 29.5ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/api/todos/27/steps" for ::1 at 2020-01-08 17:15:03 -0500
+Started GET "/api/todos/28/steps" for ::1 at 2020-01-08 17:15:03 -0500
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"27"}
+Processing by Api::StepsController#index as JSON
+Started GET "/api/todos/34/steps" for ::1 at 2020-01-08 17:15:03 -0500
+Started GET "/api/todos/38/steps" for ::1 at 2020-01-08 17:15:03 -0500
+  [1m[36mTodo Load (3.0ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  Parameters: {"todo_id"=>"28"}
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"34"}
+  [1m[36mTodo Load (6.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/steps_controller.rb:4
+Processing by Api::StepsController#index as JSON
+  Parameters: {"todo_id"=>"38"}
+  [1m[36mStep Load (1.0ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 34]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mTodo Load (1.4ms)[0m  [1m[34mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 17.0ms | ActiveRecord: 8.3ms)
+
+
+  ↳ app/controllers/api/steps_controller.rb:4
+  [1m[36mStep Load (19.2ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 27]]
+  ↳ app/controllers/api/steps_controller.rb:5
+  [1m[36mStep Load (2.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 38]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 18ms (Views: 4.9ms | ActiveRecord: 5.1ms)
+
+
+  [1m[36mStep Load (4.9ms)[0m  [1m[34mSELECT "steps".* FROM "steps" WHERE "steps"."todo_id" = $1[0m  [["todo_id", 28]]
+  ↳ app/controllers/api/steps_controller.rb:5
+Completed 200 OK in 118ms (Views: 53.5ms | ActiveRecord: 10.8ms)
+
+
+Completed 200 OK in 136ms (Views: 9.7ms | ActiveRecord: 75.5ms)
+
+
+Started DELETE "/session" for ::1 at 2020-01-08 17:15:05 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ziIyqUxHzfMlXYTd5MAzIa+iv8vD5Wz2F4+WddRK1byp+62yx8keSCuv0LDIekiCQFLsq5uuZa1Mkert5Lmctw=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bJPjDwYOr0VrB7qXFzkqTA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Latifulahad"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["pass_digest", "$2a$12$FfEfmyy2FEcJzV0NeGMI5OyeY3t0yK/qozh5WRCs6nKWyxCMRx5AG"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "upFejcugaRra4WVvSkJ6-A"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:18
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "upFejcugaRra4WVvSkJ6-A"], ["updated_at", "2020-01-08 22:15:05.302226"], ["id", 2]]
+  ↳ app/models/user.rb:18
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:18
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 23ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/session/new" for ::1 at 2020-01-08 17:15:05 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 76ms (Views: 75.2ms | ActiveRecord: 0.0ms)
+
+

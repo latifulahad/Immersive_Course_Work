@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    validates :username, presence: true
+    validates :username, presence: true, uniqueness: true
     validates :password, presence: { minimun: 5, allow_nil: true }
     validates :pass_digest, uniqueness: true
     validates :session_token, uniqueness: true
@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
     def setupUsr
         pass = self.password
-        self.password=(pass) unless self.pass_digest.empty?
+        self.password=(pass) unless !self.pass_digest.empty?
     end
 
     def reset_session_tkn!
