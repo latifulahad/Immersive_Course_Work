@@ -14,8 +14,4 @@ class ApplicationController < ActionController::Base
         session[:session_token] = usr.session_token
     end
 
-    def logged_in?
-        !!current_user
-    end
-
 end

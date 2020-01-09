@@ -5,12 +5,14 @@ class Api::TodosController < ApplicationController
     end
 
     def index
-        render json: Todo.all
+        todos = current_user.todos
+        render json: todos
     end
 
     def create
         @todo = Todo.new(wanted_params)
         if @todo.save
+            @todo.update(user: current_user)
             render json: @todo
         else
             render json: @todo.errors.full_messages, status: 422

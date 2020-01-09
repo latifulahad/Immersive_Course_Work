@@ -1,16 +1,20 @@
 class User < ApplicationRecord
+    attr_reader :password
+
     validates :username, presence: true, uniqueness: true
     validates :password, presence: { minimun: 5, allow_nil: true }
     validates :pass_digest, uniqueness: true
-    validates :session_token, uniqueness: true
 
     after_initialize :setupUsr 
     
-    attr_reader :password
+    has_many :todos,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: 'Todo'
 
     def setupUsr
         pass = self.password
-        self.password=(pass) unless !self.pass_digest.empty?
+        self.password=(pass) if self.pass_digest.nil?
     end
 
     def reset_session_tkn!
@@ -21,7 +25,7 @@ class User < ApplicationRecord
     def password=(pass)
         @password = pass
         self.pass_digest = BCrypt::Password.create(pass)
-        self.save!
+        self.save
     end
 
     def is_pass?(arg)

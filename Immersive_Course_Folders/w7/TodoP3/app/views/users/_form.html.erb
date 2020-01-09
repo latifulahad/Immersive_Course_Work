@@ -1,0 +1,24 @@
+<% method = (action == :new) ? "POST" : "PATCH" %>
+<% action = user.persisted? ? user_url(user) : users_url  %>
+
+<form action="<%= action %>" method="POST">
+    <input type="hidden" name="_method" value="<%= method %>">
+    <%= auth_token %>
+
+Create User
+    <br>    
+    <label>UserName
+        <input type="text" name="user[username]" value="<%= user.username %>" >
+    </label>
+    <br>    
+    <label>Password
+        <input type="text" name="user[password]" >
+    </label>
+
+        <input type="submit" value="Submit">
+</form>
+
+<%if method == "PATCH" %>
+    <%= auth_token %>
+    <%= button_to "Delete-User", user_url(current_user), method: :delete %>
+<% end %>
