@@ -1,0 +1,1 @@
+json.pokemon @pokeMon, :items
