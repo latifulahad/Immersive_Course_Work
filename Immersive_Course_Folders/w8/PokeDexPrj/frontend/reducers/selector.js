@@ -1,5 +1,5 @@
-const chgPokeState = (state) => (
-    Object.values(state["entities"]["pokemon"])
+const chgPokeState = ({ entities }) => (
+    Object.values(entities.pokemon)
 )
 
 export default chgPokeState;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Root from './components/root';
+import Root from './components/root';
 import configureStore from './store/store';
 
 import { getPokemon } from './utils/api_util'
@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.state = store.getState();
     window.dispatch = store.dispatch; 
-
-    ReactDOM.render(<h1>Yes this is working</h1>, wntTag);
+    window.func = bringPoke;
+    window.reArng = chgPokeState;
+    window.getpk = getPokemon;
+    
+    ReactDOM.render(<Root store={store}/>, wntTag);
 })
