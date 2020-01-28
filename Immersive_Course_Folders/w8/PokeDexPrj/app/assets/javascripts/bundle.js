@@ -203,7 +203,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    pokemon: Object(_reducers_selector__WEBPACK_IMPORTED_MODULE_2__["chgPokeState"])(state)
+    pokemon: Object(_reducers_selector__WEBPACK_IMPORTED_MODULE_2__["default"])(state)
   };
 };
 
@@ -275,11 +275,6 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', function () {
   var wntTag = document.getElementById("root");
   var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  window.state = store.getState();
-  window.dispatch = store.dispatch;
-  window.func = _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_5__["bringPoke"];
-  window.reArng = _reducers_selector__WEBPACK_IMPORTED_MODULE_6__["default"];
-  window.getpk = _utils_api_util__WEBPACK_IMPORTED_MODULE_4__["getPokemon"];
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), wntTag);

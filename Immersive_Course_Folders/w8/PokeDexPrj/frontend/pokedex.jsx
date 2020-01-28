@@ -10,12 +10,6 @@ import chgPokeState from './reducers/selector'
 document.addEventListener('DOMContentLoaded', () => {
     const wntTag = document.getElementById("root");
     const store = configureStore();
-
-    window.state = store.getState();
-    window.dispatch = store.dispatch; 
-    window.func = bringPoke;
-    window.reArng = chgPokeState;
-    window.getpk = getPokemon;
     
     ReactDOM.render(<Root store={store}/>, wntTag);
 })
