@@ -2,11 +2,8 @@ import { connect } from 'react-redux';
 import ItemDetail from './item_detail'
 
 const mapStateToProps = (state, ownProps) => {
-    
+    const itmInfo = state.entities.items[ownProps.match.params.itemId];
+    return({ itmInfo });
 } 
-
-const mapDispatchToProps = dispatch => {
-
-} 
-
-export default connect(mapStateToProps, mapDispatchToProps)(ItemDetail);
+ 
+export default connect(mapStateToProps)(ItemDetail);

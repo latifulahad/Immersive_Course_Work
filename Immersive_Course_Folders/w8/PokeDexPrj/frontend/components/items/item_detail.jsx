@@ -2,8 +2,14 @@ import React from 'react';
 
 class ItemDetail extends React.Component {
     render() {
+        const { itmInfo } = this.props;
+
         return(
-            <li></li>
+            <ul>Item Details
+                <li>name = {itmInfo.name}</li>
+                <li>happiness = {itmInfo.happiness}</li>
+                <li>price = {itmInfo.price}</li>
+            </ul>
         )
     }
 }

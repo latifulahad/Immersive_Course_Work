@@ -1,4 +1,4 @@
-import { getPokemon, getPokeInfo } from '../utils/api_util';
+import { getPokemon, getPokeInfo, addPoke } from '../utils/api_util';
 import { receiveItems } from './items_action';
 
 export const RECEIVE_POKEMON = "RECEIVE_POKEMON"
@@ -23,4 +23,8 @@ export const bringPokeData = (PokeId) => dispatch => {
         dispatch(receivePoke(res.pokemon))
         dispatch(receiveItems(res.items))
     })
+}
+
+export const makePoke = (pokemon) => dispatch => {
+    addPoke(pokemon).then(res => dispatch(receivePoke(res)))
 }

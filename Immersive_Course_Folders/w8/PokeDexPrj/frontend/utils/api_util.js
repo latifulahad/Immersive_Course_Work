@@ -12,3 +12,11 @@ export const getPokeInfo = (id) => (
         url: `/api/pokemon/${id}`
     })
 )
+
+export const addPoke = (pokemon) => (
+    $.ajax({
+        method: "POST",
+        url:'/api/pokemon',
+        data: { pokemon }
+    })
+)
