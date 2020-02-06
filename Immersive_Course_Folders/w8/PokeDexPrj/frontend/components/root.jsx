@@ -6,7 +6,7 @@ import PokemonIndexContainer from './pokemon/pokemon_index_container';
 const Root = ({ store }) => (
     <Provider store={store}>
         <HashRouter>
-            <Route path="/" component={PokemonIndexContainer} />
+            <Route path="/" component={PokemonIndexContainer} />    
         </HashRouter>
     </Provider>
 ) 

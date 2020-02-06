@@ -158,8 +158,9 @@ var bringPokeData = function bringPokeData(PokeId) {
 };
 var makePoke = function makePoke(pokemon) {
   return function (dispatch) {
-    Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["addPoke"])(pokemon).then(function (res) {
-      return dispatch(receivePoke(res));
+    return Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["addPoke"])(pokemon).then(function (res) {
+      dispatch(receivePoke(res.pokemon));
+      return res;
     });
   };
 };
@@ -504,9 +505,8 @@ function (_React$Component) {
     value: function update(properT) {
       var _this2 = this;
 
+      var list = [];
       return function (e) {
-        var list = [];
-
         if (properT === "moves") {
           list = e.target.value.split(",");
 
@@ -518,17 +518,28 @@ function (_React$Component) {
     }
   }, {
     key: "handleSun",
-    value: function handleSun(evt) {
+    value: function handleSun(e) {
       var _this3 = this;
 
-      evt.preventDefault();
-      this.props.sendPokeDate(this.state).then(function (res) {
-        return _this3.props.history.push("/pokemon/".concat(res.pokemon.id));
+      e.preventDefault();
+      this.props.sendPokeData(this.state).then(function (res) {
+        _this3.props.history.push("/pokemon/".concat(res.pokemon.id));
+
+        _this3.setState({
+          name: "",
+          type: "",
+          attack: "",
+          defense: "",
+          moves: "",
+          poke_type: "",
+          image_url: ""
+        });
       });
     }
   }, {
     key: "render",
     value: function render() {
+      window.ans = this.props;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSun
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -588,6 +599,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    tstForSpec: ""
+  };
+};
+
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     sendPokeData: function sendPokeData(pokemon) {
@@ -596,7 +613,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapDispatchToProps)(_pokemon_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_pokemon_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 

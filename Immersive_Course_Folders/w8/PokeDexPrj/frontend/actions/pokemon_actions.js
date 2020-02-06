@@ -25,6 +25,9 @@ export const bringPokeData = (PokeId) => dispatch => {
     })
 }
 
-export const makePoke = (pokemon) => dispatch => {
-    addPoke(pokemon).then(res => dispatch(receivePoke(res)))
-}
+export const makePoke = (pokemon) => dispatch => (
+    addPoke(pokemon).then(res => {
+        dispatch(receivePoke(res.pokemon));
+        return res;
+    })
+)

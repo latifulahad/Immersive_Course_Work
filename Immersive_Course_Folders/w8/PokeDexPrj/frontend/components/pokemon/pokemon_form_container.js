@@ -3,8 +3,12 @@ import PokemonForm from './pokemon_form';
 
 import { makePoke } from '../../actions/pokemon_actions';
 
-const mapDispatchToProps = dispatch => ({
-    sendPokeData: pokemon => dispatch(makePoke(pokemon))
+const mapStateToProps = (state, ownProps) => ({
+    tstForSpec: ""
 })
 
-export default connect(mapDispatchToProps)(PokemonForm);
+const mapDispatchToProps = dispatch => ({
+    sendPokeData: pokemon => dispatch(makePoke(pokemon))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonForm);

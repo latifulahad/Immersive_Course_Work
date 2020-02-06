@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+
+import { withRouter } from "react-router-dom";
 
 class PokemonForm extends React.Component {
     constructor(props) {
@@ -12,8 +13,8 @@ class PokemonForm extends React.Component {
 
 
     update(properT) {
+        let list = [];
         return e => {
-            let list = []
             if(properT === "moves") { 
                 list = e.target.value.split(",");
                 this.setState({ [properT]: list }) 
@@ -23,14 +24,17 @@ class PokemonForm extends React.Component {
         }
     }
 
-    handleSun(evt) {
-        evt.preventDefault();
-
-        this.props.sendPokeDate(this.state).then(res => this.props.history.push(`/pokemon/${res.pokemon.id}`))
+    handleSun(e) {
+        e.preventDefault();
+    
+        this.props.sendPokeData(this.state).then(res => { 
+            this.props.history.push(`/pokemon/${res.pokemon.id}`)
+            this.setState({name: "", type: "", attack: "", defense: "", moves: "", poke_type: "", image_url: ""})
+        });
     }
 
     render() {
-        
+        window.ans = this.props
         return(
             <div>
                 <form onSubmit={this.handleSun}>
