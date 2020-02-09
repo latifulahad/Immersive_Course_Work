@@ -24,7 +24,7 @@ class PokemonDetail extends React.Component {
                 <Route path='/pokemon/:id/items/:itemId' component={ItemDetailContainer}/>
                 <div>
                     <h2>{poke.name}</h2>
-                    <ul>Items {pokeIt.map(item => <Item nm={item.name} itmId={item.id} pokeId={item.pokemon_id}/>)}</ul>
+                    <ul>Items {pokeIt.map(item => <Item key={item.id} nm={item.name} itmId={item.id} pokeId={item.pokemon_id}/>)}</ul>
                 </div>
             </section>
         )
