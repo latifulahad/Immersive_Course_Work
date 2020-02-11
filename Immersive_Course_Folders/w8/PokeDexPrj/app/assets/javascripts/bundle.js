@@ -556,7 +556,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      window.ans = this.props;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSun
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {

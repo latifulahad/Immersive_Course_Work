@@ -39,9 +39,7 @@ class PokemonForm extends React.Component {
     }
 
     render() {
-        window.ans = this.props
-    
-
+        
         return(
             <div>
                 <form onSubmit={this.handleSun}>
