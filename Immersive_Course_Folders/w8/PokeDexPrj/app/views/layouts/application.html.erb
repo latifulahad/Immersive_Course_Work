@@ -15,13 +15,6 @@
   <body>
     <header>
       <img src="./assets/pokeball.svg" alt="pokedex">
-      
-      <% if current_user %>
-        <h3><%= current_user.name %></h3>
-        <%= button_to "Log-out", api_session_url, method: :delete%>
-      <% else %>
-        <%= link_to "Log-In", new_api_session_url %>
-      <% end %>
     </header>
 
     <%= yield %>

@@ -178,6 +178,35 @@ var makePoke = function makePoke(pokemon) {
 
 /***/ }),
 
+/***/ "./frontend/actions/sessions_action.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/sessions_action.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_CURRENT_USER, LOG_OUT, receive_user, log_out */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_USER", function() { return RECEIVE_CURRENT_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOG_OUT", function() { return LOG_OUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receive_user", function() { return receive_user; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "log_out", function() { return log_out; });
+var RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+var LOG_OUT = "LOG_OUT";
+var receive_user = function receive_user(id) {
+  return {
+    type: RECEIVE_CURRENT_USER,
+    current_user: id
+  };
+};
+var log_out = function log_out() {
+  return {
+    type: LOG_OUT
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/components/items/item.jsx":
 /*!********************************************!*\
   !*** ./frontend/components/items/item.jsx ***!
@@ -876,6 +905,7 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', function () {
   var wntTag = document.getElementById("root");
   var store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  window.store = store;
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), wntTag);
@@ -1026,10 +1056,13 @@ var pokemonReducer = function pokemonReducer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _entities_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./entities_reducer */ "./frontend/reducers/entities_reducer.js");
+/* harmony import */ var _ui_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui_reducer */ "./frontend/reducers/ui_reducer.js");
+
 
 
 var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  ui: _ui_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
 
@@ -1061,6 +1094,63 @@ var chgItemState = function chgItemState(_ref2, id) {
   });
   return ans;
 };
+
+/***/ }),
+
+/***/ "./frontend/reducers/session_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/session_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_sessions_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/sessions_action */ "./frontend/actions/sessions_action.js");
+
+var null_sess = {
+  id: null
+};
+
+var sessionReducer = function sessionReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null_sess;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actions_sessions_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      return Object.assign({}, {
+        id: action.current_user
+      });
+
+    case _actions_sessions_action__WEBPACK_IMPORTED_MODULE_0__["LOG_OUT"]:
+      return null_sess;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (sessionReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/ui_reducer.js":
+/*!*****************************************!*\
+  !*** ./frontend/reducers/ui_reducer.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
+
+
+var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  session: _session_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+});
+/* harmony default export */ __webpack_exports__["default"] = (uiReducer);
 
 /***/ }),
 
