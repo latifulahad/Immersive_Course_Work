@@ -5,12 +5,14 @@ class SessionsController < ApplicationController
 
     def create
         usr = User.find_by(email: params[:user][:email])
-        if usr
-            usr.reset_session_tkn!
-            session[:session_token] = usr.session_token
-            #WE WILL NEED TO SETUP 4 ASYNC TYPE INTERACTION
+        @user = usr.is_pass?(params[:password]) ? usr : nil
+
+        if @user
+            @user.reset_session_tkn!
+            session[:session_token] = user.session_token
+            render :show
         else
-           redirect_to new_api_session_url 
+           render json: user.errors.full_messages, status: 422 
         end
     end
 

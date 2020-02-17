@@ -1,9 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import PokemonIndexItem from './pokemon_index_item';
 import PokemonDetailContainer from './pokemon_detail_container';
 import PokemonFormContainer from './pokemon_form_container';
+
+import LoginContainer from '../sessions/login_form_container' 
+import ShowUserContainer from '../sessions/show_user_container';
 
 class PokemonIndex extends React.Component {
 
@@ -14,11 +17,23 @@ class PokemonIndex extends React.Component {
     render() {
         const list = this.props.pokemon.map(ele => (
             (<PokemonIndexItem key={ele.id} poke={ele}/>) 
-        ))
+        ));
+        let userInfo = "";
+
+        if(this.props.loggedIn) {
+           userInfo
+        } else {
+            userInfo = <li><LoginContainer /></li>
+        }
 
         return(
             <div>
+                <ul>
+                    {userInfo}
+                </ul>
                 <Route path="/pokemon/:id" component={PokemonDetailContainer}/>
+                <Route path="/users/:id" component={ShowUserContainer}/>
+                
                 <Route path="/" component={PokemonFormContainer} />
                 <ul>{list}</ul>
             </div>

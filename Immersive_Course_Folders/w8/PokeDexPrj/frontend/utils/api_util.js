@@ -20,3 +20,18 @@ export const addPoke = (pokemon) => (
         data: { pokemon }
     })
 )
+
+export const logUserIn = (info) => (
+    $.ajax({
+        method: "POST",
+        url: "/api/session",
+        data: { user: info }
+    })
+)
+
+export const bringUser = (id) => (
+    $.ajax({
+        method: "GET",
+        url: `api/users/${id}`
+    })
+)
