@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const store = configureStore();
     
     window.store = store;
-    
+
     ReactDOM.render(<Root store={store}/>, wntTag);
 })
+
+// let store = {};
+// if (window.c_user) {
+//     store = configureStore({ ui: { session: window.c_user.id, user: window.c_user } })
+//     delete window.c_user;
+// } else {
+//     store = configureStore();
+// }

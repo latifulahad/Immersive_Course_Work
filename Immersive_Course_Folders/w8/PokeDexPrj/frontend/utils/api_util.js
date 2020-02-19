@@ -32,6 +32,6 @@ export const logUserIn = (info) => (
 export const bringUser = (id) => (
     $.ajax({
         method: "GET",
-        url: `api/users/${id}`
+        url: `/api/users/${id}`
     })
 )

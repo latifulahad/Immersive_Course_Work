@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
     def create
         usr = User.find_by(email: params[:user][:email])
-        @user = usr.is_pass?(params[:password]) ? usr : nil
+        @user = usr.is_pass?(params[:user][:password]) ? usr : nil
 
         if @user
             @user.reset_session_tkn!

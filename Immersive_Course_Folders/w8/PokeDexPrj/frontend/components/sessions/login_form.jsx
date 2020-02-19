@@ -15,9 +15,9 @@ class LoginForm extends React.Component {
     }
 
     handleSub() {
-        this.props.loginUser(this.state).then(res => this.props.history.push(`/users/${res.id}`))
+        this.props.loginUser(this.state)
     }
-    
+
     render() {
 
         return(

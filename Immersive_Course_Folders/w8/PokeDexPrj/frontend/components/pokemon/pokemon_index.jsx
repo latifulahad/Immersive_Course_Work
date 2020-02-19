@@ -23,14 +23,14 @@ class PokemonIndex extends React.Component {
         if(this.props.loggedIn) {
            userInfo
         } else {
-            userInfo = <li><LoginContainer /></li>
+            userInfo = <LoginContainer />
         }
-
+        
         return(
             <div>
-                <ul>
-                    {userInfo}
-                </ul>
+                <ShowUserContainer id={this.props.sessionInfo}/>
+                {userInfo}
+
                 <Route path="/pokemon/:id" component={PokemonDetailContainer}/>
                 <Route path="/users/:id" component={ShowUserContainer}/>
                 

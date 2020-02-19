@@ -10,6 +10,12 @@
     <script type="text/javascript">
       window.POKEMON_TYPES = <%=raw Pokemon::TYPES %>
     </script>
+
+    <script type="text/javascript">
+      <% if current_user %>
+        window.c_user = current_user
+      <% end %>
+    </script>
   </head>
 
   <body>

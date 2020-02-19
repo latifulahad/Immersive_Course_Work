@@ -212,7 +212,8 @@ var log_in_usr = function log_in_usr(info) {
   return function (dispatch) {
     Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["logUserIn"])(info).then(function (res) {
       dispatch(receive_user(res));
-      return res;
+    }).then(function (res) {
+      return dispatch(showUser(res.id));
     });
   };
 }; //make sure to setup for error handling w/.fail(err => corresActionCreator)
@@ -782,10 +783,12 @@ function (_React$Component) {
       if (this.props.loggedIn) {
         userInfo;
       } else {
-        userInfo = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sessions_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+        userInfo = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sessions_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"], null);
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, userInfo), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sessions_show_user_container__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        id: this.props.sessionInfo
+      }), userInfo, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/pokemon/:id",
         component: _pokemon_detail_container__WEBPACK_IMPORTED_MODULE_3__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -826,7 +829,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state) {
   return {
     pokemon: Object(_reducers_selector__WEBPACK_IMPORTED_MODULE_2__["chgPokeState"])(state),
-    loggedIn: Boolean(state.ui.session.id)
+    loggedIn: Boolean(state.ui.session.id),
+    sessionInfo: state.ui.session.id
   };
 };
 
@@ -1003,11 +1007,7 @@ function (_React$Component) {
   }, {
     key: "handleSub",
     value: function handleSub() {
-      var _this3 = this;
-
-      this.props.loginUser(this.state).then(function (res) {
-        return _this3.props.history.push("/users/".concat(res.id));
-      });
+      this.props.loginUser(this.state);
     }
   }, {
     key: "render",
@@ -1112,12 +1112,12 @@ function (_React$Component) {
   _createClass(ShowUser, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.loadUser();
+      this.props.loadUser(this.props.userId);
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.user.name));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name));
     }
   }]);
 
@@ -1144,17 +1144,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(_ref, ownProps) {
-  var ui = _ref.ui;
+var mapStateToProps = function mapStateToProps(state, _ref) {
+  var id = _ref.id;
   return {
-    user: ui.user
+    userId: id,
+    person: state.ui.user
   };
 };
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    loadUser: function loadUser() {
-      return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_1__["showUser"])(ownProps.match.params.id));
+    loadUser: function loadUser(id) {
+      return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_1__["showUser"])(id));
     }
   };
 };
@@ -1195,7 +1196,13 @@ document.addEventListener('DOMContentLoaded', function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store
   }), wntTag);
-});
+}); // let store = {};
+// if (window.c_user) {
+//     store = configureStore({ ui: { session: window.c_user.id, user: window.c_user } })
+//     delete window.c_user;
+// } else {
+//     store = configureStore();
+// }
 
 /***/ }),
 
@@ -1549,7 +1556,7 @@ var logUserIn = function logUserIn(info) {
 var bringUser = function bringUser(id) {
   return $.ajax({
     method: "GET",
-    url: "api/users/".concat(id)
+    url: "/api/users/".concat(id)
   });
 };
 
