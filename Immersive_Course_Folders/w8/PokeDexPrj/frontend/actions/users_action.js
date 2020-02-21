@@ -1,12 +1,12 @@
 import { bringUser } from '../utils/api_util'
 
-export const RECEIVE_USER = "RECEIVE_USER";
+export const LOG_USER = "LOG_USER";
 
 export const receiveUser = (user) => ({
-    type: RECEIVE_USER,
+    type: LOG_USER,
     user
 })
 
-export const showUser = id => dispatch => {
+export const showUser = id => dispatch => (
     bringUser(id).then(res => dispatch(receiveUser(res)))
-}
+)

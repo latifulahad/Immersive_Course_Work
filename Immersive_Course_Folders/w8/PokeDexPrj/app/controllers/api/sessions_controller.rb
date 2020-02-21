@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
     def new
         render :new
     end
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
         if @user
             @user.reset_session_tkn!
-            session[:session_token] = user.session_token
+            session[:session_token] = @user.session_token
             render :show
         else
            render json: user.errors.full_messages, status: 422 

@@ -1,10 +1,11 @@
-import { logUserIn } from '../utils/api_util'
+import { logUserIn } from '../utils/api_util';
+import { showUser } from './users_action';
 
-export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+export const RECEIVE_ID = "RECEIVE_ID";
 export const LOG_OUT = "LOG_OUT";
 
 export const receive_user = ({ id }) => ({
-    type: RECEIVE_CURRENT_USER,
+    type: RECEIVE_ID,
     current_user: id
 })
 
@@ -13,9 +14,9 @@ export const log_out = () => ({
 })
 
 export const log_in_usr = info => dispatch => {
-    logUserIn(info).then(res => { 
-        dispatch(receive_user(res))
-    }).then(res => dispatch(showUser(res.id)))
+    logUserIn(info).then(res => {
+        dispatch(receive_user(res));
+    })
 }
 
 //make sure to setup for error handling w/.fail(err => corresActionCreator)

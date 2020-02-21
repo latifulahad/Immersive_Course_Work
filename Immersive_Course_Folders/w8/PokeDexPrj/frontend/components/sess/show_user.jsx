@@ -1,11 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class ShowUser extends React.Component {
-    
+
     componentDidMount() {
-        this.props.loadUser(this.props.userId)
+        this.props.loadUser(this.props.wntId);
     }
-    
+
     render() {
         return(
             <div>
@@ -15,4 +16,4 @@ class ShowUser extends React.Component {
     }
 }
 
-export default ShowUser;
+export default withRouter(ShowUser);
