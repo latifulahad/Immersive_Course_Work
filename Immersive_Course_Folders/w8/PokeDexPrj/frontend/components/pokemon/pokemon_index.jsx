@@ -7,7 +7,6 @@ import PokemonFormContainer from './pokemon_form_container';
 
 import LoginContainer from '../sess/login_form_container' 
 import ShowUserContainer from '../sess/show_user_container';
-import AuthTag from '../sess/auth_tag';
 
 class PokemonIndex extends React.Component {
 
@@ -24,6 +23,8 @@ class PokemonIndex extends React.Component {
         this.props.loggedIn ? logER = <Link to={`/users/${this.props.sessionInfo}`} >UserInfo</Link> : logER = <Link to="/sessions" >Login</Link>;
 
         window.ans = this.props.loggedIn;
+        window.ans2 = this.props.sessionInfo;
+
         return(
             <div>
                 {logER}

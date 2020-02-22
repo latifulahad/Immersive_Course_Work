@@ -4,19 +4,20 @@ import { showUser } from './users_action';
 export const RECEIVE_ID = "RECEIVE_ID";
 export const LOG_OUT = "LOG_OUT";
 
-export const receive_user = ({ id }) => ({
+export const receive_user = (id) => ({
     type: RECEIVE_ID,
-    current_user: id
+    id
 })
 
 export const log_out = () => ({
     type: LOG_OUT
 })
 
-export const log_in_usr = info => dispatch => {
+export const log_in_usr = info => dispatch => (
     logUserIn(info).then(res => {
-        dispatch(receive_user(res));
+        dispatch(receive_user(res.id));
+        return(res);
     })
-}
+)
 
-//make sure to setup for error handling w/.fail(err => corresActionCreator)
+//make sure to setup for error handling w/.fail(err => corresActionCreator(err))

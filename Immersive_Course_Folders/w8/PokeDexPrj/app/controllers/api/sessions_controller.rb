@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
     def destroy
         current_user.reset_session_tkn!
         session[:session_token] = nil
-        redirect_to new_api_session_url
+        render json: { resP: "done" }
     end
 
     private

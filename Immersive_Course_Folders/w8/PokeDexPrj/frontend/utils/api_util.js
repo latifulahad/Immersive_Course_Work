@@ -29,6 +29,13 @@ export const logUserIn = (user) => (
     })
 )
 
+export const logOut = () => (
+    $.ajax({
+        method: "DELETE",
+        url: "/api/session"
+    })
+)
+
 export const bringUser = (id) => (
     $.ajax({
         method: "GET",

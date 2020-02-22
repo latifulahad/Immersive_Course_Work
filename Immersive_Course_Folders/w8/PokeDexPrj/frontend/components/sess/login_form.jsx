@@ -10,14 +10,12 @@ class LoginForm extends React.Component {
        this.handleSub = this.handleSub.bind(this);
     }
 
-    
-
     update(property) {
         return e => this.setState({ [property]: e.target.value })
     }
 
     handleSub() {
-        this.props.loginUser(this.state)
+        this.props.loginUser(this.state).then(res => this.props.history.push(`/users/${res.id}`))
     }
 
     render() {

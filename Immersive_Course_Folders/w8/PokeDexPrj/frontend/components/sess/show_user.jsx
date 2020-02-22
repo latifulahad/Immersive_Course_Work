@@ -8,9 +8,11 @@ class ShowUser extends React.Component {
     }
 
     render() {
+
         return(
             <div>
                 <h2>{this.props.person.name}</h2>
+                <button onClick={this.props.logOut}>Log-out</button>
             </div>
         )
     }
