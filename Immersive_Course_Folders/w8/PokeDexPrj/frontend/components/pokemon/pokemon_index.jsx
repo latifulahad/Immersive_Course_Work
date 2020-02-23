@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import PokemonIndexItem from './pokemon_index_item';
 import PokemonDetailContainer from './pokemon_detail_container';
@@ -9,7 +9,7 @@ import LoginContainer from '../sess/login_form_container'
 import ShowUserContainer from '../sess/show_user_container';
 
 class PokemonIndex extends React.Component {
-
+    
     componentDidMount() {
         this.props.loadPoke();
     }

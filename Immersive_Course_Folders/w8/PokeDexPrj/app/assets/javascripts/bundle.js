@@ -212,8 +212,7 @@ var log_out = function log_out() {
 var log_in_usr = function log_in_usr(info) {
   return function (dispatch) {
     return Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["logUserIn"])(info).then(function (res) {
-      dispatch(receive_user(res.id));
-      return res;
+      return dispatch(receive_user(res.id));
     });
   };
 }; //make sure to setup for error handling w/.fail(err => corresActionCreator(err))
@@ -1023,12 +1022,9 @@ function (_React$Component) {
     }
   }, {
     key: "handleSub",
-    value: function handleSub() {
-      var _this3 = this;
-
-      this.props.loginUser(this.state).then(function (res) {
-        return _this3.props.history.push("/users/".concat(res.id));
-      });
+    value: function handleSub(evt) {
+      evt.preventDefault();
+      this.props.loginUser(this.state);
     }
   }, {
     key: "render",
@@ -1142,7 +1138,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logOut
-      }, "Log-out"));
+      }, "Log-Out"));
     }
   }]);
 
