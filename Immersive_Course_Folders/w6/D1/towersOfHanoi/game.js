@@ -103,7 +103,7 @@ const a = new Game([[1, 2, 3], [], []]);
 // a.printStack(); //WORKS
 // console.log(a.isWon()) //WORKS
 // console.log(a.printStack()); //WORKS
-// a.promptMv(); //WORKS
+// a.promptMv(); //UNCOMMENT TO TEST!!!
 // console.log(a.isMvValid(0, 1)); //WORKS
 
 // a.move(0, 1);
