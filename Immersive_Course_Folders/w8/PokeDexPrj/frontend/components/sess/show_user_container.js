@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
     })
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
     loadUser: (id) => dispatch(showUser(id)),
     logOut: () => { 
         dispatch(log_out());

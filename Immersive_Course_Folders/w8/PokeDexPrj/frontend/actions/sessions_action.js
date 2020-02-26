@@ -16,5 +16,3 @@ export const log_out = () => ({
 export const log_in_usr = info => dispatch => (
     logUserIn(info).then(res => dispatch(receive_user(res.id)))
 )
-
-//make sure to setup for error handling w/.fail(err => corresActionCreator(err))

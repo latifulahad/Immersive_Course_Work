@@ -215,7 +215,7 @@ var log_in_usr = function log_in_usr(info) {
       return dispatch(receive_user(res.id));
     });
   };
-}; //make sure to setup for error handling w/.fail(err => corresActionCreator(err))
+};
 
 /***/ }),
 
@@ -1134,11 +1134,19 @@ function (_React$Component) {
       this.props.loadUser(this.props.wntId);
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      if (!this.props.person.name) {
+        this.props.history.push('/');
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      var val = this.props.person.name ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logOut
-      }, "Log-Out"));
+      }, "Log-Out") : "";
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), val);
     }
   }]);
 
@@ -1175,7 +1183,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   };
 };
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
     loadUser: function loadUser(id) {
       return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_1__["showUser"])(id));
