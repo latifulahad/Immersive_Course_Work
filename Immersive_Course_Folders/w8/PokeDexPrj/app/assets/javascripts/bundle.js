@@ -1143,10 +1143,9 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var val = this.props.person.name ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logOut
-      }, "Log-Out") : "";
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), val);
+      }, "Log-Out"));
     }
   }]);
 

@@ -12,12 +12,11 @@ class ShowUser extends React.Component {
     }
 
     render() {
-        let val = this.props.person.name ? <button onClick={this.props.logOut}>Log-Out</button> : "";
-
+    
         return(
             <div>
                 <h2>{this.props.person.name}</h2>
-                {val}
+                <button onClick={this.props.logOut}>Log-Out</button>
             </div>
         )
     }
