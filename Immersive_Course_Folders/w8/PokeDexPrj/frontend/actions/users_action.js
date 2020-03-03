@@ -1,4 +1,5 @@
-import { bringUser, logOut } from '../utils/api_util'
+import { bringUser, logOut, updateUsr } from '../utils/api_util'
+import { receiveErrors } from './pokemon_actions';
 
 export const LOG_USER = "LOG_USER";
 export const REMOVE_USR = "REMOVE_USR";
@@ -18,4 +19,8 @@ export const showUser = id => dispatch => (
 
 export const loggOut = () => dispatch => {
     logOut().then(res => dispatch(removeUser()))
+}
+
+export const updateUser = data => dispatch => {
+    updateUsr(data).then(res => dispatch(receiveUser(res))).fail(er => dispatch(receiveErrors(er.responseJSON)))
 }

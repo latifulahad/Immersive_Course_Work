@@ -223,7 +223,7 @@ var log_in_usr = function log_in_usr(info) {
 /*!******************************************!*\
   !*** ./frontend/actions/users_action.js ***!
   \******************************************/
-/*! exports provided: LOG_USER, REMOVE_USR, receiveUser, removeUser, showUser, loggOut */
+/*! exports provided: LOG_USER, REMOVE_USR, receiveUser, removeUser, showUser, loggOut, updateUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -234,7 +234,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeUser", function() { return removeUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showUser", function() { return showUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loggOut", function() { return loggOut; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUser", function() { return updateUser; });
 /* harmony import */ var _utils_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/api_util */ "./frontend/utils/api_util.js");
+/* harmony import */ var _pokemon_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pokemon_actions */ "./frontend/actions/pokemon_actions.js");
+
 
 var LOG_USER = "LOG_USER";
 var REMOVE_USR = "REMOVE_USR";
@@ -260,6 +263,15 @@ var loggOut = function loggOut() {
   return function (dispatch) {
     Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["logOut"])().then(function (res) {
       return dispatch(removeUser());
+    });
+  };
+};
+var updateUser = function updateUser(data) {
+  return function (dispatch) {
+    Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["updateUsr"])(data).then(function (res) {
+      return dispatch(receiveUser(res));
+    }).fail(function (er) {
+      return dispatch(Object(_pokemon_actions__WEBPACK_IMPORTED_MODULE_1__["receiveErrors"])(er.responseJSON));
     });
   };
 };
@@ -1096,6 +1108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _update_user_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./update_user_container */ "./frontend/components/sess/update_user_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1106,13 +1119,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1122,10 +1136,17 @@ var ShowUser =
 function (_React$Component) {
   _inherits(ShowUser, _React$Component);
 
-  function ShowUser() {
+  function ShowUser(props) {
+    var _this;
+
     _classCallCheck(this, ShowUser);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ShowUser).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ShowUser).call(this, props));
+    _this.state = {
+      runC: "false"
+    };
+    _this.handleUp = _this.handleUp.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ShowUser, [{
@@ -1141,9 +1162,23 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "handleUp",
+    value: function handleUp(evt) {
+      evt.preventDefault();
+      this.state.runC ? this.setState({
+        runC: false
+      }) : this.setState({
+        runC: true
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      var updBtn;
+      updBtn = this.state.runC ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_update_user_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        dude: this.props.person
+      }) : "";
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), updBtn, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logOut
       }, "Log-Out"));
     }
@@ -1195,6 +1230,147 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_show_user__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/sess/update_user.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/sess/update_user.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var UpdateUser =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(UpdateUser, _React$Component);
+
+  function UpdateUser(props) {
+    var _this;
+
+    _classCallCheck(this, UpdateUser);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UpdateUser).call(this, props));
+    _this.state = {
+      name: props.person.name,
+      email: props.person.email,
+      password: "",
+      id: props.match.userId
+    };
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    _this.handleSub = _this.handleSub.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UpdateUser, [{
+    key: "update",
+    value: function update(proper) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, proper, e.target.value));
+      };
+    }
+  }, {
+    key: "handleSub",
+    value: function handleSub(evt) {
+      evt.preventDefault();
+      this.props.sendChanges(data);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var errors;
+      errors = this.props.errors.forEach(function (er, id) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: id
+        }, er);
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSub
+      }, "Name", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.update("name"),
+        value: this.state.name
+      }), "Email", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.update("email"),
+        value: this.state.email
+      }), "Password", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.update("password"),
+        value: this.state.password
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Change")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors));
+    }
+  }]);
+
+  return UpdateUser;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(UpdateUser));
+
+/***/ }),
+
+/***/ "./frontend/components/sess/update_user_container.js":
+/*!***********************************************************!*\
+  !*** ./frontend/components/sess/update_user_container.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _update_user__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update_user */ "./frontend/components/sess/update_user.jsx");
+/* harmony import */ var _actions_users_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/users_action */ "./frontend/actions/users_action.js");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    person: ownProps.dude,
+    errors: state.entities.errors
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    sendChanges: function sendChanges(arg) {
+      return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_2__["updateUser"])(arg));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_update_user__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -1538,7 +1714,7 @@ var configureStore = function configureStore() {
 /*!************************************!*\
   !*** ./frontend/utils/api_util.js ***!
   \************************************/
-/*! exports provided: getPokemon, getPokeInfo, addPoke, logUserIn, logOut, bringUser */
+/*! exports provided: getPokemon, getPokeInfo, addPoke, logUserIn, logOut, bringUser, updateUsr */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1549,6 +1725,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logUserIn", function() { return logUserIn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logOut", function() { return logOut; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringUser", function() { return bringUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUsr", function() { return updateUsr; });
 var getPokemon = function getPokemon() {
   return $.ajax({
     method: "GET",
@@ -1589,6 +1766,15 @@ var bringUser = function bringUser(id) {
   return $.ajax({
     method: "GET",
     url: "/api/users/".concat(id)
+  });
+};
+var updateUsr = function updateUsr(data) {
+  $.ajax({
+    method: 'PATCH',
+    url: "/api/users/".concat(data.id),
+    data: {
+      user: data
+    }
   });
 };
 

@@ -20,6 +20,7 @@ class PokemonIndex extends React.Component {
         ));
         
         let logER
+        
         this.props.loggedIn ? logER = <Link to={`/users/${this.props.sessionInfo}`} >UserInfo</Link> : logER = <Link to="/sessions" >Login</Link>;
 
         window.ans = this.props.loggedIn;
@@ -28,7 +29,7 @@ class PokemonIndex extends React.Component {
         return(
             <div>
                 {logER}
-                
+
                 <Route path="/sessions" component={LoginContainer} />
                 <Route path="/users/:userId" component={ShowUserContainer} />
                 <Route path="/" component={PokemonFormContainer} />

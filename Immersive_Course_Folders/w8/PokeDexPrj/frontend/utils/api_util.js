@@ -42,3 +42,11 @@ export const bringUser = (id) => (
         url: `/api/users/${id}`
     })
 )
+
+export const updateUsr = (data) => {
+    $.ajax({
+        method: 'PATCH',
+        url: `/api/users/${data.id}`,
+        data: { user: data }
+    })
+}

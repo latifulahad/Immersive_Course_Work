@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :static_pages, only: [:root]
     resources :pokemon, only: [:show, :index, :create]
     
-    resources :users, only: [:new, :show, :create, :destroy]
+    resources :users, only: [:new, :show, :create, :update, :destroy]
     resource :session, only: [:new, :create, :destroy]
   end
 
