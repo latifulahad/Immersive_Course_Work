@@ -44,9 +44,14 @@ export const bringUser = (id) => (
 )
 
 export const updateUsr = (data) => {
+    let id = data.id;
+    delete data["id"];
+    
+    return(
     $.ajax({
         method: 'PATCH',
-        url: `/api/users/${data.id}`,
+        url: `/api/users/${id}`,
         data: { user: data }
     })
+    )
 }

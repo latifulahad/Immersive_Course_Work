@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import UpdateUser from './update_user';
 import { updateUser } from '../../actions/users_action'
 
-const mapStateToProps = (state, ownProps) => ({
-    person: ownProps.dude,
+const mapStateToProps = (state) => ({
+    person: state.ui.user,
     errors: state.entities.errors
 })
 

@@ -754,6 +754,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pokemon_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pokemon_form_container */ "./frontend/components/pokemon/pokemon_form_container.js");
 /* harmony import */ var _sess_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../sess/login_form_container */ "./frontend/components/sess/login_form_container.js");
 /* harmony import */ var _sess_show_user_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../sess/show_user_container */ "./frontend/components/sess/show_user_container.js");
+/* harmony import */ var _sess_update_user_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../sess/update_user_container */ "./frontend/components/sess/update_user_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -771,6 +772,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -819,6 +821,9 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/users/:userId",
         component: _sess_show_user_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        path: "/userUp/:id",
+        component: _sess_update_user_container__WEBPACK_IMPORTED_MODULE_7__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/",
         component: _pokemon_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -1162,23 +1167,14 @@ function (_React$Component) {
       }
     }
   }, {
-    key: "handleUp",
-    value: function handleUp(evt) {
-      evt.preventDefault();
-      this.state.runC ? this.setState({
-        runC: false
-      }) : this.setState({
-        runC: true
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var updBtn;
-      updBtn = this.state.runC ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_update_user_container__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        dude: this.props.person
-      }) : "";
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), updBtn, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      var updFrm;
+      updFrm = this.props.person ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/userUp/".concat(this.props.wntId),
+        component: _update_user_container__WEBPACK_IMPORTED_MODULE_2__["default"]
+      }, "Update User") : "";
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), updFrm, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logOut
       }, "Log-Out"));
     }
@@ -1280,10 +1276,10 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UpdateUser).call(this, props));
     _this.state = {
-      name: props.person.name,
-      email: props.person.email,
+      name: "",
+      email: "",
       password: "",
-      id: props.match.userId
+      id: _this.props.match.params.id
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleSub = _this.handleSub.bind(_assertThisInitialized(_this));
@@ -1303,7 +1299,7 @@ function (_React$Component) {
     key: "handleSub",
     value: function handleSub(evt) {
       evt.preventDefault();
-      this.props.sendChanges(data);
+      this.props.sendChanges(this.state);
     }
   }, {
     key: "render",
@@ -1319,8 +1315,9 @@ function (_React$Component) {
       }, "Name", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.update("name"),
-        value: this.state.name
-      }), "Email", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        value: this.state.name,
+        placeholder: this.props.person.name
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Old Email ", this.props.person.email), "Email", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.update("email"),
         value: this.state.email
@@ -1335,7 +1332,7 @@ function (_React$Component) {
   return UpdateUser;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(UpdateUser));
+/* harmony default export */ __webpack_exports__["default"] = (UpdateUser);
 
 /***/ }),
 
@@ -1355,9 +1352,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state, ownProps) {
+var mapStateToProps = function mapStateToProps(state) {
   return {
-    person: ownProps.dude,
+    person: state.ui.user,
     errors: state.entities.errors
   };
 };
@@ -1769,9 +1766,11 @@ var bringUser = function bringUser(id) {
   });
 };
 var updateUsr = function updateUsr(data) {
-  $.ajax({
+  var id = data.id;
+  delete data["id"];
+  return $.ajax({
     method: 'PATCH',
-    url: "/api/users/".concat(data.id),
+    url: "/api/users/".concat(id),
     data: {
       user: data
     }

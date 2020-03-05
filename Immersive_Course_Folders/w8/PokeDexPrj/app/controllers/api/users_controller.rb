@@ -19,13 +19,12 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        usr = User.find(wntParams.id)
-        if(usr.is_pass?(wntParams.password)) 
-            wntParams.delete(:id)    
-            usr.update(wntParams)
-            redirect_to api_user(usr)
+        @usr = User.find(params[:id])
+        if(@usr.is_pass?(params[:user][:password]))
+            @usr.update_attributes(wntParams)
+            render :show
         else 
-            render json: usr.errors.full_messages, status: 422
+            render json: @usr.errors.full_messages, status: 422
         end
     end
     
@@ -35,7 +34,7 @@ class Api::UsersController < ApplicationController
     private
 
     def wntParams
-        params.require(:user).permit(:name, :email, :password, :id)
+        params.require(:user).permit(:name, :email, :password)
     end
 
 end
