@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 import UpdateUserContainer from './update_user_container';
 
 class ShowUser extends React.Component {
@@ -7,7 +7,6 @@ class ShowUser extends React.Component {
         super(props);
 
         this.state = { runC: "false" }
-        this.handleUp = this.handleUp.bind(this);
     }
 
     componentDidMount() {

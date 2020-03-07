@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom';
 
 import Item from '../items/item';
 import ItemDetailContainer from '../items/item_detail_container';
+import { ProtectComContainer } from '../sess/protector_container';
 
 class PokemonDetail extends React.Component {
 
@@ -21,10 +22,13 @@ class PokemonDetail extends React.Component {
 
         return(
             <section>
-                <Route path='/pokemon/:id/items/:itemId' component={ItemDetailContainer}/>
+                <ProtectComContainer path='/pokemon/:id/items/:itemId' component={ItemDetailContainer}/>
+
                 <div>
                     <h2>{poke.name}</h2>
-                    <ul>Items {pokeIt.map(item => <Item key={item.id} nm={item.name} itmId={item.id} pokeId={item.pokemon_id}/>)}</ul>
+                    <ul>Items {pokeIt.map(item => (
+                        <Item key={item.id} nm={item.name} itmId={item.id} pokeId={item.pokemon_id} />
+                    ))}</ul>
                 </div>
             </section>
         )

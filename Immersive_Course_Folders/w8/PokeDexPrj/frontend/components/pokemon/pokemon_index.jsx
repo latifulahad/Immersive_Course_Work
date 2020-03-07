@@ -8,6 +8,7 @@ import PokemonFormContainer from './pokemon_form_container';
 import LoginContainer from '../sess/login_form_container' 
 import ShowUserContainer from '../sess/show_user_container';
 import UpdateUserContainer from '../sess/update_user_container';
+import { ProtectComContainer } from '../sess/protector_container';
 
 class PokemonIndex extends React.Component {
     
@@ -30,12 +31,11 @@ class PokemonIndex extends React.Component {
         return(
             <div>
                 {logER}
-
                 <Route path="/sessions" component={LoginContainer} />
-                <Route path="/users/:userId" component={ShowUserContainer} />
-                <Route path="/userUp/:id" component={UpdateUserContainer} />
+                <ProtectComContainer path="/users/:userId" component={ShowUserContainer}/>
                 <Route path="/" component={PokemonFormContainer} />
                 <Route path="/pokemon/:id" component={PokemonDetailContainer}/>
+                <Route path="/userUp/:id" component={UpdateUserContainer} />
                 
                 <ul>{list}</ul>
             </div>

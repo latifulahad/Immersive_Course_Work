@@ -68,6 +68,23 @@ button, input[type="submit"] {
     border-left: 1px solid white;
 }
 
+.header-list > li:hover {
+  background: #000;  
+}
+
 .header-logo {
     border-right: 1px solid white;
+}
+
+.header-logo:hover {
+  background: #000;
+}
+
+/* PART 2 */
+.header-list > li {
+    position: relative;
+}
+
+.header-notification {
+    position: absolute;
 }
