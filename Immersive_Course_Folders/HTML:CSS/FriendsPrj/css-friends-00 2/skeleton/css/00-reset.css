@@ -41,6 +41,7 @@ button, input[type="submit"] {
 }
 
 
+/* This portion is setting up a typical nav (nested within headerT)*/
 .header {
     background-color: red;
     color: #fff;
@@ -87,4 +88,25 @@ button, input[type="submit"] {
 
 .header-notification {
     position: absolute;
+    display: none;
+    white-space: nowrap;
+    background: #fff;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.header-notification > li {
+    color: #000;
+    border-top: 1px solid #ccc; 
+    padding: 5px 7px;
+}
+
+.header-notification > li:hover {
+      background: #eee; 
+}
+
+li:hover .header-notification {
+  display: block;
 }
