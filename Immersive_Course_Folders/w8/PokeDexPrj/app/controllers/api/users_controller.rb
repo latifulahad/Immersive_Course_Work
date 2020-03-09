@@ -7,7 +7,8 @@ class Api::UsersController < ApplicationController
     def create
         @usr = User.new(wntParams)
         if @usr.save!
-            # redirect_to user_url(@usr)
+            login_user!(@usr)
+            render :show
         else
             render json: @usr.errors.full_messages, status: 422
         end

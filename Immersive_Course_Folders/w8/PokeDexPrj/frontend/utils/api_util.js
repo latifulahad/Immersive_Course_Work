@@ -43,6 +43,14 @@ export const bringUser = (id) => (
     })
 )
 
+export const addUsr = (usr) => (
+    $.ajax({
+        method: "POST",
+        url: '/api/users',
+        data: { user: usr }
+    })
+)
+
 export const updateUsr = (data) => {
     let id = data.id;
     delete data["id"];

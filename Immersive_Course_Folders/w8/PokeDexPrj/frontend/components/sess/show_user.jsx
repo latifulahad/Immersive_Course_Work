@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, Link, withRouter } from 'react-router-dom';
-import UpdateUserContainer from './update_user_container';
+import { Link, withRouter } from 'react-router-dom';
 
 class ShowUser extends React.Component {
     constructor(props) {
