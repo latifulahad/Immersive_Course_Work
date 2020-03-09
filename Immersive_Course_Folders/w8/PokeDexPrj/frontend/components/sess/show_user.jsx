@@ -19,7 +19,7 @@ class ShowUser extends React.Component {
 
     render() {
         let updFrm;
-        updFrm = this.props.person ? <Link to={`/userUp/${this.props.wntId}`} component={UpdateUserContainer}>Update User</Link> : ""
+        updFrm = this.props.person ? <Link to={`/userUp/${this.props.wntId}`}>Update User</Link> : ""
 
         return(
             <div>

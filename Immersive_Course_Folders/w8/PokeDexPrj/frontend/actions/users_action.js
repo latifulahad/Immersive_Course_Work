@@ -22,5 +22,7 @@ export const loggOut = () => dispatch => {
 }
 
 export const updateUser = data => dispatch => {
-    updateUsr(data).then(res => dispatch(receiveUser(res))).fail(er => dispatch(receiveErrors(er.responseJSON)))
+    updateUsr(data).then(res => {
+        dispatch(receiveUser(res));
+    }).fail(er => dispatch(receiveErrors(er.responseJSON)))
 }

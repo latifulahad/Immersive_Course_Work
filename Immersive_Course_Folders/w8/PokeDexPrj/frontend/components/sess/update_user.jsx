@@ -10,6 +10,10 @@ class UpdateUser extends React.Component {
         this.handleSub = this.handleSub.bind(this);
     }
 
+    componentDidMount() {
+        if(this.props.errors.length) { this.props.cleanErr(); }
+    }
+
     update(proper) {
         return e => this.setState({ [proper]: e.target.value })
     }

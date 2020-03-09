@@ -20,6 +20,10 @@ class Api::UsersController < ApplicationController
 
     def update
         @usr = User.find(params[:id])
+        if(@usr.session_token != current_user.session_token) 
+            return render json: ["Wrong User"], status: 422
+        end
+
         if(@usr.is_pass?(params[:user][:password]))
             @usr.update_attributes(wntParams)
             render :show

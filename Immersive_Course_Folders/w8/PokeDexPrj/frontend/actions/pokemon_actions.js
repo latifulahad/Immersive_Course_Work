@@ -4,6 +4,7 @@ import { receiveItems } from './items_action';
 export const RECEIVE_POKEMON = "RECEIVE_POKEMON";
 export const RECEIVE_POKE = "RECEIVE_POKE";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const REMOVE_ERRORS = "REMOVE_ERRORS";
 
 export const receivePokemon = (pokeList) => ({
     type: RECEIVE_POKEMON,
@@ -19,6 +20,10 @@ export const receiveErrors = (errors) => ({
     type: RECEIVE_ERRORS,
     errors
 });
+
+export const rmErr = () => ({
+    type: REMOVE_ERRORS
+})
 
 export const bringPoke = () => dispatch => {
     getPokemon().then(res => dispatch(receivePokemon(res)))

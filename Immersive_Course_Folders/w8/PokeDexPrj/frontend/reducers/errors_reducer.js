@@ -1,4 +1,4 @@
-import { RECEIVE_ERRORS } from '../actions/pokemon_actions';
+import { RECEIVE_ERRORS, REMOVE_ERRORS } from '../actions/pokemon_actions';
 
 const errorsReducer = (state = [], action) => {
     let newState = [];
@@ -6,6 +6,8 @@ const errorsReducer = (state = [], action) => {
     switch(action.type) {
         case RECEIVE_ERRORS:
             newState = [...action.errors];
+            return newState;
+        case REMOVE_ERRORS:
             return newState;
         default:
             return state;
