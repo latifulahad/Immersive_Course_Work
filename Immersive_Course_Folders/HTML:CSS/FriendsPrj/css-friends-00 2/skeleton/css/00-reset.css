@@ -82,6 +82,16 @@ button, input[type="submit"] {
 }
 
 /* PART 2 */
+.badge {
+    background-color: #000;
+    padding: 1px 5px;
+    border-radius: 50%;
+}
+
+li:hover .badge {
+    background-color: red;
+}
+
 .header-list > li {
     position: relative;
 }
@@ -109,4 +119,30 @@ button, input[type="submit"] {
 
 li:hover .header-notification {
   display: block;
+}
+
+/* PART 3 */
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background: gray;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+
+.content-main {
+    min-height: 200px;    
+    padding: 20px;
+    width: 600px;
+}
+
+.content-sidebar {
+    min-height: 200px;
+    padding: 20px;
+    width: 200px;
+    border-right: 1px solid #ccc;
+    padding-right: 19px;
 }
