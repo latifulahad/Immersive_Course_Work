@@ -201,8 +201,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "log_out", function() { return log_out; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "log_in_usr", function() { return log_in_usr; });
 /* harmony import */ var _utils_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/api_util */ "./frontend/utils/api_util.js");
-/* harmony import */ var _users_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_action */ "./frontend/actions/users_action.js");
-
 
 var RECEIVE_ID = "RECEIVE_ID";
 var LOG_OUT = "LOG_OUT";
@@ -231,7 +229,7 @@ var log_in_usr = function log_in_usr(info) {
 /*!******************************************!*\
   !*** ./frontend/actions/users_action.js ***!
   \******************************************/
-/*! exports provided: LOG_USER, REMOVE_USR, receiveUser, removeUser, showUser, loggOut, updateUser, addUser */
+/*! exports provided: LOG_USER, REMOVE_USR, receiveUser, removeUser, showUser, loggOut, updateUser, addUser, dlUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -244,9 +242,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loggOut", function() { return loggOut; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUser", function() { return updateUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addUser", function() { return addUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dlUser", function() { return dlUser; });
 /* harmony import */ var _utils_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/api_util */ "./frontend/utils/api_util.js");
-/* harmony import */ var _pokemon_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pokemon_actions */ "./frontend/actions/pokemon_actions.js");
-/* harmony import */ var _sessions_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sessions_action */ "./frontend/actions/sessions_action.js");
+/* harmony import */ var _sessions_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sessions_action */ "./frontend/actions/sessions_action.js");
+/* harmony import */ var _pokemon_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pokemon_actions */ "./frontend/actions/pokemon_actions.js");
+
 
 
 
@@ -282,7 +282,7 @@ var updateUser = function updateUser(data) {
     Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["updateUsr"])(data).then(function (res) {
       dispatch(receiveUser(res));
     }).fail(function (er) {
-      return dispatch(Object(_pokemon_actions__WEBPACK_IMPORTED_MODULE_1__["receiveErrors"])(er.responseJSON));
+      return dispatch(Object(_pokemon_actions__WEBPACK_IMPORTED_MODULE_2__["receiveErrors"])(er.responseJSON));
     });
   };
 };
@@ -290,7 +290,16 @@ var addUser = function addUser(data) {
   return function (dispatch) {
     return Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["addUsr"])(data).then(function (res) {
       dispatch(receiveUser(res));
-      dispatch(Object(_sessions_action__WEBPACK_IMPORTED_MODULE_2__["receive_user"])(res.id));
+      dispatch(Object(_sessions_action__WEBPACK_IMPORTED_MODULE_1__["receive_user"])(res.id));
+      return res;
+    });
+  };
+};
+var dlUser = function dlUser(id) {
+  return function (dispatch) {
+    return Object(_utils_api_util__WEBPACK_IMPORTED_MODULE_0__["delUsr"])(id).then(function (res) {
+      dispatch(removeUser());
+      dispatch(Object(_sessions_action__WEBPACK_IMPORTED_MODULE_1__["log_out"])());
       return res;
     });
   };
@@ -1195,9 +1204,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1220,6 +1229,7 @@ function (_React$Component) {
     _this.state = {
       runC: "false"
     };
+    _this.handleDel = _this.handleDel.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1236,6 +1246,16 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "handleDel",
+    value: function handleDel(evt) {
+      var _this2 = this;
+
+      evt.preventDefault();
+      this.props.rmUser().then(function (res) {
+        return _this2.props.history.push('/');
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var updFrm;
@@ -1244,7 +1264,9 @@ function (_React$Component) {
       }, "Update User") : "";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), updFrm, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logOut
-      }, "Log-Out"));
+      }, "Log-Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleDel
+      }, "DELETE-ACCOUNT!"));
     }
   }]);
 
@@ -1282,9 +1304,13 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
+  var id = ownProps.match.params.userId;
   return {
     loadUser: function loadUser(id) {
       return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_1__["showUser"])(id));
+    },
+    rmUser: function rmUser() {
+      return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_1__["dlUser"])(id));
     },
     logOut: function logOut() {
       dispatch(Object(_actions_sessions_action__WEBPACK_IMPORTED_MODULE_3__["log_out"])());
@@ -1944,7 +1970,7 @@ var configureStore = function configureStore() {
 /*!************************************!*\
   !*** ./frontend/utils/api_util.js ***!
   \************************************/
-/*! exports provided: getPokemon, getPokeInfo, addPoke, logUserIn, logOut, bringUser, addUsr, updateUsr */
+/*! exports provided: getPokemon, getPokeInfo, addPoke, logUserIn, logOut, bringUser, addUsr, updateUsr, delUsr */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1957,6 +1983,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringUser", function() { return bringUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addUsr", function() { return addUsr; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUsr", function() { return updateUsr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "delUsr", function() { return delUsr; });
 var getPokemon = function getPokemon() {
   return $.ajax({
     method: "GET",
@@ -2017,6 +2044,12 @@ var updateUsr = function updateUsr(data) {
     data: {
       user: data
     }
+  });
+};
+var delUsr = function delUsr(id) {
+  return $.ajax({
+    method: "DELETE",
+    url: "/api/users/".concat(id)
   });
 };
 

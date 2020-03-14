@@ -1,4 +1,5 @@
-import { bringUser, logOut, updateUsr, addUsr } from '../utils/api_util'
+import { bringUser, logOut, updateUsr, addUsr, delUsr } from '../utils/api_util'
+import { log_out } from './sessions_action';
 import { receiveErrors } from './pokemon_actions';
 import { receive_user } from './sessions_action';
 
@@ -33,5 +34,13 @@ export const addUser = (data) => dispatch => (
         dispatch(receiveUser(res));
         dispatch(receive_user(res.id));
         return res;
+    })
+)
+
+export const dlUser = (id) => dispatch => (
+    delUsr(id).then(res => {
+        dispatch(removeUser());
+        dispatch(log_out());
+        return(res);
     })
 )

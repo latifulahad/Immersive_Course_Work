@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { showUser, loggOut } from '../../actions/users_action';
+import { showUser, loggOut, dlUser } from '../../actions/users_action';
 import ShowUser from './show_user';
 import { log_out } from '../../actions/sessions_action';
 
@@ -12,13 +12,18 @@ const mapStateToProps = (state, ownProps) => {
     })
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    loadUser: (id) => dispatch(showUser(id)),
-    logOut: () => { 
-        dispatch(log_out());
-        dispatch(loggOut());
-    }
-})
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let id = ownProps.match.params.userId
+    
+    return({
+        loadUser: (id) => dispatch(showUser(id)),
+        rmUser: () => dispatch(dlUser(id)), 
+        logOut: () => { 
+            dispatch(log_out());
+            dispatch(loggOut());
+        }
+    })
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowUser);
 

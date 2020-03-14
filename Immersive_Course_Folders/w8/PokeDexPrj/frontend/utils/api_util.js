@@ -63,3 +63,10 @@ export const updateUsr = (data) => {
     })
     )
 }
+
+export const delUsr = (id) => (
+    $.ajax({
+        method: "DELETE",
+        url: `/api/users/${id}`
+    })
+)

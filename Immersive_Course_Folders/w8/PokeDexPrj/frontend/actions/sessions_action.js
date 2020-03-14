@@ -1,5 +1,4 @@
 import { logUserIn } from '../utils/api_util';
-import { showUser } from './users_action';
 
 export const RECEIVE_ID = "RECEIVE_ID";
 export const LOG_OUT = "LOG_OUT";

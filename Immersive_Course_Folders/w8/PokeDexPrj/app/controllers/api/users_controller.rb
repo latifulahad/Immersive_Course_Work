@@ -33,7 +33,10 @@ class Api::UsersController < ApplicationController
         end
     end
     
-    def delete
+    def destroy
+        User.delete(current_user)
+        session[:session_token] = nil
+        render json: { resP: "done" }
     end
 
     private

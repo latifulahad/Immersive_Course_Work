@@ -6,6 +6,7 @@ class ShowUser extends React.Component {
         super(props);
 
         this.state = { runC: "false" }
+        this.handleDel = this.handleDel.bind(this);
     }
 
     componentDidMount() {
@@ -14,6 +15,12 @@ class ShowUser extends React.Component {
 
     componentDidUpdate() {
         if(!this.props.person.name) { this.props.history.push('/') }
+    }
+
+    handleDel(evt) {
+        evt.preventDefault();
+
+        this.props.rmUser().then(res => this.props.history.push('/'))
     }
 
     render() {
@@ -26,6 +33,7 @@ class ShowUser extends React.Component {
                 {updFrm}
 
                 <button onClick={this.props.logOut}>Log-Out</button>
+                <button onClick={this.handleDel}>DELETE-ACCOUNT!</button>
             </div>
         )
     }
