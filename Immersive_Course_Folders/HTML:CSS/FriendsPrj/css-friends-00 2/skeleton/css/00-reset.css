@@ -127,7 +127,7 @@ li:hover .header-notification {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    background: gray;
+    background:  #fff;;
     width: 900px;
     border: 1px solid #ccc;
     border-top: 0;
@@ -145,4 +145,33 @@ li:hover .header-notification {
     width: 200px;
     border-right: 1px solid #ccc;
     padding-right: 19px;
+}
+
+/* PART 4 */
+
+.footer {
+    display: flex;
+    margin: 0 auto;
+    width: 900px;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    color: #aaa;
+}
+
+.footer-copy {
+    display: block;
+    padding: 20px;
+}
+
+.footer-links {
+    display: flex;
+    padding: 20px;
+}
+
+.footer-links > li {
+    padding: 0 0 0 20px;
+}
+
+.footer-links > li:hover {
+    color: #000;
 }
