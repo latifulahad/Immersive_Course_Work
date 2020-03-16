@@ -41,10 +41,13 @@ button, input[type="submit"] {
 }
 
 
-/* This portion is setting up a typical nav (nested within headerT)*/
+/* PART 1 */
 .header {
     background-color: red;
     color: #fff;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    z-index: 1;
 }
 
 .header a {
@@ -155,7 +158,10 @@ li:hover .header-notification {
     width: 900px;
     justify-content: space-between;
     border: 1px solid #ccc;
+    border-top: 0;
     color: #aaa;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .footer-copy {
@@ -174,4 +180,38 @@ li:hover .header-notification {
 
 .footer-links > li:hover {
     color: #000;
+}
+
+/* PART 5*/
+
+.content-header {
+    height: 150px;
+    width: 100%;
+    background: url("../images/cats.jpg");
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.content-header > h1 {
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 240px;
+    font-size: 36px;
+    font-weight: 300;
+    text-shadow: #000 0 0 10px;
+}
+
+.content-header-add-frnd {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    background:white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.content-header-add-frnd:hover {
+    background: #eee;
 }
