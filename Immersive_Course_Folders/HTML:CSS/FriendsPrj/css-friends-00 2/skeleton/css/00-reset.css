@@ -185,9 +185,10 @@ li:hover .header-notification {
 /* PART 5*/
 
 .content-header {
-    height: 150px;
+    height: 200px;
     width: 100%;
     background: url("../images/cats.jpg");
+    background-size: cover;
     border-bottom: 1px solid #ccc;
     position: relative;
 }
@@ -207,6 +208,7 @@ li:hover .header-notification {
     right: 30px;
     bottom: 20px;
     background:white;
+    font-weight: bold;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid black;
@@ -214,4 +216,49 @@ li:hover .header-notification {
 
 .content-header-add-frnd:hover {
     background: #eee;
+}
+
+/* PART 6*/
+
+.profile-pic {
+    display: block;
+    margin-top: -150px;
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.profile-info {
+  margin: 20px 0;
+}
+
+.profile-info > h2 {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.profile-info > p {
+  margin: 20px 0;
+}
+
+.profile-nav {
+  margin: 20px 0;
+}
+
+.profile-nav > li {
+  border-bottom: 1px solid #ccc;
+}
+
+.profile-nav > li:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.profile-nav a {
+    display: block;
+    padding: 5px;
+    font-weight: 700;
+}
+
+.profile-nav a:hover {
+  background: #eee;
 }
