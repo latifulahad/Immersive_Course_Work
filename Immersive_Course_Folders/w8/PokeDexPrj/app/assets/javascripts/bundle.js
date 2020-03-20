@@ -790,6 +790,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_create_user_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../users/create_user_container */ "./frontend/components/users/create_user_container.js");
 /* harmony import */ var _sess_protector_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../sess/protector_container */ "./frontend/components/sess/protector_container.jsx");
 /* harmony import */ var _sess_auth_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../sess/auth_container */ "./frontend/components/sess/auth_container.jsx");
+/* harmony import */ var _users_err_user__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../users/err_user */ "./frontend/components/users/err_user.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -807,6 +808,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -874,9 +876,12 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/user",
         component: _users_create_user_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sess_auth_container__WEBPACK_IMPORTED_MODULE_10__["AuthComContainer"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sess_protector_container__WEBPACK_IMPORTED_MODULE_9__["ProtectComContainer"], {
         path: "/users/:userId",
         component: _sess_show_user_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        path: "/getSome",
+        component: _users_err_user__WEBPACK_IMPORTED_MODULE_11__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/userUp/:id",
         component: _sess_update_user_container__WEBPACK_IMPORTED_MODULE_7__["default"]
@@ -1047,10 +1052,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var AuthComponent = function AuthComponent(_ref) {
+var AuthCom = function AuthCom(_ref) {
   var path = _ref.path,
-      Component = _ref.component,
-      ritePer = _ref.ritePer;
+      ritePer = _ref.ritePer,
+      Component = _ref.component;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: path,
     render: function render(props) {
@@ -1062,13 +1067,13 @@ var AuthComponent = function AuthComponent(_ref) {
 };
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var value = state.ui.session.id === parseInt(ownProps.match.params.userId);
+  var value = ownProps.match.params.userId === state.ui.session.id;
   return {
     ritePer: value
   };
 };
 
-var AuthComContainer = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(AuthComponent));
+var AuthComContainer = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(AuthCom));
 
 /***/ }),
 
@@ -1296,7 +1301,11 @@ function (_React$Component) {
   _createClass(ShowUser, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.loadUser(this.props.wntId);
+      if (this.props.sessId === parseInt(this.props.wntId)) {
+        this.props.loadUser(this.props.wntId);
+      } else {
+        this.props.history.push('/getSome');
+      }
     }
   }, {
     key: "componentDidUpdate",
@@ -1358,6 +1367,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var id = ownProps.match.params.userId;
   return {
     person: state.ui.user,
+    sessId: state.ui.session.id,
     wntId: id
   };
 };
@@ -1683,6 +1693,27 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_create_user__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/users/err_user.jsx":
+/*!************************************************!*\
+  !*** ./frontend/components/users/err_user.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var MessHacker = function MessHacker() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Nice try");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (MessHacker);
 
 /***/ }),
 

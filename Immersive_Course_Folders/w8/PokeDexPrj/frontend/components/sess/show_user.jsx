@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class ShowUser extends React.Component {
     constructor(props) {
@@ -10,7 +10,11 @@ class ShowUser extends React.Component {
     }
 
     componentDidMount() {
-        this.props.loadUser(this.props.wntId);
+        if(this.props.sessId === parseInt(this.props.wntId)) {
+            this.props.loadUser(this.props.wntId);
+        } else {
+            this.props.history.push('/getSome');
+        }
     }
 
     componentDidUpdate() {

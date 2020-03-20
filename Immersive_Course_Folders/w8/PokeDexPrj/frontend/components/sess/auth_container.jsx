@@ -2,19 +2,19 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Route, Redirect, withRouter} from 'react-router-dom';
 
-const AuthComponent = ({path, component: Component, ritePer}) => (
+const AuthCom = ({ path, ritePer, component: Component }) => (
     <Route path={path} render={(props) => (
         ritePer ? (
-            <Component {...props}/>
+            <Component {...props} />
         ) : (
-            <Redirect to="/"/>
-        )
-    )}/>
-)
+                <Redirect to="/" />
+            )
+        )} />
+);
 
 const mapStateToProps = (state, ownProps) => {
-    let value = state.ui.session.id === parseInt(ownProps.match.params.userId);
+    let value = ownProps.match.params.userId === state.ui.session.id;
     return { ritePer: value }
 }
 
-export const AuthComContainer = withRouter(connect(mapStateToProps)(AuthComponent));
+export const AuthComContainer = withRouter(connect(mapStateToProps)(AuthCom));

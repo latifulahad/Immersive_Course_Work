@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 
     return({
         person: state.ui.user,
+        sessId: state.ui.session.id,
         wntId: id
     })
 }
