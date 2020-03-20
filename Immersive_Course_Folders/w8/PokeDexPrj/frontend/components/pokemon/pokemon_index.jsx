@@ -10,6 +10,7 @@ import ShowUserContainer from '../sess/show_user_container';
 import UpdateUserContainer from '../sess/update_user_container';
 import CreateUserContainer from '../users/create_user_container';
 import { ProtectComContainer } from '../sess/protector_container';
+import { AuthComContainer } from '../sess/auth_container';
 
 class PokemonIndex extends React.Component {
     
@@ -28,18 +29,33 @@ class PokemonIndex extends React.Component {
         this.props.loggedIn ? mkUsr = "" : mkUsr = <Link to="/user" >Create Account</Link>;
 
         return(
+        
             <div>
-                {logER}
-                <br></br>
-                {mkUsr}
-                <Route path="/sessions" component={LoginContainer} />
-                <Route path="/user" component={CreateUserContainer} />
-                <ProtectComContainer path="/users/:userId" component={ShowUserContainer}/>
-                <Route path="/" component={PokemonFormContainer} />
-                <Route path="/pokemon/:id" component={PokemonDetailContainer}/>
-                <Route path="/userUp/:id" component={UpdateUserContainer} />
+                <header class="header">
+                    <nav class="header-nav">
+                        <ul class="header-list">
+                            <li>{logER}</li>
+                            <li>{mkUsr}</li>
+                        </ul>
+                    </nav>
+                </header>
                 
-                <ul>{list}</ul>
+                <main class="content"> 
+                    <section class="content-sidebar">
+                        <Link to="/pokemon">Add-Pokemon</Link>
+                        <ul>{list}</ul>
+                    </section>
+
+                    <section class="content-main">
+                        <Route path="/sessions" component={LoginContainer} />
+                        <Route path="/user" component={CreateUserContainer} />
+                        <AuthComContainer path="/users/:userId" component={ShowUserContainer}/>
+                        
+                        <Route path="/userUp/:id" component={UpdateUserContainer} />
+                        <Route path="/pokemon" component={PokemonFormContainer} />
+                        <Route path="/pokemon/:id" component={PokemonDetailContainer} />
+                    </section>
+                </main>
             </div>
         )
     }

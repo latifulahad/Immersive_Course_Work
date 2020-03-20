@@ -41,26 +41,31 @@ class PokemonForm extends React.Component {
     render() {
         
         return(
-            <div>
-                <form onSubmit={this.handleSun}>
-                    <input onChange={this.update("name")} type="text" value={this.state.name} placeholder="Name"/>
-                    <input onChange={this.update("attack")} type="number" value={this.state.attack} placeholder="attack"/>
-                    <input onChange={this.update("defense")} type="number" value={this.state.defense} placeholder="defense"/>
-                    <input onChange={this.update("image_url")} type="text" value={this.state.image_url} placeholder="image"/>
-                    <input onChange={this.update("moves")} type="text" value={this.state.moves} placeholder="moves"/>
+            
+            <form class="poke-add" onSubmit={this.handleSun}>
+                <h2>Add a Friend</h2>
 
-                    <select onChange={this.update("poke_type")} value={this.state.poke_type}>
-                        { POKEMON_TYPES.map((type, idx) => {
-                                return(<option key={idx} value={type} >{type}</option>)
-                            })
-                        }
-                    </select>
+                <input onChange={this.update("name")} type="text" value={this.state.name} placeholder="Name"/>
+                    <br></br>
+                <input onChange={this.update("attack")} type="number" value={this.state.attack} placeholder="attack"/>
+                    <br></br>
+                <input onChange={this.update("defense")} type="number" value={this.state.defense} placeholder="defense"/>
+                    <br></br>
+                <input onChange={this.update("image_url")} type="text" value={this.state.image_url} placeholder="image"/>
+                    <br></br>
+                <input onChange={this.update("moves")} type="text" value={this.state.moves} placeholder="moves"/>
+                    <br></br>
+                <select onChange={this.update("poke_type")} value={this.state.poke_type}>
+                    { POKEMON_TYPES.map((type, idx) => {
+                            return(<option key={idx} value={type} >{type}</option>)
+                        })
+                    }
+                </select>
 
-                    <button>Submit</button>
-                </form>
-
+                <button>Submit</button>
+                
                 <ul>{this.printErrors()}</ul>
-            </div>
+            </form>   
         )
     }
 }

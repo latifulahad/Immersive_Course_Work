@@ -36,12 +36,13 @@ class CreateUser extends React.Component {
                 <form onSubmit={this.handleSub}>
                     Name
                     <input type="text" onChange={this.update("name")} value={this.state.name} />
-                    <br></br>
+                        <br></br>
                     Email
                     <input type="text" onChange={this.update("email")} value={this.state.email} />
+                        <br></br>
                     Password
                     <input type="text" onChange={this.update("password")} value={this.state.password} />
-
+                        <br></br>
                     <button>Register</button>
                 </form>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ShowUser extends React.Component {
     constructor(props) {
@@ -24,19 +24,19 @@ class ShowUser extends React.Component {
     }
 
     render() {
-        let updFrm;
-        updFrm = this.props.person ? <Link to={`/userUp/${this.props.wntId}`}>Update User</Link> : ""
-
+        window.num = this.props.match.params.userId;
+        
         return(
             <div>
                 <h2>{this.props.person.name}</h2>
-                {updFrm}
-
+                <Link to={`/userUp/${this.props.wntId}`}>Update User</Link>
+                    <br></br>
                 <button onClick={this.props.logOut}>Log-Out</button>
+                    <br></br>
                 <button onClick={this.handleDel}>DELETE-ACCOUNT!</button>
             </div>
         )
     }
 }
 
-export default withRouter(ShowUser);
+export default ShowUser;

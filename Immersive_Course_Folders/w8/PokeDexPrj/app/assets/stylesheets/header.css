@@ -1,0 +1,24 @@
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background:  #fff;;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+
+.content-main {
+    min-height: 200px;    
+    padding: 20px;
+    width: 600px;
+}
+
+.content-sidebar {
+    min-height: 200px;
+    padding: 20px;
+    width: 200px;
+    border-right: 1px solid #ccc;
+    padding-right: 19px;
+}

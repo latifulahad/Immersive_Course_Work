@@ -687,34 +687,35 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        "class": "poke-add",
         onSubmit: this.handleSun
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add a Friend"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update("name"),
         type: "text",
         value: this.state.name,
         placeholder: "Name"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update("attack"),
         type: "number",
         value: this.state.attack,
         placeholder: "attack"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update("defense"),
         type: "number",
         value: this.state.defense,
         placeholder: "defense"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update("image_url"),
         type: "text",
         value: this.state.image_url,
         placeholder: "image"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.update("moves"),
         type: "text",
         value: this.state.moves,
         placeholder: "moves"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         onChange: this.update("poke_type"),
         value: this.state.poke_type
       }, POKEMON_TYPES.map(function (type, idx) {
@@ -722,7 +723,7 @@ function (_React$Component) {
           key: idx,
           value: type
         }, type);
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.printErrors()));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.printErrors()));
     }
   }]);
 
@@ -788,6 +789,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sess_update_user_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../sess/update_user_container */ "./frontend/components/sess/update_user_container.js");
 /* harmony import */ var _users_create_user_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../users/create_user_container */ "./frontend/components/users/create_user_container.js");
 /* harmony import */ var _sess_protector_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../sess/protector_container */ "./frontend/components/sess/protector_container.jsx");
+/* harmony import */ var _sess_auth_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../sess/auth_container */ "./frontend/components/sess/auth_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -805,6 +807,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -851,25 +854,39 @@ function (_React$Component) {
       this.props.loggedIn ? mkUsr = "" : mkUsr = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/user"
       }, "Create Account");
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, logER, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), mkUsr, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+        "class": "header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        "class": "header-nav"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        "class": "header-list"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, logER), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, mkUsr)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
+        "class": "content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        "class": "content-sidebar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/pokemon"
+      }, "Add-Pokemon"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, list)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        "class": "content-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/sessions",
         component: _sess_login_form_container__WEBPACK_IMPORTED_MODULE_5__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/user",
         component: _users_create_user_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sess_protector_container__WEBPACK_IMPORTED_MODULE_9__["ProtectComContainer"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sess_auth_container__WEBPACK_IMPORTED_MODULE_10__["AuthComContainer"], {
         path: "/users/:userId",
         component: _sess_show_user_container__WEBPACK_IMPORTED_MODULE_6__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/",
+        path: "/userUp/:id",
+        component: _sess_update_user_container__WEBPACK_IMPORTED_MODULE_7__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        path: "/pokemon",
         component: _pokemon_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/pokemon/:id",
         component: _pokemon_detail_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/userUp/:id",
-        component: _sess_update_user_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, list));
+      }))));
     }
   }]);
 
@@ -1012,6 +1029,49 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
+/***/ "./frontend/components/sess/auth_container.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/sess/auth_container.jsx ***!
+  \*****************************************************/
+/*! exports provided: AuthComContainer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthComContainer", function() { return AuthComContainer; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+
+
+
+var AuthComponent = function AuthComponent(_ref) {
+  var path = _ref.path,
+      Component = _ref.component,
+      ritePer = _ref.ritePer;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: path,
+    render: function render(props) {
+      return ritePer ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/"
+      });
+    }
+  });
+};
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var value = state.ui.session.id === parseInt(ownProps.match.params.userId);
+  return {
+    ritePer: value
+  };
+};
+
+var AuthComContainer = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(AuthComponent));
+
+/***/ }),
+
 /***/ "./frontend/components/sess/login_form.jsx":
 /*!*************************************************!*\
   !*** ./frontend/components/sess/login_form.jsx ***!
@@ -1087,15 +1147,15 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSub
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.update("email"),
         value: this.state.email
-      }), "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.update("password"),
         value: this.state.passowrd
-      }), "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit"));
+      }), "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Submit"));
     }
   }]);
 
@@ -1258,13 +1318,12 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var updFrm;
-      updFrm = this.props.person ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      window.num = this.props.match.params.userId;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/userUp/".concat(this.props.wntId)
-      }, "Update User") : "";
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.person.name), updFrm, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Update User"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logOut
-      }, "Log-Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Log-Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleDel
       }, "DELETE-ACCOUNT!"));
     }
@@ -1273,7 +1332,7 @@ function (_React$Component) {
   return ShowUser;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(ShowUser));
+/* harmony default export */ __webpack_exports__["default"] = (ShowUser);
 
 /***/ }),
 
@@ -1422,11 +1481,11 @@ function (_React$Component) {
         type: "text",
         onChange: this.update("email"),
         value: this.state.email
-      }), "Password", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Password", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.update("password"),
         value: this.state.password
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Change")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Change")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors));
     }
   }]);
 
@@ -1577,11 +1636,11 @@ function (_React$Component) {
         type: "text",
         onChange: this.update("email"),
         value: this.state.email
-      }), "Password", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Password", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.update("password"),
         value: this.state.password
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Register")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Register")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, errors));
     }
   }]);
 

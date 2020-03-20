@@ -38,9 +38,10 @@ class UpdateUser extends React.Component {
                     <p>Old Email {this.props.person.email}</p>
                     Email
                     <input type="text" onChange={this.update("email")} value={this.state.email}/>
+                        <br></br>
                     Password
                     <input type="text" onChange={this.update("password")} value={this.state.password}/>
-
+                        <br></br>
                     <button>Change</button>
                 </form>
                 
