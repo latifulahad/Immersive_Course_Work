@@ -262,3 +262,25 @@ li:hover .header-notification {
 .profile-nav a:hover {
   background: #eee;
 }
+
+/* PART 7*/
+
+.profile-pic {
+  overflow: hidden;
+}
+
+.online {
+    background: #0c0;
+    position: absolute;
+    display: block;
+    color: #fff;
+    padding: 5px 30px;
+    box-shadow: 0 1px 0 0 #070;
+    top: -5px;
+    left: -5px;
+    transform: rotate(-45deg) translateX(-25%);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}

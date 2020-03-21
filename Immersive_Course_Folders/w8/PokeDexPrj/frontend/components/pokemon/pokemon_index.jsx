@@ -51,6 +51,7 @@ class PokemonIndex extends React.Component {
                         <Route path="/sessions" component={LoginContainer} />
                         <Route path="/user" component={CreateUserContainer} />
                         <ProtectComContainer path="/users/:userId" component={ShowUserContainer}/>
+                        
                         <Route path="/getSome" component={MessHacker}/>
                         <Route path="/userUp/:id" component={UpdateUserContainer} />
                         <Route path="/pokemon" component={PokemonFormContainer} />
