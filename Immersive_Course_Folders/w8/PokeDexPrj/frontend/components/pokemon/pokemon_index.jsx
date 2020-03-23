@@ -9,8 +9,6 @@ import LoginContainer from '../sess/login_form_container'
 import ShowUserContainer from '../sess/show_user_container';
 import UpdateUserContainer from '../sess/update_user_container';
 import CreateUserContainer from '../users/create_user_container';
-import { ProtectComContainer } from '../sess/protector_container';
-import { AuthComContainer } from '../sess/auth_container';
 import MessHacker from '../users/err_user';
 
 class PokemonIndex extends React.Component {
@@ -24,7 +22,7 @@ class PokemonIndex extends React.Component {
             (<PokemonIndexItem key={ele.id} poke={ele}/>) 
         ));
         
-        let logER, mkUsr 
+        let logER, mkUsr
 
         this.props.loggedIn ? logER = <Link to={`/users/${this.props.sessionInfo}`} >UserInfo</Link> : logER = <Link to="/sessions" >Login</Link>;
         this.props.loggedIn ? mkUsr = "" : mkUsr = <Link to="/user" >Create Account</Link>;
@@ -51,8 +49,7 @@ class PokemonIndex extends React.Component {
                     <section class="content-main">
                         <Route path="/sessions" component={LoginContainer} />
                         <Route path="/user" component={CreateUserContainer} />
-                        <ProtectComContainer path="/users/:userId" component={ShowUserContainer}/>
-                        
+                        <Route path="/users/:userId" component={ShowUserContainer}/>
                         <Route path="/getSome" component={MessHacker}/>
                         <Route path="/userUp/:id" component={UpdateUserContainer} />
                         <Route path="/pokemon/:id" component={PokemonDetailContainer} />

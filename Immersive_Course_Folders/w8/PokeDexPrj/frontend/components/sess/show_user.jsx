@@ -28,8 +28,6 @@ class ShowUser extends React.Component {
     }
 
     render() {
-        window.num = this.props.match.params.userId;
-        
         return(
             <div>
                 <h2>{this.props.person.name}</h2>

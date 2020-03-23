@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
     handleSub(evt) {
         evt.preventDefault();
 
-        this.props.loginUser(this.state);
+        this.props.loginUser(this.state).then(res => this.props.history.push(`/users/${res.id}`));
     }
 
     render() {
