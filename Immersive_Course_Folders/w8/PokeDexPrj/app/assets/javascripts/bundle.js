@@ -523,17 +523,17 @@ function (_React$Component) {
       var _this$props = this.props,
           poke = _this$props.poke,
           pokeIt = _this$props.pokeIt;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sess_protector_container__WEBPACK_IMPORTED_MODULE_4__["ProtectComContainer"], {
-        path: "/pokemon/:id/items/:itemId",
-        component: _items_item_detail_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, poke.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Items ", pokeIt.map(function (item) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, poke.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Items ", pokeIt.map(function (item) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_items_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           key: item.id,
           nm: item.name,
           itmId: item.id,
           pokeId: item.pokemon_id
         });
-      }))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sess_protector_container__WEBPACK_IMPORTED_MODULE_4__["ProtectComContainer"], {
+        path: "/pokemon/:id/items/:itemId",
+        component: _items_item_detail_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+      }));
     }
   }]);
 
@@ -860,7 +860,11 @@ function (_React$Component) {
         "class": "header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         "class": "header-nav"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        "class": "header-img",
+        src: "./assets/pokeball.svg",
+        alt: "pokedex"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         "class": "header-list"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, logER), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, mkUsr)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
         "class": "content"
@@ -886,11 +890,12 @@ function (_React$Component) {
         path: "/userUp/:id",
         component: _sess_update_user_container__WEBPACK_IMPORTED_MODULE_7__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/pokemon",
-        component: _pokemon_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/pokemon/:id",
         component: _pokemon_detail_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        exact: true,
+        path: "/pokemon",
+        component: _pokemon_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
       }))));
     }
   }]);

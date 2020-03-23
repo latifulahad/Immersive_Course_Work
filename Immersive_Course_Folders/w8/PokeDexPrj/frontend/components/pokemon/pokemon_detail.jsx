@@ -21,16 +21,14 @@ class PokemonDetail extends React.Component {
         const { poke, pokeIt } = this.props;
 
         return(
-            <section>
-                <ProtectComContainer path='/pokemon/:id/items/:itemId' component={ItemDetailContainer}/>
-
                 <div>
                     <h2>{poke.name}</h2>
                     <ul>Items {pokeIt.map(item => (
                         <Item key={item.id} nm={item.name} itmId={item.id} pokeId={item.pokemon_id} />
                     ))}</ul>
+
+                <ProtectComContainer path='/pokemon/:id/items/:itemId' component={ItemDetailContainer} />
                 </div>
-            </section>
         )
     }
 }

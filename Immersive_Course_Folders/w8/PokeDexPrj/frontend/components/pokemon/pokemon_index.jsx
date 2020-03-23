@@ -30,10 +30,11 @@ class PokemonIndex extends React.Component {
         this.props.loggedIn ? mkUsr = "" : mkUsr = <Link to="/user" >Create Account</Link>;
 
         return(
-        
             <div>
                 <header class="header">
                     <nav class="header-nav">
+                        <img class="header-img" src="./assets/pokeball.svg" alt="pokedex"></img>
+                        
                         <ul class="header-list">
                             <li>{logER}</li>
                             <li>{mkUsr}</li>
@@ -54,8 +55,8 @@ class PokemonIndex extends React.Component {
                         
                         <Route path="/getSome" component={MessHacker}/>
                         <Route path="/userUp/:id" component={UpdateUserContainer} />
-                        <Route path="/pokemon" component={PokemonFormContainer} />
                         <Route path="/pokemon/:id" component={PokemonDetailContainer} />
+                        <Route exact path="/pokemon"  component={PokemonFormContainer} />
                     </section>
                 </main>
             </div>

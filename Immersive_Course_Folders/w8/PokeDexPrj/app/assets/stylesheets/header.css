@@ -1,4 +1,17 @@
 
+.header-img {
+    margin: auto;
+}
+
+.header-link {
+    right: 20px;
+}
+
+.header-link > a {
+    padding: 5px;
+    color: #ccc; 
+}
+
 .content {
     display: flex;
     flex-wrap: wrap;
