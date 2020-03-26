@@ -1,8 +1,12 @@
 import ReactDOM from 'react-dom';
-
+import React from 'react';
+import Root from './components/root';
+import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", () => {
-    let wntTag = document.getElementById("root")
+    const wntTag = document.getElementById("root")
+    const store = configureStore();
 
-    ReactDOM.render(<p>Hey There</p>, wntTag)
+    window.st = store;
+    ReactDOM.render(<Root store={store}/>, wntTag)
 })

@@ -14657,3 +14657,550 @@ Checked in these paths:
   app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___864348408043440619_70183701399980'
 
 Started POST "/__better_errors/6e732f0d16db5727/variables" for ::1 at 2020-03-24 23:32:46 -0400
+Started GET "/" for ::1 at 2020-03-24 23:37:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb___864348408043440619_70183697618640'
+
+Started POST "/__better_errors/bc9c80fc6ed66d01/variables" for ::1 at 2020-03-24 23:37:33 -0400
+Started GET "/" for ::1 at 2020-03-24 23:38:03 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb___864348408043440619_70183669466400'
+
+Started POST "/__better_errors/7db0649538a480ef/variables" for ::1 at 2020-03-24 23:38:03 -0400
+Started GET "/" for ::1 at 2020-03-24 23:41:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 119ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb___864348408043440619_70183700322200'
+
+Started POST "/__better_errors/f00c50491a158129/variables" for ::1 at 2020-03-24 23:41:05 -0400
+Started GET "/" for ::1 at 2020-03-24 23:44:44 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb___864348408043440619_70183679007400'
+
+Started POST "/__better_errors/52a1526f586a1461/variables" for ::1 at 2020-03-24 23:44:44 -0400
+Started GET "/" for ::1 at 2020-03-24 23:45:51 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery_ujs' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb___864348408043440619_70183670115020'
+
+Started POST "/__better_errors/0f6e7eb1c43bfa52/variables" for ::1 at 2020-03-24 23:45:51 -0400
+Started GET "/" for ::1 at 2020-03-24 23:47:15 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___864348408043440619_70183657765980'
+
+Started POST "/__better_errors/baf91f8a404a653e/variables" for ::1 at 2020-03-24 23:47:15 -0400
+Started GET "/" for ::1 at 2020-03-24 23:48:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___864348408043440619_70183679507240'
+
+Started POST "/__better_errors/52a9b2b6a29b3a8e/variables" for ::1 at 2020-03-24 23:48:04 -0400
+Started GET "/" for ::1 at 2020-03-24 23:56:29 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___864348408043440619_70183680404740'
+
+Started POST "/__better_errors/d423c38cd68693d3/variables" for ::1 at 2020-03-24 23:56:30 -0400
+Started GET "/" for ::1 at 2020-03-24 23:57:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___864348408043440619_70183701307200'
+
+Started POST "/__better_errors/8f07499751fcfcd2/variables" for ::1 at 2020-03-24 23:57:47 -0400
+Started GET "/" for ::1 at 2020-03-25 20:02:09 -0400
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 330ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___4339454497136172293_70229959443040'
+
+Started POST "/__better_errors/54b78c4e8a341c14/variables" for ::1 at 2020-03-25 20:02:10 -0400
+Started GET "/" for ::1 at 2020-03-25 20:10:26 -0400
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 330ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___518394726628450469_70270912073380'
+
+Started POST "/__better_errors/67458538c417e100/variables" for ::1 at 2020-03-25 20:10:27 -0400
+Started GET "/" for ::1 at 2020-03-25 20:13:15 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___518394726628450469_70270915702500'
+
+Started POST "/__better_errors/6a31729bdc4c9567/variables" for ::1 at 2020-03-25 20:13:16 -0400
+Started GET "/" for ::1 at 2020-03-25 20:15:22 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 217ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___518394726628450469_70270914362100'
+
+Started POST "/__better_errors/2b808f3f33d4ce5f/variables" for ::1 at 2020-03-25 20:15:23 -0400
+Started GET "/" for ::1 at 2020-03-25 20:15:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb___518394726628450469_70270926313560'
+
+Started POST "/__better_errors/f0cb1935150cd439/variables" for ::1 at 2020-03-25 20:15:39 -0400
+Started GET "/" for ::1 at 2020-03-25 20:16:05 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___518394726628450469_70270891882520'
+
+Started POST "/__better_errors/47d2e4d2bc363311/variables" for ::1 at 2020-03-25 20:16:06 -0400
+Started GET "/" for ::1 at 2020-03-25 20:17:50 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___518394726628450469_70270926561540'
+
+Started POST "/__better_errors/17f465d6cacd3991/variables" for ::1 at 2020-03-25 20:17:50 -0400
+Started GET "/" for ::1 at 2020-03-25 20:22:19 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___518394726628450469_70270927501480'
+
+Started POST "/__better_errors/4d23793cba167a97/variables" for ::1 at 2020-03-25 20:22:19 -0400
+Started GET "/" for ::1 at 2020-03-25 20:23:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___518394726628450469_70270890100820'
+
+Started POST "/__better_errors/a6e93b5a18fe7145/variables" for ::1 at 2020-03-25 20:23:26 -0400
+Started GET "/" for ::1 at 2020-03-25 20:25:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 122ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/config
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/images
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/javascripts
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/app/assets/stylesheets
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.3/lib/assets/compiled
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.3/app/assets/javascripts
+  /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.3/lib/assets/compiled
+  /Users/latifulahad/Desktop/App:A Work/Immersive_Course_Folders/w5/D2FinalRbProj/MyReddit/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___518394726628450469_70270927532360'
+
+Started POST "/__better_errors/dffe83b629c7820e/variables" for ::1 at 2020-03-25 20:25:34 -0400
+Started GET "/" for ::1 at 2020-03-25 20:26:00 -0400
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.4ms)
+Completed 200 OK in 3743ms (Views: 3738.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-03-25 20:26:12 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 80ms (Views: 44.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:37:09 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.4ms)
+Completed 200 OK in 341ms (Views: 331.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:40:11 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.4ms)
+Completed 200 OK in 150ms (Views: 141.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:41:26 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.6ms)
+Completed 200 OK in 100ms (Views: 93.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:44:43 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.8ms)
+Completed 200 OK in 143ms (Views: 134.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:44:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.7ms)
+Completed 200 OK in 79ms (Views: 73.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:45:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.7ms)
+Completed 200 OK in 103ms (Views: 96.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:45:48 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.0ms)
+Completed 200 OK in 157ms (Views: 154.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:46:34 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+Completed 200 OK in 71ms (Views: 66.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 20:55:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.2ms)
+Completed 200 OK in 605ms (Views: 595.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 21:49:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.1ms)
+Completed 200 OK in 1085ms (Views: 1074.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 21:50:49 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.6ms)
+Completed 200 OK in 630ms (Views: 624.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 22:21:59 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.6ms)
+Completed 200 OK in 740ms (Views: 717.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-25 22:22:46 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+Completed 200 OK in 799ms (Views: 793.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-26 00:04:28 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (17.4ms)
+Completed 200 OK in 826ms (Views: 797.6ms | ActiveRecord: 0.0ms)
+
+
