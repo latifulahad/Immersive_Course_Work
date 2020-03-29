@@ -16,7 +16,7 @@ export const log_out = () => ({
 export const login_user = (inputData) => dispatch => (
     log_user(inputData).then(res => {
         dispatch(receive_id(res.id));
-        dispatch(receive_user(res))
+        dispatch(receive_user(res));
         return res;
     })
 )

@@ -6,26 +6,33 @@ class Login extends React.Component {
 
         this.state = { email: "", password: "" };
         this.update = this.update.bind(this);
+        this.handleSub = this.handleSub.bind(this);
     }
 
     update(attr) {
         return e => this.setState({ [attr]: e.target.value })
     }
     
+    handleSub(evt) {
+        evt.preventDefault();
+
+        this.props.login(this.state).then(res => this.props.history.push("/"))
+    }
+
     render() {
         return(
             <form>
                 <label>
                     Email
-                    <input onClick={this.update("email")} />
+                    <input type="text" onChange={this.update("email")} value={this.state.email}/>
                 </label>
                     <br></br>
                 <label>
                     Password
-                    <input onClick={this.update("password")} />
+                    <input type="text" onChange={this.update("password")} value={this.state.password}/>
                 </label>
                     <br></br>
-                <button onClick={this.props.}>Enter</button>
+                <button onClick={this.handleSub}>Enter</button>
             </form>
         )
     }

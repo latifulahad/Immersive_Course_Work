@@ -1,10 +1,10 @@
-export const log_user = (inputData) => {
+export const log_user = (inputData) => (
     $.ajax({
-        method: "GET",
-        url: "/session/new",
+        method: "POST",
+        url: "/session",
         data: { user: inputData }
     })
-}
+)
 
 export const log_out_user = () => {
     $.ajax({
@@ -12,3 +12,10 @@ export const log_out_user = () => {
         url: '/session'
     })
 }
+
+export const threadsInx = () => (
+    $.ajax({
+        method: "GET",
+        url: "subs"
+    })
+)

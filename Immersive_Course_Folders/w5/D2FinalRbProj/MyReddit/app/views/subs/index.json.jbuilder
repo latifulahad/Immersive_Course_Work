@@ -1,0 +1,1 @@
+json.array! @subs, :id, :title, :description

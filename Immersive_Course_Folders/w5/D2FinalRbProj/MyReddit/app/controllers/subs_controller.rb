@@ -2,7 +2,11 @@ class SubsController < ApplicationController
     
     def index
         @subs = Sub.all
-        render :index
+
+        respond_to do |format|
+            format.json { render :index }	
+	    end
+    
     end
 
     def new

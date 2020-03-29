@@ -31,7 +31,6 @@ span, article, footer, time, small {
 	color: inherit;
 
     background: transparent; 
-    background-color: lightseagreen;
 }
 
 ul {
@@ -56,3 +55,54 @@ button {
 button, input[type="submit"] {
     cursor: pointer;
 }
+
+body {
+    background-color: lightseagreen;
+}
+
+.header {
+    background: #fff;
+    color:black;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    z-index: 1;
+    height: 50px;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    width: 900px;
+}
+
+.header-list > li {
+    display: flex;
+}
+
+/* .content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background:  #fff;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+
+.content-main {
+    min-height: 200px;    
+    padding: 20px;
+    width: 600px;
+}
+
+.content-sidebar {
+    min-height: 200px;
+    padding: 20px;
+    width: 200px;
+    border-right: 1px solid #ccc;
+    padding-right: 19px;
+} */
+                            
