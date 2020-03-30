@@ -6,12 +6,20 @@ export const log_user = (inputData) => (
     })
 )
 
-export const log_out_user = () => {
+export const log_out_user = () => (
     $.ajax({
         method: "DELETE",
         url: '/session'
     })
-}
+)
+
+export const create_user = (data) => (
+    $.ajax({
+        method: "POST",
+        url: "/users",
+        data: { user: data }
+    })
+)
 
 export const threadsInx = () => (
     $.ajax({

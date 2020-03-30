@@ -1,5 +1,5 @@
-import { log_user } from '../utils/ajax_func';
-import { receive_user } from './users_action';
+import { log_user, log_out_user } from '../utils/ajax_func';
+import { receive_user, logOut_user } from './users_action';
 
 export const RECEIVE_ID = "RECEIVE_ID";
 export const LOG_OUT = "LOG_OUT";
@@ -18,5 +18,12 @@ export const login_user = (inputData) => dispatch => (
         dispatch(receive_id(res.id));
         dispatch(receive_user(res));
         return res;
+    })
+)
+
+export const logout_user = () => dispatch => (
+    log_out_user().then(res => {
+        dispatch(log_out());
+        dispatch(logOut_user());
     })
 )

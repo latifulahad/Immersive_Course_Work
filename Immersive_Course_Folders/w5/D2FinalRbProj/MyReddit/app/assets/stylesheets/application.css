@@ -73,16 +73,18 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+    /* border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc; */
     width: 900px;
 }
 
-.header-list > li {
+.header-list {
     display: flex;
+    padding: 15px 0;
 }
 
-/* .content {
+
+.content {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -104,5 +106,5 @@ body {
     width: 200px;
     border-right: 1px solid #ccc;
     padding-right: 19px;
-} */
+}
                             
