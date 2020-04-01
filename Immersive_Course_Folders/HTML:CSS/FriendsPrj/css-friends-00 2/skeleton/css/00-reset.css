@@ -41,7 +41,7 @@ button, input[type="submit"] {
 }
 
 
-/* PART 1 */
+/* PART 1 NavSetup*/
 .header {
     background-color: red;
     color: #fff;
@@ -84,7 +84,7 @@ button, input[type="submit"] {
   background: #000;
 }
 
-/* PART 2 */
+/* PART 2 NavContent*/
 .badge {
     background-color: #000;
     padding: 1px 5px;
@@ -124,7 +124,7 @@ li:hover .header-notification {
   display: block;
 }
 
-/* PART 3 */
+/* PART 3 mainPageSetup*/
 
 .content {
     display: flex;
@@ -182,7 +182,7 @@ li:hover .header-notification {
     color: #000;
 }
 
-/* PART 5*/
+/* PART 5 displayBelowNav*/
 
 .content-header {
     height: 200px;
@@ -218,7 +218,7 @@ li:hover .header-notification {
     background: #eee;
 }
 
-/* PART 6*/
+/* PART 6 sidebarConfig */
 
 .profile-pic {
     display: block;
@@ -263,7 +263,7 @@ li:hover .header-notification {
   background: #eee;
 }
 
-/* PART 7*/
+/* PART 7 labelOverPic*/
 
 .profile-pic {
   overflow: hidden;
@@ -283,4 +283,58 @@ li:hover .header-notification {
     font-size: 12px;
     letter-spacing: 3px;
     text-transform: uppercase;
+}
+
+/* Part 8 AdvSidebarSetup */
+
+.profile-friends {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-friends > li {
+    width: 60px;
+    margin: 3px;
+}
+
+.thumb {
+    display: block;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/* .thumb > img {
+    border-radius: 5px;    
+} */
+
+.thumb:after {
+  content: attr(title);
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 65px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.thumb:before {
+  content: "";
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -7px;
+  border-top: 5px solid #000;
+  border-bottom: 0;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.thumb:hover:before, .thumb:hover:after {
+    display: block;
 }
