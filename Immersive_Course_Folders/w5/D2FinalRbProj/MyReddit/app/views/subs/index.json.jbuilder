@@ -1,1 +1,1 @@
-json.array! @subs, :id, :title, :description
+json.array! @subs, :id, :title, :description, :moderator

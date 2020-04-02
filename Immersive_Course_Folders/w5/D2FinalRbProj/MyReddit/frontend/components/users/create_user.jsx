@@ -16,7 +16,7 @@ class CreateUser extends React.Component {
     handleSub(evt) {
         evt.preventDefault();
 
-        this.props.mkuser(this.state).then(res => this.props.history.push("/"))
+        this.props.mkUser(this.state).then(res => this.props.history.push("/"))
     }
 
     render() {

@@ -11,12 +11,15 @@ class UsersController < ApplicationController
 
     def create
         @usr = User.new(wanted_params)
+        
         if @usr
             log_in_user!(@usr)
-            redirect_to subs_url
-        else
-            redirect_to new_user_url
+            
+            respond_to do |format|
+                format.json { render :show }
+            end
         end
+
     end
 
     def edit

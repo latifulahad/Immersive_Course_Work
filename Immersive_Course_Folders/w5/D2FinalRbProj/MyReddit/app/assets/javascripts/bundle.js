@@ -690,7 +690,7 @@ var CreateUser = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       evt.preventDefault();
-      this.props.mkuser(this.state).then(function (res) {
+      this.props.mkUser(this.state).then(function (res) {
         return _this3.props.history.push("/");
       });
     }
