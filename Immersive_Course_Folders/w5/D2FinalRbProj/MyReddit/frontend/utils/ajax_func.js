@@ -27,3 +27,10 @@ export const threadsInx = () => (
         url: "subs"
     })
 )
+
+export const threadShow = (id) => (
+    $.ajax({
+        method: "GET",
+        url: `subs/${id}`
+    })
+)

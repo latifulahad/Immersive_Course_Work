@@ -16,7 +16,11 @@ class SubsController < ApplicationController
 
     def show
         @sub = Sub.find(params[:id])
-        render :show
+        @author = @sub.author.name
+
+        respond_to do |format|
+            format.json { render :show }
+        end
     end
 
     def create

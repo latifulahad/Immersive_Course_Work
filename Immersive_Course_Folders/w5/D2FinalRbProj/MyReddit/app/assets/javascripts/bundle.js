@@ -142,21 +142,38 @@ var logout_user = function logout_user() {
 /*!*********************************************!*\
   !*** ./frontend/actions/threads_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_THREAD, receiveThreads, bringThreads */
+/*! exports provided: RECEIVE_THREAD, RECEIVE_THREADS, receiveThread, receiveThreads, bringThread, bringThreads */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_THREAD", function() { return RECEIVE_THREAD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_THREADS", function() { return RECEIVE_THREADS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveThread", function() { return receiveThread; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveThreads", function() { return receiveThreads; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringThread", function() { return bringThread; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringThreads", function() { return bringThreads; });
 /* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax_func */ "./frontend/utils/ajax_func.js");
 
 var RECEIVE_THREAD = "RECEIVE_THREAD";
-var receiveThreads = function receiveThreads(threads) {
+var RECEIVE_THREADS = "RECEIVE_THREADS";
+var receiveThread = function receiveThread(thread) {
   return {
     type: RECEIVE_THREAD,
+    thread: thread
+  };
+};
+var receiveThreads = function receiveThreads(threads) {
+  return {
+    type: RECEIVE_THREADS,
     threads: threads
+  };
+};
+var bringThread = function bringThread(id) {
+  return function (dispatch) {
+    Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["threadShow"])(id).then(function (res) {
+      dispatch(receiveThread(res));
+    });
   };
 };
 var bringThreads = function bringThreads() {
@@ -434,8 +451,19 @@ var Subs = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Subs, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.bringThreads();
+    }
+  }, {
     key: "render",
     value: function render() {
+      var thrds = this.props.threads.map(function (trd, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          key: idx,
+          to: "/thread/".concat(trd.id)
+        }, trd.title);
+      });
       var navL;
       this.props.loggedIn ? navL = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.logOut
@@ -454,11 +482,7 @@ var Subs = /*#__PURE__*/function (_React$Component) {
         className: "content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "content-sidebar"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        exact: true,
-        path: "/",
-        component: _thread_contianer__WEBPACK_IMPORTED_MODULE_4__["default"]
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, thrds)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "content-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/usrLog",
@@ -466,6 +490,9 @@ var Subs = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/mkUser",
         component: _users_create_user_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        path: "/thread/id",
+        component: _thread_contianer__WEBPACK_IMPORTED_MODULE_4__["default"]
       }))));
     }
   }]);
@@ -487,68 +514,40 @@ var Subs = /*#__PURE__*/function (_React$Component) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sub */ "./frontend/components/subs/sub.jsx");
-/* harmony import */ var _actions_sessions_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/sessions_action */ "./frontend/actions/sessions_action.js");
-
-
-
-
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    loggedIn: Boolean(state.ui.session.id)
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    logOut: function logOut() {
-      return dispatch(Object(_actions_sessions_action__WEBPACK_IMPORTED_MODULE_2__["logout_user"])());
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_sub__WEBPACK_IMPORTED_MODULE_1__["default"]));
-
-/***/ }),
-
-/***/ "./frontend/components/subs/thread_contianer.js":
-/*!******************************************************!*\
-  !*** ./frontend/components/subs/thread_contianer.js ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/threads_actions */ "./frontend/actions/threads_actions.js");
-/* harmony import */ var _threads__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./threads */ "./frontend/components/subs/threads.jsx");
+/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sub */ "./frontend/components/subs/sub.jsx");
+/* harmony import */ var _actions_sessions_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/sessions_action */ "./frontend/actions/sessions_action.js");
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
+    loggedIn: Boolean(state.ui.session.id),
     threads: state.entities.threads
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    logOut: function logOut() {
+      return dispatch(Object(_actions_sessions_action__WEBPACK_IMPORTED_MODULE_3__["logout_user"])());
+    },
     bringThreads: function bringThreads() {
       return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__["bringThreads"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_threads__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_sub__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
-/***/ "./frontend/components/subs/threads.jsx":
-/*!**********************************************!*\
-  !*** ./frontend/components/subs/threads.jsx ***!
-  \**********************************************/
+/***/ "./frontend/components/subs/thread.jsx":
+/*!*********************************************!*\
+  !*** ./frontend/components/subs/thread.jsx ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -580,40 +579,70 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Threads = /*#__PURE__*/function (_React$Component) {
-  _inherits(Threads, _React$Component);
+var Thread = /*#__PURE__*/function (_React$Component) {
+  _inherits(Thread, _React$Component);
 
-  var _super = _createSuper(Threads);
+  var _super = _createSuper(Thread);
 
-  function Threads() {
-    _classCallCheck(this, Threads);
+  function Thread() {
+    _classCallCheck(this, Thread);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Threads, [{
+  _createClass(Thread, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.bringThreads();
-    }
+    value: function componentDidMount() {}
   }, {
     key: "render",
     value: function render() {
-      var thrds = this.props.threads.map(function (trd, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: idx
-        }, trd.title);
-      });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "thread-list"
-      }, thrds);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null);
     }
   }]);
 
-  return Threads;
+  return Thread;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Threads);
+/* harmony default export */ __webpack_exports__["default"] = (Thread);
+
+/***/ }),
+
+/***/ "./frontend/components/subs/thread_contianer.js":
+/*!******************************************************!*\
+  !*** ./frontend/components/subs/thread_contianer.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/threads_actions */ "./frontend/actions/threads_actions.js");
+/* harmony import */ var _thread__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./thread */ "./frontend/components/subs/thread.jsx");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var ans;
+  var threads = state.entities.threads;
+  threads.forEach(function (td) {
+    td.id === ownProps.match.params.id ? ans = td : true;
+  });
+  return {
+    thread: ans
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    bringThreads: function bringThreads() {
+      return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__["bringThreads"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_thread__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 
@@ -885,6 +914,10 @@ var threadReducer = function threadReducer() {
 
   switch (action.type) {
     case _actions_threads_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_THREAD"]:
+      newState = Array.from(state);
+      return newState.push(action.thread);
+
+    case _actions_threads_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_THREADS"]:
       newState = Array.from(action.threads);
       return newState;
 
@@ -986,7 +1019,7 @@ var configureStore = function configureStore() {
 /*!*************************************!*\
   !*** ./frontend/utils/ajax_func.js ***!
   \*************************************/
-/*! exports provided: log_user, log_out_user, create_user, threadsInx */
+/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -995,6 +1028,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "log_out_user", function() { return log_out_user; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create_user", function() { return create_user; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadsInx", function() { return threadsInx; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadShow", function() { return threadShow; });
 var log_user = function log_user(inputData) {
   return $.ajax({
     method: "POST",
@@ -1023,6 +1057,12 @@ var threadsInx = function threadsInx() {
   return $.ajax({
     method: "GET",
     url: "subs"
+  });
+};
+var threadShow = function threadShow(id) {
+  return $.ajax({
+    method: "GET",
+    url: "subs/".concat(id)
   });
 };
 
