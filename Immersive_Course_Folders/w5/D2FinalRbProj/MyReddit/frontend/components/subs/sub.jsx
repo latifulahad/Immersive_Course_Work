@@ -16,7 +16,7 @@ class Subs extends React.Component {
         let thrds = this.props.threads.map((trd, idx) => (
             <Link key={idx} to={`/thread/${trd.id}`}>{trd.title}</Link>
         ))
-        
+
         let navL
         this.props.loggedIn ? navL = <button onClick={this.props.logOut}>Log-out</button> : navL = <Link to="/usrLog" >Login</Link>;
 
@@ -42,7 +42,7 @@ class Subs extends React.Component {
                     <section className="content-main">
                         <Route path="/usrLog" component={LoginContainer} />
                         <Route path="/mkUser" component={CreateUserContainer} />
-                        <Route path="/thread/id" component={ThreadContainer} />
+                        <Route path="/thread/:id" component={ThreadContainer} />
                     </section>
                 </main>
 

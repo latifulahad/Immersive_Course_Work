@@ -86,6 +86,30 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/post_actions.js":
+/*!******************************************!*\
+  !*** ./frontend/actions/post_actions.js ***!
+  \******************************************/
+/*! exports provided: RECEIVE_POST, RECEIVE_POSTS, receive_posts */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POST", function() { return RECEIVE_POST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POSTS", function() { return RECEIVE_POSTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receive_posts", function() { return receive_posts; });
+var RECEIVE_POST = "RECEIVE_POST";
+var RECEIVE_POSTS = "RECEIVE_POSTS";
+var receive_posts = function receive_posts(posts, num) {
+  return {
+    type: RECEIVE_POSTS,
+    posts: posts,
+    num: num
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/sessions_action.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/sessions_action.js ***!
@@ -154,6 +178,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringThread", function() { return bringThread; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringThreads", function() { return bringThreads; });
 /* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax_func */ "./frontend/utils/ajax_func.js");
+/* harmony import */ var _post_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./post_actions */ "./frontend/actions/post_actions.js");
+
 
 var RECEIVE_THREAD = "RECEIVE_THREAD";
 var RECEIVE_THREADS = "RECEIVE_THREADS";
@@ -172,7 +198,8 @@ var receiveThreads = function receiveThreads(threads) {
 var bringThread = function bringThread(id) {
   return function (dispatch) {
     Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["threadShow"])(id).then(function (res) {
-      dispatch(receiveThread(res));
+      dispatch(Object(_post_actions__WEBPACK_IMPORTED_MODULE_1__["receive_posts"])(res.thread.posts, res.thread.id));
+      dispatch(receiveThread(res.thread));
     });
   };
 };
@@ -491,7 +518,7 @@ var Subs = /*#__PURE__*/function (_React$Component) {
         path: "/mkUser",
         component: _users_create_user_container__WEBPACK_IMPORTED_MODULE_3__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/thread/id",
+        path: "/thread/:id",
         component: _thread_contianer__WEBPACK_IMPORTED_MODULE_4__["default"]
       }))));
     }
@@ -592,11 +619,17 @@ var Thread = /*#__PURE__*/function (_React$Component) {
 
   _createClass(Thread, [{
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      var id = this.props.match.params.id;
+      this.props.bringThread(id);
+    }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null);
+      var thrd = this.props.thread;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "content-thread"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, thrd.description, " by ", thrd.author));
     }
   }]);
 
@@ -624,20 +657,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var ans;
-  var threads = state.entities.threads;
-  threads.forEach(function (td) {
-    td.id === ownProps.match.params.id ? ans = td : true;
-  });
   return {
-    thread: ans
+    thread: state.entities.threads[0]
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    bringThreads: function bringThreads() {
-      return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__["bringThreads"])());
+    bringThread: function bringThread(id) {
+      return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__["bringThread"])(id));
     }
   };
 };
@@ -826,12 +854,54 @@ document.addEventListener("DOMContentLoaded", function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _threads_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./threads_reducer */ "./frontend/reducers/threads_reducer.js");
+/* harmony import */ var _posts_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./posts_reducer */ "./frontend/reducers/posts_reducer.js");
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  threads: _threads_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  threads: _threads_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/posts_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/posts_reducer.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/post_actions */ "./frontend/actions/post_actions.js");
+
+
+var postReducer = function postReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var newState = {};
+
+  switch (action.type) {
+    case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POST"]:
+      newState = Object.assign({}, state); //needs WORK
+
+      return newState;
+
+    case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POSTS"]:
+      action.posts.forEach(function (post, id) {
+        post.link = action.num;
+        newState[id] = post;
+      });
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (postReducer);
 
 /***/ }),
 
@@ -914,8 +984,10 @@ var threadReducer = function threadReducer() {
 
   switch (action.type) {
     case _actions_threads_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_THREAD"]:
-      newState = Array.from(state);
-      return newState.push(action.thread);
+      var trd = action.thread;
+      delete trd["posts"];
+      newState.push(trd);
+      return newState;
 
     case _actions_threads_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_THREADS"]:
       newState = Array.from(action.threads);

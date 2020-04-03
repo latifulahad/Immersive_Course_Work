@@ -60,6 +60,7 @@ body {
     background-color: lightseagreen;
 }
 
+
 .header {
     background: #fff;
     color:black;
@@ -107,4 +108,12 @@ body {
     border-right: 1px solid #ccc;
     padding-right: 19px;
 }
-                            
+
+/* .content-thread {
+    display: flex;
+    justify-content: center;
+}
+
+.content-thread > p {
+    padding: 0 0 7px 0;
+} */

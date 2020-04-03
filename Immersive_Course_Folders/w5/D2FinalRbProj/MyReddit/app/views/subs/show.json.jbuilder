@@ -1,4 +1,4 @@
 json.thread do
-    json.extract! @sub, :title , :description, :posts
+    json.extract! @sub, :id, :title , :description, :posts
     json.author @author
 end

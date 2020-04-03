@@ -1,4 +1,5 @@
 import { threadsInx, threadShow } from '../utils/ajax_func'
+import { receive_posts } from './post_actions';
 
 export const RECEIVE_THREAD = "RECEIVE_THREAD";
 export const RECEIVE_THREADS = "RECEIVE_THREADS";
@@ -15,7 +16,8 @@ export const receiveThreads = (threads) => ({
 
 export const bringThread = (id) => dispatch => {
     threadShow(id).then(res => {
-        dispatch(receiveThread(res))
+        dispatch(receive_posts(res.thread.posts, res.thread.id))
+        dispatch(receiveThread(res.thread));
     })
 }
 

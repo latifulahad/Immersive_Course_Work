@@ -5,8 +5,10 @@ const threadReducer = (state = [], action) => {
 
     switch(action.type) {
         case RECEIVE_THREAD:
-            newState = Array.from(state)
-            return newState.push(action.thread)
+            let trd = action.thread;
+            delete trd["posts"];
+            newState.push(trd)
+            return newState
         case RECEIVE_THREADS:
             newState = Array.from(action.threads)
             return newState;
