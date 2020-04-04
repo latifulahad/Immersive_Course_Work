@@ -14,7 +14,7 @@ class Subs extends React.Component {
     render() {
 
         let thrds = this.props.threads.map((trd, idx) => (
-            <Link key={idx} to={`/thread/${trd.id}`}>{trd.title}</Link>
+            <Link className="thread-link" key={idx} to={`/thread/${trd.id}`}>{trd.title}</Link>
         ))
 
         let navL
@@ -26,7 +26,7 @@ class Subs extends React.Component {
                     <nav className="header-nav">
                         <ul className="header-list">
                             {navL}
-                            <Link to="/mkUser">Sign Up</Link>
+                            <Link style={{marginLeft: 3}} to="/mkUser">Sign Up</Link>
                         </ul>
                     </nav>
                 </header>

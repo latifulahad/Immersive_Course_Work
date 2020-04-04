@@ -24,7 +24,7 @@ class Login extends React.Component {
             <form>
                 <label>
                     Email
-                    <input type="text" onChange={this.update("email")} value={this.state.email}/>
+                    <input type="text" onChange={this.update("email")} value={this.state.email} />
                 </label>
                     <br></br>
                 <label>
@@ -32,7 +32,7 @@ class Login extends React.Component {
                     <input type="text" onChange={this.update("password")} value={this.state.password}/>
                 </label>
                     <br></br>
-                <button onClick={this.handleSub}>Enter</button>
+                <button className="button" onClick={this.handleSub}>Enter</button>
             </form>
         )
     }

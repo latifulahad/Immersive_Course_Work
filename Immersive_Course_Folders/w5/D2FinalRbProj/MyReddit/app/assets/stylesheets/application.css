@@ -84,6 +84,9 @@ body {
     padding: 15px 0;
 }
 
+.header-list > a:hover {
+    color: blue;
+}
 
 .content {
     display: flex;
@@ -109,11 +112,24 @@ body {
     padding-right: 19px;
 }
 
-/* .content-thread {
-    display: flex;
-    justify-content: center;
+.content > a:hover {
+    color: blue;
 }
 
-.content-thread > p {
+.content-post-links > li:hover {
+    color: blue;
+}
+
+.button:hover {
+    color: blue;
+}
+
+.thread-link:hover {
+    color: blue;
+}
+
+
+
+/* .content-thread > p {
     padding: 0 0 7px 0;
 } */

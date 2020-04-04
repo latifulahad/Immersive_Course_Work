@@ -3,7 +3,8 @@ import { bringThread } from '../../actions/threads_actions'
 import Thread from './thread';
 
 const mapStateToProps = (state, ownProps) => ({
-    thread: state.entities.threads[0]
+    thread: state.entities.threads[0],
+    post: state.entities.posts
 })
 
 const mapDispatchToProps = (dispatch) => ({

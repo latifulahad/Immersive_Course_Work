@@ -37,7 +37,7 @@ class CreateUser extends React.Component {
                     <input type="text" onChange={this.update("password")} value={this.state.password} />
                 </label>
                     <br></br>
-                <button onClick={this.handleSub}>Enter</button>
+                <button className="button" onClick={this.handleSub}>Enter</button>
             </form>
         )
     }
