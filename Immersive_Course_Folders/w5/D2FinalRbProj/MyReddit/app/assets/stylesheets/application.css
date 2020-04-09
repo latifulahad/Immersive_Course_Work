@@ -116,6 +116,14 @@ body {
     color: blue;
 }
 
+.content-thread > a:hover {
+    color: blue;
+}
+
+.content-post-links {
+    list-style: disc;
+}
+
 .content-post-links > li:hover {
     color: blue;
 }

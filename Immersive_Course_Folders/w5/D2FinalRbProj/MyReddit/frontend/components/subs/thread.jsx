@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 
-import PostContainer from '../posts/post_container';
-
 class Thread extends React.Component {
 
     componentDidMount() {
@@ -14,7 +12,10 @@ class Thread extends React.Component {
         let thrd = this.props.thread;
         let posts = this.props.post
         let kys = Object.keys(posts);
-        
+        let postLk
+
+        this.props.user ? postLk = <Link to={`/thread/${this.props.match.params.id}/post`}>Make a Post</Link> : postLk;
+
         return(
             <div className="content-thread">
                 <h2>Description</h2>
@@ -25,11 +26,11 @@ class Thread extends React.Component {
                         <br></br>
                     { kys.map(ky => {
                         let pst = posts[ky];
-                        return(<li><Link to={`/thread/${pst.link}/post/${pst.id}`} key={pst.id} >{pst.title}</Link></li>)
+                        return (<li key={pst.id}><Link to={`/thread/${pst.link}/post/${pst.id}`} >{pst.title}</Link></li>)
                     }) }
                 </ul>
-                
-                <Route path="/thread/:id/post/:postId" component={PostContainer} />
+                    <br></br>
+                {postLk}
             </div>
         )   
     }   

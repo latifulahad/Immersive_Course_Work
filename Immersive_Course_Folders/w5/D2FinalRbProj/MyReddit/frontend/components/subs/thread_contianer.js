@@ -4,6 +4,7 @@ import Thread from './thread';
 
 const mapStateToProps = (state, ownProps) => ({
     thread: state.entities.threads[0],
+    user: Boolean(state.ui.session.id),
     post: state.entities.posts
 })
 

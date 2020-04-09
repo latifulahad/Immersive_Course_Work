@@ -5,12 +5,14 @@ const postReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_POST:
-            newState = Object.assign({}, state) //needs WORK
+            newState = Object.assign({}, state)
+            action.post.link = action.num
+            newState[action.post.id] = action.post;
             return newState;
         case RECEIVE_POSTS:
             action.posts.forEach((post, id) => {
                 post.link = action.num
-                newState[id] = post
+                newState[post.id] = post
             })
             return newState;
         default:

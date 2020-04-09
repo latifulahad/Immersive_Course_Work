@@ -4,6 +4,8 @@ import { Route, Link } from 'react-router-dom';
 import LoginContainer from '../session/login_container';
 import CreateUserContainer from '../users/create_user_container';
 import ThreadContainer from './thread_contianer';
+import PostContainer from '../posts/post_container';
+import PostFormContainer from '../posts/post_form_container';
 
 class Subs extends React.Component {
 
@@ -42,7 +44,9 @@ class Subs extends React.Component {
                     <section className="content-main">
                         <Route path="/usrLog" component={LoginContainer} />
                         <Route path="/mkUser" component={CreateUserContainer} />
-                        <Route path="/thread/:id" component={ThreadContainer} />
+                        <Route exact path="/thread/:id" component={ThreadContainer} />
+                        <Route exact path="/thread/:id/post/:postId" component={PostContainer} />
+                        <Route path="/thread/:id/post" component={PostFormContainer} />
                     </section>
                 </main>
 

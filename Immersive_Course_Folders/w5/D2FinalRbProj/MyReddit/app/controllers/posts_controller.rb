@@ -16,10 +16,18 @@ class PostsController < ApplicationController
         @post.author_id = current_user.id
 
         if @post.save!
-            redirect_to post_url(@post)
+            @sbPost = SubPost.new(post_id: @post.id, sub_id: wanted_params[:post][:link])
+            @sbPost.save!
+            
+            respond_to do |format|
+                format.json { render :show }
+            end
         else
-            redirect_to subs_url
+            respond_to do |format|
+                format.json { render json: @post.errors.full_messages, status: 422 }
+            end
         end
+
     end
 
     def edit

@@ -34,3 +34,11 @@ export const threadShow = (id) => (
         url: `subs/${id}`
     })
 )
+
+export const makePost = (info) => (
+    $.ajax({
+        method: "POST",
+        url: '/post',
+        data: { post: info }
+    })
+)
