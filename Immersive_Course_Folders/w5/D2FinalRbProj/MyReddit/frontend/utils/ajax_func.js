@@ -38,7 +38,7 @@ export const threadShow = (id) => (
 export const makePost = (info) => (
     $.ajax({
         method: "POST",
-        url: '/post',
+        url: '/posts',
         data: { post: info }
     })
 )

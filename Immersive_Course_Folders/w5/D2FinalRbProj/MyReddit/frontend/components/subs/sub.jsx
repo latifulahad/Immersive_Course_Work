@@ -46,7 +46,7 @@ class Subs extends React.Component {
                         <Route path="/mkUser" component={CreateUserContainer} />
                         <Route exact path="/thread/:id" component={ThreadContainer} />
                         <Route exact path="/thread/:id/post/:postId" component={PostContainer} />
-                        <Route path="/thread/:id/post" component={PostFormContainer} />
+                        <Route exact path="/thread/:id/post" component={PostFormContainer} />
                     </section>
                 </main>
 

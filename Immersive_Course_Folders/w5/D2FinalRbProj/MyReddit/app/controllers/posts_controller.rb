@@ -16,7 +16,7 @@ class PostsController < ApplicationController
         @post.author_id = current_user.id
 
         if @post.save!
-            @sbPost = SubPost.new(post_id: @post.id, sub_id: wanted_params[:post][:link])
+            @sbPost = SubPost.new(post_id: @post.id, sub_id: params[:post][:link].to_i)
             @sbPost.save!
             
             respond_to do |format|
