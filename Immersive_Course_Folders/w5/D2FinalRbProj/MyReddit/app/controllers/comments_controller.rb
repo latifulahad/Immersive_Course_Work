@@ -1,4 +1,19 @@
 class CommentsController < ApplicationController
+    def index
+        post = Post.find(params[:post]);
+        @comments = post.comments;
+
+        if post
+            respond_to do |format|
+                format.json { render :index }
+            end
+        else
+            respond_to do |format|
+                format.json { render json: post.errors.full_messages, status: 422 }
+            end
+        end
+    end
+
     def show
         @comment = Comment.find(params[:id])
         render :show
