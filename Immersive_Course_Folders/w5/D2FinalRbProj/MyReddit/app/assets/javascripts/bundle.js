@@ -121,20 +121,24 @@ var bringCmts = function bringCmts(id) {
 /*!******************************************!*\
   !*** ./frontend/actions/post_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_POST, RECEIVE_POSTS, receive_post, receive_posts, createPost */
+/*! exports provided: RECEIVE_POST, RECEIVE_POSTS, REMOVE_POST, receive_post, receive_posts, removePost, createPost, deletePst */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POST", function() { return RECEIVE_POST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_POSTS", function() { return RECEIVE_POSTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_POST", function() { return REMOVE_POST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receive_post", function() { return receive_post; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receive_posts", function() { return receive_posts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removePost", function() { return removePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPost", function() { return createPost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePst", function() { return deletePst; });
 /* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax_func */ "./frontend/utils/ajax_func.js");
 
 var RECEIVE_POST = "RECEIVE_POST";
 var RECEIVE_POSTS = "RECEIVE_POSTS";
+var REMOVE_POST = "REMOVE_POST";
 var receive_post = function receive_post(post, num) {
   return {
     type: RECEIVE_POST,
@@ -149,11 +153,24 @@ var receive_posts = function receive_posts(posts, num) {
     num: num
   };
 };
+var removePost = function removePost(id) {
+  return {
+    type: REMOVE_POST,
+    id: id
+  };
+};
 var createPost = function createPost(info) {
   return function (dispatch) {
     return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["makePost"])(info).then(function (res) {
       dispatch(receive_post(res.post.detail, res.post.subId));
       return res;
+    });
+  };
+};
+var deletePst = function deletePst(id) {
+  return function (dispatch) {
+    return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["deletePost"])(id).then(function (res) {
+      return dispatch(removePost(res.id));
     });
   };
 };
@@ -925,10 +942,14 @@ var Thread = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Thread);
 
-  function Thread() {
+  function Thread(props) {
+    var _this;
+
     _classCallCheck(this, Thread);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Thread, [{
@@ -938,12 +959,20 @@ var Thread = /*#__PURE__*/function (_React$Component) {
       this.props.bringThread(id);
     }
   }, {
+    key: "handleDelete",
+    value: function handleDelete(evt) {
+      evt.preventDefault();
+      this.props.removePost(evt.target.value);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var thrd = this.props.thread;
       var posts = this.props.post;
       var kys = Object.keys(posts);
-      var postLk;
+      var postLk, rmBttn;
       this.props.user ? postLk = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/thread/".concat(this.props.match.params.id, "/post")
       }, "Make a Post") : postLk;
@@ -953,11 +982,22 @@ var Thread = /*#__PURE__*/function (_React$Component) {
         className: "content-post-links"
       }, "Posts", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), kys.map(function (ky) {
         var pst = posts[ky];
+
+        if (pst.author_id === _this2.props.usrId) {
+          rmBttn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            value: pst.id,
+            style: {
+              paddingLeft: 10
+            },
+            onClick: _this2.handleDelete
+          }, "DELETE");
+        }
+
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: pst.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/thread/".concat(pst.link, "/post/").concat(pst.id)
-        }, pst.title));
+        }, pst.title), rmBttn);
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), postLk);
     }
   }]);
@@ -980,7 +1020,9 @@ var Thread = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/threads_actions */ "./frontend/actions/threads_actions.js");
-/* harmony import */ var _thread__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./thread */ "./frontend/components/subs/thread.jsx");
+/* harmony import */ var _actions_post_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/post_actions */ "./frontend/actions/post_actions.js");
+/* harmony import */ var _thread__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./thread */ "./frontend/components/subs/thread.jsx");
+
 
 
 
@@ -989,6 +1031,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     thread: state.entities.threads[0],
     user: Boolean(state.ui.session.id),
+    usrId: state.ui.session.id,
     post: state.entities.posts
   };
 };
@@ -997,11 +1040,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     bringThread: function bringThread(id) {
       return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__["bringThread"])(id));
+    },
+    removePost: function removePost(id) {
+      return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["deletePst"])(id));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_thread__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_thread__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -1263,6 +1309,11 @@ var postReducer = function postReducer() {
       });
       return newState;
 
+    case _actions_post_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_POST"]:
+      newState = Object.assign({}, state);
+      delete newState[action.id];
+      return newState;
+
     default:
       return state;
   }
@@ -1478,7 +1529,7 @@ var configureStore = function configureStore() {
 /*!*************************************!*\
   !*** ./frontend/utils/ajax_func.js ***!
   \*************************************/
-/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, bringComments */
+/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1489,6 +1540,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadsInx", function() { return threadsInx; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadShow", function() { return threadShow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makePost", function() { return makePost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePost", function() { return deletePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringComments", function() { return bringComments; });
 var log_user = function log_user(inputData) {
   return $.ajax({
@@ -1533,6 +1585,12 @@ var makePost = function makePost(info) {
     data: {
       post: info
     }
+  });
+};
+var deletePost = function deletePost(id) {
+  return $.ajax({
+    method: "DELETE",
+    url: "/posts/".concat(id)
   });
 };
 var bringComments = function bringComments(id) {

@@ -43,6 +43,13 @@ export const makePost = (info) => (
     })
 )
 
+export const deletePost = (id) => (
+    $.ajax({
+        method: "DELETE",
+        url: `/posts/${id}`
+    })
+)
+
 export const bringComments = (id) => (
     $.ajax({
         method: "GET",

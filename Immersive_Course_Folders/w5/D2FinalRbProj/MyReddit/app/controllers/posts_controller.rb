@@ -43,8 +43,11 @@ class PostsController < ApplicationController
 
     def destroy
         @post = Post.find(params[:id])
-        redirect_to sub_url(@post.sub_id)
-        @post.destroy
+        @post.delete
+
+        respond_to do |format|
+            format.json { render json: { id: @post.id } }
+        end
     end
 
     private
