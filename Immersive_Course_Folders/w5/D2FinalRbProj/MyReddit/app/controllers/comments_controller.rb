@@ -27,9 +27,13 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.new(wanted_params)
         if @comment.save!
-            redirect_to post_url(@comment.post_id)
+            respond_to do |format|
+                format.json { render :show }
+            end
         else
-            redirect_to subs_url
+            respond_to do |format|
+                format.json { render json: { @comment.errors.full_messages, status: 422 } }
+            end
         end
     end
 

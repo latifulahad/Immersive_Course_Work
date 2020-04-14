@@ -90,17 +90,27 @@
 /*!********************************************!*\
   !*** ./frontend/actions/comment_action.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_COMMENTS, receive_comments, bringCmts */
+/*! exports provided: RECEIVE_COMMENT, RECEIVE_COMMENTS, receive_comment, receive_comments, bringCmts, makeComment */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENT", function() { return RECEIVE_COMMENT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENTS", function() { return RECEIVE_COMMENTS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receive_comment", function() { return receive_comment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receive_comments", function() { return receive_comments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringCmts", function() { return bringCmts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeComment", function() { return makeComment; });
 /* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax_func */ "./frontend/utils/ajax_func.js");
 
+var RECEIVE_COMMENT = "RECEIVE_COMMENT";
 var RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
+var receive_comment = function receive_comment(comment) {
+  return {
+    type: RECEIVE_COMMENT,
+    comment: comment
+  };
+};
 var receive_comments = function receive_comments(comments) {
   return {
     type: RECEIVE_COMMENTS,
@@ -111,6 +121,13 @@ var bringCmts = function bringCmts(id) {
   return function (dispatch) {
     return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["bringComments"])(id).then(function (res) {
       return dispatch(receive_comments(res));
+    });
+  };
+};
+var makeComment = function makeComment(info) {
+  return function (dispatch) {
+    return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["makeComt"])(info).then(function (res) {
+      return dispatch(receive_comment(res));
     });
   };
 };
@@ -1231,6 +1248,18 @@ document.addEventListener("DOMContentLoaded", function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_comment_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/comment_action */ "./frontend/actions/comment_action.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 var commentsReducer = function commentsReducer() {
@@ -1239,6 +1268,10 @@ var commentsReducer = function commentsReducer() {
   var newState = [];
 
   switch (action.type) {
+    case _actions_comment_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
+      newState = _toConsumableArray(state);
+      return newState.push(action.comment);
+
     case _actions_comment_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENTS"]:
       newState = action.comments;
       return newState;
@@ -1529,7 +1562,7 @@ var configureStore = function configureStore() {
 /*!*************************************!*\
   !*** ./frontend/utils/ajax_func.js ***!
   \*************************************/
-/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments */
+/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments, makeComt */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1542,6 +1575,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makePost", function() { return makePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePost", function() { return deletePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringComments", function() { return bringComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeComt", function() { return makeComt; });
 var log_user = function log_user(inputData) {
   return $.ajax({
     method: "POST",
@@ -1599,6 +1633,15 @@ var bringComments = function bringComments(id) {
     url: "/comments",
     data: {
       post: id
+    }
+  });
+};
+var makeComt = function makeComt(info) {
+  return $.ajax({
+    method: "POST",
+    url: "/comments",
+    data: {
+      comment: info
     }
   });
 };
