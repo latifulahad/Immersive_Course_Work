@@ -5,7 +5,8 @@ import Post from './post';
 
 const mapStateToProps = (state, ownProps) => ({
    post: state.entities.posts[ownProps.match.params.postId],
-   cmts: state.entities.comments
+   cmts: state.entities.comments,
+   auth_id: Boolean(state.ui.session.id)
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => {

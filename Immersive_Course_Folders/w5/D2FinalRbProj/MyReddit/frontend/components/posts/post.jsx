@@ -1,7 +1,7 @@
 import React from "react";
+import CommentFormContainer from './comment_form_container';
 
 class Post extends React.Component {
-
     componentDidMount() {
         this.props.bringComments();
     }
@@ -10,7 +10,9 @@ class Post extends React.Component {
         let comts = this.props.cmts.map((cmt, idx) => {
             return (<li key={idx}>{cmt.content}</li>)
         })
-
+        let cmtFrom;
+        if(this.props.auth_id) { cmtFrom = <CommentFormContainer /> }
+        
         return(
             <div className="content-post">
                 <h2>Content</h2>
@@ -20,6 +22,9 @@ class Post extends React.Component {
                     Comments
                    {comts} 
                 </ul>
+                    <br></br>
+                
+                {cmtFrom}
             </div>
         )
     }
