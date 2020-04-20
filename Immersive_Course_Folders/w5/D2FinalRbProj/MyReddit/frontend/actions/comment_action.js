@@ -18,5 +18,8 @@ export const bringCmts = (id) => dispatch => (
 )
 
 export const makeComment = (info) => dispatch => (
-    makeComt(info).then(res => dispatch(receive_comment(res)))
+    makeComt(info).then(res => {
+        dispatch(receive_comment(res));
+        return(res);
+    })
 )

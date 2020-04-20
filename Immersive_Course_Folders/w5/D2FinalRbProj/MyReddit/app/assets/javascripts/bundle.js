@@ -127,7 +127,8 @@ var bringCmts = function bringCmts(id) {
 var makeComment = function makeComment(info) {
   return function (dispatch) {
     return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["makeComt"])(info).then(function (res) {
-      return dispatch(receive_comment(res));
+      dispatch(receive_comment(res));
+      return res;
     });
   };
 };
@@ -412,8 +413,14 @@ var CommentForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSub",
     value: function handleSub(evt) {
+      var _this3 = this;
+
       evt.preventDefault();
-      this.sendComment(this.state);
+      this.props.sendComment(this.state).then(function (res) {
+        _this3.setState({
+          content: ""
+        });
+      });
     }
   }, {
     key: "render",
@@ -1408,7 +1415,8 @@ var commentsReducer = function commentsReducer() {
   switch (action.type) {
     case _actions_comment_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
       newState = _toConsumableArray(state);
-      return newState.push(action.comment);
+      newState.push(action.comment);
+      return newState;
 
     case _actions_comment_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENTS"]:
       newState = action.comments;

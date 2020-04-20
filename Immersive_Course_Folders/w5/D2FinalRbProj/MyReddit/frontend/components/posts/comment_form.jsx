@@ -17,7 +17,10 @@ class CommentForm extends React.Component {
     handleSub(evt) {
         evt.preventDefault();
 
-        this.sendComment(this.state)
+        this.props.sendComment(this.state).then(res => {
+            this.setState({ content: "" });
+        })
+        
     }
 
     render() {
