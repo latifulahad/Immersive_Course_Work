@@ -6,6 +6,7 @@ import CreateUserContainer from '../users/create_user_container';
 import ThreadContainer from './thread_contianer';
 import PostContainer from '../posts/post_container';
 import PostFormContainer from '../posts/post_form_container';
+import ReplyToComContainer from '../posts/reply_to_com_container';
 
 class Subs extends React.Component {
 
@@ -47,6 +48,7 @@ class Subs extends React.Component {
                         <Route exact path="/thread/:id" component={ThreadContainer} />
                         <Route exact path="/thread/:id/post/:postId" component={PostContainer} />
                         <Route exact path="/thread/:id/post" component={PostFormContainer} />
+                        <Route exact path="/thread/:id/post/:postId/comment/:cmtId" component={ReplyToComContainer} />
                     </section>
                 </main>
 

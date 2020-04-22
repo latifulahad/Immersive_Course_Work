@@ -5,6 +5,16 @@ const commentsReducer = (state = [], action) => {
 
     switch(action.type) {
         case RECEIVE_COMMENT:
+            
+            if(action.comment.p_comment_id) { 
+                let wntId = action.comment.p_comment_id;
+                newState = [...state];
+                newState.forEach(cmt => {
+                    if(cmt.id === wntId) { cmt.child_comments.push(action.comment) }
+                })   
+                return newState
+             }
+
             newState = [...state];
             newState.push(action.comment);
             return newState;

@@ -394,7 +394,8 @@ var CommentForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       author_id: props.auth_id,
       post_id: props.match.params.postId,
-      content: ""
+      content: "",
+      p_comment_id: props.pCmtId
     };
     _this.upd = _this.upd.bind(_assertThisInitialized(_this));
     _this.handleSub = _this.handleSub.bind(_assertThisInitialized(_this));
@@ -420,6 +421,12 @@ var CommentForm = /*#__PURE__*/function (_React$Component) {
         _this3.setState({
           content: ""
         });
+
+        if (_this3.state.p_comment_id) {
+          var mth = _this3.props.match.params;
+
+          _this3.props.history.push("/thread/".concat(mth.id, "/post/").concat(mth.postId, "/comment/").concat(mth.cmtId));
+        }
       });
     }
   }, {
@@ -458,9 +465,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    auth_id: state.ui.session.id
+    auth_id: state.ui.session.id,
+    pCmtId: ownProps.parentId
   };
 };
 
@@ -488,6 +496,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _comment_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comment_form_container */ "./frontend/components/posts/comment_form_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -513,6 +522,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Post = /*#__PURE__*/function (_React$Component) {
   _inherits(Post, _React$Component);
 
@@ -532,10 +542,14 @@ var Post = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var trdId = this.props.match.params.id;
+      var pstId = this.props.match.params.postId;
       var comts = this.props.cmts.map(function (cmt, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: idx
-        }, cmt.content);
+        }, cmt.content.concat(" "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/thread/".concat(trdId, "/post/").concat(pstId, "/comment/").concat(idx)
+        }, "Reply"));
       });
       var cmtFrom;
 
@@ -729,6 +743,109 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/posts/reply_to_com.jsx":
+/*!****************************************************!*\
+  !*** ./frontend/components/posts/reply_to_com.jsx ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _comment_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comment_form_container */ "./frontend/components/posts/comment_form_container.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var ReplyToCom = /*#__PURE__*/function (_React$Component) {
+  _inherits(ReplyToCom, _React$Component);
+
+  var _super = _createSuper(ReplyToCom);
+
+  function ReplyToCom() {
+    _classCallCheck(this, ReplyToCom);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(ReplyToCom, [{
+    key: "render",
+    value: function render() {
+      var cmtForm;
+      var childCmts = this.props.subCmts.map(function (cmt, idx) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: idx
+        }, cmt.content);
+      });
+
+      if (this.props.usr) {
+        cmtForm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_form_container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          parentId: this.props.parentCmtId
+        });
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.heading), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Responses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, childCmts), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), cmtForm);
+    }
+  }]);
+
+  return ReplyToCom;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ReplyToCom);
+
+/***/ }),
+
+/***/ "./frontend/components/posts/reply_to_com_container.js":
+/*!*************************************************************!*\
+  !*** ./frontend/components/posts/reply_to_com_container.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _reply_to_com__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reply_to_com */ "./frontend/components/posts/reply_to_com.jsx");
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  var cmt = state.entities.comments[ownProps.match.params.cmtId];
+  return {
+    parentCmtId: cmt.id,
+    heading: cmt.content,
+    subCmts: cmt.child_comments,
+    usr: Boolean(state.ui.session.id)
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps)(_reply_to_com__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/root.jsx":
 /*!**************************************!*\
   !*** ./frontend/components/root.jsx ***!
@@ -914,6 +1031,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _thread_contianer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./thread_contianer */ "./frontend/components/subs/thread_contianer.js");
 /* harmony import */ var _posts_post_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../posts/post_container */ "./frontend/components/posts/post_container.js");
 /* harmony import */ var _posts_post_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../posts/post_form_container */ "./frontend/components/posts/post_form_container.js");
+/* harmony import */ var _posts_reply_to_com_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../posts/reply_to_com_container */ "./frontend/components/posts/reply_to_com_container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -935,6 +1053,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1011,6 +1130,10 @@ var Subs = /*#__PURE__*/function (_React$Component) {
         exact: true,
         path: "/thread/:id/post",
         component: _posts_post_form_container__WEBPACK_IMPORTED_MODULE_6__["default"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        exact: true,
+        path: "/thread/:id/post/:postId/comment/:cmtId",
+        component: _posts_reply_to_com_container__WEBPACK_IMPORTED_MODULE_7__["default"]
       }))));
     }
   }]);
@@ -1414,6 +1537,17 @@ var commentsReducer = function commentsReducer() {
 
   switch (action.type) {
     case _actions_comment_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
+      if (action.comment.p_comment_id) {
+        var wntId = action.comment.p_comment_id;
+        newState = _toConsumableArray(state);
+        newState.forEach(function (cmt) {
+          if (cmt.id === wntId) {
+            cmt.child_comments.push(action.comment);
+          }
+        });
+        return newState;
+      }
+
       newState = _toConsumableArray(state);
       newState.push(action.comment);
       return newState;
