@@ -29450,3 +29450,183 @@ Processing by SubsController#index as */*
 Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/" for ::1 at 2020-04-23 23:58:41 -0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/latifulahad/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (11.5ms)
+Completed 200 OK in 6525ms (Views: 6515.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-23 23:58:51 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (81.9ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (176.5ms)
+Completed 200 OK in 611ms (Views: 132.8ms | ActiveRecord: 83.2ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-23 23:58:54 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (2.9ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (6.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (113.0ms)
+Completed 200 OK in 773ms (Views: 140.6ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/comments?post=1" for ::1 at 2020-04-23 23:58:57 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (5.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 7]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 10]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (47.6ms)
+Completed 200 OK in 77ms (Views: 59.2ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/comments?post=1" for ::1 at 2020-04-23 23:59:01 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"1"}
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 7]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 10]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (62.5ms)
+Completed 200 OK in 274ms (Views: 244.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/comments?post=1" for ::1 at 2020-04-23 23:59:08 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 7]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 10]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (10.7ms)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-23 23:59:11 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (12.8ms)
+Completed 200 OK in 38ms (Views: 29.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/comments?post=2" for ::1 at 2020-04-23 23:59:13 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 3]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 4]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 5]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 6]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 14]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 22]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (20.3ms)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/comments?post=2" for ::1 at 2020-04-23 23:59:24 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"2"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 3]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 4]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 5]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 6]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 14]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 22]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (29.5ms)
+Completed 200 OK in 80ms (Views: 73.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-23 23:59:33 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (5.4ms)
+Completed 200 OK in 34ms (Views: 26.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/comments?post=2" for ::1 at 2020-04-23 23:59:37 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 3]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 4]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 5]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 6]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 14]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 22]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (14.6ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 1.5ms)
+
+

@@ -345,6 +345,7 @@ li:hover .header-notification {
 }
 
 /* Part 9 body > main-content */
+
 .form {
     display: flex;
     /* margin: 0 0 20px 0; */
@@ -415,4 +416,66 @@ li:hover .header-notification {
 
 .button-alternative strong:hover {
   color: #f00;
+}
+
+/* Part 10 body > main-content POSTS */
+
+.post {
+    display: flex;
+    border-top: 1px solid #ccc;
+    margin: 20px 0 0 0;
+    padding: 20px 0 0 0;
+}
+
+.post-body {
+   margin: 0 0 0 20px;
+    width: 540px; 
+}
+
+
+.post-body > h2 {
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0 0 20px 0;
+}
+
+.post-body > p {
+  margin: 0 0 20px 0;
+}
+
+.post-pic {
+    top: -20px;
+    width: 60px;
+    height: 58px;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid black; 
+}
+
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-footer-info {
+  display: flex;
+  color: #999;
+  font-size: 14px;
+}
+
+.post-footer-info > li:after {
+    content: "·";
+    padding: 0 5px;
+}
+
+.post-footer-info > li:last-child:after {
+  content: none;
+}
+
+.post-footer-tools {
+  display: flex;
+}
+
+.post-footer-tools > li {
+  margin: 0 0 0 10px;
 }
