@@ -1257,7 +1257,8 @@ var Thread = /*#__PURE__*/function (_React$Component) {
       var thrd = this.props.thread;
       var posts = this.props.post;
       var kys = Object.keys(posts);
-      var postLk, rmBttn;
+      var userID = this.props.usrId;
+      var postLk;
       this.props.user ? postLk = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/thread/".concat(this.props.match.params.id, "/post")
       }, "Make a Post") : postLk;
@@ -1266,9 +1267,10 @@ var Thread = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, thrd.description, " by ", thrd.author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "content-post-links"
       }, "Posts", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), kys.map(function (ky) {
+        var rmBttn;
         var pst = posts[ky];
 
-        if (pst.author_id === _this2.props.usrId) {
+        if (pst.author_id === userID) {
           rmBttn = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             value: pst.id,
             style: {

@@ -23,7 +23,8 @@ class Thread extends React.Component {
         let thrd = this.props.thread;
         let posts = this.props.post
         let kys = Object.keys(posts);
-        let postLk, rmBttn
+        let userID = this.props.usrId;
+        let postLk
 
         this.props.user ? postLk = <Link to={`/thread/${this.props.match.params.id}/post`}>Make a Post</Link> : postLk;
 
@@ -36,8 +37,9 @@ class Thread extends React.Component {
                     Posts
                         <br></br>
                     { kys.map(ky => {
+                        let rmBttn;
                         let pst = posts[ky];
-                        if(pst.author_id === this.props.usrId) { rmBttn = <button value={pst.id} style={{paddingLeft: 10}} onClick={this.handleDelete}>DELETE</button> }
+                        if(pst.author_id === userID) { rmBttn = <button value={pst.id} style={{paddingLeft: 10}} onClick={this.handleDelete}>DELETE</button> }
 
                         return (<li key={pst.id}>
                             <Link to={`/thread/${pst.link}/post/${pst.id}`} >{pst.title}</Link>

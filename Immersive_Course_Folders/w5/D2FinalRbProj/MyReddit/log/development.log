@@ -30433,3 +30433,1260 @@ Processing by CommentsController#index as */*
 Completed 200 OK in 21ms (Views: 16.8ms | ActiveRecord: 1.0ms)
 
 
+Started POST "/session" for ::1 at 2020-04-26 22:14:43 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"tony@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tony@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (2.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "R4k08CPpvQsiccvblJ5ncQ"], ["updated_at", "2020-04-27 02:14:44.311028"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (5.6ms)
+Completed 200 OK in 487ms (Views: 38.4ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:14:45 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (9.5ms)
+Completed 200 OK in 27ms (Views: 22.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments?post=4" for ::1 at 2020-04-26 22:14:47 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 4]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  Rendered comments/index.json.jbuilder (3.2ms)
+Completed 200 OK in 23ms (Views: 15.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:14:49 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (5.4ms)
+Completed 200 OK in 30ms (Views: 16.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments?post=4" for ::1 at 2020-04-26 22:14:53 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"4"}
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 4]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  Rendered comments/index.json.jbuilder (2.4ms)
+Completed 200 OK in 24ms (Views: 14.9ms | ActiveRecord: 2.8ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-26 22:14:55 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "R4k08CPpvQsiccvblJ5ncQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "fX2ETJFnL8LohSEjzODEiQ"], ["updated_at", "2020-04-27 02:14:55.786913"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 26ms (Views: 0.5ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 22:15:10 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sabitman@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$Boji6yjSdYYg4JkDMUpE7.7v0bcAs/zqw6rttAslJGfTZw29XzZUW"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "b1mfqzFnmJ0_Y7yXtGkOvw"], ["updated_at", "2020-04-27 02:15:10.431587"], ["id", 4]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (5.3ms)
+Completed 200 OK in 362ms (Views: 23.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:15:12 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (18.1ms)
+Completed 200 OK in 55ms (Views: 37.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/comments?post=4" for ::1 at 2020-04-26 22:15:13 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 4]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  Rendered comments/index.json.jbuilder (3.0ms)
+Completed 200 OK in 21ms (Views: 17.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/comments" for ::1 at 2020-04-26 22:15:36 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"author_id"=>"4", "post_id"=>"4", "content"=>"Tell me about it SMH lol!"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mComment Create (4.5ms)[0m  [1m[32mINSERT INTO "comments" ("content", "author_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Tell me about it SMH lol!"], ["author_id", 4], ["post_id", 4], ["created_at", "2020-04-27 02:15:37.030830"], ["updated_at", "2020-04-27 02:15:37.030830"]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:29
+  Rendering comments/show.json.jbuilder
+  Rendered comments/show.json.jbuilder (0.7ms)
+Completed 200 OK in 65ms (Views: 15.3ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/" for ::1 at 2020-04-26 22:15:51 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (8.2ms)
+Completed 200 OK in 223ms (Views: 205.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-26 22:15:52 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (7.6ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Started POST "/session" for ::1 at 2020-04-26 22:17:27 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sanam2002usa@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "jSBiV-h2IzvEcngluXbwtg"], ["updated_at", "2020-04-27 02:17:27.625841"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (5.4ms)
+Completed 200 OK in 427ms (Views: 38.1ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:17:30 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (19.6ms)
+Completed 200 OK in 52ms (Views: 42.4ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mPost Load (4.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started DELETE "/session" for ::1 at 2020-04-26 22:19:37 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "jSBiV-h2IzvEcngluXbwtg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "GPmGkQcS15FuTZ4wTrRyPA"], ["updated_at", "2020-04-27 02:19:37.314310"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 157ms (Views: 0.6ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/" for ::1 at 2020-04-26 22:19:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.6ms)
+Completed 200 OK in 148ms (Views: 138.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-26 22:19:39 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (3.8ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (14.8ms)
+Completed 200 OK in 31ms (Views: 26.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 22:19:54 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sanam2002usa@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "sMP0XX7bSP-mrnIwVwlTSA"], ["updated_at", "2020-04-27 02:19:55.078212"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (0.5ms)
+Completed 200 OK in 338ms (Views: 13.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:19:56 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (6.3ms)
+Completed 200 OK in 22ms (Views: 16.6ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mPost Load (12.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Started DELETE "/session" for ::1 at 2020-04-26 22:53:46 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "sMP0XX7bSP-mrnIwVwlTSA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (3.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "yCRyWF1HXud-K7F8DI_r6A"], ["updated_at", "2020-04-27 02:53:46.332949"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 57ms (Views: 1.3ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/" for ::1 at 2020-04-26 22:53:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (4.7ms)
+Completed 200 OK in 189ms (Views: 176.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-26 22:53:55 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (2.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (7.6ms)
+Completed 200 OK in 30ms (Views: 25.8ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 22:54:10 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sanam2002usa@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sanam2002usa@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 2.5ms)
+
+
+
+NoMethodError - undefined method `is_pass?' for nil:NilClass:
+  app/controllers/sessions_controller.rb:10:in `create'
+
+Started POST "/session" for ::1 at 2020-04-26 22:54:25 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sanam2002usa@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (2.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "q0LQnk0lPTP6aSIEpMkfFQ"], ["updated_at", "2020-04-27 02:54:25.803645"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (3.8ms)
+Completed 200 OK in 369ms (Views: 17.0ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:54:27 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (6.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (19.7ms)
+Completed 200 OK in 43ms (Views: 25.4ms | ActiveRecord: 7.2ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-26 22:56:13 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "q0LQnk0lPTP6aSIEpMkfFQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (3.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (4.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "G1qfn1kMJHvX7IIz_lGIrQ"], ["updated_at", "2020-04-27 02:56:14.032736"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 75ms (Views: 0.5ms | ActiveRecord: 14.4ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 22:56:30 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sabitman@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$Boji6yjSdYYg4JkDMUpE7.7v0bcAs/zqw6rttAslJGfTZw29XzZUW"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "ZYySIKen97jb1wA0THcIxQ"], ["updated_at", "2020-04-27 02:56:31.221733"], ["id", 4]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (1.3ms)
+Completed 200 OK in 339ms (Views: 13.4ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:56:32 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (4.2ms)
+Completed 200 OK in 111ms (Views: 88.1ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-26 22:56:40 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "ZYySIKen97jb1wA0THcIxQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$Boji6yjSdYYg4JkDMUpE7.7v0bcAs/zqw6rttAslJGfTZw29XzZUW"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "uTzj4zNst9EBNdpIee0U1w"], ["updated_at", "2020-04-27 02:56:40.935021"], ["id", 4]]
+  ↳ app/models/user.rb:29
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 22:56:54 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"tony@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tony@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "56Yjgm06CjKzpcczWtM60A"], ["updated_at", "2020-04-27 02:56:55.032355"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (2.9ms)
+Completed 200 OK in 329ms (Views: 13.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:56:56 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (3.4ms)
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-26 22:57:41 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "56Yjgm06CjKzpcczWtM60A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (3.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "kDBc8aFn_zeJ-AM4xGLx6g"], ["updated_at", "2020-04-27 02:57:41.035549"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/" for ::1 at 2020-04-26 22:57:43 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.0ms)
+Completed 200 OK in 145ms (Views: 138.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-26 22:57:44 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (1.7ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 22:57:57 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sanam2002usa@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "CqBtf_TwplNbhMcdIoutbg"], ["updated_at", "2020-04-27 02:57:57.628360"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (1.1ms)
+Completed 200 OK in 338ms (Views: 15.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:57:59 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.8ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (6.0ms)
+Completed 200 OK in 26ms (Views: 18.4ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/posts/2" for ::1 at 2020-04-26 22:58:04 -0400
+Processing by PostsController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45
+  [1m[36mPost Destroy (3.8ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/posts_controller.rb:46
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 4.0ms)
+
+
+  [1m[36mPost Load (7.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started DELETE "/session" for ::1 at 2020-04-26 22:58:49 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "CqBtf_TwplNbhMcdIoutbg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "xvzNYHQ4RvwkJqOQgLW2ZA"], ["updated_at", "2020-04-27 02:58:49.912662"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 79ms (Views: 1.6ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/" for ::1 at 2020-04-26 22:58:53 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (11.4ms)
+Completed 200 OK in 213ms (Views: 195.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-26 22:58:54 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (6.6ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:58:56 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (2.1ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (4.1ms)
+Completed 200 OK in 29ms (Views: 20.4ms | ActiveRecord: 2.4ms)
+
+
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Started GET "/comments?post=1" for ::1 at 2020-04-26 22:59:15 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 1]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 7]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 10]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (15.5ms)
+Completed 200 OK in 34ms (Views: 27.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:59:17 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (6.7ms)
+Completed 200 OK in 26ms (Views: 17.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments?post=4" for ::1 at 2020-04-26 22:59:18 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 4]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 23]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (4.2ms)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 22:59:22 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.7ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (7.3ms)
+Completed 200 OK in 75ms (Views: 18.6ms | ActiveRecord: 2.0ms)
+
+
+  [1m[36mComment Load (1.9ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 4]]
+  [1m[36mComment Destroy (25.5ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 4]]
+  [1m[36mComment Load (2.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Started POST "/session" for ::1 at 2020-04-26 23:04:56 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sabitman@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$Boji6yjSdYYg4JkDMUpE7.7v0bcAs/zqw6rttAslJGfTZw29XzZUW"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "5pjVAfMiR9aLBH187cC5Ng"], ["updated_at", "2020-04-27 03:04:56.602157"], ["id", 4]]
+  ↳ app/models/user.rb:29
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (3.5ms)
+Completed 200 OK in 411ms (Views: 26.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 23:04:58 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (9.5ms)
+Completed 200 OK in 26ms (Views: 20.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/posts" for ::1 at 2020-04-26 23:07:35 -0400
+Processing by PostsController#create as */*
+  Parameters: {"post"=>{"title"=>"Testing Authentication Of Author2Post", "link"=>"1", "content"=>"Only Sabit should be able to delete this Post!", "author_id"=>"4"}}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "5pjVAfMiR9aLBH187cC5Ng"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:18
+  [1m[36mPost Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "Testing Authentication Of Author2Post"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:18
+  [1m[36mPost Create (12.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "link", "content", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Testing Authentication Of Author2Post"], ["link", "1"], ["content", "Only Sabit should be able to delete this Post!"], ["author_id", 4], ["created_at", "2020-04-27 03:07:35.419270"], ["updated_at", "2020-04-27 03:07:35.419270"]]
+  ↳ app/controllers/posts_controller.rb:18
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSubPost Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "sub_posts" WHERE "sub_posts"."sub_id" = ? AND "sub_posts"."post_id" = ? LIMIT ?[0m  [["sub_id", 1], ["post_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[36mSubPost Create (2.6ms)[0m  [1m[32mINSERT INTO "sub_posts" ("sub_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sub_id", 1], ["post_id", 5], ["created_at", "2020-04-27 03:07:35.529849"], ["updated_at", "2020-04-27 03:07:35.529849"]]
+  ↳ app/controllers/posts_controller.rb:20
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:20
+  Rendering posts/show.json.jbuilder
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  ↳ app/views/posts/show.json.jbuilder:8
+  Rendered posts/show.json.jbuilder (8.6ms)
+Completed 200 OK in 273ms (Views: 27.6ms | ActiveRecord: 28.7ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 23:07:35 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (21.7ms)
+Completed 200 OK in 42ms (Views: 36.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/comments?post=5" for ::1 at 2020-04-26 23:07:41 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 5]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  Rendered comments/index.json.jbuilder (1.9ms)
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-26 23:07:45 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "5pjVAfMiR9aLBH187cC5Ng"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$Boji6yjSdYYg4JkDMUpE7.7v0bcAs/zqw6rttAslJGfTZw29XzZUW"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "_WRqJVNUbkwZB4FjVsumtg"], ["updated_at", "2020-04-27 03:07:45.823967"], ["id", 4]]
+  ↳ app/models/user.rb:29
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 23:08:01 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sanam2002usa@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$D42aE7ufx.i7uFmmYy62Aet5KxD19vYRC.C0KnT5RrEkZhGlUbk2e"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sanam2002usa@gmail.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "0nMPPeuFGOa_Jas-39AjQA"], ["updated_at", "2020-04-27 03:08:01.403981"], ["id", 3]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (0.9ms)
+Completed 200 OK in 344ms (Views: 15.0ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 23:08:02 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.5ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (7.0ms)
+Completed 200 OK in 27ms (Views: 21.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/comments?post=5" for ::1 at 2020-04-26 23:08:03 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"5"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 5]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  Rendered comments/index.json.jbuilder (6.6ms)
+Completed 200 OK in 32ms (Views: 27.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/comments" for ::1 at 2020-04-26 23:08:22 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"author_id"=>"3", "post_id"=>"5", "content"=>"Well I'm not allowed..sanam speaking!"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mComment Create (3.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "author_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Well I'm not allowed..sanam speaking!"], ["author_id", 3], ["post_id", 5], ["created_at", "2020-04-27 03:08:22.061031"], ["updated_at", "2020-04-27 03:08:22.061031"]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:29
+  Rendering comments/show.json.jbuilder
+  Rendered comments/show.json.jbuilder (0.8ms)
+Completed 200 OK in 32ms (Views: 13.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/" for ::1 at 2020-04-26 23:08:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.4ms)
+Completed 200 OK in 216ms (Views: 198.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-26 23:08:31 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (4.0ms)
+Completed 200 OK in 25ms (Views: 23.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 23:08:42 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"tony@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tony@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "L8mo0w4C22gPNipTo84cLg"], ["updated_at", "2020-04-27 03:08:43.063643"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (1.2ms)
+Completed 200 OK in 347ms (Views: 14.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 23:08:44 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (6.9ms)
+Completed 200 OK in 30ms (Views: 22.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/comments?post=5" for ::1 at 2020-04-26 23:08:47 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 5]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 24]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (3.2ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 23:08:50 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (7.5ms)
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/comments?post=5" for ::1 at 2020-04-26 23:09:08 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 5]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 24]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (2.8ms)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments" for ::1 at 2020-04-26 23:09:30 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"comment"=>{"author_id"=>"5", "post_id"=>"5", "content"=>"Issue here, I'm granted the rights, TONY here"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[36mComment Create (3.2ms)[0m  [1m[32mINSERT INTO "comments" ("content", "author_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Issue here, I'm granted the rights, TONY here"], ["author_id", 5], ["post_id", 5], ["created_at", "2020-04-27 03:09:30.440427"], ["updated_at", "2020-04-27 03:09:30.440427"]]
+  ↳ app/controllers/comments_controller.rb:29
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:29
+  Rendering comments/show.json.jbuilder
+  Rendered comments/show.json.jbuilder (1.0ms)
+Completed 200 OK in 51ms (Views: 16.5ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 23:09:35 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (10.6ms)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments?post=5" for ::1 at 2020-04-26 23:09:37 -0400
+Processing by CommentsController#index as */*
+  Parameters: {"post"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."p_comment_id" IS NULL[0m  [["post_id", 5]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 24]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."p_comment_id" = ?[0m  [["p_comment_id", 25]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (9.8ms)
+Completed 200 OK in 61ms (Views: 58.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 23:09:44 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (7.4ms)
+Completed 200 OK in 39ms (Views: 33.5ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-26 23:13:46 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "L8mo0w4C22gPNipTo84cLg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (2.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (7.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "6RTwrVXRl7Lcf3lSkGn6OQ"], ["updated_at", "2020-04-27 03:13:46.442956"], ["id", 5]]
+Started DELETE "/session" for ::1 at 2020-04-26 23:13:49 -0400
+  ↳ app/models/user.rb:29
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 3417ms (Views: 2.4ms | ActiveRecord: 21.5ms)
+
+
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "L8mo0w4C22gPNipTo84cLg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.9ms)
+
+
+
+NoMethodError - undefined method `reset_session_tkn!' for nil:NilClass:
+  app/controllers/sessions_controller.rb:20:in `destroy'
+
+Started GET "/" for ::1 at 2020-04-26 23:13:52 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (5.3ms)
+Completed 200 OK in 3474ms (Views: 3462.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-26 23:13:56 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (2.5ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (8.6ms)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/session" for ::1 at 2020-04-26 23:14:06 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"tony@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tony@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "1zp12hq4x_lxB-98oukqEQ"], ["updated_at", "2020-04-27 03:14:06.822376"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (1.5ms)
+Completed 200 OK in 457ms (Views: 41.3ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-26 23:14:08 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.3ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (7.9ms)
+Completed 200 OK in 32ms (Views: 24.3ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-27 02:32:56 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "1zp12hq4x_lxB-98oukqEQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (3.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (102.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (11.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "BaJgN8UQqsoRBLUacLBZaQ"], ["updated_at", "2020-04-27 06:32:56.501623"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 263ms (Views: 4.2ms | ActiveRecord: 122.7ms)
+
+
+Started GET "/" for ::1 at 2020-04-27 02:36:06 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (31.3ms)
+Completed 200 OK in 338ms (Views: 324.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-27 02:36:08 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (3.7ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (13.0ms)
+Completed 200 OK in 36ms (Views: 31.4ms | ActiveRecord: 3.7ms)
+
+
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Started POST "/session" for ::1 at 2020-04-27 02:37:22 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"tony@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tony@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (3.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "_5C52ieZsCZ4fFeB2kwyaw"], ["updated_at", "2020-04-27 06:37:22.627183"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (22.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (6.5ms)
+Completed 200 OK in 498ms (Views: 37.8ms | ActiveRecord: 29.1ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-27 02:37:24 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (28.5ms)
+Completed 200 OK in 59ms (Views: 47.8ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-27 02:46:45 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "_5C52ieZsCZ4fFeB2kwyaw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (2.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "sjoMDxjPbSwidgKH33DZAg"], ["updated_at", "2020-04-27 06:46:45.785946"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 60ms (Views: 1.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2020-04-27 02:46:48 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.1ms)
+Completed 200 OK in 863ms (Views: 859.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subs" for ::1 at 2020-04-27 02:46:50 -0400
+Processing by SubsController#index as */*
+  Rendering subs/index.json.jbuilder
+  [1m[36mSub Load (0.4ms)[0m  [1m[34mSELECT "subs".* FROM "subs"[0m
+  ↳ app/views/subs/index.json.jbuilder:1
+  Rendered subs/index.json.jbuilder (9.3ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/session" for ::1 at 2020-04-27 02:47:17 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"tony@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tony@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "VuWgWO-FuWBV1VPLCpMeeg"], ["updated_at", "2020-04-27 06:47:17.477850"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (3.7ms)
+Completed 200 OK in 419ms (Views: 26.5ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-27 02:47:18 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.6ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (19.9ms)
+Completed 200 OK in 41ms (Views: 32.8ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-27 02:47:26 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "VuWgWO-FuWBV1VPLCpMeeg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$jGXdsppDq8g.OOBgFUrOKugzyBlSoJm4n1RT134Kk5SnntVhmswd."], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "tony@aol.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "V6ob05s9wqDCuUX1UV9CPQ"], ["updated_at", "2020-04-27 06:47:26.018637"], ["id", 5]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 21ms (Views: 0.6ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/session" for ::1 at 2020-04-27 02:48:00 -0400
+Processing by SessionsController#create as */*
+  Parameters: {"user"=>{"email"=>"sabitman@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$Boji6yjSdYYg4JkDMUpE7.7v0bcAs/zqw6rttAslJGfTZw29XzZUW"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "qOfYAjx4ZMq7TPg_ZQVtAw"], ["updated_at", "2020-04-27 06:48:01.220266"], ["id", 4]]
+  ↳ app/models/user.rb:29
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+  Rendering sessions/show.json.jbuilder
+  Rendered sessions/show.json.jbuilder (9.8ms)
+Completed 200 OK in 322ms (Views: 22.2ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/subs/1" for ::1 at 2020-04-27 02:48:02 -0400
+Processing by SubsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSub Load (0.2ms)[0m  [1m[34mSELECT  "subs".* FROM "subs" WHERE "subs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/subs_controller.rb:19
+  Rendering subs/show.json.jbuilder
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "sub_posts" ON "posts"."id" = "sub_posts"."post_id" WHERE "sub_posts"."sub_id" = ?[0m  [["sub_id", 1]]
+  ↳ app/views/subs/show.json.jbuilder:6
+  Rendered subs/show.json.jbuilder (17.6ms)
+Completed 200 OK in 37ms (Views: 31.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/session" for ::1 at 2020-04-27 02:48:11 -0400
+Processing by SessionsController#destroy as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = ? LIMIT ?[0m  [["session_token", "qOfYAjx4ZMq7TPg_ZQVtAw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."pass_digest" = ? AND "users"."id" != ? LIMIT ?[0m  [["pass_digest", "$2a$12$Boji6yjSdYYg4JkDMUpE7.7v0bcAs/zqw6rttAslJGfTZw29XzZUW"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "sabitman@aol.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["session_token", "E4uhZcW5_GJB3usmlarBrA"], ["updated_at", "2020-04-27 06:48:11.818384"], ["id", 4]]
+  ↳ app/models/user.rb:29
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:29
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
