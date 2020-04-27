@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
     def index
         post = Post.find(params[:post]);
-        @comments = post.comments;
+        @comments = post.comments.where(p_comment_id: nil);
 
         if post
             respond_to do |format|
