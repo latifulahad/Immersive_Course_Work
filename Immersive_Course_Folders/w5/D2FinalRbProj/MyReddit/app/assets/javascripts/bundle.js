@@ -542,14 +542,21 @@ var Post = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var trdId = this.props.match.params.id;
       var pstId = this.props.match.params.postId;
+      var rplyLnk;
       var comts = this.props.cmts.map(function (cmt, idx) {
+        if (_this.props.auth_id) {
+          rplyLnk = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+            to: "/thread/".concat(trdId, "/post/").concat(pstId, "/comment/").concat(idx)
+          }, "Reply");
+        }
+
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: idx
-        }, cmt.content.concat(" "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-          to: "/thread/".concat(trdId, "/post/").concat(pstId, "/comment/").concat(idx)
-        }, "Reply"));
+        }, cmt.content.concat(" "), rplyLnk);
       });
       var cmtFrom;
 
