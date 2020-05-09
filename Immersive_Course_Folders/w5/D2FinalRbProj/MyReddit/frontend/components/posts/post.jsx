@@ -13,9 +13,9 @@ class Post extends React.Component {
         let rplyLnk;
 
         let comts = this.props.cmts.map((cmt, idx) => {
-            if(this.props.auth_id) { rplyLnk = <Link to={`/thread/${trdId}/post/${pstId}/comment/${idx}`}>Reply</Link> }
+            if (this.props.auth_id) { rplyLnk = <Link style={{ marginLeft: 3 }} to={`/thread/${trdId}/post/${pstId}/comment/${idx}`}>Reply</Link> }
             return (<li key={idx}>
-                {cmt.content.concat(" ")}
+                {cmt.content.concat(` by ${cmt.authorName} `)}
                 {rplyLnk}
             </li>)
         })

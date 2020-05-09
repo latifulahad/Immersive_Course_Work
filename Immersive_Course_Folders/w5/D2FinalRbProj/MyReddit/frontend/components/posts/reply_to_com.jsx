@@ -6,7 +6,7 @@ class ReplyToCom extends React.Component {
     render() {
         let cmtForm
         let childCmts = this.props.subCmts.map((cmt, idx) => {
-            return(<li key={idx}>{cmt.content}</li>)
+            return(<li key={idx}>{cmt.content}</li>) //WE NEED ASYNC FUNC 4 AUTHORname
         })
 
         if(this.props.usr) { cmtForm = <CommentFormContainer parentId={this.props.parentCmtId} />} 

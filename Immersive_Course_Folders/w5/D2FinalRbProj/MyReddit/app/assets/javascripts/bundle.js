@@ -550,13 +550,16 @@ var Post = /*#__PURE__*/function (_React$Component) {
       var comts = this.props.cmts.map(function (cmt, idx) {
         if (_this.props.auth_id) {
           rplyLnk = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+            style: {
+              marginLeft: 3
+            },
             to: "/thread/".concat(trdId, "/post/").concat(pstId, "/comment/").concat(idx)
           }, "Reply");
         }
 
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: idx
-        }, cmt.content.concat(" "), rplyLnk);
+        }, cmt.content.concat(" by ".concat(cmt.authorName, " ")), rplyLnk);
       });
       var cmtFrom;
 
@@ -805,7 +808,7 @@ var ReplyToCom = /*#__PURE__*/function (_React$Component) {
       var childCmts = this.props.subCmts.map(function (cmt, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: idx
-        }, cmt.content);
+        }, cmt.content); //WE NEED ASYNC FUNC 4 AUTHORname
       });
 
       if (this.props.usr) {
