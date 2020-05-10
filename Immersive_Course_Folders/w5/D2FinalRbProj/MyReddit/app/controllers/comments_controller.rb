@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
     def index
         post, parentCmt = nil
+        
         if params[:post]
             post = Post.find(params[:post])
         end

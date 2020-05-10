@@ -1,1 +1,1 @@
-json.names @arthName
+json.names @athrName

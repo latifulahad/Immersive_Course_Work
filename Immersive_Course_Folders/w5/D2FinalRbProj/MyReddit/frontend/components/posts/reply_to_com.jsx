@@ -22,6 +22,7 @@ class ReplyToCom extends React.Component {
 
     render() {
         let st = this.state.name;
+        
         let cmtForm
         let childCmts = this.props.subCmts.map((cmt, idx) => {
             return(<li key={idx}>{cmt.content.concat(` by ${st[idx]}`)}</li>)
