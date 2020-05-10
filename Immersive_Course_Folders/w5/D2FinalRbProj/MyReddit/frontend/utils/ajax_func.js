@@ -58,6 +58,14 @@ export const bringComments = (id) => (
     })
 )
 
+export const bringNames = (id) => (
+    $.ajax({
+        method: "GET",
+        url: "/comments",
+        data: { pCmt: id }
+    })
+)
+
 export const makeComt = (info) => (
     $.ajax({
         method: "POST",

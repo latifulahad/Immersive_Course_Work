@@ -1,10 +1,26 @@
 class CommentsController < ApplicationController
     def index
-        post = Post.find(params[:post]);
-        @comments = post.comments.where(p_comment_id: nil);
+        post, parentCmt = nil
+        if params[:post]
+            post = Post.find(params[:post])
+        end
+        if params[:pCmt]
+            parentCmt = Comment.find(params[:pCmt])
+        end
+        @athrName = []
+            if parentCmt
+                parentCmt.child_comments.each { |cmt| @athrName.push(cmt.author.name) }
+            end
+        
+        @comments = post.comments.where(p_comment_id: nil) if post
+        
         if post
             respond_to do |format|
                 format.json { render :index }
+            end
+        elsif parentCmt
+            respond_to do |format|
+                format.json { render :athr_nms }
             end
         else
             respond_to do |format|

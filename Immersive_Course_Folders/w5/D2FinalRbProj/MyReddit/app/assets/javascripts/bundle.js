@@ -765,6 +765,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _comment_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comment_form_container */ "./frontend/components/posts/comment_form_container.js");
+/* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/ajax_func */ "./frontend/utils/ajax_func.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -790,25 +791,57 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var ReplyToCom = /*#__PURE__*/function (_React$Component) {
   _inherits(ReplyToCom, _React$Component);
 
   var _super = _createSuper(ReplyToCom);
 
-  function ReplyToCom() {
+  function ReplyToCom(props) {
+    var _this;
+
     _classCallCheck(this, ReplyToCom);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      name: []
+    };
+    return _this;
   }
 
   _createClass(ReplyToCom, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var id = this.props.parentCmtId;
+      Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_2__["bringNames"])(id).then(function (res) {
+        return _this2.setState({
+          name: res.names
+        });
+      });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var _this3 = this;
+
+      var id = this.props.parentCmtId;
+      Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_2__["bringNames"])(id).then(function (res) {
+        return _this3.setState({
+          name: res.names
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var st = this.state.name;
       var cmtForm;
       var childCmts = this.props.subCmts.map(function (cmt, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: idx
-        }, cmt.content); //WE NEED ASYNC FUNC 4 AUTHORname
+        }, cmt.content.concat(" by ".concat(st[idx])));
       });
 
       if (this.props.usr) {
@@ -1854,7 +1887,7 @@ var configureStore = function configureStore() {
 /*!*************************************!*\
   !*** ./frontend/utils/ajax_func.js ***!
   \*************************************/
-/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments, makeComt */
+/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments, bringNames, makeComt */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1867,6 +1900,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makePost", function() { return makePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePost", function() { return deletePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringComments", function() { return bringComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringNames", function() { return bringNames; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeComt", function() { return makeComt; });
 var log_user = function log_user(inputData) {
   return $.ajax({
@@ -1925,6 +1959,15 @@ var bringComments = function bringComments(id) {
     url: "/comments",
     data: {
       post: id
+    }
+  });
+};
+var bringNames = function bringNames(id) {
+  return $.ajax({
+    method: "GET",
+    url: "/comments",
+    data: {
+      pCmt: id
     }
   });
 };
