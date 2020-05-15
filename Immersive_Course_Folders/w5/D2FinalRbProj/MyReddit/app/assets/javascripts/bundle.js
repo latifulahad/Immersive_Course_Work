@@ -497,6 +497,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _comment_form_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comment_form_container */ "./frontend/components/posts/comment_form_container.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/ajax_func */ "./frontend/utils/ajax_func.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -523,32 +524,46 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Post = /*#__PURE__*/function (_React$Component) {
   _inherits(Post, _React$Component);
 
   var _super = _createSuper(Post);
 
-  function Post() {
+  function Post(props) {
+    var _this;
+
     _classCallCheck(this, Post);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      name: ""
+    };
+    return _this;
   }
 
   _createClass(Post, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       this.props.bringComments();
+      Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_3__["authorName"])(this.props.post.author_id).then(function (res) {
+        return _this2.setState({
+          name: res.name
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this3 = this;
 
       var trdId = this.props.match.params.id;
       var pstId = this.props.match.params.postId;
       var rplyLnk;
       var comts = this.props.cmts.map(function (cmt, idx) {
-        if (_this.props.auth_id) {
+        if (_this3.props.auth_id) {
           rplyLnk = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
             style: {
               marginLeft: 3
@@ -569,7 +584,7 @@ var Post = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-post"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Content"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.post.content, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Comments", comts), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), cmtFrom);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Content"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.post.content, " by ", this.state.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, "Comments", comts), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), cmtFrom);
     }
   }]);
 
@@ -1887,7 +1902,7 @@ var configureStore = function configureStore() {
 /*!*************************************!*\
   !*** ./frontend/utils/ajax_func.js ***!
   \*************************************/
-/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments, bringNames, makeComt */
+/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments, bringNames, authorName, makeComt */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1901,6 +1916,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePost", function() { return deletePost; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringComments", function() { return bringComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringNames", function() { return bringNames; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "authorName", function() { return authorName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeComt", function() { return makeComt; });
 var log_user = function log_user(inputData) {
   return $.ajax({
@@ -1969,6 +1985,12 @@ var bringNames = function bringNames(id) {
     data: {
       pCmt: id
     }
+  });
+};
+var authorName = function authorName(id) {
+  return $.ajax({
+    method: "GET",
+    url: "/users/".concat(id)
   });
 };
 var makeComt = function makeComt(info) {

@@ -66,6 +66,13 @@ export const bringNames = (id) => (
     })
 )
 
+export const authorName = (id) => (
+    $.ajax({
+        method: "GET",
+        url: `/users/${id}`
+    })
+)
+
 export const makeComt = (info) => (
     $.ajax({
         method: "POST",

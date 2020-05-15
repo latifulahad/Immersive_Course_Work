@@ -1,10 +1,18 @@
 import React from "react";
 import CommentFormContainer from './comment_form_container';
 import { Link } from 'react-router-dom';
+import { authorName } from '../../utils/ajax_func';
 
 class Post extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { name: "" }
+    }
+    
     componentDidMount() {
         this.props.bringComments();
+        authorName(this.props.post.author_id).then(res => this.setState({ name: res.name }))
     }
 
     render() {
@@ -25,7 +33,7 @@ class Post extends React.Component {
         return(
             <div className="content-post">
                 <h2>Content</h2>
-                <p>{this.props.post.content} </p>
+                <p>{this.props.post.content} by {this.state.name}</p>
                     <br></br>
                 <ul>
                     Comments

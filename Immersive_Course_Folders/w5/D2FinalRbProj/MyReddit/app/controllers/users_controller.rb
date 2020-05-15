@@ -6,7 +6,10 @@ class UsersController < ApplicationController
 
     def show
         @usr = User.find(params[:id])
-        render :show
+        
+        respond_to do |format|
+            format.json { render :show }
+        end
     end
 
     def create
