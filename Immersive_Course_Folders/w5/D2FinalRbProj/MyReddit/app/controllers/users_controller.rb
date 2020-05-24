@@ -7,8 +7,14 @@ class UsersController < ApplicationController
     def show
         @usr = User.find(params[:id])
         
-        respond_to do |format|
-            format.json { render :show }
+        if params[:cond]
+            respond_to do |format|
+                format.json { render :other_show }
+            end
+        else
+            respond_to do |format|
+                format.json { render :show }
+            end 
         end
     end
 

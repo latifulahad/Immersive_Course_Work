@@ -80,3 +80,11 @@ export const makeComt = (info) => (
         data: { comment: info }
     })
 )
+
+export const brgUsrInfo = (id) => (
+    $.ajax({
+        method: 'GET',
+        url: `users/${id}`,
+        data: { cond: true }
+    })
+)

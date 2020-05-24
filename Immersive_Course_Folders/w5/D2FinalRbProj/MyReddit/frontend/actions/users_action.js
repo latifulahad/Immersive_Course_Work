@@ -1,8 +1,9 @@
-import { create_user } from '../utils/ajax_func';
+import { create_user, brgUsrInfo } from '../utils/ajax_func';
 import { receive_id } from './sessions_action';
 
 export const LOG_USER = "LOG_USER";
 export const REMOVE_USR = "REMOVE_USR";
+export const BRING_USR_INFO = "BRING_USR_INFO";
 
 export const receive_user = (user) => ({
     type: LOG_USER,
@@ -13,10 +14,23 @@ export const logOut_user = () => ({
     type: REMOVE_USR  
 })
 
+export const receive_usr_info = (user) => ({
+    type: BRING_USR_INFO,
+    user
+})
+
+
 export const makeUser = (inputInfo) => dispatch => (
     create_user(inputInfo).then(res => {
         dispatch(receive_id(res.id));
         dispatch(receive_user(res));
+        return(res);
+    })
+)
+
+export const bringUsrInfo = (inputInfo) => dispatch => (
+    brgUsrInfo(inputInfo).then(res => {
+        dispatch(receive_usr_info(res));
         return(res);
     })
 )
