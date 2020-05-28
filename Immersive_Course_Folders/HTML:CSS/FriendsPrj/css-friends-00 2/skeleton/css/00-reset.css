@@ -536,3 +536,14 @@ li:hover .header-notification {
 .icon-small-photos {
   background-position: 0 -200px;
 }
+
+/* making Modal */
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
