@@ -21,18 +21,19 @@ class Login extends React.Component {
 
     render() {
         return(
-            <form>
-                <label>
-                    Email
-                    <input type="text" onChange={this.update("email")} value={this.state.email} />
-                </label>
-                    <br></br>
-                <label>
-                    Password
-                    <input type="text" onChange={this.update("password")} value={this.state.password}/>
-                </label>
-                    <br></br>
-                <button className="button" onClick={this.handleSub}>Enter</button>
+            <form className="form">
+                <fieldset className="form-fieldset">
+                    <div className="input">
+                        <label>Email</label>
+                        <input type="text" onChange={this.update("email")} value={this.state.email} />
+                    </div>
+                    <div className="input">
+                        <label>Password</label>
+                        <input type="password" onChange={this.update("password")} value={this.state.password} />
+                    </div>
+                    
+                    <button className="button" onClick={this.handleSub}>Enter</button>
+                </fieldset>
             </form>
         )
     }

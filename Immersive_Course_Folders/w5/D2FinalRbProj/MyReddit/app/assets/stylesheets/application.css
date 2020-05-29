@@ -56,6 +56,7 @@ button, input[type="submit"] {
     cursor: pointer;
 }
 
+
 /* My custom mods from here*/
 body {
     background-color: lightseagreen;
@@ -89,6 +90,7 @@ body {
     color: blue;
 }
 
+
 /* Below Header/Nav */
 .content {
     display: flex;
@@ -113,6 +115,7 @@ body {
     border-right: 1px solid #ccc;
     padding-right: 19px;
 }
+
 
 /* Button effects */
 .content > a:hover {
@@ -139,7 +142,28 @@ body {
     color: blue;
 }
 
+/* content-main FORM */
 
+.form-fieldset {
+    margin: 0 0 0 20px;
+    padding: 20px;
+    width:90%;
+    background: #eee;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input {
+    margin: 0 0 20px 0;
+}
+
+.input > input {
+    display: block;
+    padding: 3px 0 0 0;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+}
 
 /* .content-thread > p {
     padding: 0 0 7px 0;
