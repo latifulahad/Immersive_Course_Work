@@ -23,6 +23,7 @@ class Login extends React.Component {
         return(
             <form className="form">
                 <fieldset className="form-fieldset">
+                    <h2 style={{paddingBottom: 10, fontSize: 24 }}>Log In</h2>
                     <div className="input">
                         <label>Email</label>
                         <input type="text" onChange={this.update("email")} value={this.state.email} />

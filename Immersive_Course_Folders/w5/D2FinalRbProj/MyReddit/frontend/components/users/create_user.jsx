@@ -21,22 +21,22 @@ class CreateUser extends React.Component {
 
     render() {
         return (
-            <form>
-                <label>
-                    Name
+            <form className="form-fieldset">
+                <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Create Account</h2>
+                <div className="input">
+                    <label>Name</label>
                     <input type="text" onChange={this.update("name")} value={this.state.name} />
-                </label>
-                    <br></br>
-                <label>
-                    Email
+                </div>
+                <div className="input">
+                    <label>Email</label>
                     <input type="text" onChange={this.update("email")} value={this.state.email} />
-                </label>
-                    <br></br>
-                <label>
-                    Password
-                    <input type="text" onChange={this.update("password")} value={this.state.password} />
-                </label>
-                    <br></br>
+                </div>    
+                    
+                <div className="input"> 
+                    <label>Password</label>
+                    <input type="password" onChange={this.update("password")} value={this.state.password} />
+                </div>                            
+                
                 <button className="button" onClick={this.handleSub}>Enter</button>
             </form>
         )

@@ -134,8 +134,18 @@ body {
     color: blue;
 }
 
+.button {
+  padding: 10px 20px;
+  color: #fff;
+  background: #0c0;
+  /* font-weight: 700; */
+  border-radius: 5px;
+  box-shadow: 0 3px 0 0 #070;
+}
+
 .button:hover {
-    color: blue;
+  background: #0a0;
+  box-shadow: none;
 }
 
 .thread-link:hover {

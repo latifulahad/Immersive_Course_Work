@@ -8,6 +8,7 @@ import ThreadContainer from './thread_contianer';
 import PostContainer from '../posts/post_container';
 import PostFormContainer from '../posts/post_form_container';
 import ReplyToComContainer from '../posts/reply_to_com_container';
+import LogOut from '../session/log_out';
 
 class Subs extends React.Component {
 
@@ -22,8 +23,7 @@ class Subs extends React.Component {
         ))
 
         let navL, navSign
-        //NEED LOGIC TO REDIRECT TO HOME AFTER LOGOUT
-        this.props.loggedIn ? navL = <button onClick={this.props.logOut}>Log-out</button> : navL = <Link to="/usrLog" >Login</Link>;
+        this.props.loggedIn ? navL = <LogOut func={this.props.logOut}/> : navL = <Link to="/usrLog" >Login</Link>;
         this.props.loggedIn ? navSign = <Link style={{ marginLeft: 3 }} to="/edtUsr">Edit Acc</Link> : navSign = <Link style={{ marginLeft: 3 }} to="/mkUser">Sign Up</Link>;
 
         return(
