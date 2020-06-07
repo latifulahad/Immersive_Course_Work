@@ -21,7 +21,6 @@ RSpec.describe User, type: :model do
   end
 
   context "Business Logic" do
-
     it "#reset_session_tkn!" do
       usr.reset_session_tkn!
       dataEtr = usr.session_token
@@ -30,6 +29,19 @@ RSpec.describe User, type: :model do
 
     it "#is_pass?" do
       expect(usr.is_pass?("nafizman3")).to eq(true)
+    end
+  end
+
+  context "Associations" do
+    let(:subsc) { Sub.new(title: "Dogs", description: "Dogs are better", moderator: usr.id) }
+
+    it "#subs" do
+      usr.subs << subsc
+      expect(usr.subs).to include(subsc)
+    end
+
+    it "#author of Subs 2 gauge rspec scope" do
+      expect(subsc.author).to eq(usr)
     end
   end
 
