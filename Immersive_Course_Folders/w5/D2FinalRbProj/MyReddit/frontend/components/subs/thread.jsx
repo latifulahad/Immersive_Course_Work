@@ -34,8 +34,7 @@ class Thread extends React.Component {
                 <p>{thrd.description} by {thrd.author}</p>
                     <br></br>
                 <ul className="content-post-links">
-                    Posts
-                        <br></br>
+                    <p>Posts</p>
                     { kys.map(ky => {
                         let rmBttn;
                         let pst = posts[ky];

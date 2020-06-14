@@ -36,7 +36,7 @@ class Post extends React.Component {
                 <p>{this.props.post.content} by {this.state.name}</p>
                     <br></br>
                 <ul>
-                    Comments
+                    <cmt>Comments</cmt>
                    {comts} 
                 </ul>
                     <br></br>
