@@ -30,19 +30,19 @@ class EditUser extends React.Component {
 
     render() {
         return (
-            <form>
+            <form className="form-fieldset">
 
-                <h2>Edit Account</h2>
-                <label>
-                    Email
+                <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Edit Account</h2>
+                <div className="input">
+                    <label>Email</label>
                     <input type="text" onChange={this.update("email")} value={this.state.email} />
-                </label>
-                <br></br>
-                <label>
-                    Password
-                    <input type="text" onChange={this.update("password")} value={this.state.password} />
-                </label>
-                <br></br>
+                </div>
+
+                <div className="input">
+                    <label>Password</label>
+                    <input type="password" onChange={this.update("password")} value={this.state.password} />
+                </div>
+
                 <button className="button" onClick={this.handleSub}>Enter</button>
             </form>
         )

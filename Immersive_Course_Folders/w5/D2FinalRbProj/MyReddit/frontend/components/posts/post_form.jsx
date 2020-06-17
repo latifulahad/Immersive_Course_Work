@@ -21,18 +21,21 @@ class PostForm extends React.Component {
 
     render() {
         return(
-            <form>
-                <label>
-                    Title
-                    <input type="text" onChange={this.update("title")}/>
-                </label>
-                    <br></br>
-                <label>
-                    Content
-                    <input type="text" onChange={this.update("content")}/>
-                </label>
-                    <br></br>
-                <button onClick={this.handleSub}>POST</button>
+
+            <form className="form-fieldset">
+                <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Make a Post</h2>
+
+                <div className="input">
+                    <label>Title</label>
+                    <input type="text" onChange={this.update("title")} />
+                </div>
+                
+                <div className="input">
+                    <label>Content</label>
+                    <input type="text" onChange={this.update("content")} />
+                </div>
+                
+                <button className="button" onClick={this.handleSub}>Post</button>
             </form>
         )
     }
