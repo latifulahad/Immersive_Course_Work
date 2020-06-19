@@ -5,14 +5,16 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(email: params[:user][:email])
+        @user = User.find_by(email: params[:user][:email]) #issue here!!!
         
         if @user.is_pass?(params[:user][:password])
             log_in_user!(@user)
 
             respond_to do |format|
                 format.json { render :show }	
-	        end
+            end
+        else
+            render json: @user.errors.full_messages, status: 422
         end
     end
 

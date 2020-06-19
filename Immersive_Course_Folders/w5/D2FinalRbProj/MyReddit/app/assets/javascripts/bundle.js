@@ -135,6 +135,27 @@ var makeComment = function makeComment(info) {
 
 /***/ }),
 
+/***/ "./frontend/actions/errors_action.js":
+/*!*******************************************!*\
+  !*** ./frontend/actions/errors_action.js ***!
+  \*******************************************/
+/*! exports provided: RECEIVE_ERROR, add_error */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ERROR", function() { return RECEIVE_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "add_error", function() { return add_error; });
+var RECEIVE_ERROR = "RECEIVE_ERROR";
+var add_error = function add_error(res) {
+  return {
+    type: RECEIVE_ERROR,
+    res: res
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/post_actions.js":
 /*!******************************************!*\
   !*** ./frontend/actions/post_actions.js ***!
@@ -212,6 +233,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout_user", function() { return logout_user; });
 /* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax_func */ "./frontend/utils/ajax_func.js");
 /* harmony import */ var _users_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_action */ "./frontend/actions/users_action.js");
+/* harmony import */ var _errors_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors_action */ "./frontend/actions/errors_action.js");
+
 
 
 var RECEIVE_ID = "RECEIVE_ID";
@@ -233,6 +256,8 @@ var login_user = function login_user(inputData) {
       dispatch(receive_id(res.id));
       dispatch(Object(_users_action__WEBPACK_IMPORTED_MODULE_1__["receive_user"])(res));
       return res;
+    }).fail(function (err) {
+      return dispatch(Object(_errors_action__WEBPACK_IMPORTED_MODULE_2__["add_error"])(err.responseJSON));
     });
   };
 };
@@ -602,7 +627,7 @@ var Post = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-post"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Content"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.post.content, " by ", this.state.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("cmt", null, "Comments"), comts), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), cmtFrom);
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Content"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.post.content, " by ", this.state.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Comments"), comts), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), cmtFrom);
     }
   }]);
 
@@ -1938,6 +1963,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _threads_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./threads_reducer */ "./frontend/reducers/threads_reducer.js");
 /* harmony import */ var _posts_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./posts_reducer */ "./frontend/reducers/posts_reducer.js");
 /* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
+/* harmony import */ var _errors_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./errors_reducer */ "./frontend/reducers/errors_reducer.js");
+
 
 
 
@@ -1945,9 +1972,41 @@ __webpack_require__.r(__webpack_exports__);
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   threads: _threads_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   posts: _posts_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/errors_reducer.js":
+/*!*********************************************!*\
+  !*** ./frontend/reducers/errors_reducer.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_errors_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/errors_action */ "./frontend/actions/errors_action.js");
+
+
+var errorsReducer = function errorsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var newState = [];
+
+  switch (action.type) {
+    case _actions_errors_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ERROR"]:
+      newState.push(action.res);
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
 
 /***/ }),
 

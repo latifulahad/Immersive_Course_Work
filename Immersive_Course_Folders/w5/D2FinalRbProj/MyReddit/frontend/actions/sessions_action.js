@@ -1,5 +1,6 @@
 import { log_user, log_out_user } from '../utils/ajax_func';
 import { receive_user, logOut_user } from './users_action';
+import { add_error } from "./errors_action";
 
 export const RECEIVE_ID = "RECEIVE_ID";
 export const LOG_OUT = "LOG_OUT";
@@ -18,7 +19,7 @@ export const login_user = (inputData) => dispatch => (
         dispatch(receive_id(res.id));
         dispatch(receive_user(res));
         return res;
-    })
+    }).fail(err => dispatch(add_error(err.responseJSON)))
 )
 
 export const logout_user = () => dispatch => (
