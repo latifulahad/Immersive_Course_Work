@@ -16,7 +16,13 @@ class Login extends React.Component {
     handleSub(evt) {
         evt.preventDefault();
 
-        this.props.login(this.state).then(res => this.props.history.push("/"))
+        this.props.login(this.state).then(res => {
+            if(!res.error) { 
+                this.props.history.push("/") 
+            } else {
+                //WRITE LOGIC HERE!!! ERASE COMPONANT STATE && ADD HTML COMP 2 RENDER ERR_MSG
+            }
+        })
     }
 
     render() {

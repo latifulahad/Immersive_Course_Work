@@ -16,10 +16,15 @@ export const log_out = () => ({
 
 export const login_user = (inputData) => dispatch => (
     log_user(inputData).then(res => {
-        dispatch(receive_id(res.id));
-        dispatch(receive_user(res));
-        return res;
-    }).fail(err => dispatch(add_error(err.responseJSON)))
+        if(res.error) {
+            dispatch(add_error(res.error))
+            return res;
+        } else {
+            dispatch(receive_id(res.id));
+            dispatch(receive_user(res));
+            return res;
+        }
+    })
 )
 
 export const logout_user = () => dispatch => (

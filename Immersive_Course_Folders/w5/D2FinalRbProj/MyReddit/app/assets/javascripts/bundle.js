@@ -253,11 +253,14 @@ var log_out = function log_out() {
 var login_user = function login_user(inputData) {
   return function (dispatch) {
     return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["log_user"])(inputData).then(function (res) {
-      dispatch(receive_id(res.id));
-      dispatch(Object(_users_action__WEBPACK_IMPORTED_MODULE_1__["receive_user"])(res));
-      return res;
-    }).fail(function (err) {
-      return dispatch(Object(_errors_action__WEBPACK_IMPORTED_MODULE_2__["add_error"])(err.responseJSON));
+      if (res.error) {
+        dispatch(Object(_errors_action__WEBPACK_IMPORTED_MODULE_2__["add_error"])(res.error));
+        return res;
+      } else {
+        dispatch(receive_id(res.id));
+        dispatch(Object(_users_action__WEBPACK_IMPORTED_MODULE_1__["receive_user"])(res));
+        return res;
+      }
     });
   };
 };
@@ -1142,7 +1145,10 @@ var Login = /*#__PURE__*/function (_React$Component) {
 
       evt.preventDefault();
       this.props.login(this.state).then(function (res) {
-        return _this3.props.history.push("/");
+        if (!res.error) {
+          _this3.props.history.push("/");
+        } else {//WRITE LOGIC HERE!!! ERASE COMPONANT STATE && ADD HTML COMP 2 RENDER ERR_MSG
+        }
       });
     }
   }, {

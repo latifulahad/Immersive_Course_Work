@@ -6,15 +6,22 @@ class SessionsController < ApplicationController
 
     def create
         @user = User.find_by(email: params[:user][:email]) #issue here!!!
-        
-        if @user.is_pass?(params[:user][:password])
-            log_in_user!(@user)
+        pass = params[:user][:password]
 
-            respond_to do |format|
-                format.json { render :show }	
+        if @user
+            if @user.is_pass?(pass)
+                log_in_user!(@user)
+
+                respond_to do |format|
+                    format.json { render :show }	
+                end
+            else
+                respond_to do |format|
+                    format.json { render @user.errors.full_messages, status: 422 }	
+                end
             end
         else
-            render json: @user.errors.full_messages, status: 422
+            render json: { error: "Screen name is incorrect" }
         end
     end
 
