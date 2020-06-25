@@ -3,7 +3,7 @@ import { login_user } from '../../actions/sessions_action'
 import Login from './login';
 
 const mapStateToProps = (state) => ({
-    filler: ""
+    err: state.entities.errors
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -36,12 +36,7 @@ attr_reader :password
     end
 
     def is_pass?(pass)
-        resP = BCrypt::Password.new(self.pass_digest).is_password?(pass)
-        if resP
-            return true
-        else
-            return self.errors[:password] << "is incorrect"
-        end
+        BCrypt::Password.new(self.pass_digest).is_password?(pass)
     end
 
 end

@@ -139,14 +139,22 @@ var makeComment = function makeComment(info) {
 /*!*******************************************!*\
   !*** ./frontend/actions/errors_action.js ***!
   \*******************************************/
-/*! exports provided: RECEIVE_ERROR, add_error */
+/*! exports provided: RESET, RECEIVE_ERROR, clr_state, add_error */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RESET", function() { return RESET; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ERROR", function() { return RECEIVE_ERROR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clr_state", function() { return clr_state; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "add_error", function() { return add_error; });
+var RESET = "RESET";
 var RECEIVE_ERROR = "RECEIVE_ERROR";
+var clr_state = function clr_state() {
+  return {
+    type: RESET
+  };
+};
 var add_error = function add_error(res) {
   return {
     type: RECEIVE_ERROR,
@@ -1163,7 +1171,12 @@ var Login = /*#__PURE__*/function (_React$Component) {
           paddingBottom: 10,
           fontSize: 24
         }
-      }, "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        style: {
+          paddingBottom: 5,
+          color: "red"
+        }
+      }, this.props.err), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -1207,7 +1220,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    filler: ""
+    err: state.entities.errors
   };
 };
 
@@ -1291,6 +1304,11 @@ var Subs = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.bringThreads();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.props.clearErr(); //works gud 4logIn errHand BUT IDK abt othrComps 
     }
   }, {
     key: "render",
@@ -1378,8 +1396,10 @@ var Subs = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/threads_actions */ "./frontend/actions/threads_actions.js");
-/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sub */ "./frontend/components/subs/sub.jsx");
-/* harmony import */ var _actions_sessions_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/sessions_action */ "./frontend/actions/sessions_action.js");
+/* harmony import */ var _actions_errors_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/errors_action */ "./frontend/actions/errors_action.js");
+/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sub */ "./frontend/components/subs/sub.jsx");
+/* harmony import */ var _actions_sessions_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/sessions_action */ "./frontend/actions/sessions_action.js");
+
 
 
 
@@ -1395,15 +1415,18 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     logOut: function logOut() {
-      return dispatch(Object(_actions_sessions_action__WEBPACK_IMPORTED_MODULE_3__["logout_user"])());
+      return dispatch(Object(_actions_sessions_action__WEBPACK_IMPORTED_MODULE_4__["logout_user"])());
     },
     bringThreads: function bringThreads() {
       return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__["bringThreads"])());
+    },
+    clearErr: function clearErr() {
+      return dispatch(Object(_actions_errors_action__WEBPACK_IMPORTED_MODULE_2__["clr_state"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_sub__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_sub__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 
@@ -2003,6 +2026,9 @@ var errorsReducer = function errorsReducer() {
   var newState = [];
 
   switch (action.type) {
+    case _actions_errors_action__WEBPACK_IMPORTED_MODULE_0__["RESET"]:
+      return newState = [];
+
     case _actions_errors_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ERROR"]:
       newState.push(action.res);
       return newState;

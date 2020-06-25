@@ -16,9 +16,7 @@ class SessionsController < ApplicationController
                     format.json { render :show }	
                 end
             else
-                respond_to do |format|
-                    format.json { render @user.errors.full_messages, status: 422 }	
-                end
+                render json: { error: "Password is incorrect" }    
             end
         else
             render json: { error: "Screen name is incorrect" }

@@ -14,6 +14,11 @@ class Subs extends React.Component {
 
     componentDidMount() {
         this.props.bringThreads();
+       
+    }
+
+    componentDidUpdate() {
+        this.props.clearErr(); //works gud 4logIn errHand BUT IDK abt othrComps 
     }
 
     render() {
