@@ -14,9 +14,11 @@ RSpec.describe User, type: :model do
       expect { User.new(name: "Sabit", email: "suravi@aol.com", password: "sabit143").save }.to raise_error(ActiveRecord::RecordInvalid)
     end
 
-    it "Password length is < 4 char" do
-      user =  User.new(name: "Omar", email: "omar@aol.com", password: "sabitman3").save
-      expect(user).to eq(true)
+    it "Password length is >= 4 char" do
+      # user =  User.new(name: "Omar", email: "omar@aol.com", password: "sabitman3").save
+      # expect(user).to eq(true)
+      user =  User.new(name: "Omar", email: "omar@aol.com", password: "lal").save
+      expect(user).to eq(false)
     end
   end
 

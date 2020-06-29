@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(email: params[:user][:email]) #issue here!!!
+        @user = User.find_by(email: params[:user][:email])
         pass = params[:user][:password]
 
         if @user

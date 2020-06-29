@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 validates :name, presence: true
-validates :password, presence: { minimun: 5, allow_nil: true }
+validates :password, presence: { minimun: 5 }
 validates :pass_digest, uniqueness: true
 validates :email, presence: true, uniqueness: true
 
