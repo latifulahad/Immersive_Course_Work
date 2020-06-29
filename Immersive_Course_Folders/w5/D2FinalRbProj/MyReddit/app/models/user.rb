@@ -1,8 +1,11 @@
 class User < ApplicationRecord
+attr_reader :password
+
 validates :name, presence: true
 validates :password, presence: { minimun: 5 }
 validates :pass_digest, uniqueness: true
 validates :email, presence: true, uniqueness: true
+validate :check_pass
 
 has_many :subs,
 primary_key: :id,
@@ -22,7 +25,13 @@ foreign_key: :author_id,
 class_name: 'Comment',
 dependent: :destroy
 
-attr_reader :password
+    def check_pass
+        if self.password
+            self.errors[:password] << "is too SHORT!"  if self.password.length < 5
+        else
+            raise("Must enter a password with atleast 5 characters.")
+        end
+    end
 
     def reset_session_tkn!
         self.session_token = SecureRandom::urlsafe_base64(16)
