@@ -1818,7 +1818,7 @@ var EditUser = /*#__PURE__*/function (_React$Component) {
     key: "handleSub",
     value: function handleSub(evt) {
       evt.preventDefault();
-      var id = this.props.wntId; // this.props.bringData(id).then(res => this.props.history.push("/")) NEED ASYNC 2 HANDLE CHANGES!!!
+      var id = this.props.wntId; // this.props.bringData(id).then(res => this.props.history.push("/")) NEEDs ASYNC 2 HANDLE CHANGES!!!
     }
   }, {
     key: "render",

@@ -25,7 +25,7 @@ class EditUser extends React.Component {
         evt.preventDefault();
         let id = this.props.wntId;
 
-        // this.props.bringData(id).then(res => this.props.history.push("/")) NEED ASYNC 2 HANDLE CHANGES!!!
+        // this.props.bringData(id).then(res => this.props.history.push("/")) NEEDs ASYNC 2 HANDLE CHANGES!!!
     }
 
     render() {

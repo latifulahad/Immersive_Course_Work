@@ -2,10 +2,10 @@ class User < ApplicationRecord
 attr_reader :password
 
 validates :name, presence: true
-validates :password, presence: { minimun: 5 }
+validates :password, presence: { minimun: 5, allow_nil: true }
 validates :pass_digest, uniqueness: true
 validates :email, presence: true, uniqueness: true
-validate :check_pass
+# validate :check_pass
 
 has_many :subs,
 primary_key: :id,
