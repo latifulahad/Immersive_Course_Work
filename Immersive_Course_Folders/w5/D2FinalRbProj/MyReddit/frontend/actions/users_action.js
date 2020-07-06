@@ -1,5 +1,6 @@
 import { create_user, brgUsrInfo } from '../utils/ajax_func';
 import { receive_id } from './sessions_action';
+import { add_error } from './errors_action';
 
 export const LOG_USER = "LOG_USER";
 export const REMOVE_USR = "REMOVE_USR";
@@ -22,9 +23,13 @@ export const receive_usr_info = (user) => ({
 
 export const makeUser = (inputInfo) => dispatch => (
     create_user(inputInfo).then(res => {
-        dispatch(receive_id(res.id));
-        dispatch(receive_user(res));
-        return(res);
+        if(res.error) {
+            dispatch(add_error(res.error));     //FIX LIFECYCLE OF USER_CREATE
+        } else {
+            dispatch(receive_id(res.id));
+            dispatch(receive_user(res));
+            return(res);
+        }
     })
 )
 

@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 
         if @user
             if @user.is_pass?(pass)
+                @user.password = params[:user][:password]   #to avoid err from validations DO THIS 4 DELETE
                 log_in_user!(@user)
 
                 respond_to do |format|

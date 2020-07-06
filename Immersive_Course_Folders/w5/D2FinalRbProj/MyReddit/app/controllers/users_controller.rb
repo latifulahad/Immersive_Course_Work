@@ -21,12 +21,14 @@ class UsersController < ApplicationController
     def create
         @usr = User.new(wanted_params)
         
-        if @usr
+        if @usr.save!
             log_in_user!(@usr)
             
             respond_to do |format|
                 format.json { render :show }
             end
+        else
+            render json: { error: "#{@usr.errors.full_messages}" }
         end
 
     end

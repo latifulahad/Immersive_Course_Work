@@ -353,6 +353,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringUsrInfo", function() { return bringUsrInfo; });
 /* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax_func */ "./frontend/utils/ajax_func.js");
 /* harmony import */ var _sessions_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sessions_action */ "./frontend/actions/sessions_action.js");
+/* harmony import */ var _errors_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors_action */ "./frontend/actions/errors_action.js");
+
 
 
 var LOG_USER = "LOG_USER";
@@ -378,9 +380,13 @@ var receive_usr_info = function receive_usr_info(user) {
 var makeUser = function makeUser(inputInfo) {
   return function (dispatch) {
     return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["create_user"])(inputInfo).then(function (res) {
-      dispatch(Object(_sessions_action__WEBPACK_IMPORTED_MODULE_1__["receive_id"])(res.id));
-      dispatch(receive_user(res));
-      return res;
+      if (res.error) {
+        dispatch(Object(_errors_action__WEBPACK_IMPORTED_MODULE_2__["add_error"])(res.error)); //FIX LIFECYCLE OF USER_CREATE
+      } else {
+        dispatch(Object(_sessions_action__WEBPACK_IMPORTED_MODULE_1__["receive_id"])(res.id));
+        dispatch(receive_user(res));
+        return res;
+      }
     });
   };
 };
@@ -1720,7 +1726,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    filler: ""
+    errors: state.entities.errors
   };
 };
 

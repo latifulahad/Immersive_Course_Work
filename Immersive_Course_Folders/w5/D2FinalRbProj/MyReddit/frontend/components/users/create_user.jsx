@@ -22,6 +22,7 @@ class CreateUser extends React.Component {
     render() {
         return (
             <form className="form-fieldset">
+                
                 <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Create Account</h2>
                 <div className="input">
                     <label>Name</label>

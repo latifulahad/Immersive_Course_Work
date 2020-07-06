@@ -5,7 +5,8 @@ validates :name, presence: true
 validates :password, presence: { minimun: 5, allow_nil: true }
 validates :pass_digest, uniqueness: true
 validates :email, presence: true, uniqueness: true
-# validate :check_pass
+
+before_create :check_pass
 
 has_many :subs,
 primary_key: :id,
@@ -28,6 +29,7 @@ dependent: :destroy
     def check_pass
         if self.password
             self.errors[:password] << "is too SHORT!"  if self.password.length < 5
+            raise("Password is too SHORT!") if self.password.length < 5
         else
             raise("Must enter a password with atleast 5 characters.")
         end

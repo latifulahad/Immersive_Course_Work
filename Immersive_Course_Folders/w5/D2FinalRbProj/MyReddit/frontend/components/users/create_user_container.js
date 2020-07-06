@@ -3,7 +3,7 @@ import { makeUser } from '../../actions/users_action'
 import CreateUser from "./create_user";
 
 const mapStateToProps = (state) => ({
-    filler: ""
+    errors: state.entities.errors
 })
 
 const mapDispatchToProps = (dispatch) => ({
