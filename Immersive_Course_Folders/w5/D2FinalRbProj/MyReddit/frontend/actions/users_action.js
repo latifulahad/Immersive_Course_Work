@@ -25,6 +25,7 @@ export const makeUser = (inputInfo) => dispatch => (
     create_user(inputInfo).then(res => {
         if(res.error) {
             dispatch(add_error(res.error));     //FIX LIFECYCLE OF USER_CREATE
+            return(res)
         } else {
             dispatch(receive_id(res.id));
             dispatch(receive_user(res));

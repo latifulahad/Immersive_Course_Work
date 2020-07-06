@@ -20,8 +20,9 @@ class UsersController < ApplicationController
 
     def create
         @usr = User.new(wanted_params)
-        
-        if @usr.save!
+
+        if @usr.valid?
+            @usr.save
             log_in_user!(@usr)
             
             respond_to do |format|

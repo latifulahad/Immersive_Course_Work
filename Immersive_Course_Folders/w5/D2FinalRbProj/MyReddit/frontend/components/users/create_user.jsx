@@ -16,14 +16,20 @@ class CreateUser extends React.Component {
     handleSub(evt) {
         evt.preventDefault();
 
-        this.props.mkUser(this.state).then(res => this.props.history.push("/"))
+        this.props.mkUser(this.state).then(res => {
+            if(res.id) {
+                this.props.history.push("/")
+            }
+        })
     }
 
     render() {
         return (
             <form className="form-fieldset">
-                
+
                 <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Create Account</h2>
+                <p>{this.props.errors}</p> 
+
                 <div className="input">
                     <label>Name</label>
                     <input type="text" onChange={this.update("name")} value={this.state.name} />
