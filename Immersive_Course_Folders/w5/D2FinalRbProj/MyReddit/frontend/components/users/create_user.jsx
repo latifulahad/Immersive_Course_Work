@@ -4,9 +4,10 @@ class CreateUser extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { name: "", email: "", password: "" };
+        this.state = { name: "", email: "", password: "", classNm: "modal on" };
         this.update = this.update.bind(this);
         this.handleSub = this.handleSub.bind(this);
+        this.modalOff = this.modalOff.bind(this);
     }
 
     update(attr) {
@@ -15,20 +16,29 @@ class CreateUser extends React.Component {
 
     handleSub(evt) {
         evt.preventDefault();
+        let wntedKys = ["name", "email", "password"];
+        let reqObj = {};
 
-        this.props.mkUser(this.state).then(res => {
+        wntedKys.forEach(ky => reqObj[`${ky}`] = this.state[`${ky}`] )
+
+        this.props.mkUser(reqObj).then(res => {
             if(res.id) {
                 this.props.history.push("/")
             }
         })
     }
 
+    modalOff(evt) {
+        evt.preventDefault();
+        if(this.state["classNm"] === "modal on") { this.props.history.push("/")}
+    }
+
     render() {
         return (
-            <div className="modal on">
+            <div className={this.state["classNm"]}>
                 <form className="form-fieldset create">
 
-                    <span class="modal-close js-modal-close">&times;</span>
+                    <span onClick={this.modalOff} className="modal-close">&times;</span>
 
                     <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Create Account</h2>
                     <p>{this.props.errors}</p>
@@ -48,7 +58,7 @@ class CreateUser extends React.Component {
                     </div>
 
                     <button className="button enter" onClick={this.handleSub}>Enter</button>
-                    <button className="button" >Close</button>
+                    <button className="button" onClick={this.modalOff} >Close</button>
                 </form>
 
                 <div className="modal-screen"></div>

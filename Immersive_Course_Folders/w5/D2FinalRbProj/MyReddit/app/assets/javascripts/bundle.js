@@ -1642,10 +1642,12 @@ var CreateUser = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       name: "",
       email: "",
-      password: ""
+      password: "",
+      classNm: "modal on"
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleSub = _this.handleSub.bind(_assertThisInitialized(_this));
+    _this.modalOff = _this.modalOff.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1664,21 +1666,36 @@ var CreateUser = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       evt.preventDefault();
-      this.props.mkUser(this.state).then(function (res) {
+      var wntedKys = ["name", "email", "password"];
+      var reqObj = {};
+      wntedKys.forEach(function (ky) {
+        return reqObj["".concat(ky)] = _this3.state["".concat(ky)];
+      });
+      this.props.mkUser(reqObj).then(function (res) {
         if (res.id) {
           _this3.props.history.push("/");
         }
       });
     }
   }, {
+    key: "modalOff",
+    value: function modalOff(evt) {
+      evt.preventDefault();
+
+      if (this.state["classNm"] === "modal on") {
+        this.props.history.push("/");
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal on"
+        className: this.state["classNm"]
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "form-fieldset create"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        "class": "modal-close js-modal-close"
+        onClick: this.modalOff,
+        className: "modal-close"
       }, "\xD7"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         style: {
           paddingBottom: 10,
@@ -1706,7 +1723,8 @@ var CreateUser = /*#__PURE__*/function (_React$Component) {
         className: "button enter",
         onClick: this.handleSub
       }, "Enter"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "button"
+        className: "button",
+        onClick: this.modalOff
       }, "Close")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-screen"
       }));
