@@ -28,7 +28,7 @@ class Login extends React.Component {
     render() {
         return(
             <form className="form">
-                <fieldset className="form-fieldset">
+                <fieldset className="form-fieldset login">
                     <h2 style={{paddingBottom: 10, fontSize: 24 }}>Log In</h2>
                     <p style={{ paddingBottom: 5, color: "red" }}>{this.props.err}</p>
                     

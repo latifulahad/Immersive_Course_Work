@@ -25,27 +25,34 @@ class CreateUser extends React.Component {
 
     render() {
         return (
-            <form className="form-fieldset">
+            <div className="modal on">
+                <form className="form-fieldset create">
 
-                <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Create Account</h2>
-                <p>{this.props.errors}</p> 
+                    <span class="modal-close js-modal-close">&times;</span>
 
-                <div className="input">
-                    <label>Name</label>
-                    <input type="text" onChange={this.update("name")} value={this.state.name} />
-                </div>
-                <div className="input">
-                    <label>Email</label>
-                    <input type="text" onChange={this.update("email")} value={this.state.email} />
-                </div>    
-                    
-                <div className="input"> 
-                    <label>Password</label>
-                    <input type="password" onChange={this.update("password")} value={this.state.password} />
-                </div>                            
-                
-                <button className="button" onClick={this.handleSub}>Enter</button>
-            </form>
+                    <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Create Account</h2>
+                    <p>{this.props.errors}</p>
+
+                    <div className="input">
+                        <label>Name</label>
+                        <input type="text" onChange={this.update("name")} value={this.state.name} />
+                    </div>
+                    <div className="input">
+                        <label>Email</label>
+                        <input type="text" onChange={this.update("email")} value={this.state.email} />
+                    </div>
+
+                    <div className="input">
+                        <label>Password</label>
+                        <input type="password" onChange={this.update("password")} value={this.state.password} />
+                    </div>
+
+                    <button className="button enter" onClick={this.handleSub}>Enter</button>
+                    <button className="button" >Close</button>
+                </form>
+
+                <div className="modal-screen"></div>
+            </div>
         )
     }
 }
