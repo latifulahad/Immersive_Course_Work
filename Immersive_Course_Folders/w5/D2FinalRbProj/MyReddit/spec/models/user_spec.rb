@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject(:usr) { User.new(name: "Nafiz", email: "nafiz@aol.com", password: "nafizman3") }
+  subject(:usr) { User.new( name: "Nafiz", email: "nafiz@aol.com", password: "nafizman3") }
+
+  let(:subsc) { Sub.new( title: "dogs", description: "Cats are lame!", moderator: usr) }
 
   context "Validations tests" do 
     it "Name is attr is provided" do
@@ -10,8 +12,9 @@ RSpec.describe User, type: :model do
     end
 
     it "Email is unique" do
-      user1 = User.new(name: "Rash", email: "suravi@aol.com", password: "rash143").save
-      expect { User.new(name: "Sabit", email: "suravi@aol.com", password: "sabit143").save }.to raise_error(ActiveRecord::RecordInvalid)
+      user1 = User.new(name: "Rash", email: "suravi@aol.com", password: "rash143")
+      user2 = User.new(name: "Sabit", email: "suravi@aol.com", password: "nafizman3")
+      expect(User.all).to_not include(user2)
     end
 
     it "Password length is >= 4 char" do
@@ -35,16 +38,15 @@ RSpec.describe User, type: :model do
   end
 
   context "Associations" do
-    let(:subsc) { Sub.new(title: "Dogs", description: "Dogs are better", moderator: usr.id) }
+    it("#subs") { should have_many(:subs) } 
+    
+    it("#post") { should have_many(:posts) }
 
-    it "#subs" do
+    it("#checking SCOPE") do
       usr.subs << subsc
       expect(usr.subs).to include(subsc)
     end
 
-    it "#author of Subs 2 gauge rspec scope" do
-      expect(subsc.author).to eq(usr)
-    end
   end
 
 end
