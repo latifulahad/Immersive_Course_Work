@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject(:usr) { User.new( name: "Nafiz", email: "nafiz@aol.com", password: "nafizman3") }
-
   let(:subsc) { Sub.new( title: "dogs", description: "Cats are lame!", moderator: usr) }
 
   context "Validations tests" do 
