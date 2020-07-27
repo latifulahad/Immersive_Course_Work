@@ -27,13 +27,7 @@ class_name: 'Comment',
 dependent: :destroy
 
     def check_pass
-        if self.password
-            self.errors[:password] << "is too SHORT!"  if self.password.length < 5
-            # raise("Password is too SHORT!") if self.password.length < 5
-        else
-            self.errors[:password] << "Must enter a password with atleast 5 characters."  if self.password.length < 5
-            # raise("Must enter a password with atleast 5 characters.")
-        end
+        self.errors[:password] << "is too SHORT!"  if self.password.length < 5
     end
 
     def reset_session_tkn!

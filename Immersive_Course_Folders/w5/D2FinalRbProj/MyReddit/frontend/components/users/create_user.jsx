@@ -41,7 +41,7 @@ class CreateUser extends React.Component {
                     <span onClick={this.modalOff} className="modal-close">&times;</span>
 
                     <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Create Account</h2>
-                    <p>{this.props.errors}</p>
+                    <p style={{ color: "red" }}>{this.props.errors}</p>
 
                     <div className="input">
                         <label>Name</label>

@@ -381,8 +381,7 @@ var makeUser = function makeUser(inputInfo) {
   return function (dispatch) {
     return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["create_user"])(inputInfo).then(function (res) {
       if (res.error) {
-        dispatch(Object(_errors_action__WEBPACK_IMPORTED_MODULE_2__["add_error"])(res.error)); //FIX LIFECYCLE OF USER_CREATE
-
+        dispatch(Object(_errors_action__WEBPACK_IMPORTED_MODULE_2__["add_error"])(res.error));
         return res;
       } else {
         dispatch(Object(_sessions_action__WEBPACK_IMPORTED_MODULE_1__["receive_id"])(res.id));
@@ -1701,7 +1700,11 @@ var CreateUser = /*#__PURE__*/function (_React$Component) {
           paddingBottom: 10,
           fontSize: 24
         }
-      }, "Create Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Create Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        style: {
+          color: "red"
+        }
+      }, this.props.errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
