@@ -1315,7 +1315,7 @@ var Subs = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      this.props.clearErr(); //works gud 4logIn errHand BUT IDK abt othrComps 
+      this.props.clearErr();
     }
   }, {
     key: "render",

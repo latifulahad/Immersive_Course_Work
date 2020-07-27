@@ -97,6 +97,7 @@ body {
     flex-wrap: wrap;
     margin: 0 auto;
     background:  #fff;
+    height: 1000px;
     width: 900px;
     border: 1px solid #ccc;
     border-top: 0;
