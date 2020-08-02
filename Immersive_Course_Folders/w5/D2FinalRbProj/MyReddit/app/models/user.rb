@@ -38,7 +38,6 @@ dependent: :destroy
     def password=(pass)
         @password = pass
         self.pass_digest = BCrypt::Password.create(pass)
-        # self.save!
     end
     
     def prep_pass
