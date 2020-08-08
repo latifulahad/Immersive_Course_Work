@@ -338,7 +338,7 @@ var bringThreads = function bringThreads() {
 /*!******************************************!*\
   !*** ./frontend/actions/users_action.js ***!
   \******************************************/
-/*! exports provided: LOG_USER, REMOVE_USR, BRING_USR_INFO, receive_user, logOut_user, receive_usr_info, makeUser, bringUsrInfo */
+/*! exports provided: LOG_USER, REMOVE_USR, BRING_USR_INFO, receive_user, logOut_user, receive_usr_info, makeUser, bringUsrInfo, updateUsrInfo */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -351,6 +351,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receive_usr_info", function() { return receive_usr_info; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeUser", function() { return makeUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bringUsrInfo", function() { return bringUsrInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUsrInfo", function() { return updateUsrInfo; });
 /* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax_func */ "./frontend/utils/ajax_func.js");
 /* harmony import */ var _sessions_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sessions_action */ "./frontend/actions/sessions_action.js");
 /* harmony import */ var _errors_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors_action */ "./frontend/actions/errors_action.js");
@@ -395,6 +396,14 @@ var bringUsrInfo = function bringUsrInfo(inputInfo) {
   return function (dispatch) {
     return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["brgUsrInfo"])(inputInfo).then(function (res) {
       dispatch(receive_usr_info(res));
+      return res;
+    });
+  };
+};
+var updateUsrInfo = function updateUsrInfo(id, inputInfo) {
+  return function (dispatch) {
+    return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["updateUsr"])(id, inputInfo).then(function (res) {
+      dispatch(receive_user(res));
       return res;
     });
   };
@@ -1321,11 +1330,11 @@ var Subs = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var thrds = this.props.threads.map(function (trd, idx) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           className: "thread-link",
           key: idx,
           to: "/thread/".concat(trd.id)
-        }, trd.title);
+        }, trd.title));
       });
       var navL, navSign;
       this.props.loggedIn ? navL = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_log_out__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -1354,9 +1363,7 @@ var Subs = /*#__PURE__*/function (_React$Component) {
         className: "content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "content-sidebar"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Threads"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "sidebarUl"
-      }, thrds)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Threads"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, thrds)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "content-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/usrLog",
@@ -2368,7 +2375,7 @@ var configureStore = function configureStore() {
 /*!*************************************!*\
   !*** ./frontend/utils/ajax_func.js ***!
   \*************************************/
-/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments, bringNames, authorName, makeComt, brgUsrInfo */
+/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments, bringNames, authorName, makeComt, brgUsrInfo, updateUsr */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2385,6 +2392,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "authorName", function() { return authorName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makeComt", function() { return makeComt; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "brgUsrInfo", function() { return brgUsrInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUsr", function() { return updateUsr; });
 var log_user = function log_user(inputData) {
   return $.ajax({
     method: "POST",
@@ -2476,6 +2484,13 @@ var brgUsrInfo = function brgUsrInfo(id) {
     data: {
       cond: true
     }
+  });
+};
+var updateUsr = function updateUsr(id, info) {
+  return $.ajax({
+    method: "PATCH",
+    url: "users/".concat(id),
+    data: info
   });
 };
 

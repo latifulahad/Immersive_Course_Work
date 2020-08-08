@@ -88,3 +88,11 @@ export const brgUsrInfo = (id) => (
         data: { cond: true }
     })
 )
+
+export const updateUsr = (id, info) => (
+    $.ajax({
+        method: "PATCH",
+        url: `users/${id}`,
+        data: info
+    })
+)

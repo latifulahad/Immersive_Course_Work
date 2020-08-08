@@ -1,4 +1,4 @@
-import { create_user, brgUsrInfo } from '../utils/ajax_func';
+import { create_user, brgUsrInfo, updateUsr } from '../utils/ajax_func';
 import { receive_id } from './sessions_action';
 import { add_error } from './errors_action';
 
@@ -38,5 +38,12 @@ export const bringUsrInfo = (inputInfo) => dispatch => (
     brgUsrInfo(inputInfo).then(res => {
         dispatch(receive_usr_info(res));
         return(res);
+    })
+)
+
+export const updateUsrInfo = (id, inputInfo) => dispatch => (
+    updateUsr(id, inputInfo).then(res => {
+        dispatch(receive_user(res));
+        return(res);  
     })
 )

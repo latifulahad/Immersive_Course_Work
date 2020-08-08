@@ -24,7 +24,7 @@ class Subs extends React.Component {
     render() {
 
         let thrds = this.props.threads.map((trd, idx) => (
-            <Link className="thread-link" key={idx} to={`/thread/${trd.id}`}>{trd.title}</Link>
+            <li><Link className="thread-link" key={idx} to={`/thread/${trd.id}`}>{trd.title}</Link></li>
         ))
 
         let navL, navSign
@@ -45,7 +45,7 @@ class Subs extends React.Component {
                 <main className="content">
                     <section className="content-sidebar">
                         <h2>Threads</h2>
-                        <ul className="sidebarUl">
+                        <ul>
                             {thrds}
                         </ul>
                         
