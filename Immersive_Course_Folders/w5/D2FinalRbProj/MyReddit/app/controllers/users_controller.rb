@@ -40,9 +40,13 @@ class UsersController < ApplicationController
     end
 
     def update
-        @usr = User.find_by(email: params[:user][:email])
-        @usr.update_attributes(wanted_params)
-        redirect_to user_url(@usr)
+        @usr = User.find(params[:id])
+        @usr.password = params[:user][:newPass] if @usr.is_pass?(params[:user][:password])
+        @usr.save
+        
+        respond_to do |format|
+            format.json { render :show }
+        end
     end
 
     def destroy
@@ -51,6 +55,6 @@ class UsersController < ApplicationController
     private
 
     def wanted_params
-        params.require(:user).permit(:name, :email, :password)
+        params.require(:user).permit(:name, :email, :password, :newPass)
     end
 end 

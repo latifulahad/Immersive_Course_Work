@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import EditUser from './edit_usr';
-import { bringUsrInfo } from '../../actions/users_action';
+import { bringUsrInfo, updateUsrInfo } from '../../actions/users_action';
 
 const mapStateToProps = (state) => ({
     wntId: state.ui.session.id 
 })
 
 const mapDisptachToProps = (dispatch) => ({
-    bringData: (id) => dispatch(bringUsrInfo(id))
+    bringData: (id) => dispatch(bringUsrInfo(id)),
+    sendUsrInfo: (id, info) => dispatch(updateUsrInfo(id, info)) 
 })
 
 export default connect(mapStateToProps, mapDisptachToProps)(EditUser);

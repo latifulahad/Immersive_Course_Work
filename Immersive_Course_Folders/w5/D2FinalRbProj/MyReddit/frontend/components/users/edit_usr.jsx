@@ -4,7 +4,7 @@ class EditUser extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { email: "", password: "" };
+        this.state = { email: "", password: "", newPass: "", dupNew: "", err: "" };
         this.update = this.update.bind(this);
         this.handleSub = this.handleSub.bind(this);
     }
@@ -24,8 +24,13 @@ class EditUser extends React.Component {
     handleSub(evt) {
         evt.preventDefault();
         let id = this.props.wntId;
-
-        // this.props.bringData(id).then(res => this.props.history.push("/")) NEEDs ASYNC 2 HANDLE CHANGES!!!
+        
+        if (this.state.newPass === this.state.dupNew) {
+            this.props.sendUsrInfo(id, { user: this.state }).then(res => this.props.history.push("/"))
+        } else {
+            this.setState({ err: "The NewPassword doesn't match Verify" })
+        }
+        
     }
 
     render() {
@@ -33,14 +38,26 @@ class EditUser extends React.Component {
             <form className="form-fieldset">
 
                 <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Edit Account</h2>
+                <p style={{ color: "red" }}>{this.state.err}</p>
+
                 <div className="input">
                     <label>Email</label>
                     <input type="text" onChange={this.update("email")} value={this.state.email} />
                 </div>
 
                 <div className="input">
-                    <label>Password</label>
+                    <label>Old Password</label>
                     <input type="password" onChange={this.update("password")} value={this.state.password} />
+                </div>
+
+                <div className="input">
+                    <label> New Password</label>
+                    <input type="password" onChange={this.update("newPass")} value={this.state.newPass} />
+                </div>
+
+                <div className="input">
+                    <label>Verfiy Password</label>
+                    <input type="password" onChange={this.update("dupNew")} value={this.state.dupNew} />
                 </div>
 
                 <button className="button" onClick={this.handleSub}>Enter</button>

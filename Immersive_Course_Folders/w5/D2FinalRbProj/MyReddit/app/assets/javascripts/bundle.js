@@ -1834,7 +1834,10 @@ var EditUser = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       email: "",
-      password: ""
+      password: "",
+      newPass: "",
+      dupNew: "",
+      err: ""
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     _this.handleSub = _this.handleSub.bind(_assertThisInitialized(_this));
@@ -1865,8 +1868,22 @@ var EditUser = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSub",
     value: function handleSub(evt) {
+      var _this4 = this;
+
       evt.preventDefault();
-      var id = this.props.wntId; // this.props.bringData(id).then(res => this.props.history.push("/")) NEEDs ASYNC 2 HANDLE CHANGES!!!
+      var id = this.props.wntId;
+
+      if (this.state.newPass === this.state.dupNew) {
+        this.props.sendUsrInfo(id, {
+          user: this.state
+        }).then(function (res) {
+          return _this4.props.history.push("/");
+        });
+      } else {
+        this.setState({
+          err: "The NewPassword doesn't match Verify"
+        });
+      }
     }
   }, {
     key: "render",
@@ -1878,7 +1895,11 @@ var EditUser = /*#__PURE__*/function (_React$Component) {
           paddingBottom: 10,
           fontSize: 24
         }
-      }, "Edit Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Edit Account"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        style: {
+          color: "red"
+        }
+      }, this.state.err), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -1886,10 +1907,22 @@ var EditUser = /*#__PURE__*/function (_React$Component) {
         value: this.state.email
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Old Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
         onChange: this.update("password"),
         value: this.state.password
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " New Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "password",
+        onChange: this.update("newPass"),
+        value: this.state.newPass
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Verfiy Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "password",
+        onChange: this.update("dupNew"),
+        value: this.state.dupNew
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "button",
         onClick: this.handleSub
@@ -1930,6 +1963,9 @@ var mapDisptachToProps = function mapDisptachToProps(dispatch) {
   return {
     bringData: function bringData(id) {
       return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_2__["bringUsrInfo"])(id));
+    },
+    sendUsrInfo: function sendUsrInfo(id, info) {
+      return dispatch(Object(_actions_users_action__WEBPACK_IMPORTED_MODULE_2__["updateUsrInfo"])(id, info));
     }
   };
 };
