@@ -26,7 +26,9 @@ class EditUser extends React.Component {
         let id = this.props.wntId;
         
         if (this.state.newPass === this.state.dupNew) {
-            this.props.sendUsrInfo(id, { user: this.state }).then(res => this.props.history.push("/"))
+            this.props.sendUsrInfo(id, { user: this.state }).then(res => {
+                if(!res.err) { this.props.history.push("/"); }
+            })
         } else {
             this.setState({ err: "The NewPassword doesn't match Verify" })
         }
@@ -39,6 +41,7 @@ class EditUser extends React.Component {
 
                 <h2 style={{ paddingBottom: 10, fontSize: 24 }}>Edit Account</h2>
                 <p style={{ color: "red" }}>{this.state.err}</p>
+                <p style={{ color: "red" }}>{this.props.err}</p>
 
                 <div className="input">
                     <label>Email</label>

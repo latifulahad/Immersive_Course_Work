@@ -43,7 +43,12 @@ export const bringUsrInfo = (inputInfo) => dispatch => (
 
 export const updateUsrInfo = (id, inputInfo) => dispatch => (
     updateUsr(id, inputInfo).then(res => {
-        dispatch(receive_user(res));
-        return(res);  
+        if(res.err) {
+            dispatch(add_error(res.err))
+            return res;
+        } else {
+            dispatch(receive_user(res));
+            return res;  
+        }
     })
 )

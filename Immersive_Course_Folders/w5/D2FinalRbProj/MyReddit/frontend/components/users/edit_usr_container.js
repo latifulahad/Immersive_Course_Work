@@ -3,7 +3,8 @@ import EditUser from './edit_usr';
 import { bringUsrInfo, updateUsrInfo } from '../../actions/users_action';
 
 const mapStateToProps = (state) => ({
-    wntId: state.ui.session.id 
+    wntId: state.ui.session.id,
+    err: state.entities.errors 
 })
 
 const mapDisptachToProps = (dispatch) => ({

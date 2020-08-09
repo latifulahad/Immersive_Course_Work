@@ -41,12 +41,18 @@ class UsersController < ApplicationController
 
     def update
         @usr = User.find(params[:id])
-        @usr.password = params[:user][:newPass] if @usr.is_pass?(params[:user][:password])
-        @usr.save
         
-        respond_to do |format|
-            format.json { render :show }
+        if @usr.is_pass?(params[:user][:password])
+            @usr.password = params[:user][:newPass] 
+            @usr.save
+                respond_to do |format|
+                    format.json { render :show }
+                end
+        else
+            render json: { err: "Password is Incorrect!" }
         end
+
+        
     end
 
     def destroy

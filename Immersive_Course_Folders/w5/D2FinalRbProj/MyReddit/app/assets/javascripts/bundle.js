@@ -403,8 +403,13 @@ var bringUsrInfo = function bringUsrInfo(inputInfo) {
 var updateUsrInfo = function updateUsrInfo(id, inputInfo) {
   return function (dispatch) {
     return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["updateUsr"])(id, inputInfo).then(function (res) {
-      dispatch(receive_user(res));
-      return res;
+      if (res.err) {
+        dispatch(Object(_errors_action__WEBPACK_IMPORTED_MODULE_2__["add_error"])(res.err));
+        return res;
+      } else {
+        dispatch(receive_user(res));
+        return res;
+      }
     });
   };
 };
@@ -1877,7 +1882,9 @@ var EditUser = /*#__PURE__*/function (_React$Component) {
         this.props.sendUsrInfo(id, {
           user: this.state
         }).then(function (res) {
-          return _this4.props.history.push("/");
+          if (!res.err) {
+            _this4.props.history.push("/");
+          }
         });
       } else {
         this.setState({
@@ -1899,7 +1906,11 @@ var EditUser = /*#__PURE__*/function (_React$Component) {
         style: {
           color: "red"
         }
-      }, this.state.err), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.state.err), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        style: {
+          color: "red"
+        }
+      }, this.props.err), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -1955,7 +1966,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    wntId: state.ui.session.id
+    wntId: state.ui.session.id,
+    err: state.entities.errors
   };
 };
 
