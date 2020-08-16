@@ -29,7 +29,7 @@ class CommentForm extends React.Component {
 
     render() {
         return(
-            <form>
+            <form className="content-cmtForm">
                 <label>Add Comment</label>
                 <br></br>
                 <input type="text" onChange={this.upd("content")} value={this.state.content} />

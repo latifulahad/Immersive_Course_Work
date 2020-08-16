@@ -31,7 +31,7 @@ class ReplyToCom extends React.Component {
         if(this.props.usr) { cmtForm = <CommentFormContainer parentId={this.props.parentCmtId} />} 
 
         return(
-            <div>
+            <div className="content-reply">
                 <h2>{this.props.heading}</h2>
                     <br></br>
                 <label>Responses</label>

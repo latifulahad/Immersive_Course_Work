@@ -248,6 +248,28 @@ body {
     margin: 10px 0;
 }
 
+.content-cmtForm > input {
+    background: #eee;
+    border-radius: 5px;
+}
+
+
+/* content-main FOR COMMENT */
+.content-reply > h2 {
+    display: flex;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 0 0 5px 0;
+    justify-content: center;
+}
+
+.content-reply > label {
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
 
 /* modal */
 .modal {
