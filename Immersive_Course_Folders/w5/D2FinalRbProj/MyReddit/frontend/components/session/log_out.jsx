@@ -15,7 +15,7 @@ class LogOut extends React.Component {
     
     render() {
         return(
-            <button style={{marginRight: 3}} onClick={this.handleSub}>Log Out</button>
+            <button className="logOut" style={{marginRight: 3}} onClick={this.handleSub}>Log Out</button>
         )
     }
 }

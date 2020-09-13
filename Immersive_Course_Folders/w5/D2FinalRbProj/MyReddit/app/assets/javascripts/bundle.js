@@ -1091,6 +1091,7 @@ var LogOut = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "logOut",
         style: {
           marginRight: 3
         },
@@ -1351,7 +1352,7 @@ var Subs = /*#__PURE__*/function (_React$Component) {
       var navL, navSign, createSub;
       this.props.loggedIn ? createSub = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: _sub_form_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-      }, "Add Thread") : true;
+      }, "+Add Thread") : true;
       this.props.loggedIn ? navL = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_log_out__WEBPACK_IMPORTED_MODULE_10__["default"], {
         func: this.props.logOut
       }) : navL = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {

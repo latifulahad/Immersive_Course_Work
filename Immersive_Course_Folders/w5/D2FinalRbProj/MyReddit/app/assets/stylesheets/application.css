@@ -165,6 +165,10 @@ body {
     color: blue;
 }
 
+.logOut:hover {
+    color: blue;
+}
+
 
 /* content-sidebar */
 .content-sidebar > h2 {
