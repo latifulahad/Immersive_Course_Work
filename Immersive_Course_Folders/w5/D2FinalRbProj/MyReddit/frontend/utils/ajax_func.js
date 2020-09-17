@@ -21,6 +21,14 @@ export const create_user = (data) => (
     })
 )
 
+export const create_Thrd = (data) => (
+    $.ajax({
+        method: "POST",
+        url: "/subs",
+        data: { sub: data }
+    })
+)
+
 export const threadsInx = () => (
     $.ajax({
         method: "GET",

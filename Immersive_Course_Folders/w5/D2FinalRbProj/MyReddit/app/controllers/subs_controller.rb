@@ -25,10 +25,11 @@ class SubsController < ApplicationController
 
     def create
         @sub = Sub.new(wanted_params)
-        if @sub
-            redirect_to sub_url(@sub)
+        
+        if @sub.save!
+            render json: { success: true }        
         else
-            redirect_to new_sub_url
+            render json: { error: "#{@sub.errors.full_messages}" }
         end
     end
 

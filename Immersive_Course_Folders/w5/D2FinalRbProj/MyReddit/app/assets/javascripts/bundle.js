@@ -319,8 +319,7 @@ var receiveThreads = function receiveThreads(threads) {
 var bringThread = function bringThread(id) {
   return function (dispatch) {
     Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["threadShow"])(id).then(function (res) {
-      dispatch(Object(_post_actions__WEBPACK_IMPORTED_MODULE_1__["receive_posts"])(res.thread.posts, res.thread.id));
-      dispatch(receiveThread(res.thread));
+      dispatch(Object(_post_actions__WEBPACK_IMPORTED_MODULE_1__["receive_posts"])(res.thread.posts, res.thread.id)); // dispatch(receiveThread(res.thread));     NEEDS WRK!!!
     });
   };
 };
@@ -1351,7 +1350,7 @@ var Subs = /*#__PURE__*/function (_React$Component) {
       });
       var navL, navSign, createSub;
       this.props.loggedIn ? createSub = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: _sub_form_container__WEBPACK_IMPORTED_MODULE_8__["default"]
+        to: "mkThrd"
       }, "+Add Thread") : true;
       this.props.loggedIn ? navL = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_log_out__WEBPACK_IMPORTED_MODULE_10__["default"], {
         func: this.props.logOut
@@ -1478,6 +1477,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1505,16 +1506,69 @@ var CreateSub = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(CreateSub);
 
-  function CreateSub() {
+  function CreateSub(props) {
+    var _this;
+
     _classCallCheck(this, CreateSub);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      title: "",
+      description: "",
+      moderator: props.usrId
+    };
+    _this.handleSub = _this.handleSub.bind(_assertThisInitialized(_this));
+    _this.update = _this.update.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(CreateSub, [{
+    key: "handleSub",
+    value: function handleSub(evt) {
+      var _this2 = this;
+
+      evt.preventDefault();
+      this.props.sendData(this.state).then(function (res) {
+        if (res.success) {
+          _this2.props.bringThreads();
+
+          _this2.props.history.push("/");
+        } else {}
+      });
+    }
+  }, {
+    key: "update",
+    value: function update(ky) {
+      var _this3 = this;
+
+      return function (e) {
+        return _this3.setState(_defineProperty({}, ky, e.target.value));
+      };
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "YAYYYYY"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "form-fieldset"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        style: {
+          paddingBottom: 10,
+          fontSize: 24
+        }
+      }, "Start a Thread"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.update("title")
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input subDes"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        onChange: this.update("description")
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "button",
+        onClick: this.handleSub
+      }, "Post"));
     }
   }]);
 
@@ -1536,18 +1590,27 @@ var CreateSub = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sub_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sub_form */ "./frontend/components/subs/sub_form.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _utils_ajax_func__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../utils/ajax_func */ "./frontend/utils/ajax_func.js");
+/* harmony import */ var _actions_threads_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../actions/threads_actions */ "./frontend/actions/threads_actions.js");
+
+
 
 
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    mock: ""
+    usrId: state.ui.session.id
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    mock: ""
+    sendData: function sendData(data) {
+      return Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_2__["create_Thrd"])(data);
+    },
+    bringThreads: function bringThreads() {
+      return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_3__["bringThreads"])());
+    }
   };
 };
 
@@ -1612,7 +1675,13 @@ var Thread = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var id = this.props.match.params.id;
       this.props.bringThread(id);
-    }
+    } // componentDidUpdate(prevProps) {
+    //     if(prevProps.match.params.id !== this.props.match.id) {
+    //         let id = this.props.match.params.id;
+    //         this.props.bringThread(id);
+    //     }
+    // } NEEDS WORK
+
   }, {
     key: "handleDelete",
     value: function handleDelete(evt) {
@@ -2527,7 +2596,7 @@ var configureStore = function configureStore() {
 /*!*************************************!*\
   !*** ./frontend/utils/ajax_func.js ***!
   \*************************************/
-/*! exports provided: log_user, log_out_user, create_user, threadsInx, threadShow, makePost, deletePost, bringComments, bringNames, authorName, makeComt, brgUsrInfo, updateUsr */
+/*! exports provided: log_user, log_out_user, create_user, create_Thrd, threadsInx, threadShow, makePost, deletePost, bringComments, bringNames, authorName, makeComt, brgUsrInfo, updateUsr */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2535,6 +2604,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "log_user", function() { return log_user; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "log_out_user", function() { return log_out_user; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create_user", function() { return create_user; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create_Thrd", function() { return create_Thrd; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadsInx", function() { return threadsInx; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "threadShow", function() { return threadShow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makePost", function() { return makePost; });
@@ -2566,6 +2636,15 @@ var create_user = function create_user(data) {
     url: "/users",
     data: {
       user: data
+    }
+  });
+};
+var create_Thrd = function create_Thrd(data) {
+  return $.ajax({
+    method: "POST",
+    url: "/subs",
+    data: {
+      sub: data
     }
   });
 };

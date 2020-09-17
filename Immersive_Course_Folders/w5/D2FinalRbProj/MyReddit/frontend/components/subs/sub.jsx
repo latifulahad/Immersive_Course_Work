@@ -29,7 +29,7 @@ class Subs extends React.Component {
         ))
 
         let navL, navSign, createSub
-        this.props.loggedIn ? createSub = <Link to={CreateSubContainer}>+Add Thread</Link> : true;
+        this.props.loggedIn ? createSub = <Link to="mkThrd" >+Add Thread</Link> : true;
         this.props.loggedIn ? navL = <LogOut func={this.props.logOut}/> : navL = <Link to="/usrLog" >Login</Link>;
         this.props.loggedIn ? navSign = <Link style={{ marginLeft: 3 }} to="/edtUsr">Edit Account</Link> : navSign = <Link style={{ marginLeft: 3 }} to="/mkUser">Sign Up</Link>;
 
@@ -57,7 +57,9 @@ class Subs extends React.Component {
                         <Route path="/usrLog" component={LoginContainer} />
                         <Route path="/edtUsr" component={EditUsrContainer} />
                         <Route path="/mkUser" component={CreateUserContainer} />
+
                         <Route path="/mkThrd" component={CreateSubContainer} />
+
                         <Route exact path="/thread/:id" component={ThreadContainer} />
                         <Route exact path="/thread/:id/post/:postId" component={PostContainer} />
                         <Route exact path="/thread/:id/post" component={PostFormContainer} />

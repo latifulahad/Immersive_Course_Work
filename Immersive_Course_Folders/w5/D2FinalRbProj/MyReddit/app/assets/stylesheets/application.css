@@ -190,6 +190,18 @@ body {
 }
 
 
+
+/* content-main FOR SUB */
+.input.subDes > input {
+    display: block;
+    padding: 3px 0 0 0;
+    background: #fff;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #ccc; 
+}
+
+
 /* content-main FOR LOG-IN FORM && CREATE_USR */
 .form-fieldset {
     margin: 0 0 0 20px;
