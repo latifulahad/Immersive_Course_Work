@@ -76,7 +76,7 @@ body {
 
 .header-nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 0 auto;
     /* border-left: 1px solid #ccc;
     border-right: 1px solid #ccc; */
@@ -94,10 +94,12 @@ body {
 }
 
 .home-link {
-    top: 15px;
-    left: 25%;
+    padding: 15px 0;
 }
 
+.home-link:hover {
+    color: blue;
+}
 
 /* Below Header/Nav */
 .content {

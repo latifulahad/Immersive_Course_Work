@@ -12,7 +12,7 @@ import ReplyToComContainer from '../posts/reply_to_com_container';
 import LogOut from '../session/log_out';
 
 class Subs extends React.Component {
-    
+
     componentDidMount() {
         this.props.bringThreads();
     }
@@ -35,8 +35,8 @@ class Subs extends React.Component {
         return(
             <div>
                 <header className="header">
-                    <Link className="home-link" to="/">HOME</Link>
                     <nav className="header-nav">
+                    <Link className="home-link" to="/">HOME</Link>
                         <ul className="header-list">
                             {navL}
                             {navSign}
