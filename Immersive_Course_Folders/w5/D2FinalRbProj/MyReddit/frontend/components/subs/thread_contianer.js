@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { bringThread } from '../../actions/threads_actions'
+import { bringThread, bringThreads } from '../../actions/threads_actions'
 import { deletePst } from '../../actions/post_actions'
 import Thread from './thread';
 
@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     bringThread: (id) => dispatch(bringThread(id)),
+    bringTrds: () => dispatch(bringThreads()),
     removePost: (id) => dispatch(deletePst(id))
 })
 

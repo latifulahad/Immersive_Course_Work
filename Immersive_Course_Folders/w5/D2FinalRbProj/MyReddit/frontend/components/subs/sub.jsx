@@ -12,10 +12,9 @@ import ReplyToComContainer from '../posts/reply_to_com_container';
 import LogOut from '../session/log_out';
 
 class Subs extends React.Component {
-
+    
     componentDidMount() {
         this.props.bringThreads();
-       
     }
 
     componentDidUpdate() {
@@ -36,6 +35,7 @@ class Subs extends React.Component {
         return(
             <div>
                 <header className="header">
+                    <Link className="home-link" to="/">HOME</Link>
                     <nav className="header-nav">
                         <ul className="header-list">
                             {navL}
@@ -57,9 +57,7 @@ class Subs extends React.Component {
                         <Route path="/usrLog" component={LoginContainer} />
                         <Route path="/edtUsr" component={EditUsrContainer} />
                         <Route path="/mkUser" component={CreateUserContainer} />
-
                         <Route path="/mkThrd" component={CreateSubContainer} />
-
                         <Route exact path="/thread/:id" component={ThreadContainer} />
                         <Route exact path="/thread/:id/post/:postId" component={PostContainer} />
                         <Route exact path="/thread/:id/post" component={PostFormContainer} />

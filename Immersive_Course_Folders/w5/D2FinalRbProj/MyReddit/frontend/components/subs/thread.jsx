@@ -13,12 +13,9 @@ class Thread extends React.Component {
         this.props.bringThread(id);
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if(prevProps.match.params.id !== this.props.match.id) {
-    //         let id = this.props.match.params.id;
-    //         this.props.bringThread(id);
-    //     }
-    // } NEEDS WORK
+    componentWillUnmount() {
+        this.props.bringTrds();
+    }
 
     handleDelete(evt) {
         evt.preventDefault();

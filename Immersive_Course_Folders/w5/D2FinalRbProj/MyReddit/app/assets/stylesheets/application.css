@@ -93,6 +93,11 @@ body {
     color: blue;
 }
 
+.home-link {
+    top: 15px;
+    left: 25%;
+}
+
 
 /* Below Header/Nav */
 .content {

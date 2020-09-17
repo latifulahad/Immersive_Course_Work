@@ -17,7 +17,7 @@ export const receiveThreads = (threads) => ({
 export const bringThread = (id) => dispatch => {
     threadShow(id).then(res => {
         dispatch(receive_posts(res.thread.posts, res.thread.id))
-        // dispatch(receiveThread(res.thread));     NEEDS WRK!!!
+        dispatch(receiveThread(res.thread));   
     })
 }
 

@@ -319,7 +319,8 @@ var receiveThreads = function receiveThreads(threads) {
 var bringThread = function bringThread(id) {
   return function (dispatch) {
     Object(_utils_ajax_func__WEBPACK_IMPORTED_MODULE_0__["threadShow"])(id).then(function (res) {
-      dispatch(Object(_post_actions__WEBPACK_IMPORTED_MODULE_1__["receive_posts"])(res.thread.posts, res.thread.id)); // dispatch(receiveThread(res.thread));     NEEDS WRK!!!
+      dispatch(Object(_post_actions__WEBPACK_IMPORTED_MODULE_1__["receive_posts"])(res.thread.posts, res.thread.id));
+      dispatch(receiveThread(res.thread));
     });
   };
 };
@@ -1370,7 +1371,10 @@ var Subs = /*#__PURE__*/function (_React$Component) {
       }, "Sign Up");
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "home-link",
+        to: "/"
+      }, "HOME"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "header-nav"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "header-list"
@@ -1675,13 +1679,12 @@ var Thread = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var id = this.props.match.params.id;
       this.props.bringThread(id);
-    } // componentDidUpdate(prevProps) {
-    //     if(prevProps.match.params.id !== this.props.match.id) {
-    //         let id = this.props.match.params.id;
-    //         this.props.bringThread(id);
-    //     }
-    // } NEEDS WORK
-
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.bringTrds();
+    }
   }, {
     key: "handleDelete",
     value: function handleDelete(evt) {
@@ -1766,6 +1769,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     bringThread: function bringThread(id) {
       return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__["bringThread"])(id));
+    },
+    bringTrds: function bringTrds() {
+      return dispatch(Object(_actions_threads_actions__WEBPACK_IMPORTED_MODULE_1__["bringThreads"])());
     },
     removePost: function removePost(id) {
       return dispatch(Object(_actions_post_actions__WEBPACK_IMPORTED_MODULE_2__["deletePst"])(id));
