@@ -48,7 +48,7 @@ class Subs extends React.Component {
                     <section className="content-sidebar">
                         <h2>Threads</h2>
                         {createSub}
-                        <ul>
+                        <ul className="thrdNms">
                             {thrds}
                         </ul>
                     </section>

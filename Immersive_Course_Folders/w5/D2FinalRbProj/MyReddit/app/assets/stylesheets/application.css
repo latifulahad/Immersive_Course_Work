@@ -179,6 +179,10 @@ body {
 
 
 /* content-sidebar */
+.thrdNms li {
+    margin: 5px 2px;
+}
+
 .content-sidebar > h2 {
     display: flex;
     font-weight: 600;
