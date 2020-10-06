@@ -35,7 +35,7 @@ class CreateUser extends React.Component {
 
     render() {
         return (
-            <div className={this.state["classNm"]}>
+            <div className="modal on">
                 <form className="form-fieldset create">
 
                     <span onClick={this.modalOff} className="modal-close">&times;</span>
