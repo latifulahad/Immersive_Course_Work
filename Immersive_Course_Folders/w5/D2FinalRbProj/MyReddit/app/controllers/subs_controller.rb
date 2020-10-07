@@ -45,6 +45,18 @@ class SubsController < ApplicationController
     end
 
     def destroy
+        #WE DO NOT HAVE F_END LOGIC 4 THIS YET
+        @usr = User.find(params[:usrId])
+        @trd = Sub.find(params[:id])
+
+        if @usr.is_pass?(params[:password])
+            @trd.delete
+
+            render json: { success: true }    
+        else
+            render json: { err: "Password is Incorrect!" }
+        end
+
     end
 
     private

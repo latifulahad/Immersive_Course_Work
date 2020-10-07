@@ -43,6 +43,14 @@ export const threadShow = (id) => (
     })
 )
 
+// export const trdDel = (data) => (
+//     $.ajax({
+//         method: "DELETE",
+//         url: `posts/${data.id}`,
+//         data
+//     })
+// )
+
 export const makePost = (info) => (
     $.ajax({
         method: "POST",
@@ -51,10 +59,11 @@ export const makePost = (info) => (
     })
 )
 
-export const deletePost = (id) => (
+export const deletePost = (data) => (
     $.ajax({
         method: "DELETE",
-        url: `/posts/${id}`
+        url: `/posts/${data.id}`,
+        data
     })
 )
 

@@ -5,6 +5,7 @@ import LoginContainer from '../session/login_container';
 import EditUsrContainer from '../users/edit_usr_container';
 import CreateUserContainer from '../users/create_user_container';
 import ThreadContainer from './thread_contianer';
+import DeleteTrd from './delete_trd_container';
 import PostContainer from '../posts/post_container';
 import PostFormContainer from '../posts/post_form_container';
 import CreateSubContainer from "./sub_form_container";
@@ -58,6 +59,7 @@ class Subs extends React.Component {
                         <Route path="/edtUsr" component={EditUsrContainer} />
                         <Route path="/mkUser" component={CreateUserContainer} />
                         <Route path="/mkThrd" component={CreateSubContainer} />
+                        <Route path="/delTrd/:id" component={DeleteTrd} />
                         <Route exact path="/thread/:id" component={ThreadContainer} />
                         <Route exact path="/thread/:id/post/:postId" component={PostContainer} />
                         <Route exact path="/thread/:id/post" component={PostFormContainer} />

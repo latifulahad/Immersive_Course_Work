@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 
+
 class Thread extends React.Component {
     constructor(props) {
         super(props);
@@ -42,7 +43,8 @@ class Thread extends React.Component {
                     { kys.map(ky => {
                         let rmBttn;
                         let pst = posts[ky];
-                        if(pst.author_id === userID) { rmBttn = <button value={pst.id} style={{paddingLeft: 10}} onClick={this.handleDelete}>DELETE</button> }
+                        // if(pst.author_id === userID) { rmBttn = <button value={pst.id} style={{paddingLeft: 10}} onClick={this.handleDelete}>DELETE</button> }
+                        if (pst.author_id === userID) { rmBttn = <Link to={`/delTrd/${pst.id}`} style={{ paddingLeft: 10 }}>DELETE SUB</Link> }
 
                         return (<li key={pst.id}>
                             <Link to={`/thread/${pst.link}/post/${pst.id}`} >{pst.title}</Link>

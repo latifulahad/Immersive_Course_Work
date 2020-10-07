@@ -42,11 +42,15 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        @post = Post.find(params[:id])
-        @post.delete
+        @usr = User.find(params[:usrId])
+        @trd = Post.find(params[:id])
 
-        respond_to do |format|
-            format.json { render json: { id: @post.id } }
+        if @usr.is_pass?(params[:password])
+            @trd.delete
+
+            render json: { success: true }    
+        else
+            render json: { err: "Password is Incorrect!" }
         end
     end
 
