@@ -28,7 +28,9 @@ class Subs extends React.Component {
             <li><Link className="thread-link" key={idx} to={`/thread/${trd.id}`}>{trd.title}</Link></li>
         ))
 
-        let navL, navSign, createSub
+        let navL, navSign, createSub, welcomeHeader
+        if(this.props.history.location.pathname === "/") { welcomeHeader = <h2 className="Welcome-header" >Welcome to the Knock off Reddit :)</h2>; }
+        window.lala = this.props.history;
         this.props.loggedIn ? createSub = <Link to="mkThrd" >+Add Thread</Link> : true;
         this.props.loggedIn ? navL = <LogOut func={this.props.logOut}/> : navL = <Link to="/usrLog" >Login</Link>;
         this.props.loggedIn ? navSign = <Link style={{ marginLeft: 3 }} to="/edtUsr">Edit Account</Link> : navSign = <Link style={{ marginLeft: 3 }} to="/mkUser">Sign Up</Link>;
@@ -55,6 +57,8 @@ class Subs extends React.Component {
                     </section>
 
                     <section className="content-main">
+                        {welcomeHeader}
+
                         <Route path="/usrLog" component={LoginContainer} />
                         <Route path="/edtUsr" component={EditUsrContainer} />
                         <Route path="/mkUser" component={CreateUserContainer} />

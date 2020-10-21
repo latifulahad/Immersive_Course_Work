@@ -1520,7 +1520,15 @@ var Subs = /*#__PURE__*/function (_React$Component) {
           to: "/thread/".concat(trd.id)
         }, trd.title));
       });
-      var navL, navSign, createSub;
+      var navL, navSign, createSub, welcomeHeader;
+
+      if (this.props.history.location.pathname === "/") {
+        welcomeHeader = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "Welcome-header"
+        }, "Welcome to the Knock off Reddit :)");
+      }
+
+      window.lala = this.props.history;
       this.props.loggedIn ? createSub = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "mkThrd"
       }, "+Add Thread") : true;
@@ -1557,7 +1565,7 @@ var Subs = /*#__PURE__*/function (_React$Component) {
         className: "thrdNms"
       }, thrds)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "content-main"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }, welcomeHeader, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/usrLog",
         component: _session_login_container__WEBPACK_IMPORTED_MODULE_2__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {

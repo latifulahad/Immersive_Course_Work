@@ -202,6 +202,14 @@ body {
 }
 
 
+/* content-main FOR HomePage */
+.Welcome-header {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: cursive;
+}
 
 /* content-main FOR SUB */
 .input.subDes > input {
