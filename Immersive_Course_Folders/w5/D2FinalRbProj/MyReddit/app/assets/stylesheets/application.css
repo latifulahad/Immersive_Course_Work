@@ -357,3 +357,8 @@ body {
     left: 0;
     right: 0;
 }
+
+/* modal 4 post deleteNEEDS WRK */
+input.TrdDelInp:active {
+    border: 1px solid green;
+}

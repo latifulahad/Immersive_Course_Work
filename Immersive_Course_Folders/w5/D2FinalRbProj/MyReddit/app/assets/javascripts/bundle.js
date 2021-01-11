@@ -1385,6 +1385,7 @@ var DeleteTrd = /*#__PURE__*/function (_React$Component) {
       }, this.state.errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "TrdDelInp",
         type: "text",
         onChange: this.update("password"),
         value: this.state.password

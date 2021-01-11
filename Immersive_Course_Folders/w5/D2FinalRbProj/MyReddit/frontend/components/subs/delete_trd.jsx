@@ -46,7 +46,7 @@ class DeleteTrd extends React.Component {
                     <p style={{ color: "red" }}>{this.state.errors}</p>
 
                     <div className="input">
-                        <input type="text" onChange={this.update("password")} value={this.state.password} />
+                        <input className="TrdDelInp" type="text" onChange={this.update("password")} value={this.state.password} />
                     </div>
                     
                     <button className="button enter" onClick={this.handleSub}>Enter</button>
